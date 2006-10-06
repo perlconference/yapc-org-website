@@ -1,12 +1,12 @@
-package YAPC;
+package YAPC::Bidding;
 
-$YAPC::Venue::VERSION = '1.01';
+$YAPC::Bidding::VERSION = '1.02';
 
 __END__
 
 =head1 NAME
 
-YAPC::Venue - Venue requirements for YAPC
+YAPC::Bidding - Guidelines and requirements for hosting YAPC
 
 =head1 SYNOPSIS
 
