@@ -1,0 +1,18 @@
+
+What is this?
+
+The documents in this project are the compiled knowledge of how
+to run a grass-roots conference. They have been pulled together
+by The Perl Foundation to help us from year to year since we always
+have new organizers, but they're here to help anyone.
+
+What's the funny mark-up in the files?
+
+These files are written in a markup language called plain old
+documentation (POD) format. If you have a computer with perl on it,
+you can type >perldoc YAPC.pm and read it. If you don't have
+perl, you can probably just try to ignore the markup.
+
+Questions?
+
+Send email to Jim Brandt (cbrandt at perlfoundation dot org).
