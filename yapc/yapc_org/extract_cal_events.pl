@@ -1,51 +1,70 @@
 #!/usr/bin/perl
-
 use strict;
 use warnings;
-use Data::Dumper;
 use DateTime;
 use Getopt::Std;
 use Net::Google::Calendar;
+use Template;
 use XML::Atom::Util 'iso2dt';
 
 my %opt;
 get_args(\%opt);
 my (%data, %seen);
-
 my $cal = Net::Google::Calendar->new(url => $opt{url});
-
-# Google Calendar supports OR'd category queries
-# Google Calendar supports AND'd search string queries
-# Multiple fetches are required for OR'd search string queries
-# A different approach would be to pull all events and filter in perl land
-
 for my $item (get_items($opt{search})) {
-
-    for my $event ($cal->get_events('q' => $item, 'start-min' => $opt{datetime})) {
-
-        # Since the same event may be found from different search strings
-        # Store only one copy of the meta data but sym link as appropriate
-        my $id = $event->id;
+    my @event = $cal->get_events(
+        'q'         => $item,       'max-results' => $opt{max},
+        'start-min' => $opt{start}, 'start-max'   => $opt{end}
+    );
+    for (@event) {
+        my $id = $_->id;
         if ($seen{$id}) {
-            $data{$item}{$id} = $seen{$id};
+            $data{$item}{$id} = $seen{$id} if $opt{dups};
+            next;
         }
-        else {
-            $data{$item}{$id} = {};
-            $seen{$id} = $data{$item}{$id};
-        }
-
-        my $entry = $data{$item}{$id};
-        $entry->{title}       = $event->title         || 'Unknown Title';
-        $entry->{description} = $event->content->body || 'Unknown Description';
-        $entry->{status}      = get_status($event)    || 'Unknown Status';
-        $entry->{where}       = get_location($event)  || 'Unknown Location';
-        $entry->{author}      = get_author($event)    || {};
-        $entry->{when}        = get_when($event)      || {};
+        $seen{$id} = $data{$item}{$id} = {};
+        my $entry  = $seen{$id};
+        $entry->{title}       = $_->title         || '';
+        $entry->{description} = $_->content->body || '';
+        $entry->{status}      = get_status($_)    || '';
+        $entry->{where}       = get_location($_)  || '';
+        $entry->{author}      = get_author($_)    || {};
+        $entry->{when}        = get_when($_)      || {};
     }
-
 }
 
-print Dumper(\%data);
+my $tt = Template->new();
+my $template = <<"TT";
+<html>
+<head><title>The Perl Review: Community Events Calendar</title></head>
+<body>
+<h1>The Perl Review: Community Events Calendar</h1>
+[% FOREACH item = data.keys %]
+    <h3>[% item %]</h3>
+    [% FOREACH id = data.\$item.keys %]
+       [% SET event = data.\$item.\$id %]
+       <p>
+       <b>Title:</b> [% event.title %]
+       <br /> 
+       <b>Description:</b> [% event.description %]
+       <br /> 
+       <b>Status:</b> [% event.status %]
+       <br /> 
+       <b>Where:</b> [% event.where %]
+       <br /> 
+       <b>Start:</b> [% event.when.start %]
+       <br /> 
+       <b>End:</b> [% event.when.end %]
+       <br /> 
+       <b>Author:</b> [% event.author.name %]
+       </p>
+    [% END %]
+[% END %]
+</body>
+</html>
+TT
+ 
+$tt->process(\$template, {data => \%data}, $opt{f} ? $opt{f} : ()) or die $tt->error;
 
 sub get_author {
     my ($event) = @_;
@@ -58,28 +77,21 @@ sub get_author {
 
 sub get_status {
     my ($event) = @_;
-    my $ns   = XML::Atom::Namespace->new(gd => 'http://schemas.google.com/g/2005');
-    my $elem = $event->elem;
-    my $node = ($elem->getElementsByTagNameNS($ns->{uri}, 'eventStatus'))[0];
+    my $node = get_node($event, 'eventStatus');
     my $val  = $node->getAttribute('value');
-    $val =~ s!^http://schemas.google.com/g/2005#event\.!!;
+    $val =~ s'^http://schemas.google.com/g/2005#event\.'';
     return $val;
 }
 
 sub get_location {
     my ($event) = @_;
-    my $ns   = XML::Atom::Namespace->new(gd => 'http://schemas.google.com/g/2005');
-    my $elem = $event->elem;
-    my $node = ($elem->getElementsByTagNameNS($ns->{uri}, 'where'))[0];
-    my $val  = $node->getAttribute('valueString');
-    return $val;
+    my $node = get_node($event, 'where');
+    return $node->getAttribute('valueString');
 }
 
 sub get_when {
     my ($event) = @_;
-    my $ns   = XML::Atom::Namespace->new(gd => 'http://schemas.google.com/g/2005');
-    my $elem = $event->elem;
-    my $node = ($elem->getElementsByTagNameNS($ns->{uri}, 'when'))[0];
+    my $node = get_node($event, 'when');
     my $beg  = $node->getAttribute('startTime');
     my $end  = $node->getAttribute('endTime');
     for ($beg, $end) {
@@ -88,39 +100,76 @@ sub get_when {
     return {start => $beg, end => $end};
 }
 
+sub get_node {
+    my ($event, $node) = @_;
+    my $ns   = XML::Atom::Namespace->new(gd => 'http://schemas.google.com/g/2005');
+    my $elem = $event->elem;
+    return ($elem->getElementsByTagNameNS($ns->{uri}, $node))[0];
+}
+
 sub get_items {
     my ($search_string) = @_;
     return grep {defined($_) && length($_)} split /\|/, $search_string;
 }
 
+sub get_stamp {
+    my ($stamp) = @_;
+    return '1970-01-01T00:00:00-00:00' if $stamp eq 'epoch';
+    return DateTime->now               if $stamp eq 'now';
+    return '2038-01-19T03:14:07-00:00' if $stamp eq '2038';
+    return $stamp;
+}
+
 sub get_args {
     my ($opt) = @_;
     my $Usage = qq{Usage: $0 [options]
+        -d : What to do with (d)uplicates
+             Format:  0 for exclude, 1 for include
+             Default: 0
+
+        -e : The date-time stamp to (e)nd fetching
+             Format:
+                 epoch (shortcut for 1970-01-01T00:00:00-00:00)
+                 now   (shortcut for appropriately formatted localtime)
+                 2038  (shortcut for 2038-01-19T03:14:07-00:00)
+                 YYYY-MM-DDTHH:MM:SS-HH:MM (see RFC 3339 for details)
+             Default: 2038
+
+        -f : The (f)ile to output to
+             Default: STDOUT
+
         -h : This help message
-
-        -u : The (u)rl of the calendar to fetch
-             Default: Full feed of The Perl Review
-
-        -s : The date/time (s)tamp of when to fetch from
-             Format:  RFC 3339. For example: 2005-08-09T10:57:00-08:00
-             Default: now
 
         -i : The (i)tems to query
              Format:  'item1|item2|item3'
              Default: 'YAPC|workshop|conference|hackathon'
 
+        -m : The (m)aximum number of results to fetch 
+             Default: 1000 
+
+        -s : The date-time stamp to (s)tart fetching from
+             Format:
+                 epoch (shortcut for 1970-01-01T00:00:00-00:00)
+                 now   (shortcut for appropriately formatted localtime)
+                 2038  (shortcut for 2038-01-19T03:14:07-00:00)
+                 YYYY-MM-DDTHH:MM:SS-HH:MM (see RFC 3339 for details)
+             Default: now
+
+        -u : The (u)rl of the calendar to fetch
+             Default: Full feed of The Perl Review
     } . "\n";
-    getopts('hu:s:', $opt) or die $Usage;
+    getopts('d:e:f:hi:m:s:u:', $opt) or die $Usage;
     die $Usage if $opt->{h};
-    $opt->{datetime} = $opt->{s} || DateTime->now();
-    $opt->{url}      = $opt->{u} || 'http://www.google.com/calendar/feeds/ngctmrd1cac35061mrjt3hpgng%40group.calendar.google.com/public/full';
-    $opt->{search}   = $opt->{i} || 'YAPC|workshop|conference|hackathon'
+    $opt->{dups}   = $opt->{d} || 0;
+    $opt->{start}  = get_stamp($opt->{s} || 'now');
+    $opt->{end}    = get_stamp($opt->{e} || '2038'); 
+    $opt->{url}    = $opt->{u} || 'http://www.google.com/calendar/feeds/ngctmrd1cac35061mrjt3hpgng%40group.calendar.google.com/public/full';
+    $opt->{search} = $opt->{i} || 'YAPC|workshop|conference|hackathon';
+    $opt->{max}    = $opt->{m} || 1000;
 }
 __END__
 TODO
-1.  Support parsing various different strings for -s
-2.  Support advanced query items '(item1&item2)|item3'
-3.  Provide patches to Net::Google::Calendar
-4.  Provide more better tests to Net::Google::Calender (use test only)
-5.  Extract links from the description when available
-6.  Use Template for the output
+1.  Support parsing various different strings for -s and -e
+2.  Provide patches and tests to Net::Google::Calendar
+3.  Extract and/or linkify links from the description when available
+4.  Better documentation - POD and query strings for instance
