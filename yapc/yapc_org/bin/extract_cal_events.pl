@@ -29,42 +29,64 @@ for my $item (get_items($opt{search})) {
         $entry->{status}      = get_status($_)    || '';
         $entry->{where}       = get_location($_)  || '';
         $entry->{author}      = get_author($_)    || {};
-        $entry->{when}        = get_when($_)      || {};
+        my $when              = get_when($_)      || {};
+        $entry->{start}       = $when->{start}    || '';
+        $entry->{end}         = $when->{end}      || '';
     }
 }
 
 my $tt = Template->new();
 my $template = <<"TT";
+[% BLOCK entry %]
+    <div class="post">
+        <h4>[% event.title %]</h4>
+        <div class="contentarea">
+            <p>
+                Where: [% event.where %]
+                <br />
+                Start: [% event.start %]
+                <br />
+                End: [% event.end %]
+            </p>
+            <p>
+                Details: [% event.description %]
+            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>
+[% END %]
+
+[% SET entries = [] %]
+
 <html>
 <head><title>The Perl Review: Community Events Calendar</title></head>
 <body>
 <h1>The Perl Review: Community Events Calendar</h1>
 [% FOREACH item = data.keys %]
-    <h3>[% item %]</h3>
-    [% FOREACH id = data.\$item.keys %]
-       [% SET event = data.\$item.\$id %]
-       <p>
-       <b>Title:</b> [% event.title %]
-       <br /> 
-       <b>Description:</b> [% event.description %]
-       <br /> 
-       <b>Status:</b> [% event.status %]
-       <br /> 
-       <b>Where:</b> [% event.where %]
-       <br /> 
-       <b>Start:</b> [% event.when.start %]
-       <br /> 
-       <b>End:</b> [% event.when.end %]
-       <br /> 
-       <b>Author:</b> [% event.author.name %]
-       </p>
+    [% IF tree %]
+        <h3>[% item %]</h3>
+    [% END %]
+    [% SET subitems = data.\$item.values %]
+    [% FOREACH event IN subitems.sort('start') %]
+        [% IF tree %]
+            [% PROCESS entry %]
+        [% ELSE %]
+            [% entries.push(event) %]
+        [% END %]
     [% END %]
 [% END %]
+
+[% UNLESS tree %]
+    [% FOREACH event IN entries.sort('start') %]
+        [% PROCESS entry %]
+    [% END %]
+[% END %]
+
 </body>
 </html>
 TT
- 
-$tt->process(\$template, {data => \%data}, $opt{f} ? $opt{f} : ()) or die $tt->error;
+
+$tt->process(\$template, {data => \%data, tree => $opt{tree}}, $opt{f} ? $opt{f} : ()) or die $tt->error;
 
 sub get_author {
     my ($event) = @_;
@@ -155,12 +177,17 @@ sub get_args {
                  YYYY-MM-DDTHH:MM:SS-HH:MM (see RFC 3339 for details)
              Default: now
 
+        -t : To produce output as a (t)ree or flat 
+             Format:  0 for flat, 1 for tree
+             Default: 0 
+
         -u : The (u)rl of the calendar to fetch
              Default: Full feed of The Perl Review
     } . "\n";
-    getopts('d:e:f:hi:m:s:u:', $opt) or die $Usage;
+    getopts('d:e:f:hi:m:s:t:u:', $opt) or die $Usage;
     die $Usage if $opt->{h};
     $opt->{dups}   = $opt->{d} || 0;
+    $opt->{tree}   = $opt->{t} || 0;
     $opt->{start}  = get_stamp($opt->{s} || 'now');
     $opt->{end}    = get_stamp($opt->{e} || '2038'); 
     $opt->{url}    = $opt->{u} || 'http://www.google.com/calendar/feeds/ngctmrd1cac35061mrjt3hpgng%40group.calendar.google.com/public/full';
@@ -173,3 +200,4 @@ TODO
 2.  Provide patches and tests to Net::Google::Calendar
 3.  Extract and/or linkify links from the description when available
 4.  Better documentation - POD and query strings for instance
+5.  Provide -o option to change orderby clause (hardcoded to start ascending now)
