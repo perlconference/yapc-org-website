@@ -54,15 +54,18 @@ dest = ./html
 # 'lib' tells the processor (via INCLUDE_PATH) where to find any
 # template files that may be INCLUDE'd.  You can specify many.
 lib = ./lib
+lib = ./bin
 
 # Things that aren't templates and should be ignored, specified as Perl
 # regexen.
 ignore = \b(CVS|RCS|svn)\b
 ignore = ^#
-ignore = ^.DS_Store
+ignore = DS_Store
+ignore = xvpics
 
 # Things that should be copied rather than processed.
 copy = \.png$
+copy = \.jpg$
 copy = \.gif$
 copy = \.css$
 
@@ -70,6 +73,3 @@ copy = \.css$
 # lines if you want to filter further. e.g.
 # accept = \.html$
 # accept = \.atml$
-
-#preprocess = config
-

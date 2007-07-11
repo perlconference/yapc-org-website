@@ -35,9 +35,10 @@ for my $item (get_items($opt{search})) {
     }
 }
 
-my $tt = Template->new();
+my $tt = Template->new(PRE_CHOMP => 1,
+		       POST_CHOMP =>1,);
 my $template = <<"TT";
-[% BLOCK entry %]
+[%- BLOCK entry -%]
     <div class="post">
         <h4>[% event.title %]</h4>
         <div class="contentarea">
@@ -54,14 +55,10 @@ my $template = <<"TT";
         </div>
     </div>
     <div class="divider2"></div>
-[% END %]
+[%- END -%]
 
-[% SET entries = [] %]
+[%- SET entries = [] -%]
 
-<html>
-<head><title>The Perl Review: Community Events Calendar</title></head>
-<body>
-<h1>The Perl Review: Community Events Calendar</h1>
 [% FOREACH item = data.keys %]
     [% IF tree %]
         <h3>[% item %]</h3>
@@ -81,12 +78,12 @@ my $template = <<"TT";
         [% PROCESS entry %]
     [% END %]
 [% END %]
-
-</body>
-</html>
 TT
 
-$tt->process(\$template, {data => \%data, tree => $opt{tree}}, $opt{f} ? $opt{f} : ()) or die $tt->error;
+$tt->process(\$template, {data => \%data,
+			  tree => $opt{tree}},
+	     $opt{f} ? $opt{f} : ())
+  or die $tt->error;
 
 sub get_author {
     my ($event) = @_;

@@ -1,1 +1,1 @@
-ttree --file=etc/.ttreerc $@
+ttree --file=etc/.ttreerc --eval_perl -a $@
