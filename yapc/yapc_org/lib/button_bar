@@ -1,12 +1,20 @@
-	<div id="menu">
-		<!-- HINT: Set the class of any menu link below to "active" to make it appear active -->
-		<ul>
-			<li><a href="#" class="active">Home</a></li>
-			<li><a href="#">YAPCs</a></li>
-			<li><a href="#">Workshops</a></li>
-			<li><a href="#">Hackathons</a></li>
-			<li><a href="#">About</a></li>
-			<li><a href="#">Contact</a></li>
-		</ul>
-	</div>
-	<div id="menubottom"></div>
+<div id="menu">
+  <ul>
+[% buttons = [ 'Home' 'YAPCs' 'Workshops' 'Hackathons' 'About' 'Contact' ];
+
+ button_links = {
+  'Home' => 'index.html'
+  'YAPCs' => 'yapc.html'
+  'Workshops' => 'workshops.html'
+  'Hackathons' => 'hackathons.html'
+  'About' => 'about.html'
+  'Contact' => 'contact.html' } %]
+[% FOREACH button IN buttons %]
+  [%  IF button == active %]
+    <li><a href="[% button_links.$button %]" class="active">[% button %]</a></li>
+[% ELSE %]
+    <li><a href="[% button_links.$button %]">[% button %]</a></li>
+[% END; END; %]
+  </ul>
+</div>
+<div id="menubottom"></div>
