@@ -1,12 +1,14 @@
 <div id="menu">
   <ul>
-[% buttons = [ 'Home' 'YAPCs' 'Workshops' 'Hackathons' 'About' 'Contact' ];
+[% 
+# buttons = [ 'Home' 'YAPCs' 'Workshops' 'Hackathons' 'About' 'Contact' ];
+buttons = [ 'Home' 'YAPCs' 'About' 'Contact' ];
 
  button_links = {
   'Home' => 'index.html'
   'YAPCs' => 'yapc.html'
-  'Workshops' => 'workshops.html'
-  'Hackathons' => 'hackathons.html'
+#  'Workshops' => 'workshops.html'
+#  'Hackathons' => 'hackathons.html'
   'About' => 'about.html'
   'Contact' => 'contact.html' } %]
 [% FOREACH button IN buttons %]

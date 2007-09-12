@@ -9,7 +9,7 @@
 <head>
 <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
 <title>TPF Conferences</title>
-<meta name="keywords" content="yapc,YAPC,perl,foundation,conferences" />
+<meta name="keywords" content="yapc,YAPC,perl,foundation,conferences,hackathon,workshop" />
 <meta name="description" content="" />
 <link rel="stylesheet" type="text/css" href="default.css" />
 </head>
@@ -22,7 +22,7 @@
 
 	<div id="header">
 		<div id="headercontent">
-			<h1>TPF Conferences</h1>
+			<h1>Perl Conferences</h1>
 			<h2>YAPCs, Workshops, and Hackathons</h2>
 		</div>
 	</div>

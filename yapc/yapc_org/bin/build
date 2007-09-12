@@ -1,3 +1,4 @@
-#bin/extract_cal_events.pl -f 'bin/events'
+
+bin/extract_cal_events.pl -f 'bin/events'
 
 ttree --file=etc/.ttreerc --eval_perl -a --pre_chomp $@
