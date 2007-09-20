@@ -1,0 +1,44 @@
+
+=head1 yapc.org to do list.
+
+This is not an ordered list, so feel free to grab any item.
+
+=over
+
+=item *
+
+Make the event title link to the event in the events calendar.
+
+=item *
+
+Schedule the build script somewhere so it pulls a fresh feed
+every day.
+
+=item *
+
+Try to pull URLs out of descriptions and make them links.
+
+=item *
+
+Write Hackathons page.
+
+=item *
+
+Write Workshops page.
+
+=item *
+
+Expand contacts to include other useful info (maybe YEF info?).
+
+=item *
+
+Try to convert line endings in description to HTML so the
+line-endings are preserved.
+
+=item *
+
+Make search more picky? The Copenhagen PM meeting came over
+because they were going to discuss YAPC.
+
+=back
+

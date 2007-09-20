@@ -114,7 +114,21 @@ sub get_when {
     my $beg  = $node->getAttribute('startTime');
     my $end  = $node->getAttribute('endTime');
     for ($beg, $end) {
-        $_ = defined($_) ? iso2dt($_)->strftime("%Y-%m-%d") : 'Unknown';
+        $_ = defined($_) ? iso2dt($_) : 'Unknown';
+    }
+
+    if( $beg->dmy() eq $end->dmy() ){
+
+      # This is a one day event, so end is correct.
+      $beg = $beg->strftime("%Y-%m-%d");
+      $end = $end->strftime("%Y-%m-%d");
+    }
+    else{
+      # endTime comes back one day late,
+      # so subtrack a day from end.
+      $beg = $beg->strftime("%Y-%m-%d");
+      $end->subtract( days => 1 );
+      $end = $end->strftime("%Y-%m-%d");
     }
     return {start => $beg, end => $end};
 }
