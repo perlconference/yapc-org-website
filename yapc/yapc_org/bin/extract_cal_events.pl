@@ -6,6 +6,7 @@ use Getopt::Std;
 use Net::Google::Calendar;
 use Template;
 use XML::Atom::Util 'iso2dt';
+use HTML::TextToHTML;
 
 my %opt;
 get_args(\%opt);
@@ -25,13 +26,15 @@ for my $item (get_items($opt{search})) {
         $seen{$id} = $data{$item}{$id} = {};
         my $entry  = $seen{$id};
         $entry->{title}       = $_->title         || '';
-        $entry->{description} = $_->content->body || '';
+        $entry->{description} = get_description($_) || '';
         $entry->{status}      = get_status($_)    || '';
         $entry->{where}       = get_location($_)  || '';
         $entry->{author}      = get_author($_)    || {};
         my $when              = get_when($_)      || {};
         $entry->{start}       = $when->{start}    || '';
         $entry->{end}         = $when->{end}      || '';
+	$entry->{gcal_url}    = $_->_generic_url('alternate') || '';
+warn 'description: ' . $entry->{description};
     }
 }
 
@@ -40,7 +43,7 @@ my $tt = Template->new(PRE_CHOMP => 1,
 my $template = <<"TT";
 [%- BLOCK entry -%]
     <div class="post">
-        <h4>[% event.title %]</h4>
+        <h4><a href='[% event.gcal_url %]'>[% event.title %]</a></h4>
         <div class="contentarea">
             <p>
                 Where: [% event.where %]
@@ -84,6 +87,14 @@ $tt->process(\$template, {data => \%data,
 			  tree => $opt{tree}},
 	     $opt{f} ? $opt{f} : ())
   or die $tt->error;
+
+sub get_description {
+    my ($event) = @_;
+    my $conv = new HTML::TextToHTML(explicit_headings => 1,
+				   lowercase_tags => 1);
+    my $desc = $event->content->body;
+    return $conv->process_chunk($desc);
+}
 
 sub get_author {
     my ($event) = @_;
