@@ -34,7 +34,6 @@ for my $item (get_items($opt{search})) {
         $entry->{start}       = $when->{start}    || '';
         $entry->{end}         = $when->{end}      || '';
 	$entry->{gcal_url}    = $_->_generic_url('alternate') || '';
-warn 'description: ' . $entry->{description};
     }
 }
 

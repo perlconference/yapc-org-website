@@ -7,16 +7,8 @@ This is not an ordered list, so feel free to grab any item.
 
 =item *
 
-Make the event title link to the event in the events calendar.
-
-=item *
-
 Schedule the build script somewhere so it pulls a fresh feed
 every day.
-
-=item *
-
-Try to pull URLs out of descriptions and make them links.
 
 =item *
 
@@ -32,13 +24,14 @@ Expand contacts to include other useful info (maybe YEF info?).
 
 =item *
 
-Try to convert line endings in description to HTML so the
-line-endings are preserved.
+Make search more picky? The Copenhagen PM meeting came over
+because they were going to discuss YAPC.
 
 =item *
 
-Make search more picky? The Copenhagen PM meeting came over
-because they were going to discuss YAPC.
+Create auto history page that uses the extract script to pull past
+events. Create a yearly links page and link to the auto-generated
+page from there.
 
 =back
 
