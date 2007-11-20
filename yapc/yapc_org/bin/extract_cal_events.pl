@@ -212,7 +212,7 @@ sub get_args {
     $opt->{start}  = get_stamp($opt->{s} || 'now');
     $opt->{end}    = get_stamp($opt->{e} || '2038'); 
     $opt->{url}    = $opt->{u} || 'http://www.google.com/calendar/feeds/ngctmrd1cac35061mrjt3hpgng%40group.calendar.google.com/public/full';
-    $opt->{search} = $opt->{i} || 'YAPC|workshop|conference|hackathon';
+    $opt->{search} = $opt->{i} || 'YAPC|workshop|conference|hackathon|OSCON|OSDC';
     $opt->{max}    = $opt->{m} || 1000;
 }
 __END__
