@@ -216,6 +216,7 @@ margin-bottom: 2px;
 position: absolute;
 bottom: 0em;
 padding: 0em 2.0em 1.3em 2.0em;
+float: left;
 }
 
 #headercontent h1
@@ -223,6 +224,7 @@ padding: 0em 2.0em 1.3em 2.0em;
 font-weight: normal;
 color: #fff;
 font-size: 2.5em;
+
 }
 
 #headercontent h1 sup
@@ -372,4 +374,35 @@ bottom: 1.2em;
 ul.contentlist
 {
 padding-left: 2em;
+}
+
+#adserver 
+{
+margin-top: 2em;
+float: right;
+clear: both;
+color: black;
+background: #fff url('images/border1.gif') repeat-x;
+border: .3em solid #303030;
+padding: 1em;
+width: 20em;
+margin: 1em;
+}
+
+#adserver a
+{
+color: #333;
+}
+
+#adtagline
+{
+text-align: right;
+color: #333;
+font-size: smaller;
+margin: .3em .3em 1em .3em;
+}
+
+#adtagline a
+{
+color: silver;
 }
