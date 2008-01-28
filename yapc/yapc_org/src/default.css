@@ -406,3 +406,6 @@ margin: .3em .3em 1em .3em;
 {
 color: silver;
 }
+
+.normal    { padding-bottom: 10px; }
+.normal li { padding-bottom: 5px; margin-left: 30px; }
