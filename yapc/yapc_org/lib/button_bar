@@ -2,7 +2,7 @@
   <ul>
 [% 
 # buttons = [ 'Home' 'YAPCs' 'Workshops' 'Hackathons' 'About' 'Contact' ];
-buttons = [ 'Home' 'YAPCs' 'Workshops' 'About' 'Contact' ];
+buttons = [ 'Home' 'YAPCs' 'Workshops' 'Old Events' 'About' 'Contact' ];
 
  button_links = {
   'Home' => 'index.html'
@@ -10,7 +10,9 @@ buttons = [ 'Home' 'YAPCs' 'Workshops' 'About' 'Contact' ];
   'Workshops' => 'workshops.html'
 #  'Hackathons' => 'hackathons.html'
   'About' => 'about.html'
-  'Contact' => 'contact.html' } %]
+  'Contact' => 'contact.html'
+  'Old Events' => 'old-events.html'
+  } %]
 [% FOREACH button IN buttons %]
   [%  IF button == active %]
     <li><a href="[% button_links.$button %]" class="active">[% button %]</a></li>
