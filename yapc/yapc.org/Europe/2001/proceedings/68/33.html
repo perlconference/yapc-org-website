@@ -1,0 +1,51 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Parse Trees</title>
+</head>
+
+<body>
+<h1 align = "center">Parse Trees</h1>
+
+<ul>
+<li>Another way of creating parse tree is by using <em>auto action</em>.
+<li>If the global variable <tt>$::RD_AUTOACTION</tt> is set, the
+    string contents is interpretated as an action, and added to each
+    production that does not already end in an action.
+<li><tt>$::RD_AUTOACTION = q {[@item]};</tt> creates very simple
+    parse trees.
+</ul>
+
+<pre>
+In [1] := 3d4
+Out [1] = $VAR1 = [
+          'start',
+          [
+            'die',
+            [
+              'count',
+              [
+                'number',
+                3
+              ]
+            ],
+            'd',
+            [
+              'faces',
+              [
+                'number',
+                4
+              ]
+            ]
+          ],
+          ''
+        ];
+</pre>
+
+<hr>
+<a href = '32.html'>[Prev]</a>
+<a href = '34.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Directives: reject</title>
+</head>
+
+<body>
+<h1 align = "center">Directives: reject</h1>
+
+<pre>
+complex_rule:      {print "In complex rule...\n";} <strong>&lt;reject></strong>
+
+complex_rule:       simple_rule '+' 'i' '*' simple_rule
+                  | 'i' '*' simple_rule
+                  | simple_rule
+
+</pre>
+<hr>
+<ul><li>A <strong><tt>&lt;reject></tt></strong> directive fails, 
+        causing the current production to fail immediately.
+    <li>Can be useful for side-effects.
+    <li><strong><tt>&lt;reject: expression></tt></strong> only
+        rejects if the condition is true.
+</ul>
+<hr>
+<a href = '37.html'>[Prev]</a>
+<a href = '39.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

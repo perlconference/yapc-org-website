@@ -1,0 +1,39 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+
+<html>
+<head>
+<title>Parsing: Terminology</title>
+</head>
+
+<body>
+<h1 align = "center">Terminology of Grammars</h1>
+
+<ul>
+<li>A grammar is a <em>4-tuple</em> <tt>G = (N, E, P, S)</tt>.
+<li><tt>N</tt> is a finite set of <em>non-terminal symbols</tt>.
+<li><tt>E</tt> is a finite set of <em>terminal symbols</tt>.
+<li><tt>P</tt> is a finite subset of
+    <tt>(N + E)*N(N + E)* x (N + E)*</tt>
+<li>Elements <tt>(a, b)</tt> in <tt>P</tt> will be written
+    <tt>a -> b</tt> and are called <em>productions</em>.
+<li><tt>S</tt> is an element of <tt>N</tt> called the start symbol.
+</ul>
+
+<hr>
+<pre>
+    S  ->  0 A 1
+  0 A  ->  0 0 A 1
+    A  ->  e
+</pre>
+<p>
+The non-terminals are <tt>A</tt> and <tt>S</tt>, and the terminals are
+<tt>0</tt> and <tt>1</tt>. The start symbol is <tt>S</tt>. <tt>e</tt>
+is a special symbol denoting the empty string.
+
+<hr>
+<a href = '06.html'>[Prev]</a>
+<a href = '08.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

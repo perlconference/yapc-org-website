@@ -1,0 +1,81 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Option Files</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0107.htm">Using Templates</a>
+    &nbsp;&nbsp;Previous: <a href="slide0105.htm">set=flag</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Option Files">
+
+<H1>Option Files
+</H1>
+
+
+<P>
+It is recommended to write an <I><A name="index_106_110"></A>option file</I> for each of your PerlPoint presentations or documents. Just write down all options you need in file, line by line:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ # Option file for my cool presentation:
+
+ --title &quot;How to make Slides&quot;
+ --target_dir ./pp-slides
+ --style big_blue
+ --style_dir /home/PerlPoint/pp2html_styles
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Then you can call <CODE>pp2html</CODE> with <CODE>@options.cfg</CODE>
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  pp2html @options.cfg how-to-make-slides.pp
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+For more information about option files please refer to the <B>Getopt::ArgvFile</B> manpage:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ perldoc Getopt::ArgvFile
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0107.htm">Using Templates</a>
+    &nbsp;&nbsp;Previous: <a href="slide0105.htm">set=flag</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

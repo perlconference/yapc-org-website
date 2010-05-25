@@ -1,0 +1,19 @@
+#!/usr/bin/perl -w
+
+# File: tk-place
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+# This program demonstrates a relative placement in the right-bottom
+# corner of the main window.
+
+use strict;
+use Tk;
+
+my $mw     = MainWindow->new;
+
+$mw->Button(-text => 'welcome')
+   ->place(-relx => .9, -rely => .9
+          , -anchor => 'se');
+
+MainLoop;

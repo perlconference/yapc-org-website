@@ -1,0 +1,1063 @@
+<HTML>
+<HEAD>
+<TITLE>TITLE</TITLE>
+<LINK REV="made" HREF="mailto:root@daniloth.internal.net">
+</HEAD>
+
+<BODY>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#title">TITLE</A></LI>
+	<LI><A HREF="#introduction">Introduction</A></LI>
+	<LI><A HREF="#inline in action  simple examples in c">Inline in Action - Simple examples in C</A></LI>
+	<UL>
+
+		<LI><A HREF="#hello, world">Hello, world</A></LI>
+		<LI><A HREF="#just another ____ hacker">Just Another ____ Hacker</A></LI>
+		<LI><A HREF="#do the math">Do The Math</A></LI>
+	</UL>
+
+	<LI><A HREF="#what about xs and swig">What about XS and SWIG?</A></LI>
+	<LI><A HREF="#oneliners">One-Liners</A></LI>
+	<LI><A HREF="#supported platforms for c">Supported Platforms for C</A></LI>
+	<UL>
+
+		<LI><A HREF="#unix support">Unix Support</A></LI>
+		<LI><A HREF="#options for windows users">Options for Windows Users</A></LI>
+		<LI><A HREF="#unsupported options">Unsupported Options</A></LI>
+	</UL>
+
+	<LI><A HREF="#the inline syntax">The Inline Syntax</A></LI>
+	<UL>
+
+		<LI><A HREF="#use inline ...">use Inline ...</A></LI>
+		<LI><A HREF="#the data section">The DATA section</A></LI>
+		<LI><A HREF="#the bind() function">The <CODE>bind()</CODE> function</A></LI>
+		<LI><A HREF="#the init() function">The <CODE>init()</CODE> function</A></LI>
+		<LI><A HREF="#configuration options">Configuration Options</A></LI>
+		<LI><A HREF="#shortcuts">Shortcuts</A></LI>
+	</UL>
+
+	<LI><A HREF="#fine dining  a tour of the c cookbook">Fine Dining - A Tour of the C Cookbook</A></LI>
+	<UL>
+
+		<LI><A HREF="#external libraries">External Libraries</A></LI>
+		<LI><A HREF="#list context  using the perl stack">List Context - Using the Perl Stack</A></LI>
+		<LI><A HREF="#simple perl internals">Simple Perl Internals</A></LI>
+		<LI><A HREF="#it takes all types">It Takes All Types</A></LI>
+		<LI><A HREF="#use inline with => event;">use Inline with =&gt; Event;</A></LI>
+		<LI><A HREF="#calling back to perl from c">Calling back to Perl from C</A></LI>
+		<LI><A HREF="#object oriented inline">Object Oriented Inline</A></LI>
+		<LI><A HREF="#cgi with inline.">CGI with Inline.</A></LI>
+	</UL>
+
+	<LI><A HREF="#how inline works.">How Inline Works.</A></LI>
+	<UL>
+
+		<LI><A HREF="#digest::md5">Digest::MD5</A></LI>
+		<LI><A HREF="#parse::recdescent">Parse::RecDescent</A></LI>
+		<LI><A HREF="#xs">XS</A></LI>
+		<LI><A HREF="#extutils::makemaker">ExtUtils::MakeMaker</A></LI>
+		<LI><A HREF="#directory assistance">Directory Assistance</A></LI>
+		<LI><A HREF="#gang of four">Gang of Four</A></LI>
+		<LI><A HREF="#dynaloader">DynaLoader</A></LI>
+		<LI><A HREF="#built for speed">Built for Speed</A></LI>
+		<LI><A HREF="#more information">More Information</A></LI>
+	</UL>
+
+	<LI><A HREF="#some ware beyond the c">Some Ware Beyond the C</A></LI>
+	<UL>
+
+		<LI><A HREF="#inline::cpp">Inline::CPP</A></LI>
+		<LI><A HREF="#inline::python">Inline::Python</A></LI>
+		<LI><A HREF="#the inline api">The Inline API</A></LI>
+	</UL>
+
+	<LI><A HREF="#see perl run. run perl, run!">See Perl Run. Run Perl, Run!</A></LI>
+	<LI><A HREF="#the future of inline">The Future of Inline</A></LI>
+	<LI><A HREF="#conclusion">Conclusion</A></LI>
+	<LI><A HREF="#footnotes">FOOTNOTES</A></LI>
+	<LI><A HREF="#about the author">About the Author</A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="title">TITLE</A></H1>
+<P>Pathologically Polluting Perl with C, Python and Other Rubbish using Inline.pm</P>
+<P>
+<HR>
+<H1><A NAME="introduction">Introduction</A></H1>
+<P>No programming language is Perfect. Perl comes very close. <STRONG>P</STRONG>! <STRONG>e</STRONG>! <STRONG>r</STRONG>! <EM>l</EM>? :-( Not quite ``Perfect''. Sometimes it just makes sense to use another language for part of your work. You might have a stable, pre-existing code base to take advantage of. Perhaps maximum performance is the issue. Maybe you just ``know how to do it'' that way. Or very likely, it's a project requirement forced upon you by management. Whatever the reason, wouldn't it be great to use Perl most of the time, but be able to invoke something else when you had to?</P>
+<P><CODE>Inline.pm</CODE> is a new module that glues other programming languages to Perl. It allows you to write C, C++, and Python code directly inside your Perl scripts and modules. This is conceptually similar to the way you can write inline assembly language in C programs. Thus the name: <CODE>Inline.pm</CODE>.</P>
+<P>The basic philosophy behind Inline is this: ``make it as easy as possible to use Perl with other programming languages, while ensuring that the user's experience retains the DWIMity of Perl''. (1) To accomplish this, Inline must do away with nuisances such as interface definition languages (2), makefiles, build directories and compiling. You simply write your code and run it. Just like Perl.</P>
+<P>Inline will silently take care of all the messy implementation details and ``do the right thing''. It analyzes your code, compiles it if necessary, creates the correct Perl bindings, loads everything up, and runs the whole schmear. The net effect of this is you can now write functions, subroutines, classes, and methods in another language and call them as if they were Perl.</P>
+<P>
+<HR>
+<H1><A NAME="inline in action  simple examples in c">Inline in Action - Simple examples in C</A></H1>
+<P>Inline addresses an old problem in a completely revolutionary way. Just describing Inline doesn't really do it justice. It should be <EM>seen</EM> to be fully appreciated. Here are a few examples to give you a feel for the module.</P>
+<P>
+<H2><A NAME="hello, world">Hello, world</A></H2>
+<P>It seems that the first thing any programmer wants to do when he learns a new programming technique is to use it to greet the Earth. In keeping with that tradition, here is the ``Hello, world'' program using Inline.</P>
+<PRE>
+    use Inline C =&gt; &lt;&lt;'END_C';
+    void greet() {
+        printf(&quot;Hello, world\n&quot;);
+    }
+    END_C</PRE>
+<PRE>
+    greet;</PRE>
+<P>Simply run this script from the command line and it will print (you guessed it):</P>
+<PRE>
+    Hello, world</PRE>
+<P>In this example, <CODE>Inline.pm</CODE> is instantiated with the name of a programming language, ``C'', and a string containing a piece of that language's source code. The source code string is represented using the here-document quoting style, for clarity. This C code defines a function called <CODE>greet()</CODE> which gets bound to the Perl subroutine <CODE>&amp;main::greet</CODE>. Therefore, when we call the <CODE>greet()</CODE> subroutine, the program prints our message on the screen.</P>
+<P>You may be wondering why there are no <CODE>#include</CODE> statements for things like <CODE>stdio.h</CODE>? That's because Inline::C automatically appends the following lines to the top of your code:</P>
+<PRE>
+    #include &quot;EXTERN.h&quot;
+    #include &quot;perl.h&quot;
+    #include &quot;XSUB.h&quot;
+    #include &quot;INLINE.h&quot;</PRE>
+<P>These header files include all of the standard system header files, so you almost never need to use <CODE>#include</CODE> unless you are dealing with a non-standard library. This is in keeping with Inline's philosophy of making easy things easy. (I borrowed that one :-)</P>
+<P>
+<H2><A NAME="just another ____ hacker">Just Another ____ Hacker</A></H2>
+<P>The next logical question is, ``How do I pass data back and forth between Perl and C?'' In this example we'll pass a string to a C function and have it pass back a brand new Perl scalar.</P>
+<PRE>
+    use Inline C;
+    print JAxH('Perl');
+</PRE>
+<PRE>
+
+    __END__
+    __C__
+    SV* JAxH(char* x) {
+        return newSVpvf(&quot;Just Another %s Hacker\n&quot;, x);
+    }</PRE>
+<P>When you run this program, it prints:</P>
+<PRE>
+    Just Another Perl Hacker</PRE>
+<P>You've probably noticed that this example is coded differently then the last one. The <CODE>use Inline</CODE> statement specifies the language being used, but not the source code. This is an indicator for Inline to look for the source at the end of the program. (More about this later.)</P>
+<P>The concept being demonstrated is that we can pass Perl data in and out of a C function. Using the default Perl type conversions, Inline can easily convert all of the basic Perl data types to C and vice-versa.</P>
+<P>This example uses a couple of the more advanced concepts of Inlining. Its return value is of the type <CODE>SV*</CODE> (or Scalar Value). The Scalar Value is the most common Perl internal type. Also, the Perl internal function <CODE>newSVpfv()</CODE> is called to create a new Scalar Value from a string, using the familiar <CODE>sprintf()</CODE> syntax. These topics will be addressed again later. (See <A HREF="#it takes all types">It Takes All Types</A> and <A HREF="#simple perl internals">Simple Perl Internals</A> below.)</P>
+<P>
+<H2><A NAME="do the math">Do The Math</A></H2>
+<P>The previous examples only had one C function each. Let's look at a program that has several functions and see how they interact.</P>
+<PRE>
+    print &quot;9 + 5 = &quot;, add(9, 5), &quot;\n&quot;;
+    print &quot;SQRT(9^2 + 5^2) = &quot;, pyth(9, 5), &quot;\n&quot;;
+    print &quot;9 * 5 = &quot;, mult(9, 5), &quot;\n&quot;;
+</PRE>
+<PRE>
+
+    use Inline C =&gt; &lt;&lt;'END_C';
+    int add(int x, int y) {
+        return x + y;
+    }
+    static int mult(int x, int y) {
+        return x * y;
+    }
+    double pyth(int x, int y) {
+        return sqrt(add(mult(x, x), mult(y, y)));
+    }
+    END_C</PRE>
+<P>This produces:</P>
+<PRE>
+    9 + 5 = 14
+    SQRT(9^2 + 5^2) = 10.295630140987
+    Can't locate auto/main/mult.al in @INC ...</PRE>
+<P>This is definitely the hard way to do simple math, but it reveals some important concepts about Inline C. The first is that Inline functions like <CODE>add()</CODE> can be called either from Perl or C. Secondly, standard C functions like <CODE>sqrt()</CODE> can be called without any fuss, because they are already included in Perl. Finally, if you declare a function to be <CODE>static</CODE>, it won't be visible from Perl. Thus the error message.</P>
+<P>
+<HR>
+<H1><A NAME="what about xs and swig">What about XS and SWIG?</A></H1>
+<P>Let's detour momentarily to ponder ``Why Inline?''</P>
+<P>There are already two major facilities for extending Perl with C. They are XS and SWIG. Both are similar in their capabilities, at least as far as Perl is concerned. And both of them are quite difficult to learn compared to Inline. Since SWIG isn't used in practice to nearly the degree that XS is, I'll only address XS.</P>
+<P>There is a big fat learning curve involved with setting up and using the XS environment. You need to get quite intimate with the following docs:</P>
+<PRE>
+ * perlxs
+ * perlxstut
+ * perlapi
+ * perlguts
+ * perlcall
+ * perlmod
+ * h2xs
+ * xsubpp
+ * ExtUtils::MakeMaker</PRE>
+<P>With Inline you can be up and running in minutes. There is a C Cookbook with lots of short but complete programs that you can extend to your real-life problems. No need to learn about the complicated build process going on in the background. You don't even need to compile the code yourself. Perl programmers cannot be bothered with silly things like compiling. ``Tweak, Run, Tweak, Run'' is our way of life. Inline takes care of every last detail except writing the C code.</P>
+<P>Another advantage of Inline is that you can use it directly in a script. As we'll soon see, you can even use it in a Perl one-liner. With XS and SWIG, you always set up an entirely separate module. Even if you only have one or two functions. Inline makes easy things easy, and hard things possible. Just like Perl.</P>
+<P>One of Inline's major goals is to provide a reasonable replacement for XS. This should soon be the case for all but the most esoteric cases.</P>
+<P>Finally, Inline supports several programming languages (not just C and C++). As of this writing, Inline has support for C, C++, Python, and CPR. There are plans to add many more.</P>
+<P>
+<HR>
+<H1><A NAME="oneliners">One-Liners</A></H1>
+<P>Perl is famous for its one-liners. A Perl one-liner is generally a (reasonably) short piece of Perl code that can be typed at the command line, and can successfully accomplish a task that would take much longer in another language. It is one of the popular techniques that Perl hackers use to flex their programming muscles. Here are a couple of the more famous ones:</P>
+<PRE>
+     perl -le 'while(($_||=1)++){print if(1x$_)!~/^(11+)\1+$/}'</PRE>
+<P>Prints all of the prime numbers. (3)</P>
+<PRE>
+     perl -e 'require DynaLoader;DynaLoader::dl_install_xsub(&quot;main::hangme&quot;,unpack(&quot;I&quot;, pack(&quot;P4&quot;, &quot;\xF0\x0F\xC7\xC8&quot;)));hangme()'</PRE>
+<P>Will use the ``F00F Pentium bug'' to crash your computer. (4)</P>
+<P>There is a special flavor of Perl one-liners that often show up as the signatures of <CODE>comp.lang.perl.*</CODE> usenet postings. This brand of one-liner is known as a JAPH. The goal of a JAPH is to print ``Just Another Perl Hacker\n'', using some obscure, insidious, morally impure programming technique. Case in point (3):</P>
+<PRE>
+    perl -e 'BEGIN{my$x=&quot;Knuth heals rare project\n&quot;;$^H{integer}=sub{my$y=shift;$_=substr$x=&gt;$y&amp;0x1F,1;$y&gt;32?uc:lc};$^H=hex join&quot;&quot;=&gt;2,1,1,0,0}print 52,2,10,23,16,8,1,19,3,6,15,12,5,49,21,14,9,11,36,13,22,32,7,18,24;'</PRE>
+<P>So the only question that remains is this: ``Is Inline powerful enough to produce a JAPH one-liner that is also bonifide C extension?'' Of course it is! (Why else would I be going to all this trouble?) Here you go:</P>
+<PRE>
+    perl -e 'use Inline C=&gt;q{void J(){printf(&quot;Just Another Perl Hacker\n&quot;);}};J'</PRE>
+<P>Try doing that with XS. We can even write the more complex Inline <CODE>JAxH()</CODE> discussed earlier as a one-liner:</P>
+<PRE>
+    perl -le 'use Inline C=&gt;q{SV*JAxH(char*x){return newSVpvf(&quot;Just Another %s Hacker&quot;,x);}};print JAxH+Perl'</PRE>
+<P>If you participate on the Inline mailing list (<A HREF="mailto:inline@perl.org">inline@perl.org</A>) you'll find that this JAPH is indeed my personal email signature. I thought this was pretty cool until Bernhard Muenzer posted this gem to <CODE>comp.lang.perl.modules</CODE>:</P>
+<PRE>
+    #!/usr/bin/perl -- -* Nie wieder Nachtschicht! *- -- lrep\nib\rsu\!#
+    use Inline C=&gt;'void C(){int m,u,e=0;float l,_,I;for(;1840-e;putchar((++e&gt;907
+     &amp;&amp;942&gt;e?61-m:u)[&quot;\n)moc.isc@rezneumb(rezneuM drahnreB&quot;]))for(u=_=l=0;79-(m
+      =e%80)&amp;&amp;I*l+_*_&lt;6&amp;&amp;26-++u;_=2*l*_+e/80*.09-1,l=I)I=l*l-_*_-2+m/27.;}';&amp;C</PRE>
+<P>
+<HR>
+<H1><A NAME="supported platforms for c">Supported Platforms for C</A></H1>
+<P>Inline C works on all of the Perl platforms that I have tested it with so far. This includes all common Unixes and recent versions of Microsoft Windows. The only catch is that you must have the same compiler and <CODE>make</CODE> utility that was used to build your <CODE>perl</CODE> binary.</P>
+<P>
+<H2><A NAME="unix support">Unix Support</A></H2>
+<P>Inline has been successfully used on Linux, Solaris, AIX, HPUX, and all the recent BSDs (Free, Open, and Net).</P>
+<P>
+<H2><A NAME="options for windows users">Options for Windows Users</A></H2>
+<P>There are two common ways to use Inline on MS Windows. The first one is with ActiveState's ActivePerl for MSWin32 (5). In order to use Inline in that environment, you'll need a copy of MS Visual C++ 6.0. This comes with the <CODE>cl.exe</CODE> compiler and the <CODE>nmake</CODE> make utility. Actually these are the only parts you need. The visual components aren't necessary for Inline.</P>
+<P>The other alternative is to use the Cygwin utilities. (6) This is an actual Unix porting layer for Windows. It includes all of the most common Unix utilities, such as <CODE>bash</CODE>, <CODE>less</CODE>, <CODE>make</CODE>, <CODE>gcc</CODE> and of course <CODE>perl</CODE>.</P>
+<P>
+<H2><A NAME="unsupported options">Unsupported Options</A></H2>
+<P>If you are stuck on a planet where you just can't get access to the right compiler, you can at least <EM>try</EM> to use an alternate one. The Inline C configuration allows you to specify your own overrides for the compiler, linker, and make utility, with the <CODE>CC</CODE>, <CODE>LD</CODE> and <CODE>MAKE</CODE> options. Using these, you may be able to get some alternate configurations to work, but please don't complain (to me at least :-) if it doesn't.</P>
+<P>
+<HR>
+<H1><A NAME="the inline syntax">The Inline Syntax</A></H1>
+<P>Inline is a little bit different than most of the Perl modules that you are used to. It doesn't import any functions into your namespace and it doesn't have any object oriented methods. Its entire interface is specified through <CODE>'use Inline ...'</CODE> commands.</P>
+<P>This section will explain all of the different ways to <CODE>use Inline</CODE>.</P>
+<P>
+<H2><A NAME="use inline ...">use Inline ...</A></H2>
+<P>You may have several <CODE>'use Inline ...'</CODE> statements in a single source file. Any configuration properties specified in one statement will be propagated to subsequent statements, if it makes sense.</P>
+<P>Here is a list of the most common usages. Each example is followed by a short explanation.</P>
+<PRE>
+    use Inline;</PRE>
+<P>Does nothing except load the Inline module.</P>
+<PRE>
+    use Inline C =&gt; &quot;source code&quot;;</PRE>
+<P>Compiles, binds and loads a module written in C. In this example the source code is passed in as a string.</P>
+<PRE>
+    use Inline C =&gt; &quot;source code&quot;,
+               LIBS =&gt; '-lfoo',
+               PREFIX =&gt; 'foo_';</PRE>
+<P>Same as before. Configuration options are specified as (key =&gt; value) pairs.</P>
+<PRE>
+    use Inline C =&gt; DATA =&gt; config-pair-list;</PRE>
+<P>Automatically search for the C source code in Perl's special <CODE>DATA</CODE> filehandle. You can optionally specify configuration options.</P>
+<PRE>
+    use Inline C;</PRE>
+<P>This is shorthand for <CODE>'use Inline C =&gt; DATA;'</CODE> with no configuration arguments.</P>
+<PRE>
+    use Inline C =&gt; [ list of source code lines ];</PRE>
+<P>Alternatively you can pass in the source code as an anonymous array of lines.</P>
+<PRE>
+    use Inline C =&gt; '/path/source.c';</PRE>
+<P>You can also put the source code in a separate file and specify the file's name.</P>
+<PRE>
+    use Inline Config =&gt; 
+               DIRECTORY =&gt; '/mypath/.Inline';</PRE>
+<P>This does not compile any code. It just sets general configuration options that will apply to subsequent <CODE>use Inline</CODE> commands.</P>
+<PRE>
+    use Inline C =&gt; Config =&gt;
+               LIBS =&gt; '-lfoo';</PRE>
+<P>If you want to specify config options for a specific language without compiling any code, use this syntax form.</P>
+<PRE>
+    use Inline with =&gt; Event;</PRE>
+<P>You can tell Inline to get hints from other Perl modules like <CODE>Event.pm</CODE>.</P>
+<PRE>
+    use Inline qw(FORCE NoClean info)</PRE>
+<P>You can specify a list of shortcut options to apply. See section on ``Shortcuts'' below.</P>
+<P>
+<H2><A NAME="the data section">The DATA section</A></H2>
+<P>Inline has a special feature designed to make your code easier to read and maintain. Normally you pass code to Inline as a string. But you can also tell Inline to search the contents of the <CODE>DATA</CODE> filehandle for source code. Consider this snippet:</P>
+<PRE>
+    use Inline Lisp =&gt; 'DATA';
+    # Perl stuff ...
+    __END__
+    __Lisp__
+    ; Lisp stuff</PRE>
+<P>The <CODE>__END__</CODE> statement in Perl marks the end of the actual Perl code. (<CODE>__DATA__</CODE> does the same thing for modules.) Everything after that marker is made into a pseudo-file that you can read using the <CODE>&lt;DATA&gt;</CODE> filehandle.</P>
+<P>Inline takes advantage of this feature. By using the word 'DATA' for your source code string, you are telling Inline to read the <CODE>DATA</CODE> filehandle. Inline will scan through the text, looking for its own special marker, <CODE>__Foo__</CODE>, where ``Foo'' is the programming language you are trying to compile.</P>
+<P>The observant hacker will see a slight problem here. Perl handles <CODE>use</CODE> statements at compile time, but the <CODE>DATA</CODE> filehandle is not available until the entire program has been compiled. How could it be? &lt;rhetorical&gt; When you use the <CODE>DATA</CODE> syntax, Inline queues up the request for delayed processing. Luckily Perl has another handy construct, the <CODE>INIT</CODE> block. This is very similar to a <CODE>BEGIN</CODE> or <CODE>END</CODE> block. Perl invokes an <CODE>INIT</CODE> block in that magical moment between compilation and run time. The <EM>Inline</EM> <CODE>INIT</CODE> block then compiles any objects that were queued.</P>
+<P><EM>Objects</EM>? Yes, you can put more than one source file in the DATA area. The only rule to remember is that ``order counts''. You must have the <CODE>use</CODE> calls and the code blocks in the same order. Like this:</P>
+<PRE>
+    use Inline C;
+    use Inline 'C++';
+    use Inline Python';
+    # Perl treasures ...
+    __END__
+    __C__
+    /* C garbage */
+    __C++__
+    // C++ trash
+    __Python__
+    &quot;&quot;&quot; Python pollution &quot;&quot;&quot;</PRE>
+<P>As was stated above:</P>
+<PRE>
+    use Inline Foo;</PRE>
+<P>is simply shorthand for:</P>
+<PRE>
+    use Inline Foo =&gt; 'DATA';</PRE>
+<P>This is fine for scripts, but module authors often reserve the <CODE>DATA</CODE> section for POD and AutoLoader subroutines. Don't worry. Be happy. Inline will only process the DATA between its <CODE>__Foo__</CODE> type markers and POD commands like <CODE>=pod</CODE>. That way you can mix all three together.</P>
+<P>There is one more advantage to using the <CODE>DATA</CODE> form of Inline as opposed to the string form. You don't need to worry about escaping special characters. A backslash is a backslash is a backslash.</P>
+<P>
+<H2><A NAME="the bind() function">The <CODE>bind()</CODE> function</A></H2>
+<P>I lied. Inline actually does have one function (or class method). It is the <CODE>bind()</CODE> function. It allows you to compile/bind/load an extension at run time. Remember, Perl's <CODE>use</CODE> command is a compile time directive. But imagine that you want to write a program that generates C code on the fly. (And compile and run it as well). You would not have the source code available until run time. With <CODE>bind()</CODE> you can do this:</P>
+<PRE>
+    use IBM::Mainframe;
+    use Inline;
+    my $source_code = COBOL_generator(&quot;ebcdictate&quot;);
+    Inline-&gt;bind(COBOL =&gt; $source_code);
+    IBM::Mainframe::crunch(ebcdictate(&quot;Just Another Perl Hacker&quot;)
+      or die &quot;Does not compute&quot;;</PRE>
+<P><CODE>bind()</CODE> takes most of the same parameters that <CODE>'use Inline ...'</CODE> does, but since it's a method call, you need to put them in parentheses.</P>
+<P>
+<H2><A NAME="the init() function">The <CODE>init()</CODE> function</A></H2>
+<P>I lied again. Inline actually has <STRONG>two</STRONG> public functions. (Now you know why I call it ``<EM>Pathologically</EM> Polluting Perl'') There is also an <CODE>init()</CODE> function to handle a somewhat esoteric case.</P>
+<P>Imagine for a moment that you wanted to write the following code:</P>
+<PRE>
+    eval &quot;use Inline Java&quot;;
+    __END__
+    __Java__
+    /* Java junk */</PRE>
+<P>There is a big problem here. Remember that this syntax tells Inline to look for the Java source code in the DATA area, and this actually gets done in Inline's <CODE>INIT</CODE> block. But since we're evaling the call, it's already too late to run the <CODE>INIT</CODE>.</P>
+<P>This is where <CODE>init()</CODE> comes to the rescue. It calls Inline's <CODE>INIT</CODE> routine manually, thus compiling any Inline objects that have been queued for processing. Here is the correct code:</P>
+<PRE>
+    eval &quot;use Inline Java&quot;;
+    Inline-&gt;init;
+    __END__
+    __Java__
+    /* Your Java code */</PRE>
+<P>
+<H2><A NAME="configuration options">Configuration Options</A></H2>
+<P>We have already seen some examples of passing configuration information to Inline. This is accomplished via a list of 'key' =&gt; 'value' pairs that follow the source code parameter. Here is an example:</P>
+<PRE>
+    use Inline C =&gt; 'DATA',
+               DIRECTORY =&gt; '/mypath/mydir',
+               INC =&gt; '-I/inc/path';</PRE>
+<P>This tells Inline to use a specific directory to do its dirty work, and to use a non-standard path to find header files. Some config parameters can have multiple values. It that's the case, you always list them in an anonymous array. Most parameters are also additively inherited from previous Inline calls. Another example will help make sense of that statement:</P>
+<PRE>
+    use Inline Config =&gt;
+               DIRECTORY =&gt; '/mypath/mydir';
+    use Inline C =&gt; Config =&gt;
+               INC =&gt; ['-I/inc/path1', '-I/inc/path2'];
+    use Inline C =&gt; 'DATA',
+               INC =&gt; '-I/inc/path3';
+    use Inline C =&gt; 'DATA',
+               DIRECTORY =&gt; '/mypath/otherdir',
+               INC =&gt; [undef, '-I/inc/path3', '-I/inc/path2'];</PRE>
+<P>The first call sets the build/install directory for future calls to use. It is a ``configuration only'' call; no code is compiled. The second call specifies C-specific options and is also ``configuration only''. The third call compiles some C code, adding a third include path to the original two. The last call compiles some more C code. It overrides the previous DIRECTORY option. It also uses <CODE>undef</CODE> to clear the current list of include paths, then re-adds paths 3 and 2 in that order.</P>
+<P>Most of the configuration parameters for <CODE>Inline C</CODE> are simply proxies for identical parameters in the underlying XS and MakeMaker processing. If you are already familiar with these options, that's great. If not, no worries. You can learn them as you go. I won't list all of them here, but suffice it to say, ``Inline is very configurable''.</P>
+<P>
+<H2><A NAME="shortcuts">Shortcuts</A></H2>
+<P>Say that you want to recompile your Inline C function even though its up to date. Maybe you want to peek at what Inline generated to make it all work. If your program is called <CODE>foo.pl</CODE>, then try running it like this:</P>
+<PRE>
+    perl -MInline=FORCE,NOCLEAN,INFO foo.pl</PRE>
+<P>This will <EM>force</EM> a recompile, leave the build area intact, and print some information telling you where to find it. <CODE>INFO</CODE>, <CODE>FORCE</CODE> and <CODE>NOCLEAN</CODE> are known as Inline <STRONG>shortcuts</STRONG>. They are configuration options that you can use from the command line. If you need to use them a lot you can also put them directly in your program like this:</P>
+<PRE>
+    use Inline qw(FORCE NOCLEAN INFO);</PRE>
+<P>If you ever find a bug with Inline, you can report it by saying:</P>
+<PRE>
+    perl -MInline=REPORTBUG foo.pl</PRE>
+<P>and following the instructions.</P>
+<P>
+<HR>
+<H1><A NAME="fine dining  a tour of the c cookbook">Fine Dining - A Tour of the C Cookbook</A></H1>
+<P>In the spirit of the O'Reilly book ``Perl Cookbook'', Inline provides a manpage called C-Cookbook. In it you will find the recipes you need to help satisfy your Inline cravings. In this section I'll review some of the tastier morsels. Bon Appetit!</P>
+<P>
+<H2><A NAME="external libraries">External Libraries</A></H2>
+<P>The most common real world need for Inline is probably using it to access existing compiled C code from Perl. This is easy to do. The secret is to write a wrapper function for each function you want to expose in Perl space. The wrapper calls the real function. It also handles how the arguments get passed in and out. Here is a short Windows example that displays a text box with a message, a caption and an ``OK'' button:</P>
+<PRE>
+    use Inline C =&gt; DATA =&gt;
+               LIBS =&gt; '-luser32',
+               PREFIX =&gt; 'my_';
+    MessageBoxA('Inline Message Box', 'Just Another Perl Hacker');
+</PRE>
+<PRE>
+
+    __END__
+    __C__
+    #include &lt;windows.h&gt;
+    int my_MessageBoxA(char* Caption, char* Text) {
+      return MessageBoxA(0, Text, Caption, 0);
+    }</PRE>
+<P>This program calls a function from the MSWin32 <CODE>user32.dll</CODE> library. The wrapper determines the type and order of arguments to be passed from Perl. Even though the real <CODE>MessageBoxA()</CODE> needs four arguments, we can expose it to Perl with only two, and we can change the order. In order to avoid namespace conflicts in C, the wrapper must have a different name. But by using the <CODE>PREFIX</CODE> option (same as the XS <CODE>PREFIX</CODE> option) we can bind it to the original name in Perl.</P>
+<P>
+<H2><A NAME="list context  using the perl stack">List Context - Using the Perl Stack</A></H2>
+<P>C functions can only return one value. Perl can return a list of values. How can we write a C function that returns a list of values? The answer lies in understanding how Perl really calls its subroutines. It uses an internal stack of Scalar Values or <CODE>SV*</CODE>. (Remember those from the second example?) This stack is known to the Perl experts as ``the Stack''. When Perl calls a subroutine, it puts all of your arguments on the Stack. You normally access these through the special array variable, <CODE>@_</CODE>. When the subroutine returns, Perl replaces the input parameters with the return values.</P>
+<P>To do this from C, you need to manipulate the Stack yourself. Luckily for you, Inline provides a bunch of macros to do this easily. Here is an example that works similarly to Perl's <CODE>localtime()</CODE> function:</P>
+<PRE>
+    print map {&quot;$_\n&quot;} get_localtime(time);
+</PRE>
+<PRE>
+
+    use Inline C =&gt; &lt;&lt;'END_OF_C_CODE'; 
+    #include &lt;time.h&gt;
+    void get_localtime(int utc) {
+      struct tm *ltime = localtime(&amp;utc);
+      Inline_Stack_Vars;
+      Inline_Stack_Reset;
+      Inline_Stack_Push(newSViv(ltime-&gt;tm_year));
+      Inline_Stack_Push(newSViv(ltime-&gt;tm_mon));
+      Inline_Stack_Push(newSViv(ltime-&gt;tm_mday));
+      Inline_Stack_Push(newSViv(ltime-&gt;tm_hour));
+      Inline_Stack_Push(newSViv(ltime-&gt;tm_min));
+      Inline_Stack_Push(newSViv(ltime-&gt;tm_sec));
+      Inline_Stack_Push(newSViv(ltime-&gt;tm_isdst));
+      Inline_Stack_Done;
+    }
+    END_OF_C_CODE</PRE>
+<P>
+<H2><A NAME="simple perl internals">Simple Perl Internals</A></H2>
+<P>Without knowing it you have just been introduced to Perl internals. Perl has a rich API that you can call from your C code. All of the specifics are detailed in the <CODE>perlapi</CODE> manpage. (7) Through the API you can access all of the internals of Perl as well as create new data structures. Here we present a C function that will read a file by name, parse it into words, and return a new hash of arrays containing that data. (It is the Inline version of an example from the Camel book.) The file contents look like this:</P>
+<PRE>
+    flintstones fred barney
+    jetsons     george jane elroy
+    simpsons    homer marge bart</PRE>
+<P>Here is the program:</P>
+<PRE>
+    use Inline C;
+    use Data::Dumper;
+    $hash_ref = load_data(&quot;./cartoon.txt&quot;);
+    print Dumper $hash_ref;
+</PRE>
+<PRE>
+
+    __END__
+    __C__
+    static int next_word(char**, char*);</PRE>
+<PRE>
+    SV* load_data(char* file_name) {
+        char buffer[100], word[100], * pos;
+        AV* array;
+        HV* hash = newHV();
+        FILE* fh = fopen(file_name, &quot;r&quot;);
+        while (fgets(pos = buffer, sizeof(buffer), fh)) {
+            if (next_word(&amp;pos, word)) {
+                hv_store(hash, word, strlen(word),
+                         newRV_noinc((SV*)array = newAV()), 0);
+                while (next_word(&amp;pos, word))
+                    av_push(array, newSVpvf(&quot;%s&quot;, word));
+            }
+        }
+        fclose(fh);
+        return newRV_noinc((SV*) hash);
+    }
+</PRE>
+<PRE>
+
+    static int next_word(char** text_ptr, char* word) {
+        char* text = *text_ptr;
+        while(*text != '\0' &amp;&amp;
+              *text &lt;= ' ')
+            text++;
+        if (*text &lt;= ' ')
+            return 0;
+        while(*text != '\0' &amp;&amp;
+              *text &gt; ' ') {
+            *word++ = *text++;
+        }
+        *word = '\0';
+        *text_ptr = text;
+        return 1;
+    }</PRE>
+<P>The internal calls like <CODE>newHV()</CODE> and <CODE>newRV_noinc()</CODE> may seem a bit strange, but once you read the doc, they aren't so bad. Running this program produces:</P>
+<PRE>
+    $VAR1 = {
+              'flintstones' =&gt; [
+                                 'fred',
+                                 'barney'
+                               ],
+              'simpsons' =&gt; [
+                              'homer',
+                              'marge',
+                              'bart'
+                            ],
+              'jetsons' =&gt; [
+                             'george',
+                             'jane',
+                             'elroy'
+                           ]
+            };</PRE>
+<P>
+<H2><A NAME="it takes all types">It Takes All Types</A></H2>
+<P>Before version 0.30, Inline only supported five C data types. These were: <CODE>int</CODE>, <CODE>long</CODE>, <CODE>double</CODE>, <CODE>char*</CODE> and <CODE>SV*</CODE>. This was all you needed. All the basic Perl scalar types are represented by these. Fancier things like references could be handled by using the generic <CODE>SV*</CODE> (scalar value) type, and then doing the mapping code yourself, inside the C function.</P>
+<P>The process of converting between Perl's <CODE>SV*</CODE> and C types is called <STRONG>typemapping</STRONG>. In XS, you normally do this by using <CODE>typemap</CODE> files. A default <CODE>typemap</CODE> file exists in every Perl installation in a file called <CODE>/usr/lib/perl5/5.6.1/ExtUtils/typemap</CODE> or something similar. This file contains conversion code for over 20 different C types, including all of the Inline defaults.</P>
+<P>As of version 0.30, Inline no longer has <EM>any</EM> built in types. It gets all of its types exclusively from <CODE>typemap</CODE> files. Since it uses Perl's default <CODE>typemap</CODE> file for its own defaults, it actually has many more types available automatically.</P>
+<P>This setup provides a lot of flexibility. You can specify your own <CODE>typemap</CODE> files through the use of the <CODE>TYPEMAPS</CODE> configuration option. This not only allows you to override the defaults with your own conversion code, but it also means that you can add new types to Inline as well. The major advantage to extending the Inline syntax this way is that there are already many typemaps available for various APIs. And if you've done your own XS coding in the past, you can use your existing <CODE>typemap</CODE> files as is. No changes are required.</P>
+<P>Let's look at a small example of writing your own typemaps. For some reason, the C type <CODE>float</CODE> is not represented in the default Perl <CODE>typemap</CODE> file. I suppose it's because Perl's floating point numbers are always stored as type <CODE>double</CODE>, which is higher precision than <CODE>float</CODE>. But if we wanted it anyway, writing a <CODE>typemap</CODE> file to support <CODE>float</CODE> is trivial.</P>
+<P>Here is what the file would look like:</P>
+<PRE>
+    float                   T_FLOAT
+</PRE>
+<PRE>
+
+    INPUT
+    T_FLOAT
+            $var = (float)SvNV($arg)</PRE>
+<PRE>
+
+    OUTPUT
+    T_FLOAT
+            sv_setnv($arg, (double)$var);</PRE>
+<P>Without going into details, this file provides two snippets of code. One for converting a <CODE>SV*</CODE> to a float, and one for the opposite. Now we can write the following script:</P>
+<PRE>
+    use Inline C =&gt; DATA =&gt;
+               TYPEMAPS =&gt; './typemap';
+</PRE>
+<PRE>
+
+    print '1.2 + 3.4 = ', fadd(1.2, 3.4), &quot;\n&quot;;</PRE>
+<PRE>
+
+    __END__
+    __C__
+    float fadd(float x, float y) {
+        return x + y;
+    }</PRE>
+<P>
+<H2><A NAME="use inline with => event;">use Inline with =&gt; Event;</A></H2>
+<P><CODE>Event.pm</CODE> is a module that allows you to define callback subroutines for certain events that can happen in Perl. It also has a C interface for defining the callbacks as C functions. When Inline was first introduced to the CPAN, Jochen Stenzel quickly figured out that Event and Inline could easily be used together to define C callbacks for Event. A simple program looked like this:</P>
+<PRE>
+    use Event;
+    use Inline;
+    use Config;
+</PRE>
+<PRE>
+
+    Inline::Config::makefile(INC =&gt; &quot;-I$Config{installsitearch}/Event&quot;);
+    Inline-&gt;import(C =&gt; join('', &lt;DATA&gt;));</PRE>
+<PRE>
+
+    Event-&gt;timer(desc     =&gt; 'Perl timer',
+                 interval =&gt; 0.5,
+                 cb       =&gt; \&amp;c_callback,
+                );
+    BOOT();
+    Event::loop;</PRE>
+<PRE>
+
+    __END__
+    #include &quot;EventAPI.h&quot;</PRE>
+<PRE>
+
+    void c_callback(SV * sv) {
+      pe_event * event = GEventAPI-&gt;sv_2event(sv);
+      pe_timer * watcher = event-&gt;up;
+      printf(&quot;Here is the C callback (of watcher \&quot;%s\&quot;).\n\tI detected %d events.\n\tThe event's priority was %d.\n\tThe watcher's priority is %d.\n\n&quot;,
+             SvPVX(watcher-&gt;base.desc),
+             event-&gt;hits,
+             event-&gt;prio,
+             watcher-&gt;base.prio
+            );
+    }</PRE>
+<PRE>
+    void BOOT() {I_EVENT_API(&quot;Inline Script&quot;);}</PRE>
+<P>Although this is much simpler than doing something similar in XS, it left much to be desired. For instance, the C part requires including the <CODE>EventAPI</CODE> header file. Since this is in a non-standard place, Inline needed to be informed of the correct include path. Also, the callback gets passed a pointer to a <CODE>pe_event</CODE> structure which needs to be mapped explicitly from a SV*. Finally, Event requires a bootstrap function to be called explicitly.</P>
+<P>As of version 0.30, Inline supports a <CODE>with</CODE> syntax which informs Inline that another Perl module is Inline-enabled. That means the other module can pass hints to Inline that are hidden from the user, making the code very readable. As of version 0.80, <CODE>Event.pm</CODE> comes with Inline support. This allows us to write the previous example like this:</P>
+<PRE>
+    use Inline with =&gt; Event;
+    use Inline C;
+</PRE>
+<PRE>
+
+    Event-&gt;timer(desc     =&gt; 'Perl timer',
+                 interval =&gt; 0.5,
+                 cb       =&gt; \&amp;c_callback,
+                );
+    Event::loop;</PRE>
+<PRE>
+
+    __END__
+    __C__
+    void c_callback(pe_event * event) {
+      pe_timer * watcher = event-&gt;up;
+      printf(&quot;Here is the C callback (of watcher \&quot;%s\&quot;).\n\tI detected %d events.\n\tThe event's priority was %d.\n\tThe watcher's priority is %d.\n\n&quot;,
+             SvPVX(watcher-&gt;base.desc),
+             event-&gt;hits,
+             event-&gt;prio,
+             watcher-&gt;base.prio
+            );
+     }</PRE>
+<P>To implement this change, Joshua N. Pritikin needed to add only a dozen lines of code to his Event module. This is a great example of how module authors can easily expose a C interface to their users through Inline.</P>
+<P>
+<H2><A NAME="calling back to perl from c">Calling back to Perl from C</A></H2>
+<P>When you use Inline to jump from the warm fuzzy pleasure palace of Perl, to the cold dark wasteland of C, you may find yourself longing for home. Don't worry my friend, you are not alone. Perl, Herself, is watching over you. Literally.</P>
+<P>Since your C code is running under Perl, you can easily call back to Perl. The easiest way to do this is with the <CODE>eval()</CODE> command, known in C as <CODE>eval_pv()</CODE>. Here is a simple example:</P>
+<PRE>
+    use Inline C;
+    goto_C();</PRE>
+<PRE>
+    __END__
+    __C__
+    void goto_C() {
+        printf(&quot;I've been banished to C, but at least I have Perl %s\n&quot;,
+               SvPVX(eval_pv(&quot;use Config; $Config{version}&quot;, 0)));
+    }</PRE>
+<P>Since <CODE>eval()</CODE> always returns the value of the last expression, using <CODE>eval_pv()</CODE> is probably the easiest way to execute an arbitrary Perl expression and get a scalar in return. In this example, we use <CODE>eval()</CODE> to load <CODE>Config.pm</CODE>, so we can return the Perl version number. Then we use <CODE>SvPVX()</CODE> to convert the scalar to a <CODE>char*</CODE> so that we can print it with <CODE>printf()</CODE>.</P>
+<P>It is also possible to call back to your own Perl subroutine using functions like <CODE>call_pv()</CODE>. Here is another short example:</P>
+<PRE>
+    use Inline C;
+    goto_C();
+    sub how_is_perl_doing {
+        print &quot;This is Perl. I'm doing fine!\n&quot;;
+    }
+    __END__
+    __C__
+    void goto_C() {
+        printf(&quot;C is boring. I wonder how my friend Perl is doing?\n&quot;);
+        call_pv(&quot;how_is_perl_doing&quot;, G_VOID);
+    }</PRE>
+<P>Actually calling Perl subroutines can get pretty tricky, especially when you start passing arguments back and forth. That's because you need to deal with all of the Perl Stack issues manually. For a good primer on this subject, consult the <CODE>perlcall</CODE> manpage.</P>
+<P>
+<H2><A NAME="object oriented inline">Object Oriented Inline</A></H2>
+<P>Consider the following program:</P>
+<PRE>
+    my $obj1 = Soldier-&gt;new('Benjamin', 'Private', 11111);
+    my $obj2 = Soldier-&gt;new('Sanders', 'Colonel', 22222);
+    my $obj3 = Soldier-&gt;new('Matt', 'Sergeant', 33333);
+</PRE>
+<PRE>
+
+    for my $obj ($obj1, $obj2, $obj3) {
+        print ($obj-&gt;get_serial, &quot;) &quot;, 
+               $obj-&gt;get_name, &quot; is a &quot;, 
+               $obj-&gt;get_rank, &quot;\n&quot;);
+    }</PRE>
+<PRE>
+    #---------------------------------------------------------
+    package Soldier;
+    use Inline C =&gt; &lt;&lt;'END';
+    typedef struct {
+        char* name;
+        char* rank;
+        long  serial;
+    } Soldier;
+</PRE>
+<PRE>
+
+    SV* new(char* class, char* name, char* rank, long serial) {
+        Soldier* soldier = malloc(sizeof(Soldier));
+        SV*      obj_ref = newSViv(0);
+        SV*      obj = newSVrv(obj_ref, class);</PRE>
+<PRE>
+        soldier-&gt;name = strdup(name);
+        soldier-&gt;rank = strdup(rank);
+        soldier-&gt;serial = serial;
+</PRE>
+<PRE>
+
+        sv_setiv(obj, (IV)soldier);
+        SvREADONLY_on(obj);
+        return obj_ref;
+    }</PRE>
+<PRE>
+
+    char* get_name(SV* obj) {
+        return ((Soldier*)SvIV(SvRV(obj)))-&gt;name;
+    }</PRE>
+<PRE>
+
+    char* get_rank(SV* obj) {
+        return ((Soldier*)SvIV(SvRV(obj)))-&gt;rank;
+    }</PRE>
+<PRE>
+
+    long get_serial(SV* obj) {
+        return ((Soldier*)SvIV(SvRV(obj)))-&gt;serial;
+    }</PRE>
+<PRE>
+    void DESTROY(SV* obj) {
+        Soldier* soldier = (Soldier*)SvIV(SvRV(obj));
+        free(soldier-&gt;name);
+        free(soldier-&gt;rank);
+        free(soldier);
+    }
+    END</PRE>
+<P>Damian Conway has given us myriad ways of implementing OOP in Perl. This is one he might not have thought of.</P>
+<P>The interesting thing about this example is that it uses Perl for all the OO bindings while using C for the attributes and methods.</P>
+<P>If you examine the Perl code everything looks exactly like a regular OO example. There is a <CODE>new()</CODE> method and several accessor methods. The familiar 'arrow syntax' is used to invoke them.</P>
+<P>In the class definition (second part) the Perl <CODE>package</CODE> statement is used to name the object class or namespace. But that's where the similarities end and Inline takes over.</P>
+<P>The idea is that we call a C subroutine called <CODE>new()</CODE> which returns a blessed scalar. The scalar contains a readonly integer which is a C pointer to a Soldier struct. This is our object.</P>
+<P>The <CODE>new()</CODE> function needs to <CODE>malloc()</CODE> the memory for the struct and then copy the initial values into it using <CODE>strdup()</CODE>. This also allocates more memory (which we have to keep track of).</P>
+<P>The accessor methods are pretty straightforward. They return the current value of their attribute.</P>
+<P>The last method <CODE>DESTROY()</CODE> is called automatically by Perl whenever an object goes out of scope. This is where we can free all the memory used by the object.</P>
+<P>That's it. It's a very simplistic example. It doesn't show off any advanced OO features, but it is pretty cool to see how easy the implementation can be. The important Perl call is <CODE>newSVrv()</CODE> which creates a blessed scalar.</P>
+<P>
+<H2><A NAME="cgi with inline.">CGI with Inline.</A></H2>
+<P>The problem with running Inline code from a CGI script is that Inline <STRONG>writes</STRONG> to a build area on your disk whenever it compiles code. Most CGI scripts don't (and shouldn't) be able to create a directory and write into it. Here's a simple CGI that solves the problem:</P>
+<PRE>
+    #!/usr/bin/perl
+    use CGI qw(:standard);
+    use Inline Config =&gt; 
+               DIRECTORY =&gt; '/usr/local/apache/Inline';
+    print (header, 
+           start_html('Inline CGI Example'),
+           h1(JAxH('Inline')),
+           end_html
+          );
+</PRE>
+<PRE>
+
+    use Inline C =&gt; &lt;&lt;END;
+    SV* JAxH(char* x) {
+        return newSVpvf(&quot;Just Another %s Hacker&quot;, x);
+    }
+    END</PRE>
+<P>The solution is to explicitly tell Inline which directory to use with the <CODE>'use Inline Config =&gt; DIRECTORY =&gt; ...'</CODE> line. Then you need to give write access to that directory from the web server (CGI script).</P>
+<P>If you see this as a security hole, then there is another option. Give write access to yourself, but read-only access to the CGI script. Then run the script once by hand (from the command line). This will cause Inline to precompile the C code. That way the CGI will only need read access to the directory (to load the shared library). Just remember that whenever you change the C code, you need to precompile it again.</P>
+<P>
+<HR>
+<H1><A NAME="how inline works.">How Inline Works.</A></H1>
+<P>Inline is a simple module. That is to say, it doesn't do anything very difficult. It just weaves together the efforts of a lot of other programs that do very difficult things. But that's the point. Why reinvent the wheel? Or the engine? Or the Christmas tree air freshener that hangs on the rear-view mirror? Inline just puts all these essentials together into a lean, mean programming machine.</P>
+<P>To describe how Inline works, let's take a look at its parts.</P>
+<P>
+<H2><A NAME="digest::md5">Digest::MD5</A></H2>
+<P>There is one crucial trick that makes Inline.pm work. It takes an MD5 digest (or fingerprint) of your Inline source code and uses it to determine whether or not that code needs to be compiled. An MD5 fingerprint is a virtually unique 128-bit pattern that can be generated for any arbitrary piece of text. Since it is astronomically unlikely that two texts will have the same fingerprint, it is an excellent way to determine whether or not your compiled code is up to date. (8)</P>
+<P>Every time you run your program, Inline calculates the fingerprint and compares it with that of a specified object file. If the fingerprint matches, Inline will immediately load that object and start using it. If it doesn't match, Inline will trigger a new compile of your source code.</P>
+<P>The net effect is that Inline compiles your code the first time that you run a script. If you change the Perl part of the script, Inline doesn't need to recompile. If you change the Inlined source, then a compile will be triggered.</P>
+<P>
+<H2><A NAME="parse::recdescent">Parse::RecDescent</A></H2>
+<P>I came up with the inspiration for writing Inline, at Damian Conway's presentation on Parse::RecDescent during the TPC4 conference in Monterey CA last summer. Fittingly, it is the module that Inline uses to parse C and C++. Here is a look at Inline's C grammar:</P>
+<PRE>
+    c_code:   part(s) {1}</PRE>
+<PRE>
+    part:     comment
+            | function_definition
+            {
+             my $function = $item[1]-&gt;[0];
+             push @{$thisparser-&gt;{data}-&gt;{functions}}, $function;
+            -- lines deleted --
+            }
+            | anything_else</PRE>
+<PRE>
+    comment:  m{\s* // [^\n]* \n }x
+            | m{\s* /\* (?:[^*]+|\*(?!/))* \*/  ([ \t]*)? }x</PRE>
+<PRE>
+    function_definition:
+            -- lines deleted --</PRE>
+<PRE>
+    anything_else: /.*/</PRE>
+<P>Some of the grammar has been removed for brevity, but the basic idea is that Inline considers the C code to consist of 3 distinct sub-elements: 'comments', 'function definitions', and 'anything else'. The first and last ones are thrown away. Inline only cares about the function definitions.</P>
+<P>
+<H2><A NAME="xs">XS</A></H2>
+<P>Even though the long term goal of Inline is to offer a reasonable replacement for XS, Inline uses XS to implement all of the bindings between Perl and C. There is nothing wrong with XS itself. Only with the burden it puts on its users. It's hard to learn and not very Perl-like to implement.</P>
+<P>For each bindable function definition that Parse::RecDescent finds, Inline creates an XS wrapper to call that function.</P>
+<P>Inline provides several configuration options for C and C++ that correlate directly to XS options. See the <CODE>Inline::C</CODE> and <CODE>perlxs</CODE> manpages for more info.</P>
+<P>
+<H2><A NAME="extutils::makemaker">ExtUtils::MakeMaker</A></H2>
+<P>MakeMaker is truly the hardest working module in Perl-biz. Without it Inline might not be possible, and definitely would not be so robust and cross-platform. MakeMaker is the thing that turns a Makefile.PL into a Makefile. It has dozens of options and takes a long time to learn, let alone master.</P>
+<P>Many of the C configuration options are proxies for MakeMaker options with the same name. This allows you to use these powerful features without having to write your own Makefile.PL.</P>
+<P>
+<H2><A NAME="directory assistance">Directory Assistance</A></H2>
+<P>I hope that you're wondering, ``Where does Inline do all this stuff?''. Good question! Inline relies on having a special directory where it can build and install new extensions on the fly. There are several places that Inline will search for a directory called <CODE>.Inline/</CODE>. If it can't find one, it will attempt to create a new directory called <CODE>_Inline</CODE> in some well known places. You can also tell Inline which directory to use with the <CODE>DIRECTORY</CODE> config option, or the <CODE>PERL_INLINE_DIRECTORY</CODE> environment variable. The directory structure looks like this:</P>
+<PRE>
+    .Inline/
+       build/
+         Foo/
+           Foo.xs
+           Makefile.PL
+       config
+       errors/
+       lib/
+         auto/
+           Foo/
+             Foo.so
+             Foo.inline</PRE>
+<DL>
+<DT><STRONG><A NAME="item_build%2F">build/</A></STRONG><BR>
+<DD>
+This is the area used to write the source files needed to build an extension. If a compilation error occurs the build subdirectory is left intact so you can debug the problem. Otherwise, it is deleted.
+<P></P>
+<DT><STRONG><A NAME="item_config">config</A></STRONG><BR>
+<DD>
+This is a very important file which contains top-level information about your Inline installation. It will be automatically generated the first time you use a <CODE>.Inline/</CODE> directory.
+<P></P>
+<DT><STRONG><A NAME="item_errors%2F">errors/</A></STRONG><BR>
+<DD>
+As a convenience, all of the files from the most recently failed build are copied to the <A HREF="#item_errors%2F"><CODE>errors/</CODE></A> directory.
+<P></P>
+<DT><STRONG><A NAME="item_lib%2F">lib/</A></STRONG><BR>
+<DD>
+This directory is exactly like a local Perl installation directory. All of your compiled extension objects are installed here, so they can be found and loaded by Perl.
+<P></P>
+<DT><STRONG><A NAME="item_Foo%2Eso">Foo.so</A></STRONG><BR>
+<DD>
+This is your object file.
+<P></P>
+<DT><STRONG><A NAME="item_Foo%2Einline">Foo.inline</A></STRONG><BR>
+<DD>
+This is the file that contains metadata about your object. This is where the MD5 fingerprint is stored.
+<P></P></DL>
+<P>
+<H2><A NAME="gang of four">Gang of Four</A></H2>
+<P>Once Inline has taken the time to do all this nice work for you, it can finally sit down for a coffee break. All it needs to do to build and install your extension code is to invoke the same processes you would do if you wrote it all yourself. Namely:</P>
+<PRE>
+    perl Makefile.PL
+    make
+    make test
+    make install</PRE>
+<P>Well, we don't actually do the <CODE>make test</CODE> for obvious reasons, but everything else is real.</P>
+<P>The only difference is that the object files don't end up in Perl's site directories. Normally that takes root permission. Inline install's the objects in your local <CODE>.Inline/lib/</CODE> directory. Inline then adds that path to @INC, so Perl can find your new extensions.</P>
+<P>
+<H2><A NAME="dynaloader">DynaLoader</A></H2>
+<P>The final step that Inline performs is to use DynaLoader to load the compiled object and bind its public functions to Perl. Thankfully, DynaLoader performs this very platform specific task, in a cross-platform manner.</P>
+<P>
+<H2><A NAME="built for speed">Built for Speed</A></H2>
+<P>Inline is optimized for fast performance. When you run an Inline program that has already compiled its source code, Inline performs the minimal amount of overhead needed to get your program fully operational and running. The only thing it needs to do that an XS program would not, is to calculate the MD5 fingerprint of your source code, and make sure that it matches the compiled version. Thankfully, the MD5 program itself is written in C, and is therefore very fast. Extra modules like Parse::RecDescent (which is quite slow to load), never come into the picture.</P>
+<P>On the other hand, when the fingerprint does not match, the Inline module takes a vacation. He checks over the itinerary you've prepared, phones up his module buddies, sets up camp for building your extension, does his dirty work, and calls in the maid clean up the remains. All on your expense account. The premise is: ``Since we only need to compile once, we might as well take the time to do it right''.</P>
+<P>
+<H2><A NAME="more information">More Information</A></H2>
+<P>This section was a peripheral look at how Inline works. For more specific details, read the Inline documentation, which is distributed with Inline on CPAN. Or take a peek at the source code. (It's just Perl :-)</P>
+<P>
+<HR>
+<H1><A NAME="some ware beyond the c">Some Ware Beyond the C</A></H1>
+<P>The primary goal of Inline is to make it easy to use other programming languages with Perl. This is not limited to C. The initial implementations of Inline only supported C, and the language support was built directly into <CODE>Inline.pm</CODE>. Since then things have changed considerably. Inline now supports multiple languages of both compiled and interpreted nature. And it keeps the implementations in an object oriented type structure, whereby each language has its own separate module, but they can inherit behavior from the base Inline module.</P>
+<P>In this section we'll take a quick peek at the other Inline language modules, and take a look at the API that defines how new languages should be implemented.</P>
+<P>
+<H2><A NAME="inline::cpp">Inline::CPP</A></H2>
+<P>On my second day working at ActiveState, a young man approached me. ``Hi, my name is Neil Watkiss. I just hacked your Inline module to work with C++.''</P>
+<P>Neil, I soon found out, was a computer science student at a local university. He was working part-time for ActiveState then, and had somehow stumbled across Inline. I was thrilled! I had wanted to pursue new languages, but didn't know how I'd find the time. Now I was sitting 15 feet away from my answer!</P>
+<P>Over the next couple months, Neil and I spent our spare time turning Inline into a generic environment for gluing new languages to Perl. I ripped all the C specific code out of Inline and put it into Inline::C. Neil started putting together Inline::CPP and Inline::Python. Together we came up with a new syntax that allowed multiple languages and easier configuration.</P>
+<P>Here is an example of an Inline C++ program:</P>
+<PRE>
+    use Inline 'C++';
+    my $obj1 = Soldier-&gt;new('Benjamin', 'Private', 11111);
+    my $obj2 = Soldier-&gt;new('Sanders', 'Colonel', 22222);
+    my $obj3 = Soldier-&gt;new('Matt', 'Sergeant', 33333);
+    for my $obj ($obj1, $obj2, $obj3) {
+        print ($obj-&gt;get_serial, &quot;) &quot;,
+               $obj-&gt;get_name, &quot; is a &quot;,
+               $obj-&gt;get_rank, &quot;\n&quot;);
+    }
+</PRE>
+<PRE>
+
+    __END__
+    __C++__
+    class Soldier {
+      public:
+        Soldier(char *name, char *rank, int serial);
+        char *get_name();
+        char *get_rank();
+        int get_serial();
+      private:
+        char *name;
+        char *rank;
+        int serial;
+    };</PRE>
+<PRE>
+
+    Soldier::Soldier(char *name, char *rank, int serial) {
+        this-&gt;name = name;
+        this-&gt;rank = rank;
+        this-&gt;serial = serial;
+    }</PRE>
+<PRE>
+
+    char *Soldier::get_name() {
+        return name;
+    }</PRE>
+<PRE>
+
+    char *Soldier::get_rank() {
+        return rank;
+    }</PRE>
+<PRE>
+
+    int Soldier::get_serial() {
+        return serial;
+    }</PRE>
+<P>This example is identical to the one we saw for using object oriented Inline C. But in C++ it's a much cleaner solution.</P>
+<P>
+<H2><A NAME="inline::python">Inline::Python</A></H2>
+<P>Python is a completely different kind of animal. Since Python is an interpreted language, it can't work with Inline in the traditional manner. Python gets compiled into a bytecode much like Perl, and is then executed by the Python runtime. But Inline searches for a <EM>shared object</EM> with an associated MD5 fingerprint. So this caused a problem for Inline. The solution was, therefore, to change the tradition.</P>
+<P>The initial idea that Neil and I had was to have two Inline <EM>modes</EM>; <STRONG>compiled</STRONG> mode and <STRONG>interpreted</STRONG> mode. This was not hard to do, but what would happen if down the road we wanted to bind to something that was neither compiled nor interpreted? This modal solution did not sit well with me.</P>
+<P>After a little brainstorming, we discovered a solution that is much cleaner. Since each module is a subclass of Inline, we simply abstracted the concepts of 'executable objects', 'building', and 'loading'. Each language implementation provides its own methods for handling all of the steps that Inline performs.</P>
+<P>For Inline::Python the concept of an executable has been overridden to mean a <CODE>.pydat</CODE> file. A <CODE>.pydat</CODE> file contains data about a Python program. Kind of like a shared object contains data about a C program, in an abstract sense. If Inline detects that a program's Python section is not in sync with its <CODE>.pydat</CODE> file (via the MD5 fingerprint) Inline will build a new one.</P>
+<P>To build a new <CODE>.pydat</CODE> file Inline invokes Inline::Python's <A HREF="#item_build"><CODE>build()</CODE></A> method. That is also exactly what Inline does for C to build a new <CODE>.so</CODE> or <CODE>.dll</CODE> file. Whereas Inline::C uses Parse::RecDescent to parse the C code, Python uses a completely different parser. Python actually uses <CODE>python</CODE> to precompile Python. Then it stores the result in the <CODE>.pydat</CODE> file. This makes subsequent runs load much faster. Again, just like C.</P>
+<P>Finally, Inline calls Inline::Python's <A HREF="#item_load"><CODE>load()</CODE></A> routine. For C, this would be a call to DynaLoader, which would dynamically load the module and bind the appropriate C functions to Perl. For Python, <A HREF="#item_load"><CODE>load()</CODE></A> has to fire up a python interpreter and then bind all the functions in the <CODE>.pydat</CODE> file to Perl subroutines. Then when the Perl program calls one of these, it magically calls the Python code.</P>
+<P>Here is a sample program that makes uses of Inline Python:</P>
+<PRE>
+    use Inline Python;
+    my $language = shift;
+    print $language, 
+          (match($language, 'Perl') ? ' rules' : ' sucks'),
+          &quot;!\n&quot;;
+    __END__
+    __Python__
+    import sys
+    import re
+    def match(str, regex):
+        f = re.compile(regex);
+        if f.match(str): return 1
+        return 0</PRE>
+<P>This program uses a Python regex to show that ``Perl rules!''.</P>
+<P>Since Python supports its own versions of Perl scalars, arrays, and hashes, Inline::Python can flip-flop between them easily and logically. If you pass a hash reference to python, it will turn it into a dictionary, and vice-versa. Neil even has mechanisms for calling back to Perl from Python code. See the Inline::Python docs for more info.</P>
+<P>
+<H2><A NAME="the inline api">The Inline API</A></H2>
+<P>I refer to an Inline module that supports a given programming language as an <STRONG>ILSM</STRONG> (Inline Language Support Module). In order to write your own ILSM you need to know the Inline API. It is very simple actually. (The hard part is in implementing it :-)</P>
+<P>For starters your ILSM must have a name beginning with <CODE>'Inline::'</CODE>. Like <CODE>Inline::Foo</CODE> for instance. Inline keeps a registry of all of the ILSMs that are installed on a system, in the user's <CODE>.Inline/</CODE> directory. This happens automatically the first time that Inline uses that directory. That way Inline doesn't need to poll the ILSM every time Inline is used. If it did, it would need to load the ILSM, and that's expensive.</P>
+<P>The next requirement for your ILSM is for it to be a subclass of Inline by putting <CODE>Inline</CODE> into the <CODE>@ISA</CODE> array. If you want to load the Inline module as well, you should do it with:</P>
+<PRE>
+    require 'Inline';</PRE>
+<P>The statement <CODE>'use Inline;'</CODE> will not work. Note that it is probably not necessary for you to <CODE>'require Inline'</CODE> because <CODE>Inline.pm</CODE> is the module that is loading your ILSM in the first place. Remember, it is invalid for a programmer to say:</P>
+<PRE>
+    use Inline::Foo &lt;&lt;'END_FOO';</PRE>
+<P>They need to say <CODE>'use Inline Foo =&gt; &lt;&lt;'END_FOO';</CODE> instead.</P>
+<P>The last requirement for your ILSM is to support the API which consists of these five methods:</P>
+<DL>
+<DT><STRONG><A NAME="item_register"><CODE>register()</CODE></A></STRONG><BR>
+<DD>
+This method receives no arguments. It returns a reference to a hash of ILSM meta-data. <CODE>Inline</CODE> calls this routine only when it is trying to detect new ILSMs that have been installed on a given system. Here is an example of the hash ref you might return for Foo++:
+<PRE>
+    {
+     language =&gt; 'Foo',
+     aliases =&gt; ['Foo++', 'F++'],
+     type =&gt; 'compiled',
+     suffix =&gt; 'foodat',
+    };</PRE>
+<P></P>
+<DT><STRONG><A NAME="item_validate"><CODE>validate()</CODE></A></STRONG><BR>
+<DD>
+This routine gets passed all configuration options that were not already handled by the base <CODE>Inline</CODE> module. The options are passed as key/value pairs. It is up to you to validate each option and store its value in the <CODE>Inline</CODE> object (which is also passed in). If a particular option is invalid, you should croak with an appropriate error message.
+<P></P>
+<DT><STRONG><A NAME="item_build"><CODE>build()</CODE></A></STRONG><BR>
+<DD>
+This method is responsible for doing the parsing and compilation of the source code. No arguments are passed in except for the <CODE>Inline::Foo</CODE> object reference. But the object contains all the pertinent information you need to perform a build. <A HREF="#item_build"><CODE>build()</CODE></A> is required to create a file of a specific name. For C, this file would be the shared object.
+<P>This is the meat of your ILSM. Since it will most likely be quite complicated, it is probably best that you study an existing ILSM like <CODE>Inline::C</CODE>.</P>
+<P></P>
+<DT><STRONG><A NAME="item_load"><CODE>load()</CODE></A></STRONG><BR>
+<DD>
+The <A HREF="#item_load"><CODE>load()</CODE></A> is called every time Inline wants to run a Foo extension. The job of this method is to load the Foo's runtime environment, and to bind all the appropriate Foo functionality to Perl subroutines. For C and other compiled languages, Inline provides an inherited method that invokes DynaLoader. For interpreted languages (or if you just want more control) you need to provide your own <A HREF="#item_load"><CODE>load()</CODE></A> method.
+<P></P>
+<DT><STRONG><A NAME="item_info"><CODE>info()</CODE></A></STRONG><BR>
+<DD>
+This method is called when the user makes use of the <CODE>INFO</CODE> shortcut. You should return a string containing a small report about the Inlined code.
+<P></P></DL>
+<P>Inline comes with a manpage called <CODE>Inline-API</CODE> that explains writing ILSMs in much more detail.</P>
+<P>
+<HR>
+<H1><A NAME="see perl run. run perl, run!">See Perl Run. Run Perl, Run!</A></H1>
+<P>Inline is a great way to write C extensions for Perl. But is there an equally simple way to embed a Perl interpreter in a C program? I pondered this question myself one day. Writing Inline functionality for C would not be my cup of tea.</P>
+<P>The normal way to embed Perl into C involves jumping through a lot of hoops to bootstrap a perl interpreter. Too messy for one-liners. And you need to compile the C. Not very Inlinish. I had all but given up, when it suddenly struck me. What if the whole C program was just an Inline extension!</P>
+<P>In other words, what if you could pass your C program to a perl program that could pass it to Inline. Of course, Inline would have to bind to the <CODE>main()</CODE> function, and then just call it. I could then write my own little ``C interpreter'' in Perl. And the easiest way to use an interpreter in Unix is with the <CODE>#!</CODE> syntax. If all this was possible, I could write this program:</P>
+<PRE>
+    #!/usr/bin/cpr
+    int main(void) {
+        printf(&quot;Hello, world\n&quot;);
+    }</PRE>
+<P>and just run it from the command line. Interpreted C!</P>
+<P>From this inspiration, and a bit of perspiration, a new programming language was born. <STRONG>CPR</STRONG>. ``C Perl Run''. The Perl module that gives it life is called <CODE>Inline::CPR</CODE>. The difference between this and the other ILSMs is that you never <CODE>'use Inline =&gt; CPR;'</CODE>. When you install the module it installs two special components into your Perl bin directory: <CODE>'cpr'</CODE> and <CODE>'cpr.pl'</CODE>. Together, these form the CPR interpreter.</P>
+<P>Of course, CPR is not really its own language, in the strict sense. But you can think of it that way. CPR is just like C except that you can call out to the Perl5 API at any time, without any extra code. In fact, CPR redefines this API with its own CPR wrapper API. For instance, instead of using the <CODE>eval_pv()</CODE> function, you can use the similar <CODE>CPR_eval()</CODE> call. Here is a familiar example:</P>
+<PRE>
+    #!/usr/local/bin/cpr
+    int main(void) {
+        printf(&quot;Hello World, I'm running under Perl version %s\n&quot;,
+               CPR_eval(&quot;use Config; $Config{version}&quot;)
+              );
+        return 0;
+    }</PRE>
+<P>There are several ways to think of CPR: ``a new language'', ``an easy way to embed Perl in C'', or just ``a cute hack''. I lean towards the latter. CPR is probably a far stretch from meeting most peoples embedding needs. But at the same time its a very easy way to play around with, and perhaps redefine, the Perl5 internal API. The best compliment I've gotten for CPR is when my coworker Adam Turoff said, ``I feel like my head has just been wrapped around a brick''. I hope this next example makes you feel that way too:</P>
+<PRE>
+    #!/usr/bin/cpr
+    int main(void) {
+        CPR_eval(&quot;use Inline (C =&gt; q{
+            char* greet() {
+                return \&quot;Hello world\&quot;;
+            }
+        })&quot;);</PRE>
+<PRE>
+        printf(&quot;%s, I'm running under Perl version %s\n&quot;,
+               CPR_eval(&quot;&amp;greet&quot;),
+               CPR_eval(&quot;use Config; $Config{version}&quot;));
+        return 0;
+    }</PRE>
+<P>Using the <CODE>eval()</CODE> call this CPR program calls Perl and tells it to use Inline C to add a new function, which the CPR program subsequently calls. I think I have a headache myself. %^(</P>
+<P>
+<HR>
+<H1><A NAME="the future of inline">The Future of Inline</A></H1>
+<P>Inline version 0.30 was written specifically so that it would be easy for other people in the Perl community to contribute new language bindings for Perl. On the day of that release, I announced the birth of the Inline mailing list, <A HREF="mailto:inline@perl.org.">inline@perl.org.</A> (9) This is intended to be the primary forum for discussion on all Inline issues, including the proposal of new features, and the authoring of new ILSMs.</P>
+<P>In the year 2001, I would like to see bindings for Java, Ruby, Fortran and Bash. I don't plan on authoring all of these myself. But I may kickstart some of them, and see if anyone's interested in taking over. If <EM>you</EM> have a desire to get involved with Inline development, please join the mailing list and speak up.</P>
+<P>My primary focus at the present time, is to make the base Inline module as simple, flexible, and stable as possible. Also I want to see Inline::C become an acceptable replacement for XS; at least for most situations. Specifically, this involves:</P>
+<DL>
+<DT><STRONG><A NAME="item_Interactive_Debugging_Tools">Interactive Debugging Tools</A></STRONG><BR>
+<DD>
+Currently, when your Inline code doesn't compile, Inline tells you which build directory to look in. Then you need to go poking around to figure out what happened. Future Inline versions will have a optional feature that will prompt you with a menu of files to display in a pager, whenever an error occurs.
+<P></P>
+<DT><STRONG><A NAME="item_Hiding_the_MD5_Keys">Hiding the MD5 Keys</A></STRONG><BR>
+<DD>
+When Inline needs to know if an object module is in sync with the source code, it checks the MD5 fingerprint. Since the fingerprint needs to be stored somewhere relative to the file, the obvious first choice was to mangle it into the file name, like this:
+<PRE>
+    main_C_myscript_pl_3ca433bcac47af48ef1a5479734b2ef3.so</PRE>
+<P>where <CODE>myscript.pl</CODE> is a Perl program using Inline C in the default (<CODE>main</CODE>) namespace. While this is convenient to implement and also to guarantee uniqueness, it has a few drawbacks. For instance, if you have several objects from different builds which differ only by their MD5 keys; how do you know which one is current, and which ones are merely artifacts? Another problem is that the full path names of these files become so long that some versions of the <CODE>tar</CODE> program can't handle them.</P>
+<P>Another method is to create a pair of files like this:</P>
+<PRE>
+    myscript.so
+    myscript.inline</PRE>
+<P>The special <CODE>.inline</CODE> file will contain all the validation information for the object file. For the most common cases, this is the right thing to do. Support for other cases will be handled as well, but in a slightly different fashion.</P>
+<P></P>
+<DT><STRONG><A NAME="item_MakeMaker_Tools">MakeMaker Tools</A></STRONG><BR>
+<DD>
+If you wanted to write a CPAN module that used Inline C, it is currently possible to do so. But the compilation of your code will happen during the <CODE>'make test'</CODE> instead of during the <CODE>'make'</CODE> phase. This behaviour can be corrected by providing some simple Inline commands to put in your <CODE>Makefile.PL</CODE>
+<P></P>
+<DT><STRONG><A NAME="item_Precompiled_Distribution">Precompiled Distribution</A></STRONG><BR>
+<DD>
+I would like to be able to say something like:
+<PRE>
+    perl -MInline=MAKEPPM myscript.pl</PRE>
+<P>and have Inline generate a distributable precompiled package that I could share with other users running on the same platform. The package could then be installed elsewhere, using the command:</P>
+<PRE>
+    ppm install ./myscript.ppd</PRE>
+<P>without needing any compiler. This could be great for Windows Perl users who don't have the requisite compiler.</P>
+<P></P></DL>
+<P>
+<HR>
+<H1><A NAME="conclusion">Conclusion</A></H1>
+<P>Using XS is just too hard. At least when you compare it to the rest of the Perl we know and love. Inline takes advantage of the existing frameworks for combining Perl and C and packages it all up into one easy to swallow pill. As an added bonus, it provides a great framework for binding other programming languages to Perl. You might say, ``It's a 'Perl-fect' solution!''</P>
+<P>
+<HR>
+<H1><A NAME="footnotes">FOOTNOTES</A></H1>
+<OL>
+<LI>
+``DWIMity'' is the attribute of ``Doing What I Mean''.
+<P></P>
+<LI>
+SWIG and XS can be considered interface definition languages for extending Perl with C and C++.
+<P></P>
+<LI>
+Adapted from a one-liner by Abigail. Abigail is by far the most prolific writer of one-liners and JAPHs.
+<P></P>
+<LI>
+Adapted from a one-liner by Gisle Aas.
+<P></P>
+<LI>
+<A HREF="http://www.ActiveState.com">http://www.ActiveState.com</A>
+<P></P>
+<LI>
+<A HREF="http://www.cygwin.com">http://www.cygwin.com</A>
+<P></P>
+<LI>
+The <CODE>perlapi</CODE> manpage is only available with Perl 5.6.0 and higher, but it applies equally well to Perl 5.005. You can find it online at <A HREF="http://www.perldoc.com/perl5.6/pod/perlapi.html.">http://www.perldoc.com/perl5.6/pod/perlapi.html.</A>
+<P></P>
+<LI>
+The <CODE>cons</CODE> program is a replacement for <CODE>make</CODE> that also uses MD5 instead of date/time stamps. Interestingly, it is written in Perl.
+<P></P>
+<LI>
+To subscribe to the Inline mailing list, send an email message to <A HREF="mailto:inline-subscribe@perl.org.">inline-subscribe@perl.org.</A>
+<P></P></OL>
+<P>
+<HR>
+<H1><A NAME="about the author">About the Author</A></H1>
+<P>Brian Ingerson lives in Vancouver BC, and is working to make the Perl a better place. You can reach him at <A HREF="mailto:ingy@cpan.org.">ingy@cpan.org.</A></P>
+
+</BODY>
+
+</HTML>

@@ -1,0 +1,100 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Including Examples</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0028.htm">Embedded code</a>
+    &nbsp;&nbsp;Previous: <a href="slide0026.htm">Including Perl</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Including Examples">
+
+<H1>Including Examples
+</H1>
+
+
+<P>
+Included files can be declared to be examples. This makes the file placed into the source as a <I>verbatim block</I>, without need to copy its contents into the source.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  // include an external script as an example
+  \INCLUDE{<B>type=example</B> file=script}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+So, an example script of
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  #!perl -w
+
+  print &quot;Geetings from outside!\n&quot;;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+is made part of the source as if one would have written
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  &lt;&lt;EOE
+  #!perl -w
+
+  print &quot;Greetings from outside!\n&quot;;
+  EOE
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+All lines of the example file are included unchanged. On request, they can be indented. To do so, just set the special option <CODE>&quot;indent&quot;</CODE> to a positive numerical value equal to the number of spaces to be inserted before each line.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  // external example source, indented by 3 spaces
+  \INCLUDE{type=example file=script <B>indent=3</B>}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Including external scripts can accelerate PerlPoint authoring significantly, especially if the included files are still subject to changes.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0028.htm">Embedded code</a>
+    &nbsp;&nbsp;Previous: <a href="slide0026.htm">Including Perl</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

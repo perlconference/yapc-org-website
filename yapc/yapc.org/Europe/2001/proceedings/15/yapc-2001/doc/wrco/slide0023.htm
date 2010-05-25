@@ -1,0 +1,90 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Foreign tag integration</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0024.htm">Set up Active Contents handling</a>
+    &nbsp;&nbsp;Previous: <a href="slide0022.htm">Usual startup operations</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Foreign tag integration">
+
+<H1>4.6 Foreign tag integration
+</H1>
+
+
+<P>
+Every converter <A HREF="slide0017.htm#Modules to load">supports</A> a set of tags, but users can process the same sources by <I>several</I> converters which support different tags, so a source to be read by your converter may contain tags you did not think of. Fortunately this can be easily handled by implementing <A HREF="slide0021.htm#Common options">option</A> <CODE>-tagset</CODE> and the following statement.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # import tags
+  PerlPoint::Tags::addTagSets(@{$options{tagset}}) if exists $options{tagset};
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<CODE>PerlPoint::Tags::addTagSets()</CODE> extends the converters tag definitions by loading foreign <A HREF="slide0008.htm#Writing a tag module">definition files</A>. To make this intuitive, users have to pass <I>target formats</I> to <CODE>-tagset</CODE>, e.g. <CODE>HTML</CODE>.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  If a document was initially written to be processed
+  by pp2<B>html</B> and is now passed to your converter,
+  a user can use &quot;-tagset <B>HTML</B>&quot;.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Tag definition packages are named <CODE>PerlPoint::Tags::&lt;target format&gt;</CODE>, so this rule makes it easy to find the appropriate definitions, and <CODE>PerlPoint::Tags::addTagSets()</CODE> can load them.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  If &quot;-tagset <B>HTML</B>&quot; is specified, the definition
+  module PerlPoint::Tags::<B>HTML</B> is loaded.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Please note that because <CODE>-tagset</CODE> is intended to reflect definitions made for a certain converter, there is no way to load only a subset of another converters tags descriptions.
+</P>
+
+
+<P>
+Different to usual <A HREF="slide0017.htm#Modules to load">definition loading</A>, no warning is displayed here if a loaded foreign tag is named like an own one, and the <I>original</I> converter definition will remain established to give the converter first priority.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0024.htm">Set up Active Contents handling</a>
+    &nbsp;&nbsp;Previous: <a href="slide0022.htm">Usual startup operations</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

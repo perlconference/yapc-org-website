@@ -1,0 +1,90 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Including nested PerlPoint sources</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0023.htm">Special option: headlinebase</a>
+    &nbsp;&nbsp;Previous: <a href="slide0021.htm">File inclusion</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Including nested PerlPoint sources">
+
+<H1>Including nested PerlPoint sources
+</H1>
+
+
+<P>
+If the type of an included file is specified as <CODE>&quot;PP&quot;</CODE>, the file contents is made part of the presentation source.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  // include PerlPoint
+  \INCLUDE{<B>type=pp</B> file=&quot;nested.pp&quot;}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The nesting level is umlimited, but every file <I>in a nesting hierarchy</I> is <I>read only once</I> (to avoid confusion by circular nesting). (Including the same file multiply in different nesting hierarchies is possible without problems.)
+</P>
+
+
+<P>
+A PerlPoint file can be included wherever a tag is allowed, but sometimes it has to be arranged slightly: if you place the inclusion directive at the beginning of a new paragraph <I>and</I> your included PerlPoint starts by a paragraph of another type than text, you should begin the included file by an empty line to let the parser detect the correct paragraph type. Here is an example: if the inclusion directive is placed like
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  // include PerlPoint
+  \INCLUDE{type=pp file=&quot;file.pp&quot;}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+and <CODE>file.pp</CODE> immediately starts with a verbatim block like
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  &lt;&lt;VERBATIM
+      verbatim
+  VERBATIM
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+, <I>the inclusion directive already opens a new paragraph</I> which is detected to be <I>text</I> (because there is no special startup character). Now in the included file, from the parsers point of view the included PerlPoint is simply a continuation of this text, because a paragraph ends with an empty line. This trouble can be avoided by beginning such an included file by an empty line, so that its first paragraph can be detected correctly.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0023.htm">Special option: headlinebase</a>
+    &nbsp;&nbsp;Previous: <a href="slide0021.htm">File inclusion</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

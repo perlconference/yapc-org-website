@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Example</title>
+</head>
+
+<body>
+<h1 align = "center">An example</h1>
+
+<pre>
+<font color = "red">{print "Welcome\n"}</font>
+start:        die  /^\Z/
+
+die:          'd' number
+            | number 'd' number
+
+number:       /\d+/
+</pre>
+<hr>
+<pre>
+Welcome
+In [1] := 3d4
+Out [1] = &lt;&lt;MATCHED>>
+</pre>
+<hr>
+<a href = '18.html'>[Prev]</a>
+<a href = '20.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Actions</title>
+</head>
+
+<body>
+<h1 align = "center">Actions</h1>
+
+<!--
+<pre>
+start:        die  /^\Z/         {$item [1]}
+
+die:          'd' number         {1 + int rand $item [2]}
+            | number 'd' number  {my $s = 0;
+                                  foreach (1 .. $item [1]) {
+                                     $s += 1 + int rand $item [3]
+                                  }
+                                  $s}
+
+number:       /\d+/
+</pre>
+<hr>
+-->
+
+<ul><li>Actions look like standard Perl blocks.
+    <li>Inside the actions, <tt>Parse::RecDescent</tt> will supply
+        several variables for us:
+    <ul><li><strong><tt>@item</tt></strong>: 
+            This is a list with the return values of all the matched
+            items in the current production. <tt>$item[0]</tt> is
+            the name of the current rule.<br>
+            Compare the use of <tt>$1</tt>, <tt>$2</tt> in a 
+            <em>yacc</em> grammar.
+        <li><strong><tt>%item</tt></strong>:
+            This provides named access to the items that are already
+            matched in the current production. Items are named after the
+            subrules they match; other items have a number as key, the
+            number that corresponds with the number in the
+            <tt>@items</tt> array.
+        <li><strong><tt>$return</tt></strong>. If an assignment to
+            <tt>$return</tt> is made in a production <strong>and</strong>
+            the production succeeds, <tt>$return</tt> is returned
+            instead of the value of the last item.
+            Compare the use of <tt>$$</tt> in a <em>yacc</em> grammar.
+        <li><strong><tt>$text</tt></strong>. The remaining of the unparsed text.
+            You may assign to this - if the production fails, any changes
+            to <tt>$text</tt> don't propagate out - but they do if the
+            production succeeds.
+        <li><strong><tt>$thisline, $prevline, $thiscolumn, $prevcolumn,
+                        $thisoffset, $prevoffset</tt></strong>:
+            these variables give information on where in the text the
+            parser is. This can be useful for error messages.
+        <li><strong><tt>$thisparser</tt></strong>. A reference to the
+            current parser object. For deep magic, assign to this
+            variable and switch to a different parser for the remainer
+            of the current rule...
+        <li><strong><tt>$thisrule, $thisprod</tt></strong>.
+            References to objects representing the current rule and
+            current production.
+            If you need scribble space in these variables, use
+            <tt>$this...->{local}</tt>.
+        <li>And more...
+    </ul>
+    <li>Startup actions are performed before attempting to match the
+        first rule. Startup actions are found in the grammar before
+        the definition of the first rule. Typical usuage is to initialize
+        variables.
+</ul>
+
+
+<hr>
+<a href = '14.html'>[Prev]</a>
+<a href = '16.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

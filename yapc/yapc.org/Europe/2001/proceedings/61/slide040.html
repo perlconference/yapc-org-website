@@ -1,0 +1,71 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Writing Docs</TITLE>
+<META NAME="generator" CONTENT="txt2html v1.25">
+</HEAD>
+<BODY BGCOLOR="white"><FONT SIZE=4>
+
+<table width=100%>
+<tr><td width=33%><a href="slide041.html">Next</a></td>
+    <td align=center width=33% >How To Be Lazy</td>
+    <td align=right width=33%>Slide #40</td>
+</tr>
+</table>
+<hr>
+
+<H1><A NAME="section-1">Writing Docs</A></H1>
+
+<P>
+Scrap the traditional boilerplate
+
+<PRE>
+        ############################################
+        # Procedure - my_foo
+        #
+        # Inputs - string $yarblockos, integer $bar
+        # Outputs - float
+        ############################################
+</PRE>
+
+<P>
+Docs should flow as a descriptive narrative.
+
+<PRE>
+        =item B&lt;checkout&gt;
+</PRE>
+
+<PRE>
+            my $receipt = $basket-&gt;checkout($credit_card);
+</PRE>
+
+<PRE>
+        The items in a customer's shopping $basket (a Shop::Basket) are
+        checked out and paid for on their $credit_card (Shop::Card)
+        and an order placed with our warehouse.  Returns a $receipt
+        (Shop::Sale) containing details of this sale.
+</PRE>
+
+<PRE>
+        If the $credit_card is not valid or doesn't have enough
+        credit, false will be returned.
+</PRE>
+
+<PRE>
+        The $basket will be emptied and ready for more shopping.
+</PRE>
+
+
+
+
+<br clear=all>
+
+<hr>
+
+<table width=100%>
+<tr><td width=33%><a href="slide041.html">Next</a></td>
+    <td align=right width=33%>Copyright &copy; 2001 Michael G Schwern</td>
+</tr>
+</table>
+</FONT></BODY>
+</HTML>

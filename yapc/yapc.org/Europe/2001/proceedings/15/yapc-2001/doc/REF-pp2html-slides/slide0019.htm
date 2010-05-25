@@ -1,0 +1,100 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Tags in general</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0020.htm">Special purpose tags</a>
+    &nbsp;&nbsp;Previous: <a href="slide0018.htm">Tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Tags in general">
+
+<H1>Tags in general
+</H1>
+
+
+<P>
+Tags are <I>directives</I> embedded into the text stream, commanding how certain parts of the text should be interpreted. The general syntax is <B>&lt;name&gt;[{&lt;options&gt;}][&lt;body&gt;]</B>. Whether a part is optional or not depends on the tag (at least a tag name is required ;-).
+</P>
+
+
+<P>
+A <B>tag name</B> is made of a backslash and a number of alphanumeric characters (capitals):
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \TAG
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+B&lt;Tag options&gt; can be optional (see the specific tags documentation). They follow the tag name immediately, enclosed by a pair of corresponding curly braces. Each option is a simple string assignment. The value should be quoted if <CODE>/^\w+$/</CODE> does not match it. Option settings are separated by whitespace(s).
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \TAG<B>{par1=value1 par2=&quot;www.perl.com&quot; par3=&quot;words and blanks&quot;}</B>
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The <I>tag body</I> may be optional. If used, it is anything you want to make the tag valid for. It immediately follows the optional parameters, enclosed by angle brackets:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \TAG<B>&lt;body&gt;</B>
+  Tag bodies \TAG&lt;can
+  be multilined&gt;.
+  \TAG{par=value}<B>&lt;body&gt;</B>
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Tags can be <I>nested</I>.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \TAG1&lt;\TAG2&lt;body&gt;&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<I>Every PerlPoint translator defines its own tags</I>, but usually all of them support <CODE>\I</CODE>, <CODE>\B</CODE>, <CODE>\C</CODE>, <CODE>\IMAGE</CODE> and <CODE>\READY</CODE> as a base set. Additionally, there are a few reserved tags which are implemented by <I>every</I> translator. See the next section for details.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0020.htm">Special purpose tags</a>
+    &nbsp;&nbsp;Previous: <a href="slide0018.htm">Tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

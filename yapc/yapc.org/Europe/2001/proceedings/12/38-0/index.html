@@ -1,0 +1,65 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, Derived widget -2</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:54:10 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../37-0/index.html>Derived widget -1</A><BR>next: <A HREF=../39-0/index.html>Mega widget -1</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+(Full <A HREF=examples/vu.pm>source</A> of vu.pm)
+<CODE>ConfigSpecs</CODE> is a list of new and overruled widget-options.  The
+options can be handled various ways.  For derived widgets, the choice is
+limited: methods and passive options.
+<P>
+When the value of a METHOD-option is changed by <CODE>configure</CODE> or
+<CODE>ConfigSpecs</CODE>, Tk calls the method (function)
+with the corresponding name, passing-on the argument (always a scalar).
+A PASSIVE-option just stores the value to be used later.
+<P>
+A <CODE>cget</CODE> will call the METHOD-option's function without
+extra argument: the function shall return the setting.  In this case,
+a PASSIVE-method just returns the internally stored value.
+<P>
+Within your own widget, you have to use <CODE>cget</CODE> to get your
+own passive values to facilitate the future extention of your new widget.
+<P>
+You may write
+<PRE>
+  $obj->values([4,5])
+</PRE>
+as equivalent to
+<PRE>
+  $obj->configure(-values => [4,5])
+</PRE>
+but in former case, the current values are not stored in the internal
+widget structure.  In the latter it will.  Also, the latter hides the
+internal organisation of the object better, providing ways for future
+improvements of the widgets behaviour.
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../37-0/index.html>Derived widget -1</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../39-0/index.html>Mega widget -1</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

@@ -1,0 +1,113 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>How to center a paragraph or an image</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0010.htm">How to get numbered or not numbered headlines</a>
+    &nbsp;&nbsp;Previous: <a href="slide0008.htm">Colors in Tables</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="How to center a paragraph or an image">
+
+<H1>How to center a paragraph or an image
+</H1>
+
+
+<P>
+<B><U>Question:</U></B>
+</P>
+
+
+<P>
+How can I <A name="index_9_2"></A>center a paragraph or an image?
+</P>
+
+
+<P>
+<B><U>Answer:</U></B>
+</P>
+
+
+<P>
+Define macros which use embeded HTML to do the job:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ +CENTER_ON:\EMBED{lang=HTML}&lt;CENTER&gt;\END_EMBED
+
+ +CENTER_OFF:\EMBED{lang=HTML}&lt;/CENTER&gt;\END_EMBED
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B><U>Discussion:</U></B>
+</P>
+
+
+<P>
+Define the macros in a spceial file which can be included with the \INCLUDE tag or define them just at the beginning of your main PerlPoint file. Then you can use them in the following way:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \CENTER_ON
+
+ some text
+
+ \IMAGE{src=&quot;cool_img.gif&quot;}
+
+ \CENTER_OFF
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<CENTER>
+</P>
+
+
+<P>
+This text should be centered ...
+</P>
+
+
+<P>
+</CENTER>
+</P>
+
+
+<P>
+
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0010.htm">How to get numbered or not numbered headlines</a>
+    &nbsp;&nbsp;Previous: <a href="slide0008.htm">Colors in Tables</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

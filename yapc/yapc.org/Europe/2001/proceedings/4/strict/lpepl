@@ -1,0 +1,416 @@
+#!/pro/bin/perl
+
+# Replaces RPT for generating reports from lpe output
+#
+# lpepl format-file [page-length [top-margin [bottom-margin [left-margin]]]]
+#
+#	lpe 1 | lpepl lp_102.pl
+#	lpe -Es1 xx.L | lpepl lp_000
+#
+# Called from lperpt, which is the default user interface
+
+# %W%	[%E%]
+
+use strict;
+
+use Getopt::Long qw(:config nopermute bundling);;
+
+use PROCURA::RPT;
+
+use vars qw(
+    $opt_x
+
+    $s_gem
+    $d_sys $d_sys_d $d_sys_m $d_sys_y $D_sys $D_sys_s $D_sys_l $d_sys_ms $d_sys_ml
+    $t_sys $t_sys_h $t_sys_m $t_sys_s $T_sys $T_sys_s
+
+    $dashes0 $dashes1 $dashes2 $dashes3 $dashes4 $dashes5 $dashes6 $dashes7 $dashes8 $dashes9
+    %sex %sxx %bss %vtr
+    $lpseqno
+
+    @e
+    $tm $bm $lm $footer
+    @fmt $fmt @fnc @fns
+    );
+
+@ARGV == 1 and $ARGV[0] eq "-?" || $ARGV[0] =~ m/^-+help$/ and usage ();
+
+$opt_x  = 0;
+my $top = 0;		# Most recent only
+my $act = 0;		# Actual only (filter d_end < d_sys)
+GetOptions (
+    "n"	  => \$top,
+    "a"	  => \$act,
+    "x=s" => \$opt_x,	# lp_203.pl == lp_200.pl -x3
+    ) or usage ();
+
+$fmt = chk_fmt (shift);
+$=   = shift || 64;
+$tm  = shift ||  0;	# NYI, need to modify *{$::{TOP}}{FORMAT}, can't
+$bm  = shift ||  0;	# NYI, and probably won't in the near future
+$lm  = shift ||  0;	# NYI, need to post-process output of $cmd
+if ($lm > 0 and !open STDOUT, "|-") {
+    my $s = " " x $lm;
+    while (<STDIN>) {
+	s/^/$s/;
+	print;
+	}
+    close STDIN;
+    close STDOUT;
+    exit;
+    }
+#$::ps = $^L; $^L = "";
+#$::tm = "\n" x $tm;
+#$::bm = $bm; $= -= $bm;
+#$::vb = "";
+#
+#sub footer
+#{
+#    $% == 1 and return "";
+#
+#    my $bm = $- < $= ? $- : $::lastmin;
+#    print "\n" x ($bm - $::bm);
+#
+#    print "\n" x $::bm, $::ps;
+#    $::lastmin = $-;
+#    "";
+#    } # footer
+#
+#format TOP = # Replaced with A00, we want it only once
+#@* ~
+#@{[footer]}
+#@* ~
+#$::tm
+#@* ~
+#.
+
+my (@E, @en, @elp);
+
+require $fmt;
+
+my ($re_d, $re_f, $re_p, $flip);
+init_var ();
+
+sub has_format ($)
+{
+    my $fmt = shift;
+    exists $::{$fmt} or return 0;
+    $^O eq "MSWin32" or return defined *{$::{$fmt}}{FORMAT};
+    open my $null, "> /dev/null" or die;
+    my $fh = select $null;
+    local $~ = $fmt;
+    eval "write";
+    select $fh;
+    $@?0:1;
+    } # has_format
+
+while (<>) {
+    chomp;
+    if (s/^00\|0010\|//) {
+	$s_gem   = $_;
+	$s_gem   =~ s/\s+$//;
+	$e[0]{10} = $s_gem;
+	next;
+	}
+    push @elp, $_;
+    m/^99/	or next;
+
+    pop @elp;
+    # Convert the expanded LP-list to elements known in the format(s)
+    foreach my $lp (@elp) {
+	my ($cat, $elem, $data) = split m/\|/, $lp, 3;
+	$data =~ s/\s+$//;
+
+	my $ect = "$cat$elem";
+	$elem += 0;
+	if    ($ect =~ $re_d) {			# Dates
+	    $data =~ s/^(\d\d\d\d)(\d\d)(\d\d)$/$3-$2-$1/;
+	    }
+	elsif ($ect =~ $re_f) {			# Flips
+	    $data =~ s/^(.*?)\s*\Q$flip\E\s*(.*)/$2 $1/;
+	    }
+	elsif ($ect =~ $re_p && $data ne "") {	# PC's
+	    ($E[$cat][$en[$cat]]{$elem + 1} = $data) =~ s/(\d\d\d\d)(\w\w)/$1 $2  /;
+	    }
+
+#printf STDERR "\t[%6d] %2d %4d %s\n", $ect, $cat, $elem, $data;
+	if ($ect eq "139110") {	# Perhaps extend to 029110 too ...
+	    push @{$E[$cat][$en[$cat]]{$elem}}, $data;
+	    }
+	else {
+	    $E[$cat][$en[$cat]]{$elem} = $data;
+	    }
+	$elem == 9999 and $en[$cat]++;
+	}
+
+    foreach my $i (0 .. $#E) {
+	$e[$i] = $E[$i][0];
+	}
+
+# exists $e[1]{7010} and $mask (from script optie) and masked and next;
+    # set additional elements
+    create_elements ();
+
+    # Do all additional functions optionally supplied
+    # Each of them might modify or create elements
+    foreach my $fnc (@fnc) {
+	no strict "refs";
+	&$fnc;
+	}
+
+    $^ = has_format ("TOP") ? "TOP" : "EmptyTOP";
+
+    foreach $fmt (@fmt) {
+	$~ = $fmt;
+	my ($typ, $cat) = ($fmt =~ m/^(\w)(\d+)/);
+	unless ($typ eq "S") {
+	    $en[$cat] or next;		# No data, no processing
+	    no strict "refs";
+	    defined &$fmt and &$fmt;
+	    write;
+	    next;
+	    }
+	$top and next;
+	$fmt =~ s/:(\d+)// and ($~ = $fmt, $cat = $1);
+	$en[$cat] or next;		# No data, no processing
+	foreach my $i (1 .. ($en[$cat] - 1)) {
+	    $e[$cat] = $E[$cat][$i];
+	    $act and exists $e[$cat]{2320} && $e[$cat]{2320} < $d_sys and next;
+	    no strict "refs";
+	    foreach my $fnc (@fns) {
+		&$fnc;
+		}
+	    defined &$fmt and &$fmt;
+	    write;
+	    }
+	}
+    if (has_format ("EOR")) {
+	local $~ = "EOR";
+	defined &EOR and &EOR;
+	write;
+	}
+
+    reset_lp ();
+    }
+
+if ($footer) {
+    $_ = "";
+    $~ = "EOF";
+    defined &EOF and &EOF;
+    write;
+    }
+
+exit 0;
+
+# #############################################################################
+
+format EmptyTOP =
+.
+
+sub usage
+{
+    print "usage: lpepl <format-file>\n";
+    print "example: lpe 1 | lpepl lp_102\n";
+    exit 1;
+    } # usage
+
+sub chk_fmt
+{
+    my ($f) = @_;
+    my $s = $ENV{SCRIPTS};
+    my $F;
+
+    -f $f and return $f;
+
+    ($F = $f) =~ s/(\.pl)?$/.pl/;
+    -f $F and return $F;
+
+    -f "$s/$f" and return "$s/$f";
+    -f "$s/$F" and return "$s/$F";
+    
+    usage ();
+    } # chk_fmt
+
+sub init_var
+{
+    select STDOUT; $| = 1;
+
+    # Regex's for which fields are dates, flips and postcodes
+    $re_d = qr/^[01][0-9](031|092|142|23[1238]|25[245]|27[12]|832|851|86[12])1/;
+    $re_f = qr/^0[1-9](024[0156]|14[345]1|2211|524[01])/;
+    $re_p = qr/^0[1349]11[68]0/;
+
+    $flip = $ENV{FLIP} || "^";
+
+    ($t_sys_s, $t_sys_m, $t_sys_h, $d_sys_d, $d_sys_m, $d_sys_y) = localtime time;
+    $d_sys_ms	= ("jan", "feb", "mrt", "apr", "mei", "jun",
+		   "jul", "aug", "sep", "okt", "nov", "dec")[$d_sys_m];
+    $d_sys_ml	= ("januari", "februari", "maart",
+		   "april",   "mei",	  "juni",
+		   "juli",    "augustus", "september",
+		   "oktober", "november", "december")[$d_sys_m];
+    $d_sys_y   += 1900;
+    $d_sys_m   += 1;
+    $d_sys	= ($d_sys_y * 100 + $d_sys_m) * 100 + $d_sys_d;
+    $D_sys	= sprintf "%02d-%02d-%4d", $d_sys_d, $d_sys_m, $d_sys_y;
+    $D_sys_s	= "$d_sys_d $d_sys_ms $d_sys_y";
+    $D_sys_l	= "$d_sys_d $d_sys_ml $d_sys_y";
+    $t_sys	= ($t_sys_h * 100 + $t_sys_m) * 100 + $t_sys_s;
+    $T_sys	= sprintf "%02d:%02d",      $t_sys_h, $t_sys_m;
+    $T_sys_s	= sprintf "%02d:%02d:%02d", $t_sys_h, $t_sys_m, $t_sys_s;
+
+    $dashes0	= "." x 255;
+    $dashes1	= "-" x 255;
+    $dashes2	= "=" x 255;
+    $dashes3	= "*" x 255;
+    $dashes4	= "#" x 255;
+    $dashes5	= "_" x 255;
+    $dashes6	= "+" x 255;
+    $dashes7	= "<" x 255;
+    $dashes8	= ">" x 255;
+    $dashes9	= "/" x 255;
+
+    $sex{""}	= "   ";
+    $sex{M}	= "MAN";
+    $sex{V}	= "VRW";
+    $sex{O}	= "ONB";
+    $sxx{""}	= "Onbekend";
+    $sxx{M}	= "Man";
+    $sxx{V}	= "Vrouw";
+    $sxx{O}	= "Onbekend";
+
+    $bss{""}	= "Ong";
+    $bss{O}	= "Ong";
+    $bss{H}	= "Huw";
+    $bss{S}	= "Sch";
+    $bss{V}	= $bss{S};
+    $bss{W}	= "Wed";
+    $bss{"  "}	= "Ongehuwd";
+    $bss{" M"}	= "Ongehuwd";
+    $bss{" O"}	= "Ongehuwd";
+    $bss{" V"}	= "Ongehuwd";
+    $bss{"H "}	= "Gehuwd";
+    $bss{"HM"}	= "Gehuwd";
+    $bss{"HO"}	= "Gehuwd";
+    $bss{"HV"}	= "Gehuwd";
+    $bss{"O "}	= "Ongehuwd";
+    $bss{"OM"}	= "Ongehuwd";
+    $bss{"OO"}	= "Ongehuwd";
+    $bss{"OV"}	= "Ongehuwd";
+    $bss{"S "}	= "Gescheiden";
+    $bss{"SM"}	= "Gescheiden";
+    $bss{"SO"}	= "Gescheiden";
+    $bss{"SV"}	= "Gescheiden";
+    $bss{"W "}	= "Weduw(e/naar)";
+    $bss{"WM"}	= "Weduwnaar";
+    $bss{"WO"}	= "Weduw(e/naar)";
+    $bss{"WV"}	= "Weduwe";
+
+    $vtr{""}	= "";
+    $vtr{V}	= "Vertrek";
+    $vtr{E}	= "Emigratie";
+    $vtr{O}	= "Overlijden";
+    $vtr{H}	= "Huwelijk";
+    $vtr{S}	= "Vrijstelling";
+    $vtr{D}	= "Diversen";
+
+    $s_gem	= "";
+    $lpseqno	= 0;
+
+    reset_lp ();
+
+    $footer = 0;
+    if (@fmt && $fmt[-1] eq "EOF") {
+	pop @fmt;
+	$footer = 1;
+	}
+    elsif (has_format ("EOF")) {
+	$footer = 1;
+	}
+    } # init_var
+
+sub reset_lp
+{
+    $lpseqno++;
+    @elp = ();
+    @E   = ();
+    @e   = ();
+    @en  = (0) x 100;
+    $e[0]{10} = $s_gem;
+    } # reset_lp
+
+sub create_elements
+{
+    @{$e[0]}{qw( 2310 2311 2312 2313 2340 2341 2342 )} =
+	($d_sys, $D_sys, $D_sys_s, $D_sys_l, $t_sys, $T_sys, $T_sys_s);
+
+    $e[1]{211} eq "" and $e[1]{211} = $e[1]{210};
+    $e[1]{216} eq "" and $e[1]{216} = $e[1]{215};
+    $e[1]{241} eq "" and $e[1]{241} = $e[1]{240};
+    $e[1]{246} eq "" and $e[1]{246} = $e[1]{245};
+
+    $e[1]{212}  = initials  ($e[1]{210});
+    $e[1]{213}  = initials  ($e[1]{211});
+    $e[1]{214}  = initials2 ($e[1]{211});
+    $e[1]{217}  = initials  ($e[1]{215});
+    $e[1]{218}  = initials  ($e[1]{216});
+    $e[1]{219}  = initials2 ($e[1]{216});
+
+    ($e[1]{200} = "$e[1]{214} $e[1]{241}") =~ s/^\s+//;
+
+    $e[1]{411}  = $sex{$e[1]{410}};
+    $e[1]{412}  = $sxx{$e[1]{410}};
+    $e[1]{421}  = $bss{$e[1]{420}};
+    $e[1]{422}  = $bss{pack "AA" => $e[1]{420}, $e[1]{410}};
+
+    $e[1]{8623} = $vtr{$e[1]{8622}};
+
+    $e[1]{1100} = $e[1]{1111} eq "" ? $e[1]{1211} : join " ",
+	grep (m/\S/, @{$e[1]}{qw(1150 1111 1120 1130 1140)});
+
+    $e[1]{1021} eq "" and $e[1]{1021} = $s_gem;
+    $e[1]{1025} = "$e[1]{1161}$e[1]{1021}";
+
+    $e[1]{7011} = $e[1]{7010} || "0";
+
+    $e[2]{9111} = $e[2]{9110};
+    foreach my $i (1 .. ($en[2] - 1)) {
+	$e[2]{9111} .= " ".$E[2][$i]{9110};
+	}
+    $e[2]{9111} =~ s/\s\s+/ /g;
+
+    $e[3]{211}  eq "" and $e[3]{211}  = $e[3]{210};
+    $e[3]{241}  eq "" and $e[3]{241}  = $e[3]{240};
+    $e[3]{5211} eq "" and $e[3]{5211} = $e[3]{5210};
+    $e[3]{5241} eq "" and $e[3]{5241} = $e[3]{5240};
+
+    # Datum ingang school, rekening houdend met `gaten'
+    my $i = $en[4] - 1;
+    my $e2310;
+    my $e2311;
+    while ($i >= 1) {
+	$e2310 = $E[4][$i]{2310};
+	$e2311 = $E[4][$i]{2311};
+	for (my $j = $i; $i >= 1 && $E[4][$j]{2010} == $E[4][$i]{2010}; $i--) {
+	    $E[4][$i]{2330} = $e2310;
+	    $E[4][$i]{2331} = $e2311;
+	    }
+	}
+    if ($e[4]{2010} == $E[4][1]{2010}) {
+	$e[4]{2330} = $e2310;
+	$e[4]{2331} = $e2311;
+	}
+    else {
+	$e[4]{2330} = $e[4]{2310};
+	$e[4]{2331} = $e[4]{2311};
+	}
+
+    if (exists $e[13]{9110}) {
+	$e[13]{9111} = [ @{$e[13]{9110}} ] and
+	$e[13]{9110} = $e[13]{9110}[0];
+	}
+    else {
+	$e[13]{9111} = [];
+	$e[13]{9110} = "";
+	}
+    } # create_elements

@@ -1,0 +1,107 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Parse Trees</title>
+</head>
+
+<body>
+<h1 align = "center">Parse Trees</h1>
+
+<pre>
+#!/opt/perl/bin/perl -w
+
+use strict;
+
+use Parse::RecDescent;
+
+sub start::roll {
+    my $self = shift;
+    $self -> {die} -> roll;
+}
+
+sub die::roll {
+    my $self = shift;
+    my $sum  = 0;
+
+    if ($self -> {count}) {
+        foreach (1 .. $self -> {count} -> amount) {
+            $sum += $self -> {faces} -> roll;
+        }
+    }
+    else {
+        $sum = $self -> {faces} -> roll;
+    }
+
+    $sum;
+}
+
+sub number::value {
+    my $self = shift;
+    $self -> {__VALUE__}
+}
+
+sub count::amount {
+    my $self = shift;
+    $self -> {number} -> value;
+}
+
+sub faces::roll {
+    my $self = shift;
+    1 + int rand $self -> {number} -> value;
+}
+
+
+my $grammar = &lt;&lt;'EOG';
+&lt;autotree>
+start:        die  /^\Z/
+
+die:          'd' faces
+            | count 'd' faces
+
+count:        number
+faces:        number
+number:       /\d+/
+EOG
+
+my $parser = Parse::RecDescent -> new ($grammar) or die "Failed to parse.\n";
+
+while (&lt;>) {
+    chomp;
+    my $val = $parser -> start ($_);
+    next unless $val;
+    foreach (1 .. 8) {
+        print "$_: ", $val -> roll, "\n";
+    }
+}
+
+__END__
+</pre>
+<hr>
+<pre>
+3d4
+1: 6
+2: 6
+3: 5
+4: 8
+5: 7
+6: 8
+7: 7
+8: 10
+d8
+1: 3
+2: 4
+3: 4
+4: 1
+5: 2
+6: 5
+7: 4
+8: 4
+</pre>
+
+<hr>
+<a href = '31.html'>[Prev]</a>
+<a href = '33.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

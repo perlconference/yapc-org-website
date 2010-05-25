@@ -1,0 +1,142 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Line indentation in tagged examples</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0005.htm">Variable assignments do not work</a>
+    &nbsp;&nbsp;Previous: <a href="slide0003.htm">How do I place an optionless and bodyless tag or macro before a capitalized character?</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Line indentation in tagged examples">
+
+<H1>Line indentation in tagged examples
+</H1>
+
+
+<P>
+<B><U>Question:</U></B>
+</P>
+
+
+<P>
+I used tags in an example and now it's difficult to find the correct line indentation. The result looks like
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  %hash=(
+               key1 =&gt; value1,
+           key2 =&gt; value2,
+             );
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+when it should be
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  %hash=(
+         key1 =&gt; value1,
+         key2 =&gt; value2,
+        );
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B><U>Answer:</U></B>
+</P>
+
+
+<P>
+Write down the complete example first as pure text and relatively indent the lines as necessary. Add the wished tags in a second step.
+</P>
+
+
+<P>
+<B><U>Discussion:</U></B>
+</P>
+
+
+<P>
+This is a common problem with markup languages and not special to PerlPoint. Tags consume space. While this is no problem in a text dynamically wrapped, it is sometimes an issue in example authoring: sometimes its difficult to <I>see</I> how the resulting lines of an example will be indented:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  \PREFIX&lt;%&gt;\BOLD&lt;hash&gt;=\ITALIC&lt;(&gt;
+          \BOLD&lt;\YELLOW&lt;key1&gt;&gt; =&gt; \GREEN&lt;value1&gt;,
+          \BLACK&lt;\ITALIC&lt;key2&gt;&gt; =&gt; value2,
+       \ITALIC&lt;)&gt;;
+
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+In order to simplify the task of indenting lines correctly, the &quot;pure&quot; example can be indented as necessary first
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  %hash=(
+         key1 =&gt; value1,
+         key2 =&gt; value2,
+        );
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+and then you can add the tags you wish without modifying original indention and spaces.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  \PREFIX&lt;%&gt;\BOLD&lt;hash&gt;=\ITALIC&lt;(&gt;
+         \BOLD&lt;\YELLOW&lt;key1&gt;&gt; =&gt; \GREEN&lt;value1&gt;,
+         \BLACK&lt;\ITALIC&lt;key2&gt;&gt; =&gt; value2,
+        \ITALIC&lt;)&gt;;
+
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0005.htm">Variable assignments do not work</a>
+    &nbsp;&nbsp;Previous: <a href="slide0003.htm">How do I place an optionless and bodyless tag or macro before a capitalized character?</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

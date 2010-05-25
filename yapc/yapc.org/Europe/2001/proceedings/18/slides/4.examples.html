@@ -1,0 +1,112 @@
+<html>
+	<head>
+		<title>Slide 4: Examples</title>
+	</head>
+	
+	<body bgcolor="white">
+			<table border="0" width="80%" align="center">
+				<tr>
+					<td align="left"  ><font face="sans-serif" size="+3" color="darkgray">
+						<a href="3.how.html">
+							PREV</a>
+					</font></td>
+					<td align="center"><font face="sans-serif" size="+2">
+						Examples
+					</font></td>
+					<td align="right" ><font face="sans-serif" size="+3" color="darkgray">
+						<a href="5.limitations.html">
+							NEXT</a>
+					</font></td>
+				</tr>
+			</table>
+
+			<hr width="80%">
+			
+			
+			<table width="80%" align="center">
+				<tr><td>
+					<font face="sans-serif" size="+2">
+					
+						<h2>Mutagens</h2>
+						<ul>
+							<li> Make regular expressions work backwards:
+<pre>use overload;
+
+BEGIN {
+    overload::constant qr => sub {
+        return reverse shift();
+    };
+}
+
+print "It worked!\n" if "foo" =~ /oof^/;</pre>
+							<br />
+							
+							<li> Make subroutine calling case-insensitive:
+<pre>sub AUTOLOAD {
+    no strict 'refs';
+    goto &{lc $AUTOLOAD};
+}
+
+sub foo {
+    print "It worked!\n";
+}
+
+FoO();</pre>
+							<br />
+							
+							<li> Initialise all global variables to zero:
+<pre>CHECK {
+    while (my($n,$v) = each %::) {
+        $$v = 0 if !defined $$v;
+    }
+}
+
+print "It worked!\n" if defined($any_variable)
+                     && $any_variable == 0;</pre>
+							<br />
+							
+							<li> Everything should be printed backwards:
+							
+<pre>sub TIEHANDLE {my $x; bless \$x}
+sub PRINT {
+    shift;
+    print REALOUT map scalar reverse, reverse @_;
+}
+open(REALOUT, ">&STDOUT");
+tie *STDOUT, "main";
+print "\n!dekrow", " tI"</pre>
+
+							
+						</ul>
+
+
+						<h2>Extensions</h2>
+						<ul>
+							<li> I'm an lvalue subroutine. Was I called in lvalue or
+								 rvalue context?
+
+<pre>use Inline C => &lt;&lt;NOMO;
+
+U8 wantlvalue ()
+{
+    return cxstack[cxstack_ix].blk_sub.lval;
+}
+
+NOMO
+
+sub foo :lvalue {
+    print (wantlvalue() ? "lvaluably\n" : "rvaluably\n");
+    my $foo
+}
+
+foo();
+foo() = 23;</pre>
+							
+							<li> <a href="5.limitations.html">&gt;&gt;</a>
+						</ul>
+
+					</font>
+				</td></tr>
+			</table>
+	</body>
+</html>

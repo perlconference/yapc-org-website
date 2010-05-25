@@ -1,0 +1,91 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Backend callbacks</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0028.htm">Backend invokation: produce new code</a>
+    &nbsp;&nbsp;Previous: <a href="slide0026.htm">Backend construction</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Backend callbacks">
+
+<H1>4.10 Backend callbacks
+</H1>
+
+
+<P>
+A backend is used to translate stream elements into appropriate expressions of the target format. Because of this, they need to work very format (or converter) specific. The only common task is to read the stream and to ignore all parts which the converter doesn't wish to support. These requirements are solved by a callback architecture.
+</P>
+
+
+<P>
+When a backend is <A HREF="slide0028.htm#Backend invokation: produce new code">started</A>, it runs through the stream. Every stream element is checked for its type, and then it is checked if a callback was specified to handle it. If so, the callback will be invoked to handle the element found, if not, the elemenet is ignored. Simple but powerful!
+</P>
+
+
+<P>
+To make this work, callbacks need to be registered before the backend starts its stream run. This is done by the backend method <B><CODE>register()</CODE></B>.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # register backend handlers
+  $backend-&gt;register(DIRECTIVE_BLOCK, &amp;handleBlock);
+  ...
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<CODE>register()</CODE> takes an element type and a code reference. All possible stream element types are declared by constants, which are defined and documented in <B><CODE>PerlPoint::Constants</CODE></B>. The code reference, on the other hand, points to a function which shall be invoked when an element of the described type is detected, which means that it begins or end.
+</P>
+
+
+<P>
+Consider, for example, the statement in the last recent example: <CODE>DIRECTIVE_BLOCK</CODE> describes a code block element. The stream does not store blocks completely, but by a begin and end flag which show the &quot;edges&quot; of the block construction. Therefore the specified callback <CODE>handleBlock()</CODE> will be invoked twice: it will be called both when the block begins and when it is completed.
+</P>
+
+
+<P>
+The callback <I>interface</I> is simple. It has a <I>common</I> part which is equal for all elements, and a <I>special</I> part which depends on the element type. The common part includes the element type (<CODE>DIRECTIVE_BLOCK</CODE>, <CODE>DIRECTIVE_TEXT</CODE>, ...) and the mode which is either <CODE>DIRECTIVE_START</CODE> or <CODE>DIRECTIVE_COMPLETED</CODE>, flagging if the element is starting or complete.
+</P>
+
+
+<P>
+The <I>special</I> contains things like the name of a source file (<CODE>DIRECTIVE_DOCUMENT</CODE>), tag options (<CODE>DIRECTIVE_TAG</CODE>) or a headline level (<CODE>DIRECTIVE_HEADLINE</CODE>). See <A HREF="slide0031.htm#Appendix A: Stream directives">Appendix A</A> for a complete list of all callback interfaces.
+</P>
+
+
+<P>
+There is no common way how callbacks should work. It strongly depends on the target format, the converter features and the tags. You may build another data structure which is finally made a file, or print immediately, or mix both approaches, and there are several more choices like this. But the frameset helps to begin coding this individual part quickly.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0028.htm">Backend invokation: produce new code</a>
+    &nbsp;&nbsp;Previous: <a href="slide0026.htm">Backend construction</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+
+<html>
+<head>
+<title>Parsing: grammars</title>
+</head>
+
+<body>
+<h1 align = "center">The Chomsky Hierarchy</h1>
+
+<ul>
+<li>Regular Expressions (RE).
+<li>Context Free Grammars (CFG).
+    <!--
+    <ul><li>Require a push down automaton (PDA), which is essentially
+            a FA and a stack.
+        <li>Bottom up parsers.
+        <ul><li>Shift-reduce parsers.
+            <li>Operator Precedence parsing.
+            <li><tt>yacc</tt>
+        </ul>
+        <li>Top down parsers.
+        <ul><li>Recursive Descent parsers.
+        </ul>
+        <li>Predictive parsers (LL(k), LR(k), LALR(k)).
+    </ul>
+    -->
+<li>Context Sensitive Grammars (CSG).
+<li>Unrestricted Grammars.
+</ul>
+
+<!--
+<hr>
+<ul><li>Perl regexes recognize a subset of CSGs.
+    <li>Without backreferencing, 5.004 and before style regexes are REs.
+    <li>Not even Ilya knows where to classify post 5.004 style regexes.
+</ul>
+
+<ul><li><tt>Parse::RecDescent</tt> mostly recognizes CFGs; however, it
+        has enough hooks and features to recognize a subset of CSGs.
+    <li><tt>Parse::RecDescent</tt> generates top down parsers.
+    <li><tt>Parse::RecDescent</tt> doesn't generate predictive parsers;
+        its parsers backtrack.
+</ul>
+-->
+<hr>
+<a href = '02.html'>[Prev]</a>
+<a href = '04.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

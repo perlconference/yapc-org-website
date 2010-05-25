@@ -1,0 +1,51 @@
+#!/usr/bin/perl -w
+
+# File: tk-canvas
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+# This program demonstrates bindings to canvas-items.  Canvas-items
+# can be selected per object or by tag.
+# Keys l, o, and b have special function attached.
+
+use strict;
+use Tk;
+
+my $mw = MainWindow->new;
+my $c  = $mw->Canvas
+  ( -width      => 600
+  , -height     => 600
+  , -background => 'white'
+  )->pack;
+
+my $l  = $c->createLine
+  ( 100,100, 300,300, 200,100
+  , -width      => 3
+  , -fill       => 'red'
+  );
+
+$c->createOval
+  ( 150,150, 350,400
+  , -width      => 3
+  , -tag        => 'oval'
+  );
+
+# Press `l' or `o' to move line resp oval.
+# Press `b' to fill the oval with solid blue.
+
+$c->CanvasBind
+   ( 'all','<Key-l>'
+   , sub {$c->move($l, 120,130)}
+   );
+
+$c->CanvasBind
+   ( 'all','<Key-o>'
+   , sub {$c->move(oval => 120,130)}
+   );
+
+$c->CanvasBind
+   ( 'all', '<Key-b>'
+   , sub {$c->itemconfigure('oval', -fill => 'blue')}
+   );
+
+MainLoop;

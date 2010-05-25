@@ -1,0 +1,280 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Language Overview</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0004.htm">Extended PerlPoint Language</a>
+    &nbsp;&nbsp;Previous: <a href="slide0002.htm">Introduction</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Language Overview">
+
+<H1>3 Language Overview
+</H1>
+
+
+<P>
+Together with <I>Stephen Riehm</I> we defined the new enhanced syntax for PerlPoint. It was based on the original syntax by Tom Christiansen but slightly modified to meet our additional needs. Nevertheless, PerlPoint is still a simple language, and it is easy to write PerlPoint input files. Just start to write:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ This examples shows valid PerlPoint input text.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+German <I>umlauts</I> and other special characters can be used freely. When the target language does not support theses characters directly, the corresponding converter will handle this for you and translate them to special notations like <CODE>&amp;uuml;</CODE> in HTML. This feature simplifies writing and allows copying texts from other formats.
+</P>
+
+
+<P>
+Similar to HTML, line breaks within a text have no effect. PerlPoint is <B>paragraph oriented</B>. All lines within the same paragraph are combined as if they had been written as one long line.
+</P>
+
+
+<P>
+Each paragraph is terminated by at least one empty line:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  Here a paragraph begins.
+  This line is part of the first paragraph as well.
+
+  This is a new paragraph.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Of course, a document seldomly contains text paragraphs only. PerlPoint therefore offers various other paragraph types. The first character of a paragraph flags which type of paragraph it is. <B>Headlines</B>, for example, start with (at least) one equality sign (<CODE>=</CODE>).
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ <B>=</B>A New Chapter
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The following empty line terminates the headline paragraph. If a headline is very long, it may be continued in the next source lines:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ =It should be difficult to
+ print the text of this headline
+ in one single line of a small
+ paperback booklet
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+More often than such long headlines you will need <I>subsection</I> headlines. PerlPoint allows to specify the level of a headline by multiple equality signs at the beginning of a headline:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ <B>=</B>Title
+
+ <B>==</B>Subsection 1
+
+ <B>==</B>Subsection 2
+
+ <B>===</B>Let's look at details
+
+ <B>=</B>Appendix
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Each headline starts a new slide, and the headline is printed on top of this slide.
+</P>
+
+
+<P>
+Single statements are often presented as <B>bullet items</B>: They contain very little text, catch the eye and provide a short summary of the presented contents. This is easier to read than a long text paragraph.
+</P>
+
+
+<P>
+PerlPoint marks such bullets by an asterisk:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ <B>*</B> &quot;Bullet&quot;
+
+ <B>*</B> easy to read
+
+ <B>*</B> PerlPoint input is similar to the result
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Such a bunch of bullet items is nothing more than an <B>unordered list</B> (which is actually translated into an HTML <CODE>&lt;UL&gt;</CODE> construction by <CODE>pp2html</CODE>). And of course, there are numbered lists as well:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ <B>#</B> first item
+
+ <B>#</B> and second item
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B>Numbered list</B> point paragraphs start with a hash sign (&quot;#&quot;). We decided to use this character because it is often used for numbers. Readers familiar with this meaning will find writing and reading of such paragraphs intuitive.
+</P>
+
+
+<P>
+Sometimes it is useful to have hierarchical lists: one top level list containing some sub-lists. PerlPoint offers <B>shift</B> paragraphs to achieve this. Shift paragraphs can be placed between normal list paragraphs and modify the level of subsequent list parts:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ # Begin
+
+ <B>&gt;</B>
+
+ # Level 2, no. one
+
+ # Level 2, no. two
+
+ <B>&lt;</B>
+
+ # Conclusion
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Perhaps you might think that this is not very intuitive. It would be nicer to indicate sublevel lists by indentation. But indentation is reserved for another important paragraph type: <B>example code</B>. This is similar to POD. If you want to include a code example in your presentation, you just copy it to your PerlPoint file and indent it with one ore more spaces. It is sufficient to indent the first line (because this determines the paragraph type) but usually you will use the same indentation for all lines of your example block.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ A little example makes this clear:
+
+   @sorted=sort byNumber (@array);
+
+   sub byNumber
+    {
+     ...
+    }
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Normally, empty lines terminate a paragraph. However, in code examples, consecutive blocks are combined to form one big example block. Only another paragraph type like bullets or headlines terminate the example.
+</P>
+
+
+<P>
+But if you insist to separate example blocks you can use a special paragraph type to enforce this. This <B>control paragraph</B> contains nothing but a minus sign (<CODE>&quot;-&quot;</CODE>):
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ sort() can be called in different ways:
+
+   @sorted=sort(@array);
+
+ <B>-</B>
+
+   @sorted=sort byFunction @array;
+
+ <B>-</B>
+
+   @sorted=sort {$a&lt;=&gt;$b} @array;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This minus sign paragraph indicates to PerlPoint (and to the human reader) that examples have to be separated. The <CODE>-</CODE> characterwill not be made part of the result.
+</P>
+
+
+<P>
+Alternatively to indented example blocks, you can also use <B>verbatim blocks</B>:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ &lt;&lt;EOE
+
+ In this example you need not to deal with
+ PerlPoint syntax. This text is printed
+ &quot;as is&quot; (without regarding tags etc.)
+ You may copy it 1:1 from another source.
+
+ EOE
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+In contrary to indented example blocks, such verbatim blocks are not searched for PerlPoint tags (see below).
+</P>
+
+
+<P>
+In our list of basic PerlPoint elements there is only one thing missing: <B>comments</B>. Of course they are also represented by a special paragraph type. These comment paragraphs start with two slashes: (&quot;//&quot;). The hash sign was already used for numbered lists, so we decided to introduce the C++ solution for comments.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  // some hints for the printed version
+  // ....
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+To make the PerlPoint input more readable, comments need no subsequent empty line to be terminated. Each comment is automatically terminated with the end of its line.
+</P>
+
+
+<P>
+Headlines, texts, bullet items, numbered lists, examples and comments are the <I>basic vocabulary</I> of PerlPoint. It is easy to learn and you can start at once to write simple presentations.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0004.htm">Extended PerlPoint Language</a>
+    &nbsp;&nbsp;Previous: <a href="slide0002.htm">Introduction</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,171 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2001 is an inexpensive Perl conference on August 2-4, 2001, at Hogeschool Holland, Amsterdam, Netherlands">
+    <meta name="keywords"
+          content="Perl,Perl conference,Hogeschool Holland,Amsterdam,Netherlands,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2001: Yet Another Perl Conference</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="images/yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#ff7202" width=120 valign="top">
+
+     <table cellpadding=2 cellspacing=0 border=0><tr><td bgcolor="#000000">
+      <table align="center" cellpadding=6 cellspacing=0 border=0>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+                        <b><font size="2">
+            <font color="#ff7202">Yet Another Perl Conference Europe 2001</font><br>
+            August&nbsp;2-4, 2001
+            <br><br>Hogeschool&nbsp;Holland<br>
+            Amsterdam,&nbsp;Netherlands
+            </font></b>
+
+          </td>
+        </tr>
+       </table>
+</td></tr></table>
+<br>
+
+<table cellpadding=1 cellspacing=1 border=0></table>
+
+<table cellpadding=1 cellspacing=1 border=0><tr><td><br></td></tr>
+ <tr>
+  <td bgcolor="#00000">&nbsp;</td>
+  <td width="100%">&nbsp;<a class="sidehead" href="index.html"><b>YAPC::Europe Home</b></a></td>
+ </tr></table>
+
+<table cellpadding=1 cellspacing=1 border=0><tr><td><br></td></tr>
+ <tr>
+  <td bgcolor="#00000">&nbsp;</td>
+  <td width="100%">&nbsp;<a class="sidehead" href="registration.html"><b>Registration</b></a></td>
+ </tr></table>
+
+<table cellpadding=1 cellspacing=1 border=0><tr><td><br></td></tr>
+ <tr>
+  <td bgcolor="#00000">&nbsp;</td>
+  <td width="100%">&nbsp;<a class="sidehead" href="sponsors.html"><b>Sponsors</b></a></td>
+ </tr></table>
+
+<table cellpadding=1 cellspacing=1 border=0><tr><td><br></td></tr>
+ <tr>
+  <td bgcolor="#00000">&nbsp;</td>
+  <td width="100%">&nbsp;<a class="sidehead" href="talks.html"><b>Talks</b></a></td>
+ </tr> <tr>
+ <td></td>
+ <td><font size=2>&nbsp;<a class="side" href="cfp.html">Call For Participation</a><br>&nbsp;<a class="side" href="talks.html">Schedule</a><br>&nbsp;<a class="side" href="talks.html#lightning">Lightning Talks</a><br> </font></td>
+ </tr>
+</table>
+
+
+<table cellpadding=1 cellspacing=1 border=0><tr><td><br></td></tr>
+ <tr>
+  <td bgcolor="#00000">&nbsp;</td>
+  <td width="100%">&nbsp;<a class="sidehead" href="venue.html"><b>Location</b></a></td>
+ </tr> <tr>
+ <td></td>
+ <td><font size=2>&nbsp;<a class="side" href="venue.html">Getting There</a><br>&nbsp;<a class="side" href="venue.html">On Campus</a><br>&nbsp;<a class="side" href="venue.html">Accommodation</a><br>&nbsp;<a class="side" href="venue.html">About Amsterdam</a><br> </font></td>
+ </tr>
+</table>
+
+<table cellpadding=1 cellspacing=1 border=0><tr><td><br></td></tr>
+ <tr>
+  <td bgcolor="#00000">&nbsp;</td>
+  <td width="100%">&nbsp;<a class="sidehead" href="http://yapc.org/"><b>Other YAPCs</b></a></td>
+ </tr> <tr>
+ <td></td>
+ <td><font size=2>&nbsp;<a class="side" href="2000/">YAPC::Europe 2000</a><br>&nbsp;<a class="side" href="http://yapc.org/America/">YAPC::America 2001</a><br> </font></td>
+ </tr>
+</table>
+
+<td valign="top">
+
+<div align="center">
+<img src="images/yapc-europe.png" width=346 height=154 border=0 alt="YAPC Europe">
+</div>
+<p>
+
+
+      <!-- BODY TEXT BEGINS HERE -->
+
+
+<table border=0 width="100%" cellpadding=2 cellspacing=0>
+<tr><td bgcolor="#000000"><table cellpadding=4 cellspacing=0 border=0 width="100%">
+ <tr>
+  <td width="100%" align="center" bgcolor="#ff7202"><font size="5" color="#ffffff"><b>YAPC: Yet Another Perl Conference</b></font></td>
+ </tr>
+</table>
+</td></tr>
+</table>
+<p>
+
+      <div align="center">
+        <H2>Europe 2001</H2>
+        <p>Thursday, August 2, 2001 -- Saturday, August 4, 2001<br>
+        Hogeschool Holland, Amsterdam, Netherlands
+        <p><hr size=0>
+      </div>
+      
+      <a name="news"></a>
+      <H3>Breaking News</H3>
+      <p><i>February 7</i> -- The <a href="cfp.html">Call For Participation</a> has been issued.
+
+      <br>
+      <p><hr size=0 align="center">
+
+	Please send all queries to <a href="mailto:info@yapceurope.org">info@yapceurope.org</a>.
+      
+      <br>
+      <p><hr size=0 align="center">
+
+
+      <a name="about"></a>
+      <H3>What is YAPC?</H3>
+
+      <p><a href="http://www.yapc.org/">YAPC</a> is "yet another Perl conference", with apologies to 
+      <img src="images/yapcbg.jpg" alt="YAPC logo" width=114 height=125 align="right">
+      <a href="http://conference.perl.com/">The Perl Conference</a>.
+      This is an inexpensive (less than US$ 100 for 3 days) conference with its roots in the 
+      <a href="http://www.pm.org/">Perl Mongers</a> Perl users groups.
+
+      <p>While The Perl Conference plays an important role in the Perl community, there
+      are some things that fall through the cracks at such a large, relatively 
+      corporate conference. Attendance fees of $1,000 or more are prohibitive,
+      especially to students (though there are deep student discounts); furthermore,
+      the conference is on the West Coast, incurring travel expenses for those in the
+      east, on top of the conference expense. YAPC is driven from the bottom
+      up, organized by and for Perl users -- a grassroots conference.
+
+      <p>YAPC began as a smaller, regional version of TPC in the Eastern USA, hosted 
+      by <a href="http://www.cmu.edu/">Carnegie Mellon University</a>. Last year,
+      <a href="previous_years/2000/">YAPC::Europe</a> was held in London, UK, the
+      first European Perl Conference. This year the <a href="http://yapc.org/America/">North American YAPC</a> is being held
+      in Montr&eacute;al, Qu&eacute;bec, Canada.
+      
+      <p>The second European YAPC is being held for the first time on continental
+      Europe in Amsterdam, Netherlands, and is being 
+      hosted by the <a href="http://amsterdam.pm.org/">Amsterdam Perl Mongers</a>.
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#ff7202" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified on
+           February 9, 2001 by <a href="mailto:leon@yapc.org">leon@yapc.org</a>.<br>
+           All content copyright &copy; 2001 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

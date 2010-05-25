@@ -1,0 +1,1303 @@
+
+sorted input
+    cat [numeric 2], type [numeric 4], data [string 255]
+
+before report
+    set SCCS_ID	to '%W%	[%E%]'
+
+    set flip	to get_evar ('FLIP')
+    if flip = '' then
+	set flip to '^'
+
+    set d_sys	to today
+    set d_sys_d to mdy (d_sys, 1)
+    set d_sys_m to mdy (d_sys, 0)
+    set d_sys_y to mdy (d_sys, 2)
+
+    set d_sys_ms to index (d_sys_m, ' ',
+				    'januari', 'februari', 'maart',
+				    'april',   'mei',	   'juni',
+				    'juli',    'augustus', 'september',
+				    'oktober', 'november', 'december')
+
+    set D_sys   to Sprintf ('%02d-%02d-%04d', d_sys_d, d_sys_m, d_sys_y)
+    set D_sys_s to Sprintf ('%02d %s %04d', d_sys_d, d_sys_ms, d_sys_y)
+
+    set dashes0	to set_vline (255, '.')
+    set dashes1	to set_vline (255, '-')
+    set dashes2	to set_vline (255, '=')
+    set dashes3	to set_vline (255, '*')
+    set dashes4	to set_vline (255, '#')
+    set dashes5	to set_vline (255, '_')
+    set dashes6	to set_vline (255, '+')
+    set dashes7	to set_vline (255, '<')
+    set dashes8	to set_vline (255, '>')
+    set dashes9	to set_vline (255, '/')
+
+    set lpseqno	to 1
+    set lp_new	to 1
+
+    if cat = 10 and type = 0010 then
+	set e100010 to data /+ ''
+    else
+	set e100010 to ''
+
+    set n180000	to 1
+    set n180010	to 2
+    set n180011	to 3
+    set n180020	to 4
+    set n180021	to 5
+    set n180030	to 6
+    set n180031	to 7
+    set n180040	to 8
+    set n180041	to 9
+    set n180050	to 10
+    set n180060	to 11
+    set n180061	to 12
+    set n180070	to 13
+    set n180071	to 14
+    set n180080	to 15
+    set n180081	to 16
+    set n180090	to 17
+    set n180091	to 18
+    set n180092	to 19
+    set n180093	to 20
+    set n180100	to 21
+    set n180101	to 22
+    set n180110	to 23
+    set n180111	to 24
+    set n180112	to 25
+    set n180113	to 26
+    set n180120	to 27
+    set n180121	to 28
+    set n180130	to 29
+    set n180140	to 30
+    set n180141	to 31
+    set n180142	to 32
+    set n180143	to 33
+    set n180150	to 34
+    set n180151	to 35
+    set n180160	to 36
+    set n180170	to 37
+    set n180180	to 38
+    set n180190	to 39
+    set n180200	to 40
+    set n180210	to 41
+    set n180220	to 42
+    set n180221	to 43
+    set n180222	to 44
+    set n180223	to 45
+    set n180224	to 46
+    set n180230	to 47
+    set n180240	to 48
+    set n180241	to 49
+    set n180250	to 50
+    set n180251	to 51
+    set n180260	to 52
+    set n180261	to 53
+    set n180262	to 54
+    set n180263	to 55
+    set n180270	to 56
+    set n180280	to 57
+    set n180281	to 58
+    set n180290	to 59
+    set n180300	to 60
+    set n180301	to 61
+    set n180310	to 62
+    set n180311	to 63
+    set n180312	to 64
+    set n180313	to 65
+    set n180320	to 66
+    set n180321	to 67
+    set n180350	to 68
+    set n180360	to 69
+    set n180410	to 70
+    set n180420	to 71
+    set n180430	to 72
+    set n189999	to 73
+
+    set n150000	to 1
+    set n150020	to 2
+    set n159999	to 3
+
+    set n190000	to 1
+    set n190020	to 2
+    set n190021	to 3
+    set n190022	to 4
+    set n190023	to 5
+    set n190030	to 6
+    set n190031	to 7
+    set n190040	to 8
+    set n190041	to 9
+    set n190050	to 10
+    set n197010	to 11
+    set n197020	to 12
+    set n197030	to 13
+    set n197050	to 14
+    set n197051	to 15
+    set n197060	to 16
+    set n197070	to 17
+    set n197080	to 18
+    set n197090	to 19
+    set n197110	to 20
+    set n197120	to 21
+    set n197121	to 22
+    set n197122	to 23
+    set n197123	to 24
+    set n197124	to 25
+    set n197130	to 26
+    set n197140	to 27
+    set n197150	to 28
+    set n197160	to 29
+    set n197170	to 30
+    set n197180	to 31
+    set n197190	to 32
+    set n197200	to 33
+    set n197201	to 34
+    set n197210	to 35
+    set n197211	to 36
+    set n197220	to 37
+    set n197221	to 38
+    set n197230	to 39
+    set n197240	to 40
+    set n197241	to 41
+    set n197260	to 42
+    set n197280	to 43
+    set n197290	to 44
+    set n197291	to 45
+    set n197300	to 46
+    set n197301	to 47
+    set n190060	to 48
+    set n190070	to 49
+    set n190071	to 50
+    set n190072	to 51
+    set n190073	to 52
+    set n190080	to 53
+    set n190081	to 54
+    set n199999	to 55
+
+    set n200000	to 1
+    set n200020	to 2
+    set n200021	to 3
+    set n200030	to 4
+    set n200031	to 5
+    set n200040	to 6
+    set n200050	to 7
+    set n200060	to 8
+    set n200070	to 9
+    set n200071	to 10
+    set n200072	to 11
+    set n200073	to 12
+    set n200074	to 13
+    set n200075	to 14
+    set n200080	to 15
+    set n209999	to 16
+
+    set n220000	to 1
+    set n220020	to 2
+    set n220021	to 3
+    set n220022	to 4
+    set n220023	to 5
+    set n220024	to 6
+    set n220025	to 7
+    set n220026	to 8
+    set n220030	to 9
+    set n220040	to 10
+    set n220050	to 11
+    set n220051	to 12
+    set n220060	to 13
+    set n220061	to 14
+    set n220070	to 15
+    set n229999	to 16
+
+    set n320010	to 1
+    set n327010	to 2
+    set n327011	to 3
+    set n327020	to 4
+    set n327021	to 5
+    set n327030	to 6
+    set n327031	to 7
+    set n327040	to 8
+    set n327050	to 9
+    set n327060	to 10
+    set n327070	to 11
+    set n327071	to 12
+    set n327080	to 13
+    set n327090	to 14
+    set n327091	to 15
+    set n327110	to 16
+    set n327111	to 17
+    set n327120	to 18
+    set n327130	to 19
+    set n327140	to 20
+    set n327150	to 21
+    set n327170	to 22
+    set n327180	to 23
+    set n327181	to 24
+    set n327182	to 25
+    set n327183	to 26
+    set n327184	to 27
+    set n327190	to 28
+    set n327200	to 29
+    set n327210	to 30
+    set n327220	to 31
+    set n327230	to 32
+    set n327231	to 33
+    set n327270	to 34
+    set n327271	to 35
+    set n327280	to 36
+    set n327330	to 37
+    set n320030	to 38
+    set n320031	to 39
+    set n320032	to 40
+    set n320040	to 41
+    set n329999	to 42
+
+    set n330000	to 1
+    set n330020	to 2
+    set n330021	to 3
+    set n330030	to 4
+    set n330031	to 5
+    set n330040	to 6
+    set n330050	to 7
+    set n330060	to 8
+    set n330070	to 9
+    set n330071	to 10
+    set n330072	to 11
+    set n330080	to 12
+    set n339999	to 13
+
+    set n340000	to 1
+    set n340020	to 2
+    set n340021	to 3
+    set n340030	to 4
+    set n340031	to 5
+    set n340040	to 6
+    set n349999	to 7
+
+    set n350010	to 1
+    set n350011	to 2
+    set n350020	to 3
+    set n350030	to 4
+    set n350040	to 5
+    set n350050	to 6
+    set n350060	to 7
+    set n350061	to 8
+    set n350080	to 9
+    set n350090	to 10
+    set n350091	to 11
+    set n350092	to 12
+    set n350093	to 13
+    set n350094	to 14
+    set n359999	to 15
+
+    page
+
+
+before cat
+    if lp_new = 1 then
+	begin
+	set lp_new	to 0
+
+	set c18		to 0
+	set c15		to 0
+	set c19		to 0
+	set c20		to 0
+	set c22		to 0
+	set c32		to 0
+	set c33		to 0
+	set c34		to 0
+	set c35		to 0
+
+	set i		to ar_close ('a18')
+	set e180000	to ' '
+	set e180010	to ' '
+	set e180011	to ' '
+	set e180020	to ' '
+	set e180021	to ' '
+	set e180030	to ' '
+	set e180031	to ' '
+	set e180040	to ' '
+	set e180041	to ' '
+	set e180050	to ' '
+	set e180060	to ' '
+	set e180061	to ' '
+	set e180070	to ' '
+	set e180071	to ' '
+	set e180080	to ' '
+	set e180081	to ' '
+	set e180090	to ' '
+	set e180091	to ' '
+	set e180092	to ' '
+	set e180093	to ' '
+	set e180100	to ' '
+	set e180101	to ' '
+	set e180110	to ' '
+	set e180111	to ' '
+	set e180112	to ' '
+	set e180113	to ' '
+	set e180120	to ' '
+	set e180121	to ' '
+	set e180130	to ' '
+	set e180140	to ' '
+	set e180141	to ' '
+	set e180142	to ' '
+	set e180143	to ' '
+	set e180150	to ' '
+	set e180151	to ' '
+	set e180160	to ' '
+	set e180170	to ' '
+	set e180180	to ' '
+	set e180190	to ' '
+	set e180200	to ' '
+	set e180210	to ' '
+	set e180220	to ' '
+	set e180221	to ' '
+	set e180222	to ' '
+	set e180223	to ' '
+	set e180224	to ' '
+	set e180230	to ' '
+	set e180240	to ' '
+	set e180241	to ' '
+	set e180250	to ' '
+	set e180251	to ' '
+	set e180260	to ' '
+	set e180261	to ' '
+	set e180262	to ' '
+	set e180263	to ' '
+	set e180270	to ' '
+	set e180280	to ' '
+	set e180281	to ' '
+	set e180290	to ' '
+	set e180300	to ' '
+	set e180301	to ' '
+	set e180310	to ' '
+	set e180311	to ' '
+	set e180312	to ' '
+	set e180313	to ' '
+	set e180320	to ' '
+	set e180321	to ' '
+	set e180350	to ' '
+	set e180360	to ' '
+	set e180410	to ' '
+	set e180420	to ' '
+	set e180430	to ' '
+	set e189999	to ' '
+
+	set i		to ar_close ('a15')
+	set e150000	to ' '
+	set e150020	to ' '
+	set e159999	to ' '
+
+	set i		to ar_close ('a19')
+	set e190000	to ' '
+	set e190020	to ' '
+	set e190021	to ' '
+	set e190022	to ' '
+	set e190023	to ' '
+	set e190030	to ' '
+	set e190031	to ' '
+	set e190040	to ' '
+	set e190041	to ' '
+	set e190050	to ' '
+	set e197010	to ' '
+	set e197020	to ' '
+	set e197030	to ' '
+	set e197050	to ' '
+	set e197051	to ' '
+	set e197060	to ' '
+	set e197070	to ' '
+	set e197080	to ' '
+	set e197090	to ' '
+	set e197110	to ' '
+	set e197120	to ' '
+	set e197121	to ' '
+	set e197122	to ' '
+	set e197123	to ' '
+	set e197124	to ' '
+	set e197130	to ' '
+	set e197140	to ' '
+	set e197150	to ' '
+	set e197160	to ' '
+	set e197170	to ' '
+	set e197180	to ' '
+	set e197190	to ' '
+	set e197200	to ' '
+	set e197201	to ' '
+	set e197210	to ' '
+	set e197211	to ' '
+	set e197220	to ' '
+	set e197221	to ' '
+	set e197230	to ' '
+	set e197240	to ' '
+	set e197241	to ' '
+	set e197260	to ' '
+	set e197280	to ' '
+	set e197290	to ' '
+	set e197291	to ' '
+	set e197300	to ' '
+	set e197301	to ' '
+	set e190060	to ' '
+	set e190070	to ' '
+	set e190071	to ' '
+	set e190072	to ' '
+	set e190073	to ' '
+	set e190080	to ' '
+	set e190081	to ' '
+	set e199999	to ' '
+
+	set i		to ar_close ('a20')
+	set e200000	to ' '
+	set e200020	to ' '
+	set e200021	to ' '
+	set e200030	to ' '
+	set e200031	to ' '
+	set e200040	to ' '
+	set e200050	to ' '
+	set e200060	to ' '
+	set e200070	to ' '
+	set e200071	to ' '
+	set e200072	to ' '
+	set e200073	to ' '
+	set e200074	to ' '
+	set e200075	to ' '
+	set e200080	to ' '
+	set e209999	to ' '
+
+	set i		to ar_close ('a22')
+	set e220000	to ' '
+	set e220020	to ' '
+	set e220021	to ' '
+	set e220022	to ' '
+	set e220023	to ' '
+	set e220024	to ' '
+	set e220025	to ' '
+	set e220026	to ' '
+	set e220030	to ' '
+	set e220040	to ' '
+	set e220050	to ' '
+	set e220051	to ' '
+	set e220060	to ' '
+	set e220061	to ' '
+	set e220070	to ' '
+	set e229999	to ' '
+
+	set i		to ar_close ('a32')
+	set e320010	to ' '
+	set e327010	to ' '
+	set e327011	to ' '
+	set e327020	to ' '
+	set e327021	to ' '
+	set e327030	to ' '
+	set e327031	to ' '
+	set e327040	to ' '
+	set e327050	to ' '
+	set e327060	to ' '
+	set e327070	to ' '
+	set e327071	to ' '
+	set e327080	to ' '
+	set e327090	to ' '
+	set e327091	to ' '
+	set e327110	to ' '
+	set e327111	to ' '
+	set e327120	to ' '
+	set e327130	to ' '
+	set e327140	to ' '
+	set e327150	to ' '
+	set e327170	to ' '
+	set e327180	to ' '
+	set e327181	to ' '
+	set e327182	to ' '
+	set e327183	to ' '
+	set e327184	to ' '
+	set e327190	to ' '
+	set e327200	to ' '
+	set e327210	to ' '
+	set e327220	to ' '
+	set e327230	to ' '
+	set e327231	to ' '
+	set e327270	to ' '
+	set e327271	to ' '
+	set e327280	to ' '
+	set e327330	to ' '
+	set e320030	to ' '
+	set e320031	to ' '
+	set e320032	to ' '
+	set e320040	to ' '
+	set e329999	to ' '
+
+	set i		to ar_close ('a33')
+	set e330000	to ' '
+	set e330020	to ' '
+	set e330021	to ' '
+	set e330030	to ' '
+	set e330031	to ' '
+	set e330040	to ' '
+	set e330050	to ' '
+	set e330060	to ' '
+	set e330070	to ' '
+	set e330071	to ' '
+	set e330072	to ' '
+	set e330080	to ' '
+	set e339999	to ' '
+
+	set i		to ar_close ('a34')
+	set e340000	to ' '
+	set e340020	to ' '
+	set e340021	to ' '
+	set e340030	to ' '
+	set e340031	to ' '
+	set e340040	to ' '
+	set e349999	to ' '
+
+	set i		to ar_close ('a35')
+	set e350010	to ' '
+	set e350011	to ' '
+	set e350020	to ' '
+	set e350030	to ' '
+	set e350040	to ' '
+	set e350050	to ' '
+	set e350060	to ' '
+	set e350061	to ' '
+	set e350080	to ' '
+	set e350090	to ' '
+	set e350091	to ' '
+	set e350092	to ' '
+	set e350093	to ' '
+	set e350094	to ' '
+	set e359999	to ' '
+
+	end
+
+    if cat = 99 then
+	set lp_new	to 1
+
+
+after data
+    set Data to data /+ ''
+
+    if cat = 18 then
+	begin
+	if c18 = 0 then
+	    begin
+		 if type = 0000 then set e180000 to Data
+	    else if type = 0010 then set e180010 to flip_str (Data, flip)
+	    else if type = 0011 then set e180011 to flip_str (Data, flip)
+	    else if type = 0020 then set e180020 to Data
+	    else if type = 0021 then set e180021 to Data
+	    else if type = 0030 then set e180030 to Data
+	    else if type = 0031 then set e180031 to Data
+	    else if type = 0040 then set e180040 to Data
+	    else if type = 0041 then set e180041 to pr_dat (Data)
+	    else if type = 0050 then set e180050 to Data
+	    else if type = 0060 then set e180060 to Data
+		 if type = 0061 then set e180061 to Data
+	    else if type = 0070 then set e180070 to Data
+	    else if type = 0071 then set e180071 to pr_dat (Data)
+	    else if type = 0080 then set e180080 to Data
+	    else if type = 0081 then set e180081 to pr_dat (Data)
+	    else if type = 0090 then set e180090 to Data
+	    else if type = 0091 then set e180091 to Data
+	    else if type = 0092 then set e180092 to Data
+	    else if type = 0093 then set e180093 to Data
+	    else if type = 0100 then set e180100 to Data
+	    else if type = 0101 then set e180101 to pr_dat (Data)
+		 if type = 0110 then set e180110 to Data
+	    else if type = 0111 then set e180111 to flip_str (Data, flip)
+	    else if type = 0112 then set e180112 to Data
+	    else if type = 0113 then set e180113 to Data
+	    else if type = 0120 then set e180120 to Data
+	    else if type = 0121 then set e180121 to pr_dat (Data)
+	    else if type = 0130 then set e180130 to Data
+	    else if type = 0140 then set e180140 to Data
+	    else if type = 0141 then set e180141 to Data
+	    else if type = 0142 then set e180142 to Data
+	    else if type = 0143 then set e180143 to Data
+		 if type = 0150 then set e180150 to Data
+	    else if type = 0151 then set e180151 to Data
+	    else if type = 0160 then set e180160 to Data
+	    else if type = 0170 then set e180170 to Data
+	    else if type = 0180 then set e180180 to Data
+	    else if type = 0190 then set e180190 to Data
+	    else if type = 0200 then set e180200 to Data
+	    else if type = 0210 then set e180210 to Data
+	    else if type = 0220 then set e180220 to Data
+	    else if type = 0221 then set e180221 to Data
+	    else if type = 0222 then set e180222 to Data
+		 if type = 0223 then set e180223 to Data
+	    else if type = 0224 then set e180224 to Data
+	    else if type = 0230 then set e180230 to Data
+	    else if type = 0240 then set e180240 to Data
+	    else if type = 0241 then set e180241 to Data
+	    else if type = 0250 then set e180250 to Data
+	    else if type = 0251 then set e180251 to Data
+	    else if type = 0260 then set e180260 to Data
+	    else if type = 0261 then set e180261 to Data
+	    else if type = 0262 then set e180262 to Data
+	    else if type = 0263 then set e180263 to Data
+		 if type = 0270 then set e180270 to Data
+	    else if type = 0280 then set e180280 to flip_str (Data, flip)
+	    else if type = 0281 then set e180281 to flip_str (Data, flip)
+	    else if type = 0290 then set e180290 to Data
+	    else if type = 0300 then set e180300 to Data
+	    else if type = 0301 then set e180301 to pr_dat (Data)
+	    else if type = 0310 then set e180310 to Data
+	    else if type = 0311 then set e180311 to Data
+	    else if type = 0312 then set e180312 to Data
+	    else if type = 0313 then set e180313 to Data
+	    else if type = 0320 then set e180320 to Data
+		 if type = 0321 then set e180321 to Data
+	    else if type = 0350 then set e180350 to Data
+	    else if type = 0360 then set e180360 to Data
+	    else if type = 0410 then set e180410 to Data
+	    else if type = 0420 then set e180420 to Data
+	    else if type = 0430 then set e180430 to Data
+
+	    if type = 9999 then
+		begin
+		set n to strtol (flip_str (Data, '/')) - 1
+		set i to ar_open ('a18', n, n189999)
+		end
+	    end
+	else
+	    begin
+		 if type = 0000 then set i to ar_write ('a18', c18, n180000, Data)
+	    else if type = 0010 then set i to ar_write ('a18', c18, n180010, flip_str (Data, flip))
+	    else if type = 0011 then set i to ar_write ('a18', c18, n180011, flip_str (Data, flip))
+	    else if type = 0020 then set i to ar_write ('a18', c18, n180020, Data)
+	    else if type = 0021 then set i to ar_write ('a18', c18, n180021, Data)
+	    else if type = 0030 then set i to ar_write ('a18', c18, n180030, Data)
+	    else if type = 0031 then set i to ar_write ('a18', c18, n180031, Data)
+	    else if type = 0040 then set i to ar_write ('a18', c18, n180040, Data)
+	    else if type = 0041 then set i to ar_write ('a18', c18, n180041, pr_dat (Data))
+	    else if type = 0050 then set i to ar_write ('a18', c18, n180050, Data)
+	    else if type = 0060 then set i to ar_write ('a18', c18, n180060, Data)
+		 if type = 0061 then set i to ar_write ('a18', c18, n180061, Data)
+	    else if type = 0070 then set i to ar_write ('a18', c18, n180070, Data)
+	    else if type = 0071 then set i to ar_write ('a18', c18, n180071, pr_dat (Data))
+	    else if type = 0080 then set i to ar_write ('a18', c18, n180080, Data)
+	    else if type = 0081 then set i to ar_write ('a18', c18, n180081, pr_dat (Data))
+	    else if type = 0090 then set i to ar_write ('a18', c18, n180090, Data)
+	    else if type = 0091 then set i to ar_write ('a18', c18, n180091, Data)
+	    else if type = 0092 then set i to ar_write ('a18', c18, n180092, Data)
+	    else if type = 0093 then set i to ar_write ('a18', c18, n180093, Data)
+	    else if type = 0100 then set i to ar_write ('a18', c18, n180100, Data)
+	    else if type = 0101 then set i to ar_write ('a18', c18, n180101, pr_dat (Data))
+		 if type = 0110 then set i to ar_write ('a18', c18, n180110, Data)
+	    else if type = 0111 then set i to ar_write ('a18', c18, n180111, flip_str (Data, flip))
+	    else if type = 0112 then set i to ar_write ('a18', c18, n180112, Data)
+	    else if type = 0113 then set i to ar_write ('a18', c18, n180113, Data)
+	    else if type = 0120 then set i to ar_write ('a18', c18, n180120, Data)
+	    else if type = 0121 then set i to ar_write ('a18', c18, n180121, pr_dat (Data))
+	    else if type = 0130 then set i to ar_write ('a18', c18, n180130, Data)
+	    else if type = 0140 then set i to ar_write ('a18', c18, n180140, Data)
+	    else if type = 0141 then set i to ar_write ('a18', c18, n180141, Data)
+	    else if type = 0142 then set i to ar_write ('a18', c18, n180142, Data)
+	    else if type = 0143 then set i to ar_write ('a18', c18, n180143, Data)
+		 if type = 0150 then set i to ar_write ('a18', c18, n180150, Data)
+	    else if type = 0151 then set i to ar_write ('a18', c18, n180151, Data)
+	    else if type = 0160 then set i to ar_write ('a18', c18, n180160, Data)
+	    else if type = 0170 then set i to ar_write ('a18', c18, n180170, Data)
+	    else if type = 0180 then set i to ar_write ('a18', c18, n180180, Data)
+	    else if type = 0190 then set i to ar_write ('a18', c18, n180190, Data)
+	    else if type = 0200 then set i to ar_write ('a18', c18, n180200, Data)
+	    else if type = 0210 then set i to ar_write ('a18', c18, n180210, Data)
+	    else if type = 0220 then set i to ar_write ('a18', c18, n180220, Data)
+	    else if type = 0221 then set i to ar_write ('a18', c18, n180221, Data)
+	    else if type = 0222 then set i to ar_write ('a18', c18, n180222, Data)
+		 if type = 0223 then set i to ar_write ('a18', c18, n180223, Data)
+	    else if type = 0224 then set i to ar_write ('a18', c18, n180224, Data)
+	    else if type = 0230 then set i to ar_write ('a18', c18, n180230, Data)
+	    else if type = 0240 then set i to ar_write ('a18', c18, n180240, Data)
+	    else if type = 0241 then set i to ar_write ('a18', c18, n180241, Data)
+	    else if type = 0250 then set i to ar_write ('a18', c18, n180250, Data)
+	    else if type = 0251 then set i to ar_write ('a18', c18, n180251, Data)
+	    else if type = 0260 then set i to ar_write ('a18', c18, n180260, Data)
+	    else if type = 0261 then set i to ar_write ('a18', c18, n180261, Data)
+	    else if type = 0262 then set i to ar_write ('a18', c18, n180262, Data)
+	    else if type = 0263 then set i to ar_write ('a18', c18, n180263, Data)
+		 if type = 0270 then set i to ar_write ('a18', c18, n180270, Data)
+	    else if type = 0280 then set i to ar_write ('a18', c18, n180280, flip_str (Data, flip))
+	    else if type = 0281 then set i to ar_write ('a18', c18, n180281, flip_str (Data, flip))
+	    else if type = 0290 then set i to ar_write ('a18', c18, n180290, Data)
+	    else if type = 0300 then set i to ar_write ('a18', c18, n180300, Data)
+	    else if type = 0301 then set i to ar_write ('a18', c18, n180301, pr_dat (Data))
+	    else if type = 0310 then set i to ar_write ('a18', c18, n180310, Data)
+	    else if type = 0311 then set i to ar_write ('a18', c18, n180311, Data)
+	    else if type = 0312 then set i to ar_write ('a18', c18, n180312, Data)
+	    else if type = 0313 then set i to ar_write ('a18', c18, n180313, Data)
+	    else if type = 0320 then set i to ar_write ('a18', c18, n180320, Data)
+		 if type = 0321 then set i to ar_write ('a18', c18, n180321, Data)
+	    else if type = 0350 then set i to ar_write ('a18', c18, n180350, Data)
+	    else if type = 0360 then set i to ar_write ('a18', c18, n180360, Data)
+	    else if type = 0410 then set i to ar_write ('a18', c18, n180410, Data)
+	    else if type = 0420 then set i to ar_write ('a18', c18, n180420, Data)
+	    else if type = 0430 then set i to ar_write ('a18', c18, n180430, Data)
+	    else if type = 9999 then set i to ar_write ('a18', c18, n189999, Data)
+	    end
+	if type = 9999 then
+	    set c18 to c18 + 1
+	end
+
+    if cat = 15 then
+	begin
+	if c15 = 0 then
+	    begin
+		 if type = 0000 then set e150000 to Data
+	    else if type = 0020 then set e150020 to Data
+
+	    if type = 9999 then
+		begin
+		set n to strtol (flip_str (Data, '/')) - 1
+		set i to ar_open ('a15', n, n159999)
+		end
+	    end
+	else
+	    begin
+		 if type = 0000 then set i to ar_write ('a15', c15, n150000, Data)
+	    else if type = 0020 then set i to ar_write ('a15', c15, n150020, Data)
+	    else if type = 9999 then set i to ar_write ('a15', c15, n159999, Data)
+	    end
+	if type = 9999 then
+	    set c15 to c15 + 1
+	end
+
+    if cat = 19 then
+	begin
+	if c19 = 0 then
+	    begin
+		 if type = 0000 then set e190000 to Data
+	    else if type = 0020 then set e190020 to Data
+	    else if type = 0021 then set e190021 to Data
+	    else if type = 0022 then set e190022 to Data
+	    else if type = 0023 then set e190023 to Data
+	    else if type = 0030 then set e190030 to Data
+	    else if type = 0031 then set e190031 to pr_dat (Data)
+	    else if type = 0040 then set e190040 to Data
+	    else if type = 0041 then set e190041 to pr_dat (Data)
+	    else if type = 0050 then set e190050 to Data
+	    else if type = 7010 then set e197010 to Data
+		 if type = 7020 then set e197020 to Data
+	    else if type = 7030 then set e197030 to Data
+	    else if type = 7050 then set e197050 to Data
+	    else if type = 7051 then set e197051 to Data
+	    else if type = 7060 then set e197060 to Data
+	    else if type = 7070 then set e197070 to Data
+	    else if type = 7080 then set e197080 to Data
+	    else if type = 7090 then set e197090 to Data
+	    else if type = 7110 then set e197110 to Data
+	    else if type = 7120 then set e197120 to Data
+	    else if type = 7121 then set e197121 to Data
+		 if type = 7122 then set e197122 to Data
+	    else if type = 7123 then set e197123 to Data
+	    else if type = 7124 then set e197124 to Data
+	    else if type = 7130 then set e197130 to Data
+	    else if type = 7140 then set e197140 to Data
+	    else if type = 7150 then set e197150 to Data
+	    else if type = 7160 then set e197160 to Data
+	    else if type = 7170 then set e197170 to Data
+	    else if type = 7180 then set e197180 to Data
+	    else if type = 7190 then set e197190 to Data
+	    else if type = 7200 then set e197200 to Data
+		 if type = 7201 then set e197201 to flip_str (Data, flip)
+	    else if type = 7210 then set e197210 to Data
+	    else if type = 7211 then set e197211 to flip_str (Data, flip)
+	    else if type = 7220 then set e197220 to Data
+	    else if type = 7221 then set e197221 to flip_str (Data, flip)
+	    else if type = 7230 then set e197230 to Data
+	    else if type = 7240 then set e197240 to Data
+	    else if type = 7241 then set e197241 to flip_str (Data, flip)
+	    else if type = 7260 then set e197260 to Data
+	    else if type = 7280 then set e197280 to Data
+	    else if type = 7290 then set e197290 to Data
+		 if type = 7291 then set e197291 to Data
+	    else if type = 7300 then set e197300 to Data
+	    else if type = 7301 then set e197301 to Data
+	    else if type = 0060 then set e190060 to Data
+	    else if type = 0070 then set e190070 to Data
+	    else if type = 0071 then set e190071 to Data
+	    else if type = 0072 then set e190072 to Data
+	    else if type = 0073 then set e190073 to Data
+	    else if type = 0080 then set e190080 to Data
+	    else if type = 0081 then set e190081 to pr_dat (Data)
+
+	    if type = 9999 then
+		begin
+		set n to strtol (flip_str (Data, '/')) - 1
+		set i to ar_open ('a19', n, n199999)
+		end
+	    end
+	else
+	    begin
+		 if type = 0000 then set i to ar_write ('a19', c19, n190000, Data)
+	    else if type = 0020 then set i to ar_write ('a19', c19, n190020, Data)
+	    else if type = 0021 then set i to ar_write ('a19', c19, n190021, Data)
+	    else if type = 0022 then set i to ar_write ('a19', c19, n190022, Data)
+	    else if type = 0023 then set i to ar_write ('a19', c19, n190023, Data)
+	    else if type = 0030 then set i to ar_write ('a19', c19, n190030, Data)
+	    else if type = 0031 then set i to ar_write ('a19', c19, n190031, pr_dat (Data))
+	    else if type = 0040 then set i to ar_write ('a19', c19, n190040, Data)
+	    else if type = 0041 then set i to ar_write ('a19', c19, n190041, pr_dat (Data))
+	    else if type = 0050 then set i to ar_write ('a19', c19, n190050, Data)
+	    else if type = 7010 then set i to ar_write ('a19', c19, n197010, Data)
+		 if type = 7020 then set i to ar_write ('a19', c19, n197020, Data)
+	    else if type = 7030 then set i to ar_write ('a19', c19, n197030, Data)
+	    else if type = 7050 then set i to ar_write ('a19', c19, n197050, Data)
+	    else if type = 7051 then set i to ar_write ('a19', c19, n197051, Data)
+	    else if type = 7060 then set i to ar_write ('a19', c19, n197060, Data)
+	    else if type = 7070 then set i to ar_write ('a19', c19, n197070, Data)
+	    else if type = 7080 then set i to ar_write ('a19', c19, n197080, Data)
+	    else if type = 7090 then set i to ar_write ('a19', c19, n197090, Data)
+	    else if type = 7110 then set i to ar_write ('a19', c19, n197110, Data)
+	    else if type = 7120 then set i to ar_write ('a19', c19, n197120, Data)
+	    else if type = 7121 then set i to ar_write ('a19', c19, n197121, Data)
+		 if type = 7122 then set i to ar_write ('a19', c19, n197122, Data)
+	    else if type = 7123 then set i to ar_write ('a19', c19, n197123, Data)
+	    else if type = 7124 then set i to ar_write ('a19', c19, n197124, Data)
+	    else if type = 7130 then set i to ar_write ('a19', c19, n197130, Data)
+	    else if type = 7140 then set i to ar_write ('a19', c19, n197140, Data)
+	    else if type = 7150 then set i to ar_write ('a19', c19, n197150, Data)
+	    else if type = 7160 then set i to ar_write ('a19', c19, n197160, Data)
+	    else if type = 7170 then set i to ar_write ('a19', c19, n197170, Data)
+	    else if type = 7180 then set i to ar_write ('a19', c19, n197180, Data)
+	    else if type = 7190 then set i to ar_write ('a19', c19, n197190, Data)
+	    else if type = 7200 then set i to ar_write ('a19', c19, n197200, Data)
+		 if type = 7201 then set i to ar_write ('a19', c19, n197201, flip_str (Data, flip))
+	    else if type = 7210 then set i to ar_write ('a19', c19, n197210, Data)
+	    else if type = 7211 then set i to ar_write ('a19', c19, n197211, flip_str (Data, flip))
+	    else if type = 7220 then set i to ar_write ('a19', c19, n197220, Data)
+	    else if type = 7221 then set i to ar_write ('a19', c19, n197221, flip_str (Data, flip))
+	    else if type = 7230 then set i to ar_write ('a19', c19, n197230, Data)
+	    else if type = 7240 then set i to ar_write ('a19', c19, n197240, Data)
+	    else if type = 7241 then set i to ar_write ('a19', c19, n197241, flip_str (Data, flip))
+	    else if type = 7260 then set i to ar_write ('a19', c19, n197260, Data)
+	    else if type = 7280 then set i to ar_write ('a19', c19, n197280, Data)
+	    else if type = 7290 then set i to ar_write ('a19', c19, n197290, Data)
+		 if type = 7291 then set i to ar_write ('a19', c19, n197291, Data)
+	    else if type = 7300 then set i to ar_write ('a19', c19, n197300, Data)
+	    else if type = 7301 then set i to ar_write ('a19', c19, n197301, Data)
+	    else if type = 0060 then set i to ar_write ('a19', c19, n190060, Data)
+	    else if type = 0070 then set i to ar_write ('a19', c19, n190070, Data)
+	    else if type = 0071 then set i to ar_write ('a19', c19, n190071, Data)
+	    else if type = 0072 then set i to ar_write ('a19', c19, n190072, Data)
+	    else if type = 0073 then set i to ar_write ('a19', c19, n190073, Data)
+	    else if type = 0080 then set i to ar_write ('a19', c19, n190080, Data)
+	    else if type = 0081 then set i to ar_write ('a19', c19, n190081, pr_dat (Data))
+	    else if type = 9999 then set i to ar_write ('a19', c19, n199999, Data)
+	    end
+	if type = 9999 then
+	    set c19 to c19 + 1
+	end
+
+    if cat = 20 then
+	begin
+	if c20 = 0 then
+	    begin
+		 if type = 0000 then set e200000 to Data
+	    else if type = 0020 then set e200020 to Data
+	    else if type = 0021 then set e200021 to pr_dat (Data)
+	    else if type = 0030 then set e200030 to Data
+	    else if type = 0031 then set e200031 to pr_dat (Data)
+	    else if type = 0040 then set e200040 to Data
+	    else if type = 0050 then set e200050 to Data
+	    else if type = 0060 then set e200060 to Data
+	    else if type = 0070 then set e200070 to Data
+	    else if type = 0071 then set e200071 to Data
+	    else if type = 0072 then set e200072 to Data
+		 if type = 0073 then set e200073 to Data
+	    else if type = 0074 then set e200074 to Data
+	    else if type = 0075 then set e200075 to Data
+	    else if type = 0080 then set e200080 to Data
+
+	    if type = 9999 then
+		begin
+		set n to strtol (flip_str (Data, '/')) - 1
+		set i to ar_open ('a20', n, n209999)
+		end
+	    end
+	else
+	    begin
+		 if type = 0000 then set i to ar_write ('a20', c20, n200000, Data)
+	    else if type = 0020 then set i to ar_write ('a20', c20, n200020, Data)
+	    else if type = 0021 then set i to ar_write ('a20', c20, n200021, pr_dat (Data))
+	    else if type = 0030 then set i to ar_write ('a20', c20, n200030, Data)
+	    else if type = 0031 then set i to ar_write ('a20', c20, n200031, pr_dat (Data))
+	    else if type = 0040 then set i to ar_write ('a20', c20, n200040, Data)
+	    else if type = 0050 then set i to ar_write ('a20', c20, n200050, Data)
+	    else if type = 0060 then set i to ar_write ('a20', c20, n200060, Data)
+	    else if type = 0070 then set i to ar_write ('a20', c20, n200070, Data)
+	    else if type = 0071 then set i to ar_write ('a20', c20, n200071, Data)
+	    else if type = 0072 then set i to ar_write ('a20', c20, n200072, Data)
+		 if type = 0073 then set i to ar_write ('a20', c20, n200073, Data)
+	    else if type = 0074 then set i to ar_write ('a20', c20, n200074, Data)
+	    else if type = 0075 then set i to ar_write ('a20', c20, n200075, Data)
+	    else if type = 0080 then set i to ar_write ('a20', c20, n200080, Data)
+	    else if type = 9999 then set i to ar_write ('a20', c20, n209999, Data)
+	    end
+	if type = 9999 then
+	    set c20 to c20 + 1
+	end
+
+    if cat = 22 then
+	begin
+	if c22 = 0 then
+	    begin
+		 if type = 0000 then set e220000 to Data
+	    else if type = 0020 then set e220020 to Data
+	    else if type = 0021 then set e220021 to Data
+	    else if type = 0022 then set e220022 to Data
+	    else if type = 0023 then set e220023 to Data
+	    else if type = 0024 then set e220024 to Data
+	    else if type = 0025 then set e220025 to Data
+	    else if type = 0026 then set e220026 to Data
+	    else if type = 0030 then set e220030 to Data
+	    else if type = 0040 then set e220040 to Data
+	    else if type = 0050 then set e220050 to Data
+		 if type = 0051 then set e220051 to pr_dat (Data)
+	    else if type = 0060 then set e220060 to Data
+	    else if type = 0061 then set e220061 to pr_dat (Data)
+	    else if type = 0070 then set e220070 to Data
+
+	    if type = 9999 then
+		begin
+		set n to strtol (flip_str (Data, '/')) - 1
+		set i to ar_open ('a22', n, n229999)
+		end
+	    end
+	else
+	    begin
+		 if type = 0000 then set i to ar_write ('a22', c22, n220000, Data)
+	    else if type = 0020 then set i to ar_write ('a22', c22, n220020, Data)
+	    else if type = 0021 then set i to ar_write ('a22', c22, n220021, Data)
+	    else if type = 0022 then set i to ar_write ('a22', c22, n220022, Data)
+	    else if type = 0023 then set i to ar_write ('a22', c22, n220023, Data)
+	    else if type = 0024 then set i to ar_write ('a22', c22, n220024, Data)
+	    else if type = 0025 then set i to ar_write ('a22', c22, n220025, Data)
+	    else if type = 0026 then set i to ar_write ('a22', c22, n220026, Data)
+	    else if type = 0030 then set i to ar_write ('a22', c22, n220030, Data)
+	    else if type = 0040 then set i to ar_write ('a22', c22, n220040, Data)
+	    else if type = 0050 then set i to ar_write ('a22', c22, n220050, Data)
+		 if type = 0051 then set i to ar_write ('a22', c22, n220051, pr_dat (Data))
+	    else if type = 0060 then set i to ar_write ('a22', c22, n220060, Data)
+	    else if type = 0061 then set i to ar_write ('a22', c22, n220061, pr_dat (Data))
+	    else if type = 0070 then set i to ar_write ('a22', c22, n220070, Data)
+	    else if type = 9999 then set i to ar_write ('a22', c22, n229999, Data)
+	    end
+	if type = 9999 then
+	    set c22 to c22 + 1
+	end
+
+    if cat = 32 then
+	begin
+	if c32 = 0 then
+	    begin
+		 if type = 0010 then set e320010 to Data
+	    else if type = 7010 then set e327010 to flip_str (Data, flip)
+	    else if type = 7011 then set e327011 to flip_str (Data, flip)
+	    else if type = 7020 then set e327020 to Data
+	    else if type = 7021 then set e327021 to Data
+	    else if type = 7030 then set e327030 to Data
+	    else if type = 7031 then set e327031 to Data
+	    else if type = 7040 then set e327040 to Data
+	    else if type = 7050 then set e327050 to Data
+	    else if type = 7060 then set e327060 to Data
+	    else if type = 7070 then set e327070 to flip_str (Data, flip)
+		 if type = 7071 then set e327071 to flip_str (Data, flip)
+	    else if type = 7080 then set e327080 to Data
+	    else if type = 7090 then set e327090 to Data
+	    else if type = 7091 then set e327091 to Data
+	    else if type = 7110 then set e327110 to Data
+	    else if type = 7111 then set e327111 to Data
+	    else if type = 7120 then set e327120 to Data
+	    else if type = 7130 then set e327130 to Data
+	    else if type = 7140 then set e327140 to Data
+	    else if type = 7150 then set e327150 to Data
+	    else if type = 7170 then set e327170 to Data
+		 if type = 7180 then set e327180 to Data
+	    else if type = 7181 then set e327181 to Data
+	    else if type = 7182 then set e327182 to Data
+	    else if type = 7183 then set e327183 to Data
+	    else if type = 7184 then set e327184 to Data
+	    else if type = 7190 then set e327190 to Data
+	    else if type = 7200 then set e327200 to Data
+	    else if type = 7210 then set e327210 to Data
+	    else if type = 7220 then set e327220 to Data
+	    else if type = 7230 then set e327230 to Data
+	    else if type = 7231 then set e327231 to Data
+		 if type = 7270 then set e327270 to Data
+	    else if type = 7271 then set e327271 to Data
+	    else if type = 7280 then set e327280 to Data
+	    else if type = 7330 then set e327330 to Data
+	    else if type = 0030 then set e320030 to Data
+	    else if type = 0031 then set e320031 to Data
+	    else if type = 0032 then set e320032 to Data
+	    else if type = 0040 then set e320040 to Data
+
+	    if type = 9999 then
+		begin
+		set n to strtol (flip_str (Data, '/')) - 1
+		set i to ar_open ('a32', n, n329999)
+		end
+	    end
+	else
+	    begin
+		 if type = 0010 then set i to ar_write ('a32', c32, n320010, Data)
+	    else if type = 7010 then set i to ar_write ('a32', c32, n327010, flip_str (Data, flip))
+	    else if type = 7011 then set i to ar_write ('a32', c32, n327011, flip_str (Data, flip))
+	    else if type = 7020 then set i to ar_write ('a32', c32, n327020, Data)
+	    else if type = 7021 then set i to ar_write ('a32', c32, n327021, Data)
+	    else if type = 7030 then set i to ar_write ('a32', c32, n327030, Data)
+	    else if type = 7031 then set i to ar_write ('a32', c32, n327031, Data)
+	    else if type = 7040 then set i to ar_write ('a32', c32, n327040, Data)
+	    else if type = 7050 then set i to ar_write ('a32', c32, n327050, Data)
+	    else if type = 7060 then set i to ar_write ('a32', c32, n327060, Data)
+	    else if type = 7070 then set i to ar_write ('a32', c32, n327070, flip_str (Data, flip))
+		 if type = 7071 then set i to ar_write ('a32', c32, n327071, flip_str (Data, flip))
+	    else if type = 7080 then set i to ar_write ('a32', c32, n327080, Data)
+	    else if type = 7090 then set i to ar_write ('a32', c32, n327090, Data)
+	    else if type = 7091 then set i to ar_write ('a32', c32, n327091, Data)
+	    else if type = 7110 then set i to ar_write ('a32', c32, n327110, Data)
+	    else if type = 7111 then set i to ar_write ('a32', c32, n327111, Data)
+	    else if type = 7120 then set i to ar_write ('a32', c32, n327120, Data)
+	    else if type = 7130 then set i to ar_write ('a32', c32, n327130, Data)
+	    else if type = 7140 then set i to ar_write ('a32', c32, n327140, Data)
+	    else if type = 7150 then set i to ar_write ('a32', c32, n327150, Data)
+	    else if type = 7170 then set i to ar_write ('a32', c32, n327170, Data)
+		 if type = 7180 then set i to ar_write ('a32', c32, n327180, Data)
+	    else if type = 7181 then set i to ar_write ('a32', c32, n327181, Data)
+	    else if type = 7182 then set i to ar_write ('a32', c32, n327182, Data)
+	    else if type = 7183 then set i to ar_write ('a32', c32, n327183, Data)
+	    else if type = 7184 then set i to ar_write ('a32', c32, n327184, Data)
+	    else if type = 7190 then set i to ar_write ('a32', c32, n327190, Data)
+	    else if type = 7200 then set i to ar_write ('a32', c32, n327200, Data)
+	    else if type = 7210 then set i to ar_write ('a32', c32, n327210, Data)
+	    else if type = 7220 then set i to ar_write ('a32', c32, n327220, Data)
+	    else if type = 7230 then set i to ar_write ('a32', c32, n327230, Data)
+	    else if type = 7231 then set i to ar_write ('a32', c32, n327231, Data)
+		 if type = 7270 then set i to ar_write ('a32', c32, n327270, Data)
+	    else if type = 7271 then set i to ar_write ('a32', c32, n327271, Data)
+	    else if type = 7280 then set i to ar_write ('a32', c32, n327280, Data)
+	    else if type = 7330 then set i to ar_write ('a32', c32, n327330, Data)
+	    else if type = 0030 then set i to ar_write ('a32', c32, n320030, Data)
+	    else if type = 0031 then set i to ar_write ('a32', c32, n320031, Data)
+	    else if type = 0032 then set i to ar_write ('a32', c32, n320032, Data)
+	    else if type = 0040 then set i to ar_write ('a32', c32, n320040, Data)
+	    else if type = 9999 then set i to ar_write ('a32', c32, n329999, Data)
+	    end
+	if type = 9999 then
+	    set c32 to c32 + 1
+	end
+
+    if cat = 33 then
+	begin
+	if c33 = 0 then
+	    begin
+		 if type = 0000 then set e330000 to Data
+	    else if type = 0020 then set e330020 to Data
+	    else if type = 0021 then set e330021 to pr_dat (Data)
+	    else if type = 0030 then set e330030 to Data
+	    else if type = 0031 then set e330031 to pr_dat (Data)
+	    else if type = 0040 then set e330040 to Data
+	    else if type = 0050 then set e330050 to Data
+	    else if type = 0060 then set e330060 to Data
+	    else if type = 0070 then set e330070 to Data
+	    else if type = 0071 then set e330071 to Data
+	    else if type = 0072 then set e330072 to Data
+		 if type = 0080 then set e330080 to Data
+
+	    if type = 9999 then
+		begin
+		set n to strtol (flip_str (Data, '/')) - 1
+		set i to ar_open ('a33', n, n339999)
+		end
+	    end
+	else
+	    begin
+		 if type = 0000 then set i to ar_write ('a33', c33, n330000, Data)
+	    else if type = 0020 then set i to ar_write ('a33', c33, n330020, Data)
+	    else if type = 0021 then set i to ar_write ('a33', c33, n330021, pr_dat (Data))
+	    else if type = 0030 then set i to ar_write ('a33', c33, n330030, Data)
+	    else if type = 0031 then set i to ar_write ('a33', c33, n330031, pr_dat (Data))
+	    else if type = 0040 then set i to ar_write ('a33', c33, n330040, Data)
+	    else if type = 0050 then set i to ar_write ('a33', c33, n330050, Data)
+	    else if type = 0060 then set i to ar_write ('a33', c33, n330060, Data)
+	    else if type = 0070 then set i to ar_write ('a33', c33, n330070, Data)
+	    else if type = 0071 then set i to ar_write ('a33', c33, n330071, Data)
+	    else if type = 0072 then set i to ar_write ('a33', c33, n330072, Data)
+		 if type = 0080 then set i to ar_write ('a33', c33, n330080, Data)
+	    else if type = 9999 then set i to ar_write ('a33', c33, n339999, Data)
+	    end
+	if type = 9999 then
+	    set c33 to c33 + 1
+	end
+
+    if cat = 34 then
+	begin
+	if c34 = 0 then
+	    begin
+		 if type = 0000 then set e340000 to Data
+	    else if type = 0020 then set e340020 to Data
+	    else if type = 0021 then set e340021 to pr_dat (Data)
+	    else if type = 0030 then set e340030 to Data
+	    else if type = 0031 then set e340031 to pr_dat (Data)
+	    else if type = 0040 then set e340040 to Data
+
+	    if type = 9999 then
+		begin
+		set n to strtol (flip_str (Data, '/')) - 1
+		set i to ar_open ('a34', n, n349999)
+		end
+	    end
+	else
+	    begin
+		 if type = 0000 then set i to ar_write ('a34', c34, n340000, Data)
+	    else if type = 0020 then set i to ar_write ('a34', c34, n340020, Data)
+	    else if type = 0021 then set i to ar_write ('a34', c34, n340021, pr_dat (Data))
+	    else if type = 0030 then set i to ar_write ('a34', c34, n340030, Data)
+	    else if type = 0031 then set i to ar_write ('a34', c34, n340031, pr_dat (Data))
+	    else if type = 0040 then set i to ar_write ('a34', c34, n340040, Data)
+	    else if type = 9999 then set i to ar_write ('a34', c34, n349999, Data)
+	    end
+	if type = 9999 then
+	    set c34 to c34 + 1
+	end
+
+    if cat = 35 then
+	begin
+	if c35 = 0 then
+	    begin
+		 if type = 0010 then set e350010 to Data
+	    else if type = 0011 then set e350011 to Data
+	    else if type = 0020 then set e350020 to Data
+	    else if type = 0030 then set e350030 to Data
+	    else if type = 0040 then set e350040 to Data
+	    else if type = 0050 then set e350050 to Data
+	    else if type = 0060 then set e350060 to Data
+	    else if type = 0061 then set e350061 to Data
+	    else if type = 0080 then set e350080 to Data
+	    else if type = 0090 then set e350090 to Data
+	    else if type = 0091 then set e350091 to Data
+		 if type = 0092 then set e350092 to Data
+	    else if type = 0093 then set e350093 to Data
+	    else if type = 0094 then set e350094 to Data
+
+	    if type = 9999 then
+		begin
+		set n to strtol (flip_str (Data, '/')) - 1
+		set i to ar_open ('a35', n, n359999)
+		end
+	    end
+	else
+	    begin
+		 if type = 0010 then set i to ar_write ('a35', c35, n350010, Data)
+	    else if type = 0011 then set i to ar_write ('a35', c35, n350011, Data)
+	    else if type = 0020 then set i to ar_write ('a35', c35, n350020, Data)
+	    else if type = 0030 then set i to ar_write ('a35', c35, n350030, Data)
+	    else if type = 0040 then set i to ar_write ('a35', c35, n350040, Data)
+	    else if type = 0050 then set i to ar_write ('a35', c35, n350050, Data)
+	    else if type = 0060 then set i to ar_write ('a35', c35, n350060, Data)
+	    else if type = 0061 then set i to ar_write ('a35', c35, n350061, Data)
+	    else if type = 0080 then set i to ar_write ('a35', c35, n350080, Data)
+	    else if type = 0090 then set i to ar_write ('a35', c35, n350090, Data)
+	    else if type = 0091 then set i to ar_write ('a35', c35, n350091, Data)
+		 if type = 0092 then set i to ar_write ('a35', c35, n350092, Data)
+	    else if type = 0093 then set i to ar_write ('a35', c35, n350093, Data)
+	    else if type = 0094 then set i to ar_write ('a35', c35, n350094, Data)
+	    else if type = 9999 then set i to ar_write ('a35', c35, n359999, Data)
+	    end
+	if type = 9999 then
+	    set c35 to c35 + 1
+	end
+
+
+after cat
+    if cat = 99 then
+	begin
+
+	if e180210 ^= '' then
+	    begin
+	    set epcc to e180210 substr [1-4]
+	    set epcl to e180210 substr [5-6]
+	    set e180211 to epcc /+ ' ' + epcl /+ '  '
+	    end
+	else
+	    set e180211 to ''
+	if e197110 ^= '' then
+	    begin
+	    set epcc to e197110 substr [1-4]
+	    set epcl to e197110 substr [5-6]
+	    set e197111 to epcc /+ ' ' + epcl /+ '  '
+	    end
+	else
+	    set e197111 to ''
+	if e197280 ^= '' then
+	    begin
+	    set epcc to e197280 substr [1-4]
+	    set epcl to e197280 substr [5-6]
+	    set e197281 to epcc /+ ' ' + epcl /+ '  '
+	    end
+	else
+	    set e197281 to ''
+	if e350080 ^= '' then
+	    begin
+	    set epcc to e350080 substr [1-4]
+	    set epcl to e350080 substr [5-6]
+	    set e350081 to epcc /+ ' ' + epcl /+ '  '
+	    end
+	else
+	    set e350081 to ''
+
+	if e180011 /+ '' = '' then set e180011 to e180010
+	if e180021 /+ '' = '' then set e180021 to e180020
+	if e180251 /+ '' = '' then set e180251 to e180250
+	if e180281 /+ '' = '' then set e180281 to e180280
+
+	set e180022 to initials  (e180020)
+	set e180023 to initials  (e180021)
+	set e180024 to initials2 (e180020)
+	set e180025 to initials2 (e180021)
+
+	     if e180050 = 'M' then set e180051 to 'Man'
+	else if e180050 = 'V' then set e180051 to 'Vrouw'
+	else			   set e180051 to 'Onbekend'
+
+	     if e180430 = 'O' then set e180431 to 'Ong'
+	else if e180430 = 'H' then set e180431 to 'Huw'
+	else if e180430 = 'S' then set e180431 to 'Sch'
+	else if e180430 = 'W' then set e180431 to 'Wed'
+	     if e180430 = 'O' then set e180432 to 'Ongehuwd'
+	else if e180430 = 'H' then set e180432 to 'Gehuwd'
+	else if e180430 = 'S' then set e180432 to 'Gescheiden'
+	else if e180430 = 'W' then
+	     if e180050 = 'M' then set e180432 to 'Weduwnaar'
+			      else set e180432 to 'Weduwe'
+
+	     if e180130 = 'V' then set e180131 to 'Vertrek'
+	else if e180130 = 'E' then set e180131 to 'Emigratie'
+	else if e180130 = 'O' then set e180131 to 'Overlijden'
+	else if e180130 = 'H' then set e180131 to 'Huwelijk'
+	else if e180130 = 'S' then set e180131 to 'Vrijstelling'
+	else if e180130 = 'D' then set e180131 to 'Diversen'
+	else			   set e180131 to ''
+
+	if e180150 ^= '' then
+	    begin
+	    if e180190 ^= '' then
+		set e180191 to e180190 /+ ' '
+	    else
+		set e180191 to ''
+	    set e180152 to e180191 + e180151 /+ ' ' + e180160 /+ ' ' +
+				     e180170 /+ ' ' + e180180 /+ ''
+	    end
+	else
+	    set e180152 to e180241
+
+	set e180212 to e180211 + e180221
+
+	set e180411 to (e180410 /+ '0') substr [1-1]
+
+	if e327011 /+ '' = '' then set e327011 to e327010
+	if e327031 /+ '' = '' then set e327031 to e327030
+	if e327071 /+ '' = '' then set e327071 to e327070
+	if e327091 /+ '' = '' then set e327091 to e327090
+

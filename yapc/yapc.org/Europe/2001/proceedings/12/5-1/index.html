@@ -1,0 +1,56 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, TclTk vs Perl/Tk -2</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:50:46 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../4-0/index.html>TclTk vs Perl/Tk -1</A><BR>next: <A HREF=../6-1/index.html>References in Perl</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<UL>
+<LI>There is also a class Dialog, but this is just meant as example.
+<LI>Because of the OO structure, you have local names for objects, instead of
+    the global object paths of Tcl.
+<LI>we may also write
+    <PRE>
+   $d = Toplevel $mw -class => 'Dialog';
+   title $d 'example';
+   ...
+</PRE>
+    This <EM>list-notation</EM> syntax of OO-Perl looks similar to the
+    Tcl program, however list-notation does not provide stacking of calls.
+    Your programs will be more verbose and need more variables in that
+    notation.
+<LI>Naming of components is not required, which saves you from looking for
+    explanatory names for simple components in most cases.
+<LI>MainWindow can be used in Perl/Tk on every spot where Tcl requires Toplevel:
+    the MainWindow is a more flexible object.  On UNIX you can have more than
+    one under control in one program.
+</UL>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../4-0/index.html>TclTk vs Perl/Tk -1</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../6-1/index.html>References in Perl</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

@@ -1,0 +1,68 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, Derived widget -1</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:54:04 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../36-0/index.html>Creating Tk-widgets</A><BR>next: <A HREF=../38-0/index.html>Derived widget -2</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+First we create one vumeter bar.
+A widget is represented by an object (package) with the same name.  Most
+parts of the widget's creation are done by Tk: with a few lines, you have
+a new widget.
+<P>
+First, you have to tell Tk where this widget can be a child of.  The
+<CODE>Tk::Widget</CODE> is the base-class of Tk, which means that my
+<CODE>vu</CODE> widget can be contained in any other object.
+<P>
+The construct call is just the same as:
+<PRE>
+   Tk::Widget->Construct('vu');
+</PRE>
+but it looks a bit more as a special language facility in this list-notation;
+just a bit more status to Tk ;)
+<P>
+Specialised (derived) widgets shall always also inherit methods of
+<CODE>Tk::Derived</CODE>, which will overrule methods of the super-class
+widget.
+The <CODE>Tk::Derived</CODE> must be the first in the <CODE>@ISA</CODE>. I do
+not know where this design flaw happened, but we have to live with it.
+<P>
+At creation of the widget, the <CODE>InitObject</CODE> of the super-class
+will call your method <CODE>Populate</CODE> to add more configuration flags
+to the widget, or to overrule configuration flag defaults.  This is done
+via the <CODE>ConfigSpecs</CODE>, which I will explain later.
+<P>
+The <CODE>$args</CODE> is a reference to the hash containing the flags which
+were given by the user.  You may delete from it.  <CODE>Populate</CODE> shall
+call its super-class to collect the other configuration flags.<BR>
+When all flags are known, the <CODE>InitObject</CODE> of the super-class will
+process the flags and defaults.
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../36-0/index.html>Creating Tk-widgets</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../38-0/index.html>Derived widget -2</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

@@ -1,0 +1,63 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, Atsar encap -2</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:53:52 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../34-0/index.html>Atsar encap -1</A><BR>next: <A HREF=../36-0/index.html>Creating Tk-widgets</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+(<A HREF=../examples/atsar-tk>source</A>)
+The first data line which is produced by atsar describes the meaning
+of the columns, with two exceptions: the first column is the start-time
+(renamed to 'time') and the last column contains the data-type.
+We already know what the data-type is because we specified that as option
+on the command-line when atsar was started, so we throw that information away.
+<CENTER>
+<IMG SRC=../dumps/atsar-tk.gif WIDTH=544 HEIGHT=190 BORDER=0 VSPACE=10>
+</CENTER>
+<P>
+<IMG SRC=../dumps/atsar-tk1.gif WIDTH=167 HEIGHT=278 BORDER=0 VSPACE=10
+ HSPACE=10 ALIGN=right>
+For each of the columns, we create a label to show the value related to
+that column.  Of course, you have to create a explanatory label with the name
+of the field for the user too, but for the simplicity of the slide,
+I left that one out.
+<P>
+In the above program, the order of the column(-labels) is kept in
+<CODE>@f</CODE>, and used to refill the hash with actual measured values
+on the moment the next line of output from <CODE>atsar</CODE> arrives.<BR>
+The magic of Tk had caused a label to be tied to the hash-values: so with
+us changing the values, the screen gets automatically updated!
+<P>
+Yes: this is all we need to create an interface as shown above...  the
+main window and one of its sub-windows are shown.  Compare it to the
+<A HREF=../examples/atsar-tk>source</A> to get the final touch.<BR>
+<BR CLEAR=all>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../34-0/index.html>Atsar encap -1</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../36-0/index.html>Creating Tk-widgets</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

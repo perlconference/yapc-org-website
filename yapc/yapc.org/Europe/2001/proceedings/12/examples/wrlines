@@ -1,0 +1,36 @@
+#!/usr/bin/perl -w
+
+# File: wrlines
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+# This program demonstrates a simple program with defaults which can
+# overruled from the command-line and graphically.
+
+use Tk;
+use strict;
+use Getopt::Long;
+
+# Set some defaults, such that all values are initialized.
+my $count = 25;
+my $line  = 'Perl/Tk forever!';
+
+# Have the defaults overruled by user's command-line options.
+GetOptions( 'count=i' => \$count
+          , 'line=s'  => \$line
+          );
+
+# The real work...
+sub run {print "$line\n" x $count}
+
+# Have the defaults be overruled by a graphical interface.
+
+my $mw = MainWindow->new;
+
+$mw->Entry( -textvariable => \$count)->pack;
+$mw->Entry( -textvariable => \$line)->pack;
+$mw->Button( -text => 'hit me!'
+           , -command => \&run
+           )->pack;
+
+MainLoop;

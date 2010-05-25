@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Arguments</title>
+</head>
+
+<body>
+<h1 align = "center">Arguments to subrules</h1>
+
+<pre>
+list:        &lt;matchrule:$arg{rule}> /$arg{sep}/ list[%arg]
+                   { $return = [ $item[1], @{$item[3]} ] }
+         |   &lt;matchrule:$arg{rule}>
+                   { $return = [ $item[1]] }
+
+function:    'func' name '(' list[rule=>'param',sep=>';'] ')'
+
+param:       list[rule=>'name',sep=>','] ':' typename
+
+name:        /\w+/
+
+typename:    name
+
+</pre>
+
+<hr>
+<ul>
+<li><tt>list</tt> is a generic template for matching a separated list.
+</ul>
+
+<hr>
+<a href = '45.html'>[Prev]</a>
+<a href = '47.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

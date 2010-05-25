@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/transitional.dtd">
+
+
+<html>
+<head>
+<title>Parsing: Driver</title>
+</head>
+
+<body>
+<h1 align = "center">A simple driver</h1>
+
+<pre>
+#!/opt/perl/bin/perl -ws
+
+use strict;
+use Parse::RecDescent;
+use Math::BigInt;
+
+die "Usage $0 &lt;file>\n" unless @ARGV;
+
+my $grammar  = do {local $/; &lt;ARGV>};
+
+$::RD_HINT   = 1;
+$::RD_WARN   = 1;
+$::RD_ERRORS = 1;
+
+my $parser   = <font color = "red">Parse::RecDescent -> new ($grammar)</font>
+               or die "Compilation error!\n";
+
+for (my $i = 1, print "In [1] := "; $_ = &lt;STDIN>;
+     ++ $i,     print "In [$i] := ") {
+    my $result = <font color = "red">$parser -> start ($_)</font>;
+    $result = "&lt;&lt;UNDEF>>"   unless defined $result;
+    $result = "&lt;&lt;MATCHED>>" unless $result =~ /\S/;
+    print "Out [$i] = $result\n";
+}
+print "\n";
+
+__END__
+</pre>
+
+<hr>
+<a href = '11.html'>[Prev]</a>
+<a href = '13.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

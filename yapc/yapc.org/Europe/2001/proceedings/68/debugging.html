@@ -1,0 +1,60 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Debugging</title>
+</head>
+
+<body>
+<h1 align = "center">Debugging</h1>
+
+<dl>
+<dt><strong><tt>$::RD_ERRORS</tt></strong>
+<dd>If defined, fatal errors are reported. Defined by default.
+<dt><strong><tt>$::RD_WARN</tt></strong>
+<dd>If defined, non-fatal problems are reported. Defined by default.
+<dt><strong><tt>$::RD_HINT</tt></strong>
+<dd>If defined, make suggestions on how to fix the problem.
+    Undefined by default.
+<dt><strong><tt>$::RD_TRACE</tt></strong>
+<dd>A very cool feature! If defined, the entire trace of the parser
+    is dumped on standard error; the parser code
+    is written to the file RD_TRACE.
+</dl>
+
+<hr>
+<pre>
+      ERROR (line 10): Untranslatable item encountered: "!"
+                (Hint: Did you misspell "!" or forget to comment it out?)
+
+      ERROR (line 13): Untranslatable item encountered: "&lt;leftpo:"
+                (Hint: Did you misspell "&lt;leftpo:" or forget to comment it
+                       out?)
+
+      ERROR (line 13): Unmatched > found.
+                (Hint: A '>' angle bracket was encountered, which typically
+                       indicates the end of a directive. However no suitable
+                       preceding directive was encountered. Typically this
+                       indicates either a extra '>' in the grammar, or a
+                       problem inside the previous directive.)
+
+                ERROR: Rule "factor" is left-recursive.
+                (Hint: Redesign the grammar so it's not left-recursive. That
+                       will probably mean you need to re-implement repetitions
+                       using the '(s)' notation. For example: "factor(s)".)
+
+              Warning: Undefined (sub)rule "variabel" used in a production.
+                (Hint: Will you be providing this rule later, or did you
+                       perhaps misspell "variabel"? Otherwise it will be
+                       treated as an immediate &lt;reject>.)
+</pre>
+<hr>
+<ul><li>Use the <strong><tt>-s</tt></strong> switch!
+</ul>
+
+<hr>
+<a href = '46.html'>[Prev]</a>
+<a href = '48.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

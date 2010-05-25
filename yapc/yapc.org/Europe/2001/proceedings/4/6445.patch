@@ -1,0 +1,109 @@
+Change 6445 by jhi@alpha on 2000/07/26 17:53:31
+
+	Fix *foo{FORMAT}.
+	
+	From: "H.Merijn Brand" <h.m.brand@hccnet.nl>
+	Subject: Re: Looking for a starting point (Mark-Jason?, Chip?, Jarkko?)
+	Date: Wed, 26 Jul 2000 19:51:02 +0200
+	Message-Id: <20000726194952.41DD.H.M.BRAND@hccnet.nl>
+	
+	From: Graham Barr <gbarr@pobox.com>
+	Subject: Re: Looking for a starting point (Mark-Jason?, Chip?, Jarkko?)
+	Date: Wed, 26 Jul 2000 17:38:36 +0100
+	Message-ID: <20000726173836.L472@pobox.com>
+
+Affected files ...
+
+... //depot/perl/pp.c#199 edit
+... //depot/perl/sv.c#244 edit
+... //depot/perl/t/op/gv.t#14 edit
+
+Differences ...
+
+==== //depot/perl/pp.c#199 (text) ====
+Index: perl/pp.c
+--- perl/pp.c.~1~	Wed Jul 26 11:47:23 2000
++++ perl/pp.c	Wed Jul 26 11:47:23 2000
+@@ -599,6 +599,9 @@
+     case 'F':
+ 	if (strEQ(elem, "FILEHANDLE")) /* XXX deprecate in 5.005 */
+ 	    tmpRef = (SV*)GvIOp(gv);
++	else
++	if (strEQ(elem, "FORMAT"))
++	    tmpRef = (SV*)GvFORM(gv);
+ 	break;
+     case 'G':
+ 	if (strEQ(elem, "GLOB"))
+
+==== //depot/perl/sv.c#244 (text) ====
+Index: perl/sv.c
+--- perl/sv.c.~1~	Wed Jul 26 11:47:23 2000
++++ perl/sv.c	Wed Jul 26 11:47:23 2000
+@@ -2831,6 +2831,13 @@
+ 			dref = (SV*)GvIOp(dstr);
+ 		    GvIOp(dstr) = (IO*)sref;
+ 		    break;
++		case SVt_PVFM:
++		    if (intro)
++			SAVESPTR(GvFORM(dstr));
++		    else
++			dref = (SV*)GvFORM(dstr);
++		    GvFORM(dstr) = (CV*)sref;
++		    break;
+ 		default:
+ 		    if (intro)
+ 			SAVESPTR(GvSV(dstr));
+
+==== //depot/perl/t/op/gv.t#14 (xtext) ====
+Index: perl/t/op/gv.t
+--- perl/t/op/gv.t.~1~	Wed Jul 26 11:47:23 2000
++++ perl/t/op/gv.t	Wed Jul 26 11:47:23 2000
+@@ -11,7 +11,7 @@
+ 
+ use warnings;
+ 
+-print "1..40\n";
++print "1..41\n";
+ 
+ # type coersion on assignment
+ $foo = 'foo';
+@@ -97,15 +97,19 @@
+ %x = ("ok 19" => "\n");
+ sub x { "ok 20\n" }
+ print ${*x{SCALAR}}, @{*x{ARRAY}}, %{*x{HASH}}, &{*x{CODE}};
++format x =
++ok 21
++.
++print ref *x{FORMAT} eq "FORMAT" ? "ok 21\n" : "not ok 21\n";
+ *x = *STDOUT;
+-print *{*x{GLOB}} eq "*main::STDOUT" ? "ok 21\n" : "not ok 21\n";
+-print {*x{IO}} "ok 22\n";
+-print {*x{FILEHANDLE}} "ok 23\n";
++print *{*x{GLOB}} eq "*main::STDOUT" ? "ok 22\n" : "not ok 22\n";
++print {*x{IO}} "ok 23\n";
++print {*x{FILEHANDLE}} "ok 24\n";
+ 
+ # test if defined() doesn't create any new symbols
+ 
+ {
+-    my $test = 23;
++    my $test = 24;
+ 
+     my $a = "SYM000";
+     print "not " if defined *{$a};
+@@ -131,7 +135,7 @@
+ # although it *should* if you're talking about magicals
+ 
+ {
+-    my $test = 29;
++    my $test = 30;
+ 
+     my $a = "]";
+     print "not " unless defined ${$a};
+@@ -173,4 +177,4 @@
+ }
+ 
+ __END__
+-ok 40
++ok 41
+End of Patch.

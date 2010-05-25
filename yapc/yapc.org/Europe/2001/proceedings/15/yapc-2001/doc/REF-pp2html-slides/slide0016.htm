@@ -1,0 +1,91 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Variable assignments</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0017.htm">Macro definitions</a>
+    &nbsp;&nbsp;Previous: <a href="slide0015.htm">Conditions</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Variable assignments">
+
+<H1>Variable assignments
+</H1>
+
+
+<P>
+Variables can be used in the PerlPoint text and will be automatically replaced by their string values (if declared).
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  The next paragraph sets a variable.
+
+  $var=var
+
+  This variable is set to $var.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+All variables are made available to <I>embedded</I> and <I>included</I> Perl code as well as to <I>conditions</I> and can be accessed there as package variables of &quot;main::&quot;. Because a variable is already replaced by the parser if possible, you have to use the fully qualified name or to guard the variables &quot;$&quot; prefix character to do so:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \EMBED{lang=perl}join(' ', $main::var, \$var)\END_EMBED
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Variable modifications by embedded or included Perl <I>do not</I> affect the variables visible to the parser. (This includes condition paragraphs.) This means that
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  $var=10
+  \EMBED{lang=perl}$main::var*=2;\END_EMBED
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+causes <CODE>$var</CODE> to be different on parser and code side - the parser will still use a value of 10, while embedded code works on with a value of 20.
+</P>
+
+
+<P>
+Translator software <I>can</I> make additional use of variables, especially predeclare certain settings (such variables are usually capitalized). Please see your converters documentation for details.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0017.htm">Macro definitions</a>
+    &nbsp;&nbsp;Previous: <a href="slide0015.htm">Conditions</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

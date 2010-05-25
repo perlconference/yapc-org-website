@@ -1,0 +1,60 @@
+<html>
+<header>
+    <title>The alternative</title>
+    </header>
+<body>
+<h1>A different approach</h1>
+<ul>
+  <li><h2>Using perl</h2>
+
+  <h3>Data formatting section (using format)</h3>
+  <pre>
+    format STDOUT =
+    @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<< @<<<
+    $e010241,                           $e010214,                 $e010311,$e010411
+	@<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	$e011100,				 $e011025
+    ~   @<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<
+	$e012021,$e012012,                                          $e012040
+    .
+    format STDOUT_TOP =
+    Gemeente @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             Blad: @>>>>>>
+	     $s_gem,							    $%
+    Leerlingen                                              Datum: @<<<<<<<<< @<<<<
+								   $D_sys,   $T_sys
+    ===============================================================================
+    Achternaam                          Voornaam + initialen           Geb dat Gesl
+	Adres                                    Postcode + Plaats
+	SrtOnd School                                              Klas
+    -------------------------------------------------------------------------------
+    .</pre>
+
+  <h3>Data initialization section (using symbolic references)</h3>
+    <pre>
+    while (<>) {
+        chomp;
+        push @elp, $_;
+        m/^99/ || next;
+
+        # Convert the expanded LP-list to elements known in the format(s)
+        foreach $lp (@elp) {
+            ($cat, $type, $data) = split m/\|/, $lp, 3;
+            $data =~ s/\s+$//;
+            $ect  = "$cat$type";
+            $e    = "e$ect";
+            $$e   = $data;
+            }
+
+        # format this entity
+        write;
+
+        reset "e";
+        }</pre>
+
+    <p>Perl: 150 lines, RPT: 1350 lines</p>
+    </li>
+    </ul>
+<hr />
+<a href="C2-1.html">Prev</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="C2-2.html">Next</a>
+</body>
+</html>

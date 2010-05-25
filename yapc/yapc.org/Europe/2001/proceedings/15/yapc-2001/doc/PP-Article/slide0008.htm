@@ -1,0 +1,158 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Macros</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0009.htm">Dynamic Contents</a>
+    &nbsp;&nbsp;Previous: <a href="slide0007.htm">Variables</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Macros">
+
+<H1>4.4 Macros
+</H1>
+
+
+<P>
+Often used tag combinations or texts can be abbreviated by macros. Macros are a kind of alias definitions. They allow a PerlPoint author to declare his own abbreviations and use them like tags:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ +COPYRIGHT:Copyright (C), Pallhuber and Sons, 2001, All rights reserved.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Usage of the macro:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \COPYRIGHT
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Macro definitions are, as you might have guessed, another kind of paragraph. These macro paragraphs start with a plus sign (<CODE>&quot;+&quot;</CODE>). Immediately after the plus sign the macro name follows, without backslash. Then a colon and the alias text follow.
+</P>
+
+
+<P>
+The parser replaces each occurance of the macro by the alias text. The result is then reparsed. This allows macros to be nested.
+</P>
+
+
+<P>
+Macros are used like normal tags:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \MACRONAME{param=value}&lt;this is the macro body&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The alias text may contain place holders of the form <CODE>&quot;__param__&quot;</CODE>. This special syntax defines a parameter with name <CODE>&quot;param&quot;</CODE>. If the alias text contains a tag which also has a parameter with name <CODE>&quot;param&quot;</CODE>, then this parameter is passed from the tag to the macro while the macro is replaced by its alias text. The special place holder <CODE>&quot;__body__&quot;</CODE> marks the place where the macro body should be placed.
+</P>
+
+
+<P>
+The following examples should make this clearer:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ +RED:\FONT{color=red}&lt;__body__&gt;
+
+ +F:\FONT{color=__c__}&lt;__body__&gt;
+
+ +IB:\B&lt;\I&lt;__body__&gt;&gt;
+
+ This \IB&lt;text&gt; is \RED&lt;red&gt;.
+
+ Tags may be \RED&lt;\I&lt;embedded&gt;&gt; into makros.
+ And \I&lt;\F{c=blue}&lt;vice versa&gt;&gt;.
+
+ \IB&lt;\RED&lt;This&gt;&gt; is formated by a combined macro.
+
+ +TEXT:Macros can be used to abbreviate
+ longet texts.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+After replacing all macros the parser sees the following text:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ This \B&lt;\I&lt;text&gt;&gt; is \FONT{color=red}&lt;red&gt;
+
+ Tags may be \FONT{color=red}&lt;\I&lt;embeded&gt;&gt; in macros.
+ And \I&lt;\FONT{color=blue}&lt;vice versa&gt;&gt;.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The following example refers to the chapter <I><A HREF="slide0011.htm#Embedded Code">Embedded Code</A></I>:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+ +HTML:\EMBED{lang=HTML}
+
+ \HTML This is &lt;i&gt;embedded HTML&lt;/i&gt;\END_EMBED.
+
+ Note: \TEXT
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+An empty macro definition deletes the macro:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ // undeclare the IB alias
+ +IB:
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0009.htm">Dynamic Contents</a>
+    &nbsp;&nbsp;Previous: <a href="slide0007.htm">Variables</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

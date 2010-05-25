@@ -1,0 +1,61 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, Tk canvas</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:51:53 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../16-1/index.html>Tk layout -place</A><BR>next: <A HREF=../18-4/index.html>Tk callbacks ;4</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P><IMG SRC=../dumps/tk-canvas1.gif WIDTH=300 HEIGHT=314
+    BORDER=0 VSPACE=10 HSPACE=10 ALIGN=right>
+One of the most important widgets is the <EM>Canvas</EM>, which is used to
+draw on just like the canvas of a painting.</P>
+
+<P>By the way:
+<PRE>
+   $canvas->createLine(...)
+</PRE>
+is equivalent to
+<PRE>
+   $canvas->create('line', ...);
+</PRE>
+<BR CLEAR=right>
+
+<P><IMG SRC=../dumps/tk-canvas-2.gif WIDTH=300 HEIGHT=314
+    BORDER=0 VSPACE=10 HSPACE=10 ALIGN=left>
+Actions on canvas items are not via the common <CODE>configure</CODE>
+interface, because they are no objects: the canvas stores the information
+of items internally.  For items, you have to use
+<CODE>$canvas->itemconfigure</CODE>.</P>
+
+<P>Furthermore, there are complex canvas functions like <CODE>move</CODE>.
+Those functions work on single items or on groups of items which share the
+same <EM>tag</EM>.</P><BR CLEAR=left>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../16-1/index.html>Tk layout -place</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../18-4/index.html>Tk callbacks ;4</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

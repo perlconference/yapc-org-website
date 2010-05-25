@@ -1,0 +1,105 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, Tk callbacks</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:51:58 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../17-1/index.html>Tk canvas</A><BR>next: <A HREF=../19-0/index.html>Tk bind -1</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<IMG SRC=../dumps/tk-callback.gif WIDTH=299 HEIGHT=313 BORDER=0 VSPACE=10 HSPACE=10
+ ALIGN=right>
+(<A HREF=../examples/tk-callback>source</A>)
+<EM>Entry</EM> uses a <EM>tie</EM> to capture the value of the variable.  A
+change to the variable from the program will cause the tied Entry-widget to
+update the value on the screen.</P>
+
+<P>The <CODE>-command</CODE> defines a <EM>callback</EM>.  Callbacks are
+used to respond to user-actions, in this case the user who is pushing
+the button.  Callbacks are hard to program exactly right; you have to
+understand Perl very well to distinguish between different formulations:
+<P>
+<BR CLEAR=right>
+<DL>
+<DT><CODE>-command => $c->move($l, $x, $y)</CODE>
+<DD>The <EM>move</EM> command is called on the moment that the options for the
+    button is collected: when the button is generated.  The line will
+    appear on the screen in its moved position (remember that the window
+    will not be drawn before MainLoop is reached).<BR>
+    Pushing the button will result in an error, because the result of
+    move will not be a valid callback (you hope).
+    <P>
+<DT><CODE>-command => [ 'move', $l, $x, $y ]</CODE>
+<DD>The definition of callbacks says that this will be translated
+    into: <CODE>$button->move($l, $x, $y)</CODE> when the button is pushed.
+    This not correct, because you need to call move on canvas.  In most
+    case where you write a callback, this notation is useful, but not in
+    this case.
+    <P>
+    Next to that, keep in mind that the values of <CODE>$l</CODE>,
+    <CODE>$x</CODE>, and <CODE>$y</CODE> are
+    substituted on the moment of definition: the line will always
+    move over <CODE>(15, 10)</CODE>.
+    <P>
+<DT><CODE>-command => [ 'move', $c, $l, $x, $y ]</CODE>
+<DD>This doesn't help much: the move will still be called on a button, but
+    it is not a defined operation for a button.
+    <P>
+<DT><CODE>-command => [ $c, 'move', $l, $x, $y ]</CODE>
+<DD>If this callback was used in a <CODE>bind</CODE>, which will be
+    discussed later, than this would be a valid choice: bind looks
+    if the first argument of the list is an object.  If so, it calls
+    the method on that object.  Mind however, that we are still moving
+    over a constant <CODE>(15,10)</CODE>.
+    <P>
+<DT><CODE>-command => [ sub {$c->move($l, @_)}, $x, $y ]</CODE>
+<DD>In this case, the move will always be over <CODE>(15, 10)</CODE>, but
+    <CODE>$l</CODE> will be used with the value on moment of the call.
+    <P>
+    Perl keeps the value of a variable alive as long as it can be
+    accessed, even when the variable is a <CODE>my</CODE> and you leave
+    the enclosing code-block (for instance the subroutine).
+    Each <CODE>my $l</CODE> will result in a distinct variable.
+    <P>
+<DT><CODE>-command => sub {$c->move($l, $x, $y)}</CODE>
+<DD>The last example finally achieves our goal: call the subroutine
+    when the button is pushed.  The move uses the actual values stored
+    in <CODE>$l</CODE>, <CODE>$x</CODE>, and <CODE>$y</CODE>
+    <P>
+<DT><CODE>-command => [ sub {$_[0]->move($_[1], $x, $y)}, $c, $l ]</CODE>
+<DD>An even better notation.  In this case, I can reuse <CODE>$c</CODE>
+    and <CODE>$l</CODE> for creating more objects.  Both are shown
+    to be constants.  Of course, this is equivalent with:
+<PRE>
+   -command => [ sub { my ($c, $l) = @_;
+                       $c->move($l, $x, $y)}
+               , $c, $l ]
+</PRE>
+</DL>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../17-1/index.html>Tk canvas</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../19-0/index.html>Tk bind -1</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

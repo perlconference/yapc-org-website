@@ -1,0 +1,56 @@
+<HTML>
+<HEAD><TITLE>Mail::Box</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:05:19 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1>Mail::Box</H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../12-0/index.html>Tackle a Mail::Box</A><BR>next: <A HREF=../14-0/index.html>Mail::Box::Threads</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P>The main difference between other mail-folder handlers and
+<CODE>Mail::Box</CODE> is the detail of abstraction, which could simplify
+future extention.</P>
+
+<P>Performance gains are achieved by delay-loading, except when your
+application requires all messages anyhow.  Then you only benefit
+from the C-parser (to be implemented).</P>
+
+<P>Furthermore, <CODE>Mail::Box</CODE> prefers messages --which have to be
+written to a new folder, for instance when a folder-update takes place--
+to be copied byte-by-byte from the source folder.  This avoids accidental
+changes, and is quite much faster.  Only when a message has been modified,
+it must be re-composed from memory structures.</P>
+
+<P>There is a manager object (<CODE>Mail::Box::Manager</CODE>), which is
+the first module to look at when you start using the module.  One manager
+maintains all the open folders in your program.  It also tries to auto-detect
+the type of folder when you specify a name only.  Next to that, the manager
+maintains discussion-threads via the creation of one or more
+<CODE>Mail::Box::Threads</CODE> objects.</P>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../12-0/index.html>Tackle a Mail::Box</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../14-0/index.html>Mail::Box::Threads</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 July 2001
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

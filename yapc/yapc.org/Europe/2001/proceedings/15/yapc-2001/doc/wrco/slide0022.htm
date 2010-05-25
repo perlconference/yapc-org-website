@@ -1,0 +1,81 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Usual startup operations</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0023.htm">Foreign tag integration</a>
+    &nbsp;&nbsp;Previous: <a href="slide0021.htm">Common options</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Usual startup operations">
+
+<H1>4.5 Usual startup operations
+</H1>
+
+
+<P>
+Now could be a good time to display a copyright message if you like.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # display copyright unless suppressed
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Help requests can be fulfilled very quickly, because they do not need further operations.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # check for a help request
+  (exec(&quot;pod2text $0 | less&quot;) or die &quot;[Fatal] exec() cannot be called: $!n&quot;) if $options{help};
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+After presenting the manpage, the converter stops. It also terminates in case of a wrong usage, especially missing document sources.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # check usage
+  die &quot;[Fatal] Usage: $0 [&lt;options&gt;] &lt;PerlPoint source(s)&gt;n&quot; unless @ARGV&gt;=1;
+
+  # check passed sources
+  -r or die &quot;[Fatal] Source file $_ does not exist or is unreadable.n&quot; foreach @ARGV;
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0023.htm">Foreign tag integration</a>
+    &nbsp;&nbsp;Previous: <a href="slide0021.htm">Common options</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

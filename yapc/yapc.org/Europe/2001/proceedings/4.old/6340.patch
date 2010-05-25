@@ -1,0 +1,75 @@
+Change 6340 by jhi@alpha on 2000/07/11 15:55:47
+
+	Subject: Re: format bug report  [Patch]
+	From: "H.Merijn Brand" <h.m.brand@hccnet.nl>
+	Date: Wed, 05 Jul 2000 13:12:52 +0200
+	Message-Id: <20000705130745.67BF.H.M.BRAND@hccnet.nl>
+	
+	Subject: Re: format bug report  [Patch]
+	From: "H.Merijn Brand" <h.m.brand@hccnet.nl>
+	Date: Wed, 05 Jul 2000 14:10:01 +0200
+	Message-Id: <20000705140837.73C2.H.M.BRAND@hccnet.nl>
+
+Affected files ...
+
+... //depot/cfgperl/t/op/write.t#5 edit
+... //depot/cfgperl/toke.c#138 edit
+
+Differences ...
+
+==== //depot/cfgperl/t/op/write.t#5 (xtext) ====
+Index: perl/t/op/write.t
+--- perl/t/op/write.t.~1~	Tue May 29 16:04:29 2001
++++ perl/t/op/write.t	Tue May 29 16:04:29 2001
+@@ -1,6 +1,6 @@
+ #!./perl
+ 
+-print "1..8\n";
++print "1..9\n";
+ 
+ my $CAT = ($^O eq 'MSWin32') ? 'type' : 'cat';
+ 
+@@ -201,3 +201,19 @@
+     $that = 8;
+     write LEX;
+ }
++# LEX_INTERPNORMAL test
++my %e = ( a => 1 );
++format OUT4 =
++@<<<<<<
++"$e{a}"
++.
++open   OUT4, ">Op_write.tmp" or die "Can't create Op_write.tmp";
++write (OUT4);
++close  OUT4;
++if (`$CAT Op_write.tmp` eq "1\n") {
++    print "ok 9\n";
++    unlink "Op_write.tmp";
++    }
++else {
++    print "not ok 9\n";
++    }
+
+==== //depot/cfgperl/toke.c#138 (text) ====
+Index: perl/toke.c
+--- perl/toke.c.~1~	Tue May 29 16:04:29 2001
++++ perl/toke.c	Tue May 29 16:04:29 2001
+@@ -3172,7 +3172,7 @@
+ 	    yyerror("Unmatched right curly bracket");
+ 	else
+ 	    PL_expect = (expectation)PL_lex_brackstack[--PL_lex_brackets];
+-	if (PL_lex_brackets < PL_lex_formbrack)
++	if (PL_lex_brackets < PL_lex_formbrack && PL_lex_state != LEX_INTERPNORMAL)
+ 	    PL_lex_formbrack = 0;
+ 	if (PL_lex_state == LEX_INTERPNORMAL) {
+ 	    if (PL_lex_brackets == 0) {
+@@ -7176,7 +7176,7 @@
+     bool needargs = FALSE;
+ 
+     while (!needargs) {
+-	if (*s == '.' || *s == '}') {
++	if (*s == '.' || *s == /*{*/'}') {
+ 	    /*SUPPRESS 530*/
+ #ifdef PERL_STRICT_CR
+ 	    for (t = s+1;SPACE_OR_TAB(*t); t++) ;
+End of Patch.

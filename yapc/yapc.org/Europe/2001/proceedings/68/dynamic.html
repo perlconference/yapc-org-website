@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Dynamic rules</title>
+</head>
+
+<body>
+<h1 align = "center">Dynamic rules</h1>
+
+<ul>
+<li>Tokens that use double quoted strings or regexes do interpolation.
+<li>Hence, they can be make context sensitive, by referring to other
+    items in the production rule. For instance, by interpolating 
+    <tt>$item</tt>.
+<li>The <tt>&lt;matchrule:...></tt> is another way of building dynamic
+    rules. The part after the colon is evaluated as a double quoted
+    string <strong>each</strong> time the directive is encountered,
+    and the value it evaluates to is taken as the name of the subrule to
+    be matched.
+</ul>
+
+<hr>
+<a href = '41.html'>[Prev]</a>
+<a href = '43.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

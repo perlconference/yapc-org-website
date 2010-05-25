@@ -1,0 +1,58 @@
+<HTML>
+<HEAD><TITLE>Mail::Box, Mail::Box Next Generation -1</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:05:36 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Mail::Box</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../15-0/index.html>Mail::Box Threads -2</A><BR>next: <A HREF=../17-0/index.html>Mail::Box NG -2</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P>On the moment, <EM>David Coppit</EM> (author of
+<CODE>Mail::Folder::FastReader</CODE>) and I are re-developing
+the lower levels of <CODE>Mail::Box</CODE>, replacing the
+<CODE>MIME::Entity</CODE> and <CODE>Mail::Internet</CODE> modules.</P>
+
+<P>Only during this new design-process, it becomes clear how
+overly complicated (the internal structures of) the module had grown
+as result of the use of existing modules.  The next pages will show
+what we are making now.</P>
+
+<P>From now on, a <CODE>Mail::Box::Message</CODE> will inherit from
+the newly created <CODE>Mail::Message</CODE>.  Everything what is not
+directly related to a message is moved to different modules.  For
+instance, the <CODE>reply</CODE> method on a message is only used by
+a few applications, so why bother all?  Here, we will use autoloading
+of functionality of reply on demand.</P>
+
+<P>These <CODE>Mail::Message</CODE>-objects are
+read (and written) by the new <CODE>Mail::Box::Parser</CODE>, a replacement
+for the <CODE>MIME::Parser</CODE> and fully written in C.  This seems the
+only way to improve the correctness of the parser without serious performance
+hit.</P>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../15-0/index.html>Mail::Box Threads -2</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../17-0/index.html>Mail::Box NG -2</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 July 2001
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

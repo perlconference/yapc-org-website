@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+<HTML>
+<HEAD>
+<TITLE>Bad Interfaces</TITLE>
+<META NAME="generator" CONTENT="txt2html v1.25">
+</HEAD>
+<BODY BGCOLOR="white"><FONT SIZE=4>
+
+<table width=100%>
+<tr><td width=33%><a href="slide035.html">Next</a></td>
+    <td align=center width=33% >How To Be Lazy</td>
+    <td align=right width=33%>Slide #34</td>
+</tr>
+</table>
+<hr>
+
+<H1><A NAME="section-1">Bad Interfaces</A></H1>
+
+<P>
+A lot of popular code has a baaaaaad interface.  Bad interfaces mean confusion.  Confusion means bugs.
+
+<UL>
+  <LI><p> localtime in Perl parrots localtime in C<!-- list end--></p>
+
+</UL>
+<PRE>
+    my($mday, $mon, $year) = (localtime)[3..5];
+    printf "%d/%d/%d", $mday, $mon + 1, $year + 1900;
+</PRE>
+
+<PRE>
+        should probably have been
+</PRE>
+
+<PRE>
+    my %time = localtime;
+    printf "%d/%d/%d", @time{qw(mday mon year)};
+</PRE>
+
+<PRE>
+    and then there's the y2k problem...
+</PRE>
+
+<UL>
+  <LI><p> CGI.pm, swiss army whale<!-- list end--></p>
+
+  <LI><p> getc() returns an integer, OF COURSE<!-- list end--></p>
+
+  <LI><p> Florida ballot<!-- list end--></p>
+
+
+</UL>
+
+
+<br clear=all>
+
+<hr>
+
+<table width=100%>
+<tr><td width=33%><a href="slide035.html">Next</a></td>
+    <td align=right width=33%>Copyright &copy; 2001 Michael G Schwern</td>
+</tr>
+</table>
+</FONT></BODY>
+</HTML>

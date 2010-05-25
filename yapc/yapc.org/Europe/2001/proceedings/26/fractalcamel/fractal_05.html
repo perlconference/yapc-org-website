@@ -1,0 +1,52 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>Julia Mandelbrot: 5/9</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>Interactive behavior</h2>
+<p>Now we can have a look at the user input loop:</p><!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="k">do</SPAN> <SPAN CLASS="s">{</SPAN> 
+<SPAN CLASS="k">    while</SPAN> <SPAN CLASS="p">(</SPAN><SPAN CLASS="q">/([a-z])\s*([-\d.]*)/cgi</SPAN><SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="i">$</SPAN>{<SPAN CLASS="i">$1</SPAN>} = <SPAN CLASS="i">$2</SPAN> <SPAN CLASS="k">if</SPAN> <SPAN CLASS="i">$1</SPAN> <SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="i">    $e</SPAN> = <SPAN CLASS="i">$_</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="i">    $_</SPAN> = <SPAN CLASS="q">qq#'&lt;$W%;&lt;$H%(&lt;$j%[&lt;$w%|&lt;$h%!&lt;$x%=&lt;$y}_&lt;$A%^&lt;$a%*&lt;$z%:&lt;$n\n]@//^:&quot;)%#</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="i">    @c</SPAN> = <SPAN CLASS="k">split</SPAN> <SPAN CLASS="q">//</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$00</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">    for</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="n">1</SPAN> .. <SPAN CLASS="i">$i</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="s">}</SPAN> <SPAN CLASS="c"># this explained later</SPAN>
+<SPAN CLASS="i">    sub f</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="s">}</SPAN><SPAN CLASS="sc">;</SPAN>          <SPAN CLASS="c"># this too</SPAN>
+<SPAN CLASS="k">    exit</SPAN> <SPAN CLASS="k">if</SPAN> <SPAN CLASS="i">$e</SPAN> =~ <SPAN CLASS="q">/q/</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="q">    s/}/%X&lt;$X%Y&lt;$Y%/</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="q">    y&quot;=_!'&lt;%:/;[^]@|*)\&quot;({&quot;yAxW= nmHwaCohz:dju&quot;</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">    print</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="s">  }</SPAN> <SPAN CLASS="k">while</SPAN> <SPAN CLASS="p">(</SPAN>&lt;&gt;<SPAN CLASS="p">)</SPAN> <SPAN CLASS="c"># repeat on user input</SPAN>
+</PRE>
+<ul>
+<li>User input is a letter followed by a number (more or less).
+Whitespace has no influence.</li>
+<li><tt>/c</tt> allows us to skip errors.</li>
+<li>Variables are set the same way as before, with symbolic references.</li>
+<li><tt>$e</tt> allows us to keep the user input for later use.</li>
+<li><tt>$_</tt> is set to our cyphered prompt.</li>
+<li><tt>@c</tt> now holds every character in our program (but we really care
+about the first nine: <tt> "-|=I+X#.</tt> (the first is a space).
+These will be used as "colors" for our drawing.</li>
+<li>Skip calculus (next slide).</li>
+<li>If the user typed <tt>q</tt> we exit (after displaying the image).</li>
+<li>Now the prompt is converted to something readable and printed.
+Prompt with default values is: <pre>W=79 H=23 j= w=2 h=2 x= y= X= Y= A= a= z=1 n=25
+Command: </pre></li>
+</ul>
+<p align="center"> <a href="fractal_04.html">Previous</a> | <a href="fractal_06.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

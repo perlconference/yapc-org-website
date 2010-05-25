@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Dynamic rules</title>
+</head>
+
+<body>
+<h1 align = "center">Dynamic rules</h1>
+
+<pre>
+statement:  "if"    if_statement     "end if"
+         |  "while" while_statement  "end while"
+         |  "for"   for_statement    "end for"
+</pre>
+
+<hr>
+
+<pre>
+keyword:    "if" | "while" | "for"
+statement:  keyword <font color = "red">&lt;matchrule: "$item[1]_statement"></font> "end $item[1]"
+</pre>
+
+<hr>
+<a href = '43.html'>[Prev]</a>
+<a href = '45.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

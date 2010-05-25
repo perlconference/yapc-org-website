@@ -1,0 +1,68 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Writing a tag module</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0009.htm">Tag definition</a>
+    &nbsp;&nbsp;Previous: <a href="slide0007.htm">Finding tag names</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Writing a tag module">
+
+<H1>3.2 Writing a tag module
+</H1>
+
+
+<P>
+Now when your tags are designed, you need to define them by a module in the <B><CODE>PerlPoint::Tags</CODE></B> namespace and make it a subclass of <B><CODE>PerlPoint::Tags</CODE></B>:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # declare a tag declaration package
+  package PerlPoint::Tags::New;
+
+  # declare base &quot;class&quot;
+  use base qw(PerlPoint::Tags);
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The base module <B><CODE>PerlPoint::Tags</CODE></B> contains a special <CODE>import()</CODE> method which arranges that the parser learns new tag definitions when a tag module is loaded by <CODE>use</CODE>. <B><CODE>PerlPoint::Tags</CODE></B> is provided as part of the converter framework <B><CODE>PerlPoint::Package</CODE></B>.
+</P>
+
+
+<P>
+It is recommended to have a &quot;top level&quot; tag declaration module for each PerlPoint converter, so there could be a <CODE>PerlPoint::Tags::<I>HTML</I></CODE>, a <CODE>PerlPoint::Tags::<I>Latex</I></CODE>, <CODE>PerlPoint::Tags::<I>SDF</I></CODE>, a <CODE>PerlPoint::Tags::<I>XML</I></CODE> and so on. (These modules of course may simply <A HREF="slide0012.htm#Integrating foreign tags">invoke lower level declarations</A> if appropriate.)
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0009.htm">Tag definition</a>
+    &nbsp;&nbsp;Previous: <a href="slide0007.htm">Finding tag names</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

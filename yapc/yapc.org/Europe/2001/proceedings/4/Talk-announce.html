@@ -1,0 +1,90 @@
+<HTML>
+<HEAD>
+<TITLE>TITLE</TITLE>
+<LINK REV="made" HREF="mailto:">
+</HEAD>
+
+<BODY>
+
+<A NAME="__index__"></A>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#title">TITLE</A></LI>
+	<LI><A HREF="#author">AUTHOR</A></LI>
+	<LI><A HREF="#keywords">KEYWORDS</A></LI>
+	<LI><A HREF="#abstract">ABSTRACT</A></LI>
+	<LI><A HREF="#introduction">INTRODUCTION</A></LI>
+	<LI><A HREF="#talk">TALK</A></LI>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<H1><A NAME="title">TITLE</A></H1>
+<P>strict to porter - How <CODE>use strict</CODE> made me a perl5-porter</P>
+<P>
+<HR>
+<H1><A NAME="author">AUTHOR</A></H1>
+<P>H.Merijn Brand &lt;<A HREF="mailto:h.m.brand@hccnet.nl">h.m.brand@hccnet.nl</A>&gt;</P>
+<P>
+<HR>
+<H1><A NAME="keywords">KEYWORDS</A></H1>
+<P>Report generation, format, perl-guts, perl5-porter</P>
+<P>
+<HR>
+<H1><A NAME="abstract">ABSTRACT</A></H1>
+<P>Where perl has proven its usability in data crunching and
+report generation, when you hit a problem that deals with
+gray areas in the perl language that no-one knows about or
+doesn't seem to care about, you're on your own.</P>
+<P>I hit a bug when using <CODE>format</CODE> that was exposed only
+after converting my script to be <CODE>use strict</CODE> safe, and was
+forced to delve into the perl guts myself, cause nobody
+else did.</P>
+<P>
+<HR>
+<H1><A NAME="introduction">INTRODUCTION</A></H1>
+<P>Being faced with an apparent simple problem of converting a
+list of plain data to a report showing the wanted parts on
+the right spots, where - when starting the project of using
+perl - another report generator was used to do the job,
+perl seems to be the right choice indeed.</P>
+<P>Having only some perl4 experience at the time, I was
+stunned with the way perl5 was able to diminish my RPT
+script from over 1500 lines to less than 50 lines in perl5
+just by using symbolic references.</P>
+<P>The solution worked so well that the original approach
+using RPT was dropped as soon as all script were converted
+to use perl. Soon after the 50 line script grew to support
+footers and a lot more that we wanted in there for years.</P>
+<P>Then, after learning how to use perl5 to the better,
+almost all scripts we created so far (except perl4 with
+embedded database support) were converted to be <CODE>-w</CODE> and
+<CODE>use strict;</CODE> safe. That meant that</P>
+<PRE>
+  format A01 =
+  @&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+  $e081110
+  .</PRE>
+<P>should be converted to</P>
+<PRE>
+  format A01 =
+  @&lt;&lt;&lt;&lt;&lt;&lt;&lt;
+  $e[8]{1110}
+  .</PRE>
+<P>both logical and understandable. Then perl did <STRONG>BOOM</STRONG>. The
+script wouldn't even compile anymore, nor would <CODE>perl -c</CODE>
+give any hints why ...</P>
+<P>
+<HR>
+<H1><A NAME="talk">TALK</A></H1>
+<P>The talk will deal with why the symbolic links were chosen
+in the first place, what the impact of <CODE>use strict;</CODE> was
+to the script, and eventually made me find the location in
+the perl guts that made perl barf.</P>
+
+</BODY>
+
+</HTML>

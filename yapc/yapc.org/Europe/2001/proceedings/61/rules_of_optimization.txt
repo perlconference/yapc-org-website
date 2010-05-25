@@ -1,0 +1,223 @@
+The Rules Of Optimization
+  Rule #0 - These are not rules
+
+    They are heuristics. They're not hard and fast, just a strong set of
+    guidelines. They should be walked through, and decided if they should be
+    violated, in order.
+
+  Rule #1 - Don't
+
+    Do not optimize. Optimization is the killer of schedules and destroyer
+    of clean code.
+
+    Optimizations increase code entropy
+        The more you screw with things, the weirder you make your code.
+
+    They will often wind up slowing down the whole system
+        For example, pseudo-hashes were added as a way to have faster, more
+        memory efficient hashes with fixed keys. They're faster by about
+        10-15% when used carefully. However, the extra code slows down *all*
+        hashes and arrays by 10-15%.
+
+    Adds bugs
+        Its new code, and often more complicated than the last. New code
+        means new bugs.
+
+    Takes more time
+        Often the unoptimized version is the fastest one to code.
+
+    Leaks encapsulation
+        Many optimizations remove subroutine calls, or increase the scope of
+        routines.
+
+    Readability damaged
+        Micro-optimizations often do funny tricks to get more speed out. For
+        example, replacing lexical variables with $_
+
+    Hampers future optimizations
+        Often, adding in a poorly thought out optimization will actually
+        make future, and more wide-ranging, ones more difficult with a net
+        loss in the long run. Consider the case of replacing $obj->foo with
+        $obj->{foo} (this is bad BTW).
+
+  Rule #2 - Don't do it yet
+
+    Ok, you want to take the plunge anyway. But first...
+
+    Does it work?
+        Get the simple, "slow" version working first. That way, if the
+        optimization takes up too much time you have something to fall back
+        on. Also...
+
+    Is it tested?
+        Before you do *anything* write a test for what you're optimizing.
+        Optimizations break things.
+
+    Is it under version control?
+        If its not, you're really, really going to wish you were after
+        you've mangled your code beyond all recognition.
+
+    Can it wait?
+        Does this really have to be done? Is there something more pressing
+        you could be working on instead?
+
+    How fast is fast?
+        Set a speed target for your code. If you're meeting that, don't
+        bother optimizing.
+
+    Can you throw hardware at it?
+        Especially with in-house programs, a bit of extra RAM, a bigger
+        disk, a faster processor are all cheaper alternatives to using even
+        a day of programmer time ($25-$50 and up per hour per programmer).
+        Shrink-wrapped products don't have this luxury.
+
+    Is this a one-off?
+        If you're only running it once, there's not much point in optimizing
+        it. If you must optimize, run the "slow" version while you're doing
+        it. It might finish before you do.
+
+  Common misconceptions.
+
+    Subroutines are slow
+        Yes, calling a subroutine is slower than cutting and pasting the
+        code. However, if the routine is doing any amount of serious work
+        the overhead of calling the routine will be swamped by the code.
+        More importantly, small, sharp routines keep your code sensible and
+        maintainable. Spagetti code is very hard to optimize.
+
+    Object-oriented programming is slow
+        Method calls are no slower than subroutine calls, perl does some
+        clever things to assure this. No matter how deep or wide your
+        inheritance tree.
+
+    Less lines means less memory/faster run-time
+        Just because something is large doesn't mean its slow and fat, and
+        just because its small doesn't mean its fast and lean. There's some
+        correlation of size to experience (experienced programmers write
+        small code) but not because they squeezed it all together.
+
+    Common sense has something to do with it.
+        The perl core contains over 100,000 lines of C and another 100,000
+        lines of Perl. That's on top of an even bigger mountain of standard
+        library code which all runs on top of a complicated filesystem and
+        kernel. In all, you're talking about millions of lines of code
+        affecting your little program. Do you think common sense still
+        applies to how fast it will run? You will be surprised.
+
+  Rule #3 - Profile First
+
+    The above points to one conclusion about any assumptions you may have
+    about optimizing your code: NO, YOU'RE WRONG! The only way to really be
+    sure is through benchmarking and profiling. Profiling will tell you
+    where your program is spending its time (down at the pub?) and thus
+    where best to focus your efforts. Without it, you're just groping.
+
+    Benchmark, Devel::DProf and Devel::SmallProf are available.
+
+  Rule #4 - Optimize the algorithm
+
+    Micro-optimizations attack the code and the incidentals. It takes a
+    small view and produces small results. Real optimizations attack the
+    overall algorithm and can produce huge results.
+
+    Restate the problem as a problem
+        Often when trying to get help, you'll ask the wrong question. For
+        example, "How do I make my arrays smaller? Can I use bit vectors?"
+        That's a potential solution. Instead you should ask, "I'm reading a
+        file and its taking too much memory". From there you'll figure out
+        that there's better ways to do it than "@lines = <FILE>".
+
+        See "Programming Perls"
+
+    Get hot code out of loops
+        Often you'll find you're repeating the same work inside a loop that
+        runs alot. Pull as much work outside of such loops and you'll reap
+        large gains.
+
+    Memoize and cache where possible
+    Minimize expensive operations like network connections
+    Trade memory for CPU, disk for memory.
+    Delay loading and work until needed. Proxy pattern
+    Flyweight pattern
+    Increase abstraction
+        Your impulse will be to unroll routines (under the "subroutines are
+        slow" misconception). Do not do this. You will hamper future
+        optimizations and wreck maintainability. Instead, aim higher and add
+        more abstraction. This will lead to higher order optimizations.
+
+  Rule #4.5 - Cheating is often more efficient
+
+    Ok, so maybe you do have to micro-optimize. Here's some tricks.
+
+    Stay in perl
+        Remember what I said about length != speed? I lied a bit. Sometimes,
+        if you chain functions together things will go faster since perl
+        doesn't have to shuffle things around as much in memory. The
+        Schwartzian Transform and the Guttman-Rossler Transform are good
+        examples.
+
+    O(nlogn) beats O(n) sometimes.
+        In theory, trees should be faster than hashes for certain things.
+        Producing a sorted list of keys should be O(n) for a tree, O(nlogn)
+        for a hash. However, a hyper-optimized hash will clobber a tree for
+        "small" sets of keys (where "small" is, say < a few thousand).
+
+    Macros
+        When a subroutine is just too small and too hot, you can resort to
+        macros keeping some encapsulation and all the speed. There's
+        Filter::cpp for this.
+
+    Rewrite in C.
+        We like to think Perl is fast. It is. But C is faster. Assembly is
+        even faster. If you've identified a really critical piece of code,
+        you may want to rewrite it in C. Fortunately Inline.pm and friends
+        make this fairly easy.
+
+    Bit Vectors
+        Perl's arrays are very versitle, but a little slow and fat compared
+        to bit vectors (similar to what C uses). Sometimes you can win by
+        switching over, but the vec() syntax sucks.
+
+    Rewriting modules
+        Usually you don't reinvent the wheel, just grab a CPAN module.
+        Sometimes, if you only need a small part of the module, you can
+        rewrite that bit over faster, but with less features.
+
+    Delay library loads.
+        Rather than piling a bunch of "use" statements in your code, you can
+        delay loading modules until you actually need them. Either use
+        require() or a module like autouse or AnyLoader.
+
+    Shell utilities
+        The Unix shell utilities have been around a long time, are usually
+        written in C and are really fast. Sometimes you can win lots by
+        calling a shell program instead of using a pure Perl solution
+        (File::Find vs rgrep) but at the loss of portability and perhaps
+        some features.
+
+  Rule #5 - GOTO 1
+
+    You've done your optimization, everything's working. Great! Not done.
+
+    Comment it
+        Comment that what you've done is an optimization, else someone might
+        come along later and remove it.
+
+    Check in and log it.
+        Check into version control and log it after each optimization. Don't
+        let the change grow.
+
+    Test it.
+        Run it against your tests to ensure everything still works.
+
+    Reprofile.
+        Rerun the profiler and benchmarks so you know you saved some time.
+
+    Do NOT add features
+        You might be tempted to add some features while you're optimizing.
+        Resist! This will add complexity to an already complex operation.
+
+    STOP!
+        Know when you're done optimizing. Set a speed goal and stop when
+        you've reached it.
+

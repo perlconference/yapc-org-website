@@ -1,0 +1,99 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Sharing data between active parts</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0055.htm">Using document variables</a>
+    &nbsp;&nbsp;Previous: <a href="slide0053.htm">Security</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Sharing data between active parts">
+
+<H1>Sharing data between active parts
+</H1>
+
+
+<P>
+All active contents shares the same <B>Safe</B> object which means that it is executed <I>in the same Perl namespace</I> (which usually happens to appear as <CODE>main::</CODE>, please see the translators documentation for details). As a consequece, several parts can interact with each other by variables and functions.
+</P>
+
+
+<P>
+Note that the active parts are evaluated in the order they appear in the PerlPoint source.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+\EMBED{lang=perl}
+
+sub fileCount
+  {
+   # get number of files
+   opendir(D, '.');
+   my @fileNr=readdir(D);
+   my $fileNr=@fileNr;
+   closedir(D);
+
+   # supply result
+   $fileNr;
+  }
+
+# scan directory
+$filesFound=fileCount;
+
+'';
+
+\END_EMBED
+
+The following condition evaluates the number of files found by the previously
+executed code:
+
+// conditional hints
+? $filesFound&gt;10000000000
+
+
+=Using directories
+
+The number of files in your directory let us add additional suggestions:
+
+...
+
+// back to main document
+? 1
+
+Now we can use the previously declared function again: there are
+\EMBED{lang=perl}fileCount\END_EMBED files in the current directory.
+
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0055.htm">Using document variables</a>
+    &nbsp;&nbsp;Previous: <a href="slide0053.htm">Security</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

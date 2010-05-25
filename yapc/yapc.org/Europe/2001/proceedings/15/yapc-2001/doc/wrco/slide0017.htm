@@ -1,0 +1,106 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Modules to load</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0018.htm">Several variables</a>
+    &nbsp;&nbsp;Previous: <a href="slide0016.htm">The converter package</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Modules to load">
+
+<H1>4.2 Modules to load
+</H1>
+
+
+<P>
+Several modules need to be loaded by all converters.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  use Safe;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B><CODE>Safe</CODE></B> is necessary to arrange the <A HREF="slide0016.htm#The converter package">mentioned</A> execution of embedded Perl code.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  use Getopt::Long;
+  use Getopt::ArgvFile;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B><CODE>Getopt::Long</CODE></B> and <B><CODE>Getopt::ArgvFile</CODE></B> are used to evaluate converter options. This handling can of course be managed by alternative option modules or handcrafted code, if you prefer.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  use PerlPoint::Parser;
+  use PerlPoint::Backend;
+  use PerlPoint::Constants;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+These modules are used to build parser and backend.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  use PerlPoint::Tags;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B><CODE>PerlPoint::Tags</CODE></B> enables to accept tags defined by <I>other</I> converters.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  use PerlPoint::Tags::Format;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Finally, declare the tags which shall be be valid. These can be tags you <A HREF="slide0009.htm#Tag definition">defined</A> for this converter especially, tags developed for another converter or basic tags provided with the converter framework. If the tags you want to support are spread around, you can load as many definition modules as necessary. Note that warnings will be displayed if tags are defined multiply, and that the last appearing definition of a tag will overwrite earlier ones.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0018.htm">Several variables</a>
+    &nbsp;&nbsp;Previous: <a href="slide0016.htm">The converter package</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

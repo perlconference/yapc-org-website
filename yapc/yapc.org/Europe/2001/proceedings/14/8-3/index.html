@@ -1,0 +1,51 @@
+<HTML>
+<HEAD><TITLE>Mail::Box, Autoloading</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Tue Jul 10 22:46:18 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc.gif WIDTH=142 HEIGHT=62></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Mail::Box</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../7-3/index.html>To Test or Not to Test</A><BR>next: <A HREF=../9-0/index.html>Autoloading and Inheritance</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P>And now (temporarily) something completely different: the
+<EM>autoloading</EM> mechanism in Perl.  I won't go to all the
+details how to set it up, but just the basic priciple.</P>
+
+<P>Autoloading comes into play when the user calls a function
+(or method, when the OO syntax is used to call functions), which
+is not known (yet).</P>
+
+<P>When you use an unknown method, Perl calls the <CODE>AUTOLOAD</CODE>
+function, with the name of the desired method in the <CODE>$AUTOLOAD</CODE>
+scalar.</P>
+
+<P>The most general application for autoloading is to reduce compilation
+costs.  Split your package in many smaller pieces, and compile only the
+pieces you use.  This is autoloading of functionality.</P>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../7-3/index.html>To Test or Not to Test</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../9-0/index.html>Autoloading and Inheritance</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 July 2001
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

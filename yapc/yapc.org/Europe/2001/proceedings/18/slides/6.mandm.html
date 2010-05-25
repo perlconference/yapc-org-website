@@ -1,0 +1,127 @@
+<html>
+	<head>
+		<title>Slide 6: Mechanism, and madness?</title>
+	</head>
+	
+	<body bgcolor="white">
+			<table border="0" width="80%" align="center">
+				<tr>
+					<td align="left"  ><font face="sans-serif" size="+3" color="darkgray">
+						<a href="5.limitations.html">
+							PREV</a>
+					</font></td>
+					<td align="center"><font face="sans-serif" size="+2">
+						Parsing perl, and unparsing it again
+					</font></td>
+					<td align="right" ><font face="sans-serif" size="+3" color="gray">
+						<!--a href="6.mandm.html"-->
+							NEXT<!--/a-->
+					</font></td>
+				</tr>
+			</table>
+
+			<hr width="80%">
+			
+			<p>&nbsp;</p>
+			
+			<table width="80%" align="center">
+				<tr><td>
+					<font face="sans-serif" size="+2">
+						<ul>
+							<li> When you run a Perl program, it goes through two stages.
+								 First it's compiled into an optree, then the optree is
+								 executed. Here's a program with its optree:
+<pre>print "Hello, world!\n";
+my $x = 2;
+$x = $x + 21;
+
+while ($x) { print $x-- }
+print $/;</pre>
+compiles to...
+<pre>1s <@> leave[t1] vKP/REFC ->(end)
+z     <0> enter ->10
+10    <;> nextstate(main 7 dem.pl:1) v ->11
+13    <@> <font color="red">print</font> vK ->14
+11       <0> pushmark s ->12
+12       <$> const(PV <font color="green">"Hello, world!\n"</font>) s ->13
+14    <;> nextstate(main 7 dem.pl:2) v ->15
+17    <2> <font color="red">sassign</font> vKS/2 ->18
+15       <$> const(IV <font color="green">2</font>) s ->16
+16       <0> padsv[<font color="green">$x</font>:7,end] sRM*/LVINTRO ->17
+18    <;> nextstate(main 8 dem.pl:3) v ->19
+1b    <2> <font color="red">add</font>[<font color="green">$x</font>:7,end] sK/TARGMY,2 ->1c
+19       <0> padsv[<font color="green">$x</font>:7,end] s ->1a
+1a       <$> const(IV <font color="green">21</font>) s ->1b
+1c    <;> nextstate(main 9 dem.pl:5) v ->1d
+1n    <2> leaveloop vK/2 ->1o
+1d       <{> <font color="red">enterloop</font>(next->1j last->1n redo->1e) v ->1l
+-        <1> null vK/1 ->1n
+1m          <|> and(other->1e) vK/1 ->1n
+1l             <0> padsv[$x:7,end] s ->1m
+-              <@> lineseq vK ->-
+1e                <;> nextstate(main 8 dem.pl:5) v ->1f
+1i                <@> <font color="red">print</font> vK ->1j
+1f                   <0> pushmark s ->1g
+1h                   <1> <font color="red">postdec</font>[t4] sK/1 ->1i
+1g                      <0> padsv[<font color="green">$x</font>:7,end] sRM ->1h
+1j                <0> unstack v ->1k
+1k                <;> nextstate(main 9 dem.pl:5) v ->1l
+1o    <;> nextstate(main 10 dem.pl:6) v ->1p
+1r    <@> <font color="red">print</font> vK ->1s
+1p       <0> pushmark s ->1q
+-        <1> ex-rv2sv sK/1 ->1r
+1q          <$> gvsv(<font color="green">*/</font>) s ->1r
+</pre>
+								 <br /><br />
+							
+							<li> A <b>compiler backend</b> is a module which goes over
+								 the optree after it's been created (but before it's
+								 executed) and turns it into something else. <code>B::C</code>
+								 turns it into a C program, <code>B::Bytecode</code>
+								 serialises the optree onto disk, in a recoverable way.
+								 <code>B::Graph</code> draws a graph of the structure.
+								 And there are a few like <code>B::Concise</code>, which
+								 turn it into (almost) human-readable text.
+								 <p />
+								 But my favourite is <code>B::Deparse</code>, which turns the
+								 optree back into a Perl program. It sounds insane, but it
+								 can be useful for debugging. (It can also be used to serialise
+								 code in a human-readable way.)
+								 <br /><br />
+								 
+							<li> It takes a lot of work to write a useful compiler backend,
+								 because you have to deal with all of perl's bizarre little
+								 idiosyncrasies. The optree can contain some very strange
+								 optimisations!
+								 <br /><br />
+								 
+							<li> I plan to write a new compiler backend (perhaps derived from
+								 B::Deparse) which converts the optree into a syntax tree that
+								 represents your program in a structured way.
+								 <br /><br />
+								 
+							<li> There'll be a simple mechanism for turning this tree back into
+								 Perl code, but you'll be able to over-ride parts of it; so you
+								 can turn it back into <b>different</b> code.
+								 <br /><br />
+								 
+							<li> So here's an imaginary <code>Symbol::Approx::Scalar</code>
+								 module, using this imaginary module, which I'll pretend is
+								 called <code>B::Parse</code>:
+<pre>use O 'Parse';
+
+eval B::Parse::as_code(
+	'scalar_variable' => sub {
+		my $node = shift();
+		return "__find_variable(",B::Parse::quote($node->name),")";
+	}
+);
+
+exit;</pre>
+						</ul>
+
+					</font>
+				</td></tr>
+			</table>
+	</body>
+</html>

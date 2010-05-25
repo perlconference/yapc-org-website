@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>pVoice - using Perl to enable the disabled</title>
+<link rel="stylesheet" href="pVoice.css" type="text/css" />
+<body>
+<h2>what difficulties I had writing the application</h2>
+<p>
+<ul>
+<li><b> The limitation of the user</b><br />
+	The constraints are obvious, but also things like moving your head to the left can cause the back of your head to activate the right :(. This was the time I learned about Tk's <i>busy</i> and <i>unbusy</i> methods.</li>
+<li><b> Learning Tk</b><br />
+	It was pretty hard to start learning Tk. I admit I don't own the O'Reilly book (though I had the Perl/Tk Pocket Reference by Stephen Lidie). But asking everything I didn't know on Perlmonks helped me a lot! Only too bad the FAQ seems outdated.</li>
+<li><b> Limitations of the high level of programming</b><br />
+	Sometimes you want to do things that can't or shouldn't be done in higher level programming languages like Perl. Like when I wanted to start the window maximized. That appears to be a Window Manager function and can't be accessed from Tk. Or the fact that I wanted to run in a full-screen modus. Or wanted to get rid of the mousepointer at all...</li>
+<li><b> Portable audioplaying module</b><br />
+	Audio::Play seemed the ultimate module for me. According to the docs it should be able to compile on Win32 and on Linux. Well, the last one was no problem at all, but getting it to run on Win32 is still a point to be done. ActiveState does not have a PPM of it, and I haven't found anyone who successfully compiled it on Win32. I'm considering using MP3 as audioformat, although for pVoice I will heavily depend on a (portable?) speech synthesizer.</li>
+</ul>
+</p>
+<p>
+<a href="6.html">Next</a>
+</p>
+</body>
+</html>

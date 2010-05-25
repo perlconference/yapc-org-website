@@ -1,0 +1,100 @@
+#!/usr/bin/perl -w
+# File: interaction
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+# This program demonstrates how simple it is to create graphical
+# interaction in Perl/Tk.
+
+# Both the line and the arrow can be moved around with the
+# left mouse-button.  The arrow can be destroyed with the
+# right mouse-button.
+
+use strict;
+use Tk;
+
+#
+# Create our playfield.
+#
+
+my $mw = MainWindow->new;     # create window.
+$mw->geometry('250x250');     # request geometry.
+
+my $canvas = $mw->Canvas(-background => 'white')
+                ->pack( -expand => 1
+                      , -fill   => 'both'
+                      );
+
+$canvas->createLine(100,100, 200,200
+   , -width      => 3
+   , -arrow      => 'last'
+   , -arrowshape => [ 12, 20, 6 ]
+   );
+
+$canvas->createRectangle(30,40, 170,190
+   , -width      => 3
+   , -tag        => 'destroyable'
+   );
+
+
+#
+# These variables store the selected object and the mouse-position
+# related to the selection.
+#
+
+my ($x, $y, $object);
+
+
+#
+# SELECT an object (to be moved)
+# Mind the subtilty: x and y are global, because they must
+# be available when moving the object in the move() function.
+#
+
+sub select($$$)
+{  (my $canvas, $x, $y) = @_;
+
+   $object = $canvas->find(closest => $x, $y);
+}
+
+# All objects can be selected.  Ev('x') [x-location of the mouse]
+# can only be received in exactly this way... not in the select()
+$canvas->bind(all => '<Button-1>', [ \&select, Ev('x'), Ev('y') ]);
+
+
+#
+# MOVE an object
+# Tk receives mouse-move events. The displacement in x,y of the
+# pointer is de move distance for the selected object.
+#
+
+sub move($$$)
+{  my ($canvas, $nx, $ny) = @_;
+   $canvas->move($object, $nx-$x, $ny-$y);
+   ($x, $y) = ($nx, $ny);
+}
+
+$canvas->bind(all => '<B1-Motion>', [ \&move, Ev('x'), Ev('y') ]);
+
+
+#
+# KILL an object.
+# Remove the object on the canvas which is closest to the location
+# where the kill-command was given.  The kill-event is bound to
+# objects with tag 'destroyable' (that's the implementers choice
+# of names, not a predefined tag or such)
+#
+
+sub kill($$$)
+{   my ($canvas, $kx, $ky) = @_;
+    my $to_kill = $canvas->find(closest => $kx, $ky);
+    $canvas->delete( $to_kill );
+}
+
+$canvas->bind(destroyable => '<Button-3>', [ \&kill, Ev('x'), Ev('y') ]);
+
+
+# Create window and wait for events.
+# This will never exit.
+
+MainLoop;

@@ -1,0 +1,71 @@
+=head1 TITLE
+
+strict to porter - How C<use strict> made me a perl5-porter
+
+=head1 AUTHOR
+
+H.Merijn Brand <h.m.brand@hccnet.nl>
+
+=head1 KEYWORDS
+
+Report generation, format, perl-guts, perl5-porter
+
+=head1 ABSTRACT
+
+Where perl has proven its usability in data crunching and
+report generation, when you hit a problem that deals with
+gray areas in the perl language that no-one knows about or
+doesn't seem to care about, you're on your own.
+
+I hit a bug when using C<format> that was exposed only
+after converting my script to be C<use strict> safe, and was
+forced to delve into the perl guts myself, cause nobody
+else did.
+
+=head1 INTRODUCTION
+
+Being faced with an apparent simple problem of converting a
+list of plain data to a report showing the wanted parts on
+the right spots, where - when starting the project of using
+perl - another report generator was used to do the job,
+perl seems to be the right choice indeed.
+
+Having only some perl4 experience at the time, I was
+stunned with the way perl5 was able to diminish my RPT
+script from over 1500 lines to less than 50 lines in perl5
+just by using symbolic references.
+
+The solution worked so well that the original approach
+using RPT was dropped as soon as all script were converted
+to use perl. Soon after the 50 line script grew to support
+footers and a lot more that we wanted in there for years.
+
+Then, after learning how to use perl5 to the better,
+almost all scripts we created so far (except perl4 with
+embedded database support) were converted to be C<-w> and
+C<use strict;> safe. That meant that
+
+  format A01 =
+  @<<<<<<<
+  $e081110
+  .
+
+should be converted to
+
+  format A01 =
+  @<<<<<<<
+  $e[8]{1110}
+  .
+
+both logical and understandable. Then perl did B<BOOM>. The
+script wouldn't even compile anymore, nor would C<perl -c>
+give any hints why ...
+
+=head1 TALK
+
+The talk will deal with why the symbolic links were chosen
+in the first place, what the impact of C<use strict;> was
+to the script, and eventually made me find the location in
+the perl guts that made perl barf.
+
+=cut

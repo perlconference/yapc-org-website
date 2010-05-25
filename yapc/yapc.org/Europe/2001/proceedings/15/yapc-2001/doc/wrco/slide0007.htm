@@ -1,0 +1,70 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Finding tag names</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0008.htm">Writing a tag module</a>
+    &nbsp;&nbsp;Previous: <a href="slide0006.htm">Tag definition</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Finding tag names">
+
+<H1>3.1 Finding tag names
+</H1>
+
+
+<P>
+New tag names can be freely chosen, with two exceptions: first, certain tag names are already used (and therefore reserved) by the base system:
+</P>
+<TABLE border=2><TR>
+<TD><B>tag</B></TD><TD><B>description</B></TD></TR>
+<TR>
+<TD><B><CODE>\B</CODE></B>, <B><CODE>\C</CODE></B>, <B><CODE>\I</CODE></B>, <B><CODE>\IMAGE</CODE></B>, <B><CODE>\READY</CODE></B></TD><TD>Base tags defined by <B><CODE>PerlPoint::Tags::Basic</CODE></B>. By convention, <I>all</I> converters support these tags.</TD></TR>
+<TR>
+<TD><B><CODE>\TABLE</CODE></B>, <B><CODE>\END_TABLE</CODE></B></TD><TD>construct tables</TD></TR>
+<TR>
+<TD><B><CODE>\EMBED</CODE></B>, <B><CODE>\END_EMBED</CODE></B></TD><TD>embed other languages into a PerlPoint source, e.g. to directly include parts in the target format, or to call Perl code which produces PerlPoint on the fly</TD></TR>
+<TR>
+<TD><B><CODE>\INCLUDE</CODE></B></TD><TD>loads additional files which are made part of the source (in various ways)</TD></TR>
+</TABLE>
+<P>
+
+
+<P>
+Second, please have a look at existing converters and <I>their</I> tags. It might confuse users if one and the same tag name has completely different meanings in different converters. So if your prefered name is already used, please invent another one. On the other hand, it may be the intention to support &quot;foreign&quot; tags as well, in a way that fits into your target format. In this case, the &quot;foreign&quot; names (and their syntax) <I>have</I> to be used, of course.
+</P>
+
+
+<P>
+All tag names are made of uppercased letters. Underscores and digits are allowed as well. The parser does not recognize a tag if its name does not match these rules.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0008.htm">Writing a tag module</a>
+    &nbsp;&nbsp;Previous: <a href="slide0006.htm">Tag definition</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

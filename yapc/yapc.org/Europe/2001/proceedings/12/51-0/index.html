@@ -1,0 +1,63 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, References -1</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:55:23 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../50-0/index.html>Atsar replacement -3</A><BR>next: <A HREF=../52-0/index.html>References -2</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+I do not want to impose any conclusions. I showed some ways to reach
+my goal.  The solution of the XS library was quite a lot of work in this
+particular case, but usually much easier.  Both other solution were
+really easy.  The programs are much shorter and simpler than in the original
+<CODE>atsar</CODE>, including the extra of a graphical display.
+<P>
+I support the arguments of Linus Torvalds in favour of communication in text
+from <CODE>/proc</CODE> to the programs in stead of the traditional
+communication in binary structures: alignment and byte-ordering
+differences between systems makes life much harder than needed.  Textual
+communication requires string-parsing which is simple in most languages
+but C, and has little overhead as long as the language supports
+associative arrays (hashes).
+<P>
+Links:
+<DL>
+<DT>Tutorial web site
+<DD><A HREF=http://mark.overmeer.net/yapc2001/>http://mark.overmeer.net/yapc2001/</A><BR>
+    <A HREF=mailto:markov@ATComputing.nl>markov@ATComputing.nl</A>
+<DT>Tutorial software
+<DD><A HREF=http://ppresenter.org>http://ppresenter.org</A><BR>
+    <A HREF=mailto:ask@ppresenter.org>ask@ppresenter.org</A>
+<DT>Atsar software
+<DD><A HREF=ftp://ftp.ATComputing.nl/pub/tools/linux/>ftp://ftp.ATComputing.nl/pub/tools/linux/</A>
+<DT>SWIG
+<DD><A HREF=http://swig.sourceforge.net>http://swig.sourceforge.net</A>
+</DL>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../50-0/index.html>Atsar replacement -3</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../52-0/index.html>References -2</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

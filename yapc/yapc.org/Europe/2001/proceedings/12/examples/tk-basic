@@ -1,0 +1,20 @@
+#!/usr/bin/perl -w
+
+# File: tk-basic
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+use strict;
+use Tk;
+
+my $mw = MainWindow->new;
+
+my $button = $mw->Button
+  ( -text       => 'hit me!'
+  , -foreground => 'blue'
+  , -background => 'red'
+  , -command    => sub {exit 0}
+  );
+
+$button->pack;
+MainLoop;

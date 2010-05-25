@@ -1,0 +1,22 @@
+#!/usr/bin/perl -w
+
+use strict;
+$| = 1;
+
+my $origdir = "venue_big";
+my $destdir = "venue";
+
+while(my $oldfile = <$origdir/*.jpg>) {
+#  next if ($file =~ /lowres/);
+  (my $newfile = $oldfile) =~ s|$origdir|$destdir|; # get rid of nasty path
+  next if (-r $newfile);
+  print "$oldfile -> $newfile...";
+#  print "doing $newfile... ";
+#  system ("djpeg $oldfile | pnmscale -xscale 0.890625 -yscale 0.890625 | cjpeg -quality 90 > $newfile");
+  system("cp $oldfile $newfile");
+  $newfile =~ s|.jpg|-lowres.jpg|;
+  print ", $newfile...";
+  system ("djpeg $oldfile | pnmscale -xscale 0.17 -yscale 0.17 | pnmmargin -white 3 | pnmmargin -black 1 | cjpeg -quality 90 > $newfile");
+  print "done\n";
+#  exit 0;
+}

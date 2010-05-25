@@ -1,0 +1,63 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: leftop</title>
+</head>
+
+<body>
+<h1 align = "center">leftop and rightop</h1>
+
+<pre>
+                                         {my %variables}
+
+start:          statement  /^\Z/         {$variables {'.'} = $item [1]}
+
+statement:      <font color = "red">&lt;rightop: variable '=' expression></font>
+                         {my $value = pop @{$item [1]};
+                          while (@{$item [1]}) {
+                              $variables {shift @{$item [1]}} = $value;
+                          }
+                          $value
+                         }
+
+expression:     <font color = "red">&lt;leftop: term ('+' | '-') term></font>
+                         {my $s = shift @{$item [1]};
+                          while (@{$item [1]}) {
+                              my ($op, $t) = splice @{$item [1]}, 0, 2;
+                              if ($op eq '+') {$s += $t}
+                              else            {$s -= $t}
+                          }
+                          $s
+                         }
+
+term:           <font color = "red">&lt;leftop: factor m{([*/])} factor></font>
+                         {my $t = shift @{$item [1]};
+                          while (@{$item [1]}) {
+                              my ($op, $f) = splice @{$item [1]}, 0, 2;
+                              if ($op eq '/') {$t /= $f}
+                              else            {$t *= $f}
+                          }
+                          $t
+                         }
+
+
+factor:         number
+              | variable                 {$variables {$item [1]} ||=
+                                                Math::BigInt -> new (0)}
+              | '+' factor               {$item [2]}
+              | '-' factor               {$item [2] * -1}
+              | '(' statement ')'        {$item [2]}
+
+number:         /\d+/                    {Math::BigInt -> new ($item [1])}
+
+variable:       /[a-z]+/i
+              | '.'
+</pre>
+
+<hr>
+<a href = '25.html'>[Prev]</a>
+<a href = '27.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

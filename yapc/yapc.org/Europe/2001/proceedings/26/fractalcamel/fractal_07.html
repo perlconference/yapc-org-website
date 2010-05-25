@@ -1,0 +1,50 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>Julia Mandelbrot: 7/9</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>Calculation (cont.)</h2>
+<p>After removing comments and adding a little whitespace, we can
+explain the rest of the program:</p><!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="k">for</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="n">1</SPAN> .. <SPAN CLASS="i">$i</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN>                 <SPAN CLASS="c"># calculate as many images as we want</SPAN>
+<SPAN CLASS="i">    $w</SPAN> *= <SPAN CLASS="i">$z</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="i">$h</SPAN> *= <SPAN CLASS="i">$z</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="i">$A</SPAN> += <SPAN CLASS="i">$a</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="c"># relative changes between images </SPAN>
+<SPAN CLASS="k">    for</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="n">0</SPAN> .. <SPAN CLASS="i">$H</SPAN> * <SPAN CLASS="i">$W</SPAN> - <SPAN CLASS="n">1</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN>    <SPAN CLASS="c"># calculate each screen &quot;point&quot;</SPAN>
+<SPAN CLASS="p">        (</SPAN> <SPAN CLASS="i">$U</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$R</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">@0</SPAN> <SPAN CLASS="p">)</SPAN> = <SPAN CLASS="s">(</SPAN> <SPAN CLASS="w">f</SPAN><SPAN CLASS="s">(</SPAN> <SPAN CLASS="i">$_</SPAN> % <SPAN CLASS="i">$W</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="k">int</SPAN> <SPAN CLASS="i">$_</SPAN> / <SPAN CLASS="i">$W</SPAN> <SPAN CLASS="s">)</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$n</SPAN> <SPAN CLASS="s">)</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="p">        (</SPAN> <SPAN CLASS="i">$p</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$q</SPAN> <SPAN CLASS="p">)</SPAN>     = <SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$j</SPAN> ? <SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$x</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$y</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="co">:</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$U</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$R</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="p">)</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">        do</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$U</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$R</SPAN> <SPAN CLASS="p">)</SPAN> = <SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$U</SPAN> * <SPAN CLASS="i">$U</SPAN> - <SPAN CLASS="i">$R</SPAN> * <SPAN CLASS="i">$R</SPAN> + <SPAN CLASS="i">$p</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$U</SPAN> * <SPAN CLASS="n">2</SPAN> * <SPAN CLASS="i">$R</SPAN> + <SPAN CLASS="i">$q</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="k">            until</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$U</SPAN> * <SPAN CLASS="i">$U</SPAN> + <SPAN CLASS="i">$R</SPAN> * <SPAN CLASS="i">$R</SPAN> &gt; <SPAN CLASS="n">4</SPAN> <SPAN CLASS="p">)</SPAN> || --<SPAN CLASS="i">$0</SPAN>[<SPAN CLASS="n">0</SPAN>] == <SPAN CLASS="n">0</SPAN> <SPAN CLASS="p">)</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">        print</SPAN> <SPAN CLASS="i">$c</SPAN>[ <SPAN CLASS="k">int</SPAN><SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$0</SPAN>[<SPAN CLASS="n">0</SPAN>] * <SPAN CLASS="n">9</SPAN> / <SPAN CLASS="i">$n</SPAN> <SPAN CLASS="p">)</SPAN> ]<SPAN CLASS="cm">,</SPAN> <SPAN CLASS="c"># print the character</SPAN>
+              ++<SPAN CLASS="i">$_</SPAN> % <SPAN CLASS="i">$W</SPAN> ? <SPAN CLASS="i">$#</SPAN> <SPAN CLASS="co">:</SPAN> <SPAN CLASS="q">&quot;\n&quot;</SPAN><SPAN CLASS="sc">;</SPAN>       <SPAN CLASS="c"># and an optional newline</SPAN>
+<SPAN CLASS="s">    }</SPAN>
+<SPAN CLASS="s">}</SPAN>
+</PRE>
+<p><tt>$i</i> is the number of images we want to calculate in this (mostly
+used when in batch-mode).</p>
+<ul>
+<li>Before calculation, zoom and rotate according to <tt>$z</tt> and
+<tt>$a</tt>.</li>
+<li><tt>$U</tt> an d<tt>$R</tt> are the complex coordinates of the
+current character, while <tt>$0[0]</tt> will be the round counter.</li>
+<li>The main difference between the Julia and Mandelbrot sets are in
+the initial values. So the parameter depends on <tt>$j</tt>.</li>
+<li>The <tt>do</tt> repeats the well-know formula until either we flew over to
+infinity (estimated to equal 4) or we got past the maximum iteration count.</li>
+<li>The last statement prints the character, and a newline if it's the last
+of the current line.</li>
+</ul>
+<p align="center"> <a href="fractal_06.html">Previous</a> | <a href="fractal_08.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

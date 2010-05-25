@@ -1,0 +1,91 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Using document variables</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0056.htm">Accessing base data</a>
+    &nbsp;&nbsp;Previous: <a href="slide0054.htm">Sharing data between active parts</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Using document variables">
+
+<H1>Using document variables
+</H1>
+
+
+<P>
+PerlPoint variables are <I>no</I> active contents. Even when active contents is disabled completely, variables will still work. Nevertheless, their <I>values</I> are <I>copied</I> into the namespace of active contents.
+</P>
+
+
+<P>
+That means you can read every PerlPoint variable in active parts.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  $var=10
+
+  The variables value on PerlPoint side is $var. On Perl side,
+  it is \EMBED{lang=perl}$main::var\END_EMBED as well.
+
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Note that the variables are only <I>copied</I>. They may be modified on Perl side but without effect to PerlPoint.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  $var=10
+
+  The variables value on PerlPoint side is $var. On Perl side,
+  it is \EMBED{lang=perl}$main::var*=100\END_EMBED now. But this does not
+  affect PerlPoint which still sees a value of $var.
+
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Further more, whenever a variable is set on PerlPoint side, the Perl side value is updated which overwrites all modifications eventually made.
+</P>
+
+
+<P>
+You may have noticed that the variables were accessed by their fully qualified names in the examples above. This was done because PerlPoint variables are evaluated <I>first</I> - before the code is passed to perl. By using the fully qualified name which is unknown to PerlPoint this replacement is suppressed. Alternatively, <CODE>\$var</CODE> may be written.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0056.htm">Accessing base data</a>
+    &nbsp;&nbsp;Previous: <a href="slide0054.htm">Sharing data between active parts</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

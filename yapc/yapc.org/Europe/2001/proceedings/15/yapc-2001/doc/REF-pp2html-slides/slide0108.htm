@@ -1,0 +1,114 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Simple Layout</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0109.htm">Frame Set Layout</a>
+    &nbsp;&nbsp;Previous: <a href="slide0107.htm">Using Templates</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Simple Layout">
+
+<H1>Simple Layout
+</H1>
+
+
+<P>
+The most simple case is to not use any template files. This will just create a set of HTML files containing the headers and texts you noted in your input file. This is inconvenient as you have no navigation hyperlinks (except the links which have been created in the table of contents, <I>slide0000.htm</I>)
+</P>
+
+
+<P>
+You can create simple HTML fragments as top and bottom templates:
+</P>
+
+
+<P>
+<B>File:</B> simple_top.tpl
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  &lt;TABLE bgcolor=&quot;#AFBDCA&quot; width=100% cellpadding=5 cellspacing=0&gt;
+    &lt;TR&gt;
+      &lt;TD width=20%&gt;&lt;img src=&quot;Logo.gif&quot;&gt;&lt;/TD&gt;
+      &lt;TD align=center&gt;TITLE&lt;/TD&gt;
+      &lt;TD align=right width=20%&gt;August 2001&lt;/TD&gt;
+    &lt;/TR&gt;
+  &lt;/TABLE&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B>File:</B> simple_bot.tpl
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ &lt;TABLE WIDTH=100%  BORDER=0 CELLSPACING=0 CELLPADDING=2&gt;
+ &lt;TR&gt;
+   &lt;TD border=0&gt;
+   &lt;/TD&gt;
+  &lt;TD VALIGN=top ALIGN=right &gt;&lt;SMALL&gt;
+     Copyright &amp;copy;
+     &lt;a href=&quot;mailto:Lorenz.Domke@gmx.de&quot;&gt;Lorenz Domke&lt;/a&gt;&lt;br&gt;
+     All rights reserved.
+     &lt;/SMALL&gt;
+  &lt;/TD&gt;
+ &lt;/TR&gt;
+ &lt;/TABLE&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Then use this by calling
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ pp2html --top_template simple_top.tpl \
+   --bottom_template simple_bot.tpl -title &quot;Cool Slides&quot; input.pp
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+In a similar manner you create navigation templates for top and/or bottom navigation bars which contain simple HTML tables. The cells may be colored and you use the URL_NEXT, TXT_NEXT etc. keywords. These keywords are automatically replaced with hyperlinks to the corresponding pages and with the page headers respectively.
+</P>
+
+
+<P>
+See the examples in the <CODE>pp2html_styles</CODE> subdirectory of the PerlPoint-Converters package.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0109.htm">Frame Set Layout</a>
+    &nbsp;&nbsp;Previous: <a href="slide0107.htm">Using Templates</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

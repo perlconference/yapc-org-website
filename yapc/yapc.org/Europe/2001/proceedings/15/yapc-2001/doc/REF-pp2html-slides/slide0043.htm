@@ -1,0 +1,145 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>READY</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0044.htm">SECTIONREF</a>
+    &nbsp;&nbsp;Previous: <a href="slide0042.htm">5.2.3.11REF</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="READY">
+
+<H1>READY
+</H1>
+
+
+<P>
+<A name="index_43_15"></A> The <B>\READY</B> tag instructs PerlPoint to ignore remaining parts of a document.
+</P>
+
+
+<P>
+<B>Syntax</B>
+</P>
+
+
+<P>
+\READY
+</P>
+
+
+<P>
+<B>Options</B>
+</P>
+
+
+<P>
+<B>Options</B>
+</P>
+
+
+<P>
+No options are allowed. Used options will not be recognized as belonging to this tag.
+</P>
+
+
+<P>
+<B>Body</B>
+</P>
+
+
+<P>
+No body is allowed. A used body will not be recognized as a body of this tag.
+</P>
+
+
+<P>
+<B>Notes</B>
+</P>
+
+
+<P>
+<B>\READY</B> is part of the <I>basic tag set</I> supported by <I>all</I> PerlPoint translators.
+</P>
+
+
+<P>
+<B>Example</B>
+</P>
+
+
+<P>
+In this example, <B>\READY</B> is used to process just a small portion of a source, e.g. to build an overview:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ ? flagSet(overviewMode)
+
+ \B&lt;Short Overview&gt;
+
+ This document will give you an impression.
+
+ // ready in overview mode
+ <B>\READY</B>
+
+ ? 1
+
+ // usual document
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B>Notes</B>
+</P>
+
+
+<P>
+The behaviour of this tag is still subject to changes. Currently, not even the current paragraph will become part of the result. That's why it s recommended to use it in a line of its own (as demonstrated by the example).
+</P>
+
+
+<P>
+<B>See also</B>
+</P>
+
+
+<P>
+More basic set tags: <B>\B</B>, <B>\C</B>, <B>\I</B> and <B>\IMAGE</B>.
+</P>
+
+
+<P>
+
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0044.htm">SECTIONREF</a>
+    &nbsp;&nbsp;Previous: <a href="slide0042.htm">5.2.3.11REF</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

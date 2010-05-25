@@ -1,0 +1,54 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>The Best Ever: Perl 2/4</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>Initialisation steps</h2>
+<p>We can now start to read the actual code:</p><!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="i">$0</SPAN> = <SPAN CLASS="q">'&quot;\e[7m \e[0m&quot;'</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="i">@ARGV</SPAN> = <SPAN CLASS="k">split</SPAN> <SPAN CLASS="q">//</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="k">reverse</SPAN> <SPAN CLASS="q">q(ThePerl)</SPAN> . <SPAN CLASS="q">q(Journal)</SPAN> x <SPAN CLASS="n">220</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="q">q ; 0 T putinterval exch 7 J putinterval ;</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="c"># string in void context</SPAN>
+<SPAN CLASS="i">$_</SPAN> = <SPAN CLASS="q">q /m$ pop T($*!$&quot;=!$ &quot; )pop &quot; * true% ? $ &quot; $!&quot; &quot;  !!  !! % !&quot; !&quot;    !</SPAN>
+<SPAN CLASS="q">! charpath {!&quot;&quot;&quot;}pop $ pop{&quot;&quot;!}pop ! neg{!#}pop 220 ! neg _{!!}pop J false %T</SPAN>
+<SPAN CLASS="q">charpath  clip &quot; pop 0 &quot; moveto 6{!!}pop $_= 105{!!}pop {$ ! $ &quot; !  #! ##}</SPAN>
+<SPAN CLASS="q">pop{dup dup $ ! &quot; pop pop q{&quot;}pop 22{dup show}repeat {&quot;}pop q 22 mul{$ &quot;} pop</SPAN>
+<SPAN CLASS="q">neg{!#! $ &quot;}pop ! 8 .65 mul{$ # # $}pop ! neg{&quot;}pop  _ pop{&quot;}pop } repeat pop</SPAN>
+<SPAN CLASS="q">&quot; {  $ &quot; ! ! ! $ &quot; ! !&quot; &quot;#&quot;  #&quot;!&quot;&quot;&quot;&quot;&quot;! #&quot; &quot; # &quot;m/</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="i">@ARGV</SPAN> = <SPAN CLASS="s">(</SPAN> <SPAN CLASS="i">@ARGV</SPAN><SPAN CLASS="s">[</SPAN> <SPAN CLASS="n">-14</SPAN> .. <SPAN CLASS="n">-1</SPAN> <SPAN CLASS="s">]</SPAN> <SPAN CLASS="s">)</SPAN> x <SPAN CLASS="n">50</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="q">q}</SPAN>
+<SPAN CLASS="q"> 0 &quot;%}</SPAN><SPAN CLASS="sc">;</SPAN>          <SPAN CLASS="c"># another string in void context</SPAN>
+<SPAN CLASS="q">s/m[ou]|[-\dA-ln-z.\n_{}]|\$_=//gx</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="q">s/(.)(?{$*=''})/('$*.='.(++$#%2?'':&quot;$0;&quot;).'pop;')x(ord($1)-31).'$*'/gee</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="q">s/((.(\e\[.m)*|.){77})/$1\n/g</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">print</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="i">sub showpage</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="s">}</SPAN> <SPAN CLASS="c"># we don't need you, you PostScript operator you</SPAN>
+</PRE>
+<ul>
+<li><tt>$0</tt> is now an ANSI reverse-video space character.</li>
+<li><tt>@ARGV</tt> is
+<tt>qw/ l a n r u o J &lt;220 times&gt; l a n r u o J l e r P /</tt>.
+This is actually a bug (I mixed up my precedence rules...).
+Corrected later on.</li>
+<li>A string in void context. Let's ignore it now. For good.</li>
+<li><tt>$_</tt> is set to a very long string of characters.</li>
+<li>More exactly this string (whitespace does matter): <span class="q"><pre>m$  ($*!$"=!$ " ) " * % ? $ " $!" "  !!  !! % !" !"    !!  !""" $ ""! ! !#  !  !!   %   "   "  !!  !! $ ! $ " !  #! ##  $ ! "   "   "   $ " !#! $ " !   $ # # $ ! "   "   "   $ " ! ! ! $ " ! !" "#"  #"!"""""! #" " # "m</pre></span></li>
+<li><tt>@ARGV</tt> is now fixed, and equal to a long list of the
+characters we want to print
+(fifty times <tt>qw/ l a n r u o J l e r P /</tt>).</li>
+</ul>
+<p align="center"> <a href="best_perl_01.html">Previous</a> | <a href="best_perl_03.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

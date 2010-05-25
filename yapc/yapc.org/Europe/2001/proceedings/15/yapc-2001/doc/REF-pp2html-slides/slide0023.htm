@@ -1,0 +1,96 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Special option: headlinebase</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0024.htm">Special option: smart</a>
+    &nbsp;&nbsp;Previous: <a href="slide0022.htm">Including nested PerlPoint sources</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Special option: headlinebase">
+
+<H1>Special option: headlinebase
+</H1>
+
+
+<P>
+When including nested PerlPoint, a special tag option <CODE>&quot;headlinebase&quot;</CODE> can be specified to define a headline base level used as an offset to all headlines in the included document.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ If &quot;\INCLUDE{type=PP file=file headlinebase=20}&quot; is
+ specified and &quot;file&quot; contains a one level headline
+ like &quot;=Main topic of special explanations&quot;
+ this headline is detected with a level of 21.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Pass the special keyword <B><CODE>CURRENT_LEVEL</CODE></B> to this tag option if you want to set just the <I>current</I> headline level as an offset. This results in &quot;subchapters&quot;.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ If &quot;\INCLUDE{type=PP file=file headlinebase=CURRENT_LEVEL}&quot;
+ is specified in a chapter of level 4 and &quot;file&quot; contains a
+ one level headline like &quot;=Main topic of special explanations&quot;
+ this headline is detected with a level of 5.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Similar to <CODE>CURRENT_LEVEL</CODE>, <B><CODE>BASE_LEVEL</CODE></B> sets the current <I>base</I> headline level as an offset. The &quot;base level&quot; is the level above the current one. Using <CODE>BASE_LEVEL</CODE> results in parallel chapters.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ If &quot;\INCLUDE{type=PP file=file headlinebase=BASE_LEVEL}&quot;
+ is specified in a chapter of level 4 and &quot;file&quot; contains a
+ one level headline like &quot;=Main topic of special explanations&quot;
+ this headline is detected with a level of 4 - similar to the
+ level the nested source was included on.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+A given offset is reset when the included document is parsed completely.
+</P>
+
+
+<P>
+The <CODE>&quot;headlinebase&quot;</CODE> feature makes it easier to share partial documents with others, or to build complex documents by including seperately maintained parts, or to include one and the same part at different headline levels.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0024.htm">Special option: smart</a>
+    &nbsp;&nbsp;Previous: <a href="slide0022.htm">Including nested PerlPoint sources</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

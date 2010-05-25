@@ -1,0 +1,77 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>File inclusion</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0022.htm">Including nested PerlPoint sources</a>
+    &nbsp;&nbsp;Previous: <a href="slide0020.htm">Special purpose tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="File inclusion">
+
+<H1>File inclusion
+</H1>
+
+
+<P>
+It is possible to include another file by <B>\INCLUDE{file=&lt;filename&gt; type=&lt;type&gt;}</B>.
+</P>
+
+
+<P>
+The mandatory base options are
+</P>
+<TABLE border=2><TR>
+<TD><B>option</B></TD><TD><B>description</B></TD></TR>
+<TR>
+<TD>file</TD><TD>names the source to be included (should exist)</TD></TR>
+<TR>
+<TD>type</TD><TD>determines how the file is handled</TD></TR>
+</TABLE>
+<P>
+
+
+<P>
+All types different from <CODE>&quot;pp&quot;</CODE> or <CODE>&quot;perl&quot;</CODE> make the included file be read but not evaluated. The read contents is usually passed to the generated output file directly, with exception of type <CODE>&quot;example&quot;</CODE>. This is useful to include target language specific, preformatted parts.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \INCLUDE&lt;type=html file=homepage&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+A certain translator typically supports the file types of its target language, see the translator specific documentation for details.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0022.htm">Including nested PerlPoint sources</a>
+    &nbsp;&nbsp;Previous: <a href="slide0020.htm">Special purpose tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

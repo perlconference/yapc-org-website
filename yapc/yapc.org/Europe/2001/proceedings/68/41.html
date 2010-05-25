@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Directives: defer</title>
+</head>
+
+<body>
+<h1 align = "center">Directives: defer</h1>
+
+<pre>
+                                         {my %variables}
+
+start:          statement &lt;commit>  eof  {$variables {'.'} = $item [1]}
+              | &lt;error?> &lt;reject>
+
+eof:            /^\Z/
+
+statement:      variable '=' &lt;commit> statement
+                                 {$return = $item [4]}
+                                 <font color = "red">&lt;defer: $variables {$item [1]} = $item [4]></font>
+              | expression
+
+expression:     &lt;leftop: term ('+' | '-') term>
+                        {my $s = shift @{$item [1]};
+                         while (@{$item [1]}) {
+                             my ($op, $exp) = splice @{$item [1]}, 0, 2;
+                             if ($op eq '+') {$s += $exp}
+                             else            {$s -= $exp}
+                         }
+                         $s
+                        }
+
+term:           &lt;leftop: factor m{([*/])} factor>
+                        {my $p = shift @{$item [1]};
+                         while (@{$item [1]}) {
+                             my ($op, $term) = splice @{$item [1]}, 0, 2;
+                             if ($op eq '*') {$p *= $term}
+                             else            {$p /= $term}
+                         }
+                         $p
+                        }
+
+factor:         number
+              | variable                 {$variables {$item [1]} ||=
+                                                Math::BigInt -> new (0)}
+              | '+' &lt;commit> factor      {$item [3]}
+              | '-' &lt;commit> factor      {$item [3] * -1}
+              | '(' &lt;commit> statement ')'
+                                         {$item [3]}
+              | &lt;error>
+
+number:         /\d+/                    {Math::BigInt -> new ($item [1])}
+
+variable:       /[a-z]+/i
+              | "."
+</pre>
+<hr>
+<pre>
+In [1] := x = 3
+Out [1] = +3
+In [2] := x = 5 (6)
+
+       ERROR (line 1): Invalid start: Was expecting eof but found "(6)"
+                       instead
+Out [2] = &lt;&lt;UNDEF>>
+In [3] := x
+Out [3] = +3
+In [4] := 
+</pre>
+<hr>
+<ul><li>A <strong><tt>&lt;defer></tt></strong> directive is like a 
+        block of code, except that it is only executed when the 
+        current production was used in the final match.
+    <li>The action will be queued, and will be removed from the queue
+        if the parser backtracks and rejects the current production.
+    <li>This can be used to make the parsing be done more efficiently,
+        by only executing those actions that are part of the final
+        parse tree.
+    <li>The code in a <strong><tt>&lt;defer></tt></strong> directive
+        is turned into a closure, and only the 
+        <strong><tt>&lt;defer></tt></strong> directives from productions
+        contributing to the match will be run.
+    <li><strong><tt>&lt;defer></tt></strong> always succeeds, returning
+        the number of queued deferred actions so far.
+</ul>
+<hr>
+<a href = '40.html'>[Prev]</a>
+<a href = '42.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

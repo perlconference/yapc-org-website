@@ -1,0 +1,68 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Security</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0054.htm">Sharing data between active parts</a>
+    &nbsp;&nbsp;Previous: <a href="slide0052.htm">An example</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Security">
+
+<H1>Security
+</H1>
+
+
+<P>
+Security is kept by running active contents in a safe environment via a <B>Safe</B> object if requested. This way every translator can implement its own grade of security, allowing only such operations which seem to be uncritical to the author.
+</P>
+
+
+<P>
+Nevertheless, the necessary security grade may vary. Imagine a downloaded presentation source and a self written document. But even with own presentations it seems to be good advice to never translate a presentation with root permissions.
+</P>
+
+
+<P>
+There are a few limitations in using <B>Safe</B>, especially if code wants to use modules. If security is not an issue, it's possible to bypass <B>Safe</B> completely. That's why embedded code can perform whatever operation Perl provides, but without any security restrictions. It's up to you to make your choice.
+</P>
+
+
+<P>
+If active contents is disabled at all, all related PerlPoint elements (conditions, embedded and included code) are ignored.
+</P>
+
+
+<P>
+Please refer to the specific translators documentation. Implementations can vary from generally disabled active contents to user configurable security settings.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0054.htm">Sharing data between active parts</a>
+    &nbsp;&nbsp;Previous: <a href="slide0052.htm">An example</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

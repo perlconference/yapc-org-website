@@ -1,0 +1,215 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>pp2html</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0024.htm">pp2latex and pp2sdf</a>
+    &nbsp;&nbsp;Previous: <a href="slide0022.htm">Available Translators</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="pp2html">
+
+<H1>6.1 pp2html
+</H1>
+
+
+<P>
+The Perl program <CODE>pp2html</CODE> is until now the most enhanced tranlator program for the PerlPoint format. <CODE>pp2html</CODE> generates a set of HTML files. Dependent on a variety of options and template files, the results can look quite different. Different colors, background images, frame sets, different text sizes or a Java Applet for the table of contents are layout elements which can be used to create a variety of documents. The following example shows a page from a Perl course, which has been written completely in PerlPoint.
+</P>
+<IMG SRC="./pp2html.gif" ALT="example for pp2html-output">
+
+<P>
+<B>Text Formatting:</B>
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+\B&lt; .... &gt;        Bold
+\I&lt; .... &gt;        Italic
+\C&lt; .... &gt;        Code
+\SUB&lt; ... &gt;       Subscript
+\SUP&lt; ... &gt;       Superscript
+\U&lt; .... &gt;        Underlined
+\E&lt; html escape &gt; z.B. \E&lt;uuml&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Example code and verbatime blocks are presented in a colored boxes in <CODE>pp2html</CODE>. This is achieved by HTML tables with colored cells. The color of the cells and the text color in these cells can be individually influenced by the \BOXCOLORS tag:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \BOXCOLORS{bg=yellow fg=blue}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The default settings for background and foreground color are grey and black. The colors can be reset to their default values with
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \BOXCOLORS{set=default}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B>Anchors, Hyperlinks, Images:</B>
+</P>
+
+
+<P>
+To use internal hyperlinks and cross references, you must insert so called <I>anchors</I> or link targets in your text. This is achieved by the <CODE>\A</CODE> tag.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+\A{name=&quot;name&quot;}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+For each page header such an anchor is automatically inserted, to make things easy. The <I>names</I> of these page anchors are simply the headers of the pages:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+\PAGEREF{name=&quot;page header&quot;}     internal hyperlink with page number as text
+
+\SECTIONREF{name=&quot;page header&quot;}  internal hyperlink with page header as text
+                                 \A{name=&quot;name&quot;&gt; is an anchor on the
+                                 corresponding page
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Hyperlinks to external pages can be defined with the following tag:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+\L{url=&quot;http://.....&quot;}&lt;link text&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Images are included with the <CODE>\IMAGE</CODE> tag:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+\IMAGE{alt=&quot;Cool picture of xzy&quot; align=&quot;left&quot; src=&quot;xyz.gif&quot;}
+
+\IMAGE{src=&quot;xyz.gif&quot;}      default for alt is &quot;Image xyz.gif&quot;
+                           (with HTML as target language; with other target
+                           languages the alt parameter may have no effect)
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Note that the pathnames for the image files must be relative to the PerlPoint input file which contains the <CODE>\IMAGE</CODE> tag or they must be specified absolutely.
+</P>
+
+
+<P>
+<B>Cross References and Generation of Index:</B>
+</P>
+
+
+<P>
+Cross references are created with the <CODE>\XREF</CODE> tag:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \XREF{name=target}&lt;text for cross reference&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+For index entries there is the following tag:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+\X&lt; ... &gt;                    words are included in index and in output text
+\X{mode=&quot;index_only&quot;}&lt; ... &gt; words are included in index only
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The index is created automatically at the end of the document unless the <CODE>--no_index</CODE> option of <CODE>pp2html</CODE> has been used.
+</P>
+
+
+<P>
+<B>Other Tags:</B>
+</P>
+
+
+<P>
+Line breaks and the known <I>horizontal lines</I> in HTML can be achieved be the following tags:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+   \LINE_BREAK     alias \BR
+   \HR
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Beside the tags, there are many options in <CODE>pp2html</CODE> which allow to control the appearance of the output. It is useful to write those options in options files (control files) which can be specified on the command line while starting the <CODE>pp2html</CODE> program:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ pp2html @pp2html.cfg perlpoint.pp
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+In this example, all relevant options are contained in the file <I>pp2html.cfg</I>. More information about the options of <CODE>pp2html</CODE> can be seen when calling the program with the <CODE>--help</CODE> switch.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0024.htm">pp2latex and pp2sdf</a>
+    &nbsp;&nbsp;Previous: <a href="slide0022.htm">Available Translators</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

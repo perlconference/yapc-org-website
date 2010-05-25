@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Parse Trees</title>
+</head>
+
+<body>
+<h1 align = "center">Parse Trees</h1>
+
+<ul>
+<li>Often, you want your parser to parse your text and return a parse
+    tree that then can be used for further processing.
+<li>One way of doing it is to make actions at each production rule
+    that return the appropriate datastructure.
+<li>Another way is the <tt>autotree</tt> directive. 
+<li>&lt;autotree&gt; should preceed the first rule. If &lt;autotree&gt;
+    is present, the parser generator will add an action to each production
+    that doesn't end in an action already.
+<li>For non-terminal productions, the added action is:
+    <pre>
+        {bless {%item, __RULE__ => $item [0]} => $item [0]}
+    </pre>
+<li>Terminal productions get:
+    <pre>
+        {bless {__VALUE__ => $item[1]} => $item[0]}
+    </pre>
+<li>Hence, all productions get blessed into the package with the same 
+    name as the rule.
+</ul>
+
+<hr>
+<a href = '29.html'>[Prev]</a>
+<a href = '31.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

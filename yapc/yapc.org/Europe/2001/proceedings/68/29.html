@@ -1,0 +1,37 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Skipping</title>
+</head>
+
+<body>
+<h1 align = "center">Skipping</h1>
+
+<ul><li>Each token is assumed to have a prefix. 
+    <li>By default, the prefix is <tt>/\s*/</tt>, that is, tokens
+        are assumed to be separated by whitespaces. Just like in 
+        most computer languages.
+    <li>Global prefix is in <tt>$Parse::RecDescent::skip</tt>; this
+        can be set before calling the start rule. But mind that this
+        effects all parsers!
+    <li>For individual productions, the current skip prefix can be
+        changed using the skip directive.
+    <li>Syntax: <tt>&lt;skip: token></tt>, where <tt>token</tt> is
+        a string or a regular expression. This change will be in effect
+        till the end of the production, or when encountering another
+        skip directive.
+    <li>The return value of a skip directive is the previous value
+        of the skip prefix. This makes it easy to restore a prefix:
+        <pre>
+        rule: &lt;skip: ""> subrule &lt;skip: $item [1]> anotherrule
+        </pre>
+    <li>In actions, the current value of the skip prefix is available
+        in the variable <tt>$skip</tt>
+</ul>
+<hr>
+<a href = '28.html'>[Prev]</a>
+<a href = '30.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

@@ -1,0 +1,121 @@
+From lenzo Wed Feb  7 18:08:23 2001
+Return-Path: <ann@domaintje.com>
+Received: from CS.CMU.EDU by ux1.sp.cs.cmu.edu id aa03249; 7 Feb 2001 18:05 EST
+Received: from e58249.upc-e.chello.nl by cs.cmu.edu id aa23468;
+          7 Feb 2001 18:04 EST
+Received: (qmail 50158 invoked by uid 201); 7 Feb 2001 23:04:15 -0000
+Received: from localhost (sendmail-bs@127.0.0.1)
+  by localhost with SMTP; 7 Feb 2001 23:04:15 -0000
+Date: Thu, 8 Feb 2001 00:04:15 +0100 (CET)
+From: Ann Barcomb <ann@domaintje.com>
+
+***************** CALL FOR PARTICIPATION ******************
+
+                        European
+               Yet Another Perl Conference
+                        YAPC 2001
+
+              http://www.yapc.org/Europe/
+
+            Thursday-Saturday, August 2-4, 2001
+                          at the
+                    Hogeschool Holland
+      		Amsterdam, the Netherlands
+
+
+     ** Abstract submission deadline:  June  1, 2001 **
+
+Yet Another Perl Conference (YAPC) is an inexpensive (< 100 EURO) Perl
+users and developers conference, with a mix of tutorials and
+technical talks. The conference is set in Amsterdam, The Netherlands.
+
+YAPC began as a grassroots users conference, from discussions
+among Perl Mongers, and has grown from there.  We would like
+to invite you to join us for three days of Perl, people, and
+demonstrations, at a price that shouldn't hurt your wallet.
+There will be a limit of around 500 people for the conference.
+
+A number of members of the Perl community are contributing to this
+event.
+
+Look at the main web page for more details --
+                                    http://www.yapc.org/Europe
+
+
+  *********** CALL FOR PAPERS ***********
+
+Potential presenters should submit a 200-300 word abstract to
+
+        papers@yapceurope.org
+
+in plain ASCII text or HTML by June 1st for consideration.
+We would like your materials to be available online, but
+that is not required.  If you have materials to include in
+the proceedings, or course notes, please let us know of your
+requirements in the abstract. If you have any special
+presentation needs, please include them also.
+
+The conference theme will be Security, so a portion of the the
+talks will be about that subject in some way. So if you have some
+knowledge of Perl related security issues, or use Perl in security
+related areas, you're more then welcome to share this with fellow
+Perl users at the conferece.
+
+Suggestions :
+
+*	writing secure Perl CGI programs
+*	security bloopers
+*	cryptography techniques
+*	cryptography applications
+*	security issues in past and coming versions of perl
+*	How you use Perl to enhance security of your network or website
+*	Modules useful in security
+*	Whatever you find interesting that's Perl- and security related
+
+
+A part of the time will be available for other Perl related subjects.
+Suggestions for subjects:
+
+*	Groupware, Agents, and Bots
+*	Perl in the world of Windows
+*	MacPerl
+*	Perl for Speech and Language
+*	Text and Document Processing
+*	Machine Learning in Perl
+*	HTML, XML, and Markup Languages
+*	CGI and Web programming in Perl
+*	Internet Programming
+*	Database Interaction and Access with Perl
+*	Scientific Computing (e.g. with PDL)
+*	Practical Perl Programming
+*	Module guts and usage on any particular Module.
+*	Tutorials of all stripes: Modules, Objects, CPAN
+*	Visionary or position papers on Perl, the past,
+       the present, and the future
+*	Anything cool :)
+
+We have the following time slots in our schedule, so your
+contribution could have one of the following durations:
+
+180 minute tutorials
+90 minute talks
+40 minute talks
+25 minute talks
+lightning talks (5 minutes)
+
+
+Conference fees will be waived for presenters at yapc
+(lightning talks excepted), so another way to reduce your
+costs is to give a good talk on something you're excited about.
+
+
+We are looking for sponsors. Please contact Liz and Eric
+(sponsor@yapceurope.org) for information about how you can help
+support YAPC Europe. Much of the necessary funding for YAPC
+comes from the generous donations of our sponsors.
+
+
+
+  **** YAPC Europe 2001 **http://www.yapc.org/Europe/ ***
+***************** CALL FOR PARTICIPATION ******************
+

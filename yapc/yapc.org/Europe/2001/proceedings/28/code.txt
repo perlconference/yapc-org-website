@@ -1,0 +1,326 @@
+# read with tabstop=4
+# Client's name replaced with 'Client' throughout.
+package Client::Secure;
+use strict;
+BEGIN {
+        my($arch) = $INC{"Client/Secure.pm"} =~ m#.*/(.*)/Client/Secure.pm#
+                        or die "No path to this module\n";
+        for (defined($ENV{ClientINSTROOT}) ? $ENV{ClientINSTROOT} : '/Client') {
+                die "No path to Client perl modules\n"
+                                unless m#^((/[\w.-]+)+)$# && -d "$1/perl";
+                unshift @INC, "$1/perl", "$1/perl/$arch";
+        }
+}
+
+=head1 NAME
+
+Client::Secure - apply security policy for perl scripts
+
+=head1 SYNOPSIS
+
+        #!/usr/bin/perl -Tw
+        use strict;
+        use Client::Secure qw/config/;
+        # other packages needed ...
+        # body of script ...
+
+=head1 DESCRIPTION
+
+Applies the security policy for commandline perl scripts used in Client
+administration. See subsidiary C<Client::Secure::*> modules for specific
+security models for other types of script.
+
+Currently this package performs the following actions when first loaded:
+
+=over 4
+
+=item require Taint mode
+
+We check that the script is running in taint mode, and abort if not.
+
+=item secure environment
+
+We set the IFS to C<" \t\n">, and the PATH to C<'/bin:/usr/bin'> (but see
+FUTURE below), and unset ENV, CDPATH and BASH_ENV.
+
+=item check permissions
+
+We call the I<permission> method, and abort if this user is not permitted
+to run this script.
+
+=item import
+
+If the parameters supplied to the 'use Client::Secure' statement do not
+include the string ':none', import the C<tainted(), taintme() and
+clean()> methods into the caller's namespace.
+If any other parameters are supplied, they are passed to
+C<Client::Config-E<gt>load()>.
+
+=back
+
+=head1 FUNCTIONS
+
+=over 4
+
+=item permission ( )
+
+Returns TRUE only if this user is permitted to run this script.
+Currently always returns TRUE, pending a security model for access.
+
+=item tainted ( data, [ ... ] )
+
+Returns TRUE if any of the I<data> argument(s) are tainted.
+
+=item taintme ( data, [ ... ] )
+
+Returns tainted copies of the I<data> argument(s).
+
+=item clean ( datatype, data )
+
+Checks whether the (optionally tainted) I<data> is a valid string of
+type I<datatype>: returns an untainted copy of the data if valid,
+else dies with an appropriate error. The last time I remembered to
+update this documentation, the supported datatypes were as follows:
+
+=over 4
+
+=item natural
+
+A natural number, ie a non-negative integer.
+
+=item base_natural
+
+A natural number expressed in octal, decimal or hex.
+
+=item integer
+
+An integer: an optional sign (+/-) followed by a natural.
+
+=item base_integer
+
+An integer expressed in octal, decimal or hex.
+
+=item number
+
+A real number: an optional sign (+/-) followed by one or more digits,
+possibly including a decimal point.
+
+=item enumber
+
+An extended real number: a number optionally followed by an exponent
+consisting of 'e' or 'E' followed by an integer. There may be
+whitespace between the number and its exponent.
+
+=item file
+
+A clean filename: alphanumerics, period, underscore, minus allowed;
+one or more characters. (?? Should specify a maximum as well?)
+
+=item filed
+
+A I<file> as above but excluding "." and "..".
+
+=item path
+
+An absolute or relative path, consisting of "/" or one or more
+I<file> components.
+
+=item fullpath
+
+An absolute pathname, starting with "/" and consisting of zero or
+more I<file> components.
+
+=item abspath
+
+An absolute pathname without "." or ".." components: as I<fullpath>
+but using I<filed> components.
+
+=item username
+
+A valid username under Client: from 1 to the configured I<MaxUserLen>
+characters consisting of alphanumerics, period, underscore and minus,
+but with the first character constrained to be a letter.
+
+=item password
+
+A valid password under Client (not necessarily a good one - that check is
+elsewhere): one or more printable characters.
+
+=item word
+
+A sequence of one or more alphanumerics (underscores allowed).
+
+=item message
+
+A line consisting of printable or tab characters without linefeed.
+
+=item text
+
+Zero or more lines each consisting of printable or tab characters, and
+terminated with a linefeed (or CRLF).
+
+=item ipaddr
+
+A dotted-quad IP address. Currently each fragment is required to consist
+of 1-3 digits - fragments in the range 256-999 are allowed.
+
+=item domain_comp
+
+Component in a domain name: alphanumerics, underscore, minus allowed;
+one or more characters. (?? Should specify a maximum as well?)
+
+=item domain
+
+One or more period-separated I<domain_comp> components.
+
+=item fqdn
+
+Two or more period-separated I<domain_comp> components.
+
+=item forwarding address
+
+Must consist of a I<username> followed by the '@' sign, followed by
+a I<fqdn>.
+
+=item serialno
+
+A valid Client customer serial number: between 1 and 9 digits.
+
+=item phoneno
+
+A valid Client 'phone number: an optional '+', followed by 1 or more digits.
+
+=back
+
+=back
+
+=head1 FUTURE
+
+Implement a permissions database, and write C<permission()> to use it.
+
+We may need to add the Client binary directory (or directories) to the path,
+but to do so involves contaminating this module with Client::Config and
+the names of configuration variables - I'll leave that until I know it is
+needed. (It would probably be better to construct absolute paths for any
+such non-OS executables in any case.)
+
+=cut
+
+my $truetaint;
+
+BEGIN {
+        # are we in Taint mode?
+        $truetaint = substr($0, 0, 0);
+        eval { local $^W = 0; kill 0, $0 };
+        $@ =~ /^Insecure dependency/ or die <<DIE;
+This script must only be run with tainting enabled - please add '-T' to
+the shebang line of the script.
+DIE
+
+        # secure the environment
+        $ENV{'IFS'} = " \t\n";
+        $ENV{'PATH'} = join ':', '/bin', '/usr/bin';    # and ~nix/s?bin ?
+        delete @ENV{qw/CDPATH ENV BASH_ENV/};
+}
+
+my @EXPORT = qw/ clean tainted taintme /;
+sub import {
+        import_level(1, @_);
+}
+
+sub import_level {
+        my $level = shift;
+        my $package = shift;
+        my $parent = caller($level);
+        my @config = grep $_ ne ':none', @_;
+        if (@config == @_) {
+                no strict 'refs';
+                *{"${parent}::$_"} = \&{"${package}::$_"} foreach @EXPORT;
+        }
+        if (@config) {
+                require Client::Config;
+                Client::Config->load(@config);
+        }
+}
+
+sub permission {
+        # to be defined
+        1;
+}
+
+sub logusage {
+        # policy?
+}
+
+sub taintme {
+        wantarray ? map($_ . $truetaint, @_) : $_[0] . $truetaint;
+}
+
+sub tainted {
+        grep {
+                eval { local $^W = 0; kill 0, $_ };
+                $@ =~ /^Insecure dependency/
+        } @_;
+}
+
+my(%re, %rex);
+BEGIN {
+        %rex = (
+                f => '[\w.-]',                                  # character in a filename
+                fd => '[\w-]',                                  # non-dot character in a filename
+                file => '(?: ${f}+ )',                  # filename
+                filed => '(?: \.? ${fd} ${f}* | \.\.${f}+ )',
+                                                                                # filename excl . and ..
+                fullpath => '(?: / | (?: / ${file} )+ )',
+                abspath => '(?: / | (?: / ${filed} )+ )',
+                path => '(?: ${fullpath} | ${file} ${fullpath}? )',
+        
+                namechar => '[a-z0-9_\.-]',             # valid char in username
+                passchar => '[\040-\176]',              # valid char in password: any printable
+                password => '${passchar}+',             # minlen, maxlen?
+
+                word => '\w+',
+                message => '[\t\040-\176]+',
+                text => '(?: (?: [\t\040-\176]* \r? \n )* )',
+        
+                ipaddr => '\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}',
+                domain_char => '[a-z0-9_-]',
+                domain_comp => '${domain_char}+',
+                domain => '(?: ${domain_comp} (?: \. ${domain_comp} )* )',
+                fqdn => '(?: ${domain_comp} (?: \. ${domain_comp} )+ )',
+                "forwarding address" => '(?: ${username} \@ ${fqdn} )',
+
+                serialno => '(?: \d{1,9} )',
+                phoneno => '\+? \d+',
+
+                natural => '\d+',
+                integer => '(?: [+-]? \d+ )',
+                base_natural => '(?: 0[0-7]+ | \d+ | 0[xX][0-9a-fA-F]+ )',
+                base_integer => '(?: [+-]? ${base_natural} )',
+                number => '(?: [+-]? (?: \d+ (?: \. \d* )? | \. \d+ ))',
+                enumber => '(?: ${number} (?: \s* [eE] ${integer} )?)',
+        );
+        require Client::Config;
+        $rex{username} = sprintf '(?: (?= [a-z] ) ${namechar}{1,%s} )',
+                        Client::Config->builtin('MaxUserLen');
+}
+
+sub clean {
+        my($type, $data) = @_;
+        $re{$type} ||= do {
+                die "No such clean type '$type' for data '$data'"
+                                unless defined $rex{$type};
+                my $text = $rex{$type};
+                1 while $text =~ s/ \$ \{ (\w+) \} /
+                        defined($rex{$1}) ? $rex{$1} : die "no such clean component '$1'"
+                /ex;            # need a loop check?
+                qr/^($text)$/x;
+        };
+        if ($data =~ $re{$type}) {
+                return $1;
+        } else {
+                die "'$data' is not a valid $type\n";
+        }
+}
+
+&permission($0, $>);

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Arguments</title>
+</head>
+
+<body>
+<h1 align = "center">Arguments to subrules</h1>
+
+<pre>
+start:   word  rev[$item[1]]  {1}
+
+rev:     word  {$return = 1 if $arg [0] eq reverse $item [1]; undef}
+
+word:    /\w+/
+</pre>
+
+<hr>
+
+<pre>
+In [1] := foo oof
+Out [1] = 1
+In [2] := foo bar
+Out [2] = &lt;&lt;UNDEF>>
+</pre>
+
+<hr>
+<ul>
+<li>Subrules can be called with arguments.
+<li>Arguments are places inside square brackets.
+<li>The arguments are in the subrule available as <tt>@arg</tt> or as
+    <tt>%arg</tt>.
+<li>Both <tt>@arg</tt> and <tt>%arg</tt> are always available - one is free
+    to use whatever method one prefers.
+<li>Arguments come before repetition specifier:
+    <tt>rule:&nbsp;sub&nbsp;other[$item[1]](s)</tt>
+</ul>
+
+<hr>
+<a href = '44.html'>[Prev]</a>
+<a href = '46.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

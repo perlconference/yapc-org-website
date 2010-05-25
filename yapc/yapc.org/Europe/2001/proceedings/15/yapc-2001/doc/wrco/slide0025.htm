@@ -1,0 +1,165 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>The parser call</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0026.htm">Backend construction</a>
+    &nbsp;&nbsp;Previous: <a href="slide0024.htm">Set up Active Contents handling</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="The parser call">
+
+<H1>4.8 The parser call
+</H1>
+
+
+<P>
+And now, the parser can be called. Because it is implemented by a class, we first need to build an object, which is simple.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # build parser
+  my $parser=new PerlPoint::Parser;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The objects method <CODE>run()</CODE> invokes the parser to process all document sources. Various parameters control how this task is performed and need to be set according to the converter options. It should be sufficient to simply copy this call and to slightly adapt it.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # call parser
+  $parser-&gt;run(
+               stream          =&gt; @streamData,
+               files           =&gt; @ARGV,
+
+               filter          =&gt; 'perl|sdf|html',
+
+               safe            =&gt; exists $options{activeContents} ? $safe : undef,
+
+               activeBaseData  =&gt; {
+                                   targetLanguage =&gt; 'SDF',
+                                   userSettings   =&gt; {map {$_=&gt;1} exists $options{set} ? @{$options{set}} : ()},
+                                  },
+
+               predeclaredVars =&gt; {
+                                   CONVERTER_NAME    =&gt; basename($0),
+                                   CONVERTER_VERSION =&gt; do {no strict 'refs'; ${join('::', __PACKAGE__, 'VERSION')}},
+                                  },
+
+               vispro          =&gt; 1,
+
+               cache           =&gt;   (exists $options{cache} ? CACHE_ON : CACHE_OFF)
+                                  + (exists $options{cacheCleanup} ? CACHE_CLEANUP : 0),
+
+               display         =&gt;   DISPLAY_ALL
+                                  + (exists $options{noinfo} ? DISPLAY_NOINFO : 0)
+                                  + (exists $options{nowarn} ? DISPLAY_NOWARN : 0),
+
+               trace           =&gt;   TRACE_NOTHING
+                                  + ((exists $options{trace} and $options{trace} &amp;  1) ? TRACE_PARAGRAPHS : 0)
+                                  + ((exists $options{trace} and $options{trace} &amp;  2) ? TRACE_LEXER      : 0)
+                                  + ((exists $options{trace} and $options{trace} &amp;  4) ? TRACE_PARSER     : 0)
+                                  + ((exists $options{trace} and $options{trace} &amp;  8) ? TRACE_SEMANTIC   : 0)
+                                  + ((exists $options{trace} and $options{trace} &amp; 16) ? TRACE_ACTIVE     : 0),
+              ) or exit(1);
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+So what happens here?
+</P>
+
+<DL>
+<DT>
+<B><CODE>stream</CODE></B></DT>
+<DD>
+passes a reference to an array which will be used to store the stream element in. It is suggested to pass an empty array (but currently new fields will be <I>added</I>, so existing entries will not be damaged).
+</DD>
+<DT>
+<B><CODE>files</CODE></B></DT>
+<DD>
+passes an array of document source files to parse.
+</DD>
+<DT>
+<B><CODE>filter</CODE></B></DT>
+<DD>
+declares which formats are allowed to be embedded or included. You can accept all formats which can be processed by the software which has to deal with the converter product, and &quot;perl&quot; to provide the full power of Active Contents. All formats not matching the filter will be <I>ignored</I>.
+</DD>
+<DT>
+<B><CODE>safe</CODE></B></DT>
+<DD>
+pass the <A HREF="slide0024.htm#Set up Active Contents handling">prepared</A> variable <CODE>$safe</CODE>.
+</DD>
+<DT>
+<B><CODE>activeBaseData</CODE></B></DT>
+<DD>
+sets up a hash reference which is made accessible to Active Contents as <CODE>$main::PerlPoint</CODE>. The keys <CODE>targetLanguage</CODE> and <CODE>userSettings</CODE> are provided by convention, but you may add whatever keys you need.
+</DD>
+<DT>
+<B><CODE>vispro</CODE></B></DT>
+<DD>
+if set to a true value, the parser will display runtime informations.
+</DD>
+<DT>
+<B><CODE>cache</CODE></B></DT>
+<DD>
+used to pass the cache settings. Please copy this code.
+</DD>
+<DT>
+<B><CODE>display</CODE></B></DT>
+<DD>
+used to pass the display settings. Please copy this code.
+</DD>
+<DT>
+<B><CODE>trace</CODE></B></DT>
+<DD>
+used to pass the trace settings. Please copy this code.
+</DD>
+</DL>
+
+
+<P>
+<CODE>run()</CODE> returns a true value if parsing was successful. It is recommended to evaluate this code and to stop processing in case of an error.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # call parser
+  $parser-&gt;run(...) <B>or exit(1)</B>;
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0026.htm">Backend construction</a>
+    &nbsp;&nbsp;Previous: <a href="slide0024.htm">Set up Active Contents handling</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

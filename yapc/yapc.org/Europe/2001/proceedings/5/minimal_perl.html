@@ -1,0 +1,216 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta http-equiv="CONTENT-TYPE" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.76 [en] (X11; U; Linux 2.4.0-4GB i686) [Netscape]">
+   <meta name="AUTHOR" content="Tim Maher">
+   <meta name="CREATED" content="20010708;6550000">
+   <meta name="CHANGED" content="20010708;14373700">
+   <title>Minimal Perl for the Impatient</title>
+<style>
+	<!--
+		@page { margin-right: 1.25in; margin-top: 1in; margin-bottom: 1in }
+		P { margin-bottom: 0.08in; font-family: "Times New Roman", serif; font-size: 12pt; widows: 0; orphans: 0 }
+		H1 { margin-bottom: 0.08in; font-family: "Timmons", serif; font-size: 16pt; widows: 0; orphans: 0 }
+		H2 { margin-bottom: 0.08in; font-family: "Timmons", serif; font-size: 14pt; font-style: italic; widows: 0; orphans: 0 }
+		H3 { margin-bottom: 0.08in; font-family: "Timmons", serif; widows: 0; orphans: 0 }
+		H4 { margin-bottom: 0.08in; font-family: "Timmons", serif; font-style: italic; widows: 0; orphans: 0 }
+	-->
+	</style>
+</head>
+<body>
+
+<center>
+<h1 STYLE="margin-top: 0in">
+<b><font color="#000000"><font size=+1>"Minimal Perl for the Impatient"</font></font></b></h1></center>
+
+<center>
+<h2 STYLE="margin-bottom: 0in">
+<b><i><font color="#006600"><font size=+0>Yet Another Perl Conference</font></font></i></b></h2></center>
+
+<center><font size=+0>August 2-4, 2001</font>
+<br>Amsterdam, the Netherlands</center>
+
+<p><br>
+<center><table BORDER >
+<tr>
+<td><img SRC="small_logo.gif" BORDER=0 height=95 width=80 align=CENTER></td>
+
+<td>
+<center><b><font size=+1><a href="www.consultix-inc.com/tim_pro.html">Tim
+Maher</a></font></b></center>
+<b><i>Head Software Instructor&nbsp;</i></b>
+<center><b><i><a href="http://softwareprofessor.com/con_info.html"><font size=+1>C</font>ONSULTIX</a></i></b>
+<br><font size=-1><a href="mailto:tim@softwareprofessor.com">tim@consultix-inc.com</a></font>
+<br><font size=-1><a href="http://softwareprofessor.com">www.consultix-inc.com</a></font></center>
+</td>
+</tr>
+</table></center>
+
+<center>
+<h1>
+<font size=+0>About This Document</font></h1></center>
+This document describes a half-day tutorial that was presented at <a href="http://www.yapc.org/Europe"><b>YAPC::Europe</b>
+</a>
+(<i>Yet Another Perl Conference</i>, European edition) in Amsterdam,
+Holland during August, 2001.&nbsp; Those in attendance were provided with
+detailed lecture notes and samples of Perl programs to help them follow
+the lectures.&nbsp; All interested parties are invited to download the
+latest version of this tutorial from the <a href="http://softwareprofessor.com">Consultix
+web site.</a>
+<p><b>Consultix</b> was happy to help fund this event through its sponsorship,
+and to present this tutorial session for the benefit of the good people
+who organized and attended YAPC, who have become such a vital force in
+Perl culture.
+<p>Our software training curriculum includes about a dozen hands-on courses
+on <a href="http://softwareprofessor.com/perllist.html">Perl Programming
+topics</a>, including a full-day hands-on version of this tutorial.&nbsp;&nbsp;
+We present these courses in periodic <a href="http://softwareprofessor.com/sched.html">public
+offerings in Seattle WA USA</a>, and in <a href="http://softwareprofessor.com/on-site.html">on-site
+courses worldwide, </a>and we're eager to help interested companies develop
+and implement Perl training programs for their employees and customers.&nbsp;
+For more information on our services, visit our <a href="http://softwareprofessor.com">web
+site</a> or contact us.
+<br>&nbsp;
+<center>
+<h1>
+<font size=+0>Tutorial Description</font></h1></center>
+
+<h2>
+<font size=+0>Target Audience</font></h2>
+Anyone who doesn't already know Perl, needs to do simple data processing,
+and has a logical mindset can benefit from attending.
+<p>This tutorial is particularly well suited to individuals of the following
+types:
+<ul>
+<li>
+Non-Programmers (MIS managers, etc.), who want to gain a better understanding
+of why Perl is so popular with professional programmers, and learn to do
+basic data processing without learning too much or thinking too hard,</li>
+
+<br>&nbsp;
+<li>
+Near-Programmers, who are handy with the UNIX shell, and the "grep" or
+"sed" commands, and want to expand their skills to include the premier
+"programmable filter", AND</li>
+
+<br>&nbsp;
+<li>
+Programmers, who don't want to become Perl experts, but want to learn just
+enough to gain access to some of its special capabilities.</li>
+</ul>
+
+<h1>
+<font size=+0>Prerequisites</font></h1>
+Prior experience with programming is helpful, but anyone with a logical
+mindset can benefit from attending.
+<h2>
+<font size=+0>Course Philosophy</font></h2>
+Perl is a wonderful language, that offers programmers a rich feature set,
+huge stylistic and syntactic liberties, and many ways to accomplish the
+same thing. But for the impatient beginner, these characteristics can translate
+into "too many complications, too much uncertainty, and too many choices."
+Although Perl's motto is
+<center>
+<p><b><font color="#3333FF">"There's More Than One Way to Do It",</font></b></center>
+
+<p>this tutorial will teach students only one way --
+<center>
+<p><b><font color="#3333FF">"The Easiest Way to Do it"</font></b></center>
+
+<h1>
+<font size=+0>What Attendees Will Learn</font></h1>
+Students will learn a carefully selected minimal subset of Perl that gives
+immediate access to some of its powerful capabilities, and serves as a
+solid foundation for additional learning.
+<p>The tutorial's approach is based on the <i>"Pattern/Action"</i> model
+of programming, as featured in the influential <a href="http://www.gnu.org/software/gawk/gawk.html">AWK
+language .&nbsp; </a>By employing this&nbsp; model, casual programmers
+can achieve a great deal of data-processing power with only a&nbsp; small
+investment in&nbsp; learning.
+<p>Upon completion of the tutorial, students will have the necessary skills
+to convert files, validate data, generate simple reports, and perform numerical
+calculations in Perl.
+<h1>
+<font size=+0>Avoiding "Tutorial Stupor"</font></h1>
+Students may sometimes react to information overload by reverting to "scribe
+mode" -- doing nothing more than taking copious notes for possible later
+assimilation. To help keep their minds fully engaged and to promote active
+learning, various class exercises, quizzes, and problem-solving assignments
+will be interspersed throughout the presentation.
+<br>&nbsp;
+<center>
+<h1>
+<font size=+0>&nbsp;BIOGRAPHICAL INFORMATION ON SPEAKER:</font></h1></center>
+
+<center>
+<h1>
+<font size=+0>Dr. Tim Maher</font></h1></center>
+
+<h2>
+<i><font color="#009900"><font size=+0>Short Version</font></font></i></h2>
+During the last two decades, Dr. Tim Maher has taught programming to thousands
+of high-tech professionals. As a Professor of Computer Science, and later
+as a Software Instructor for AT&amp;T, Sun, DEC, HP, and CONSULTIX, Dr.
+Maher has consistently earned acclaim for his highly effective and entertaining
+style of course development and presentation.
+<br>&nbsp;
+<h2>
+<i><font color="#009900"><font size=+0>Long Version</font></font></i></h2>
+
+<h2>
+<font size=+0>Teaching Background: "Doceo Ergo Sum!"</font></h2>
+For ten years, I worked periodically as a contract trainer for Sun Microsystems,
+Digital Equipment Corp., Hewlett Packard, and other smaller companies.
+I've seen all the wrong ways to design training materials (courtesy of
+these big outfits), and have successfully competed with them by doing a
+better job.
+<p>For the last fifteen years, I've been teaching courses on UNIX and its
+associated languages through my own company, CONSULTIX, to the Fortune
+500, US government agencies, and various international concerns.
+<p>My current job functions are course development and stand-up, hands-on,
+software training offered worldwide, from my corporate base in Seattle.
+I teach for approx. 25 weeks per year.
+<p>During eight years as a contract "UNIX and Programming Languages" trainer
+for Sun Microsystems, I received recognition as "Instructor of the Quarter."
+<p>During my two years as a CS Professor at the Univ. of Utah, my student
+evaluations
+for "quality of teaching" consistently placed me in the top 5% of the faculty.
+<p>The courses I've developed and taught through my own company have garnered
+much praise from the thousands of students who've taken them over the past
+15 years; see
+<center>
+<p><a href="http://softwareprofessor.com/instructor_evals.html">http://www.consultix-inc.com/instructor_evals.html</a></center>
+
+<p>or
+<center><a href="http://softwareprofessor.com/recent_evals.html">http://www.consultix-inc.com/recent_evals.html</a></center>
+
+<h2>
+<font size=+0>Academic and Technical Background</font></h2>
+I have a Ph.D. from the University of Toronto, where I worked in a field
+closely related to BioEngineering, that at the time was classified as "Experimental
+Psychology." I got the UNIX bug there in 1976 as a graduate student in
+a Computer Graphics class.
+<p>I was an Asst. Professor of CS at the University of Utah for two years,
+where I used digital signal processing technology to conduct original experiments
+on the psychophysics of digital music.
+<p>I left academia to join AT&amp;T in the early 80s as a founding member
+of their fledgling UNIX training organization. While there, I wrote AT&amp;T's
+first course on UNIX Security, among others, and taught C, AWK, Shell,
+UNIX System Administration, Database Programming, and other related courses
+to literally thousands of Bell Labs scientists and AT&amp;T customers.
+<p>I spent two years at U.C. Berkeley as a Senior Systems Analyst reporting
+to the Vice Provost, where I wrote custom software for what was then the
+world's largest network of Sun workstations.
+<p>I have published seven papers in refereed professional journals and
+books, and articles in several high-tech publications (e.g., UNIX/World,
+Dr. Dobb's Journal, and Websmith).
+<br>&nbsp;
+<p><a href="http://softwareprofessor.com">Jump to <b><i>CONSULTIX</i></b>&nbsp;
+Web-Page</a>
+<center>
+<p><AUTHOR><b><i>&copy; Tim Maher, 2001</i></b></AUTHOR></center>
+
+</body>
+</html>

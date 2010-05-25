@@ -1,0 +1,166 @@
+<html>
+<head>
+  <title>How <code>use strict;</code> made me a perl5-porter</title>
+  </head>
+<body>
+
+<hr />
+
+<h3><a name="how">How did we achieve that</a></h3>
+<p>Since our RPT scripts outdated our knowledge of perl, we got a rather
+huge base of those scripts and, as you use what you know, it looked like
+<a href="rpt/lp_002.rpt">like</a>:</p>
+<pre>
+        print e180011                 col   1,
+              e180025                 col  37 + incr_n,
+              e180041                 col  64 + incr_n + incr_v,
+              e180050                 col  75 + incr_n + incr_v
+        print e180152                 col   5,
+              e180212                 col  46
+
+        if e180261 ^= '' then
+            begin
+            if e180311 ^= '' then
+                set e180263 to e180263 /+ ', ' + e180311
+
+            print e180142             col   5,
+                  e180263             col  12,
+                  e180270             col  64
+            end
+        end
+
+    header
+        print   'GEMEENTE'            col   1,
+                e100010               col  11,
+                'Blad: '              col  63,
+                pageno -1             col  69 using '#,##&'
+        print   'Leerlingen'          col   1,
+                'Datum:'              col  49,
+                D_sys                 col  56,
+                hour                  col  69
+        print   75[=]                 col   1
+        print   'Achternaam'          col   1,
+                'Voornaam + initalen' col  37,
+                'Geb dat'             col  64,
+                'Gesl'                col  72
+        print   'Adres'               col   5,
+                'Postcode + Plaats'   col  46
+        print   'SrtOnd'              col   5,
+                'School'              col  12,
+                'Klas'                col  53
+        print   75[-]                 col   1
+    end
+</pre>
+<p>But it needs some kind of <a href="rpt/sel_base.rpt">initialization</a>:</p>
+<pre>
+sorted input
+    cat [numeric 2], type [numeric 4], data [string 255]
+
+before report
+    set d_sys	to today
+    set d_sys_d to mdy (d_sys, 1)
+    set d_sys_m to mdy (d_sys, 0)
+    set d_sys_y to mdy (d_sys, 2)
+    set d_sys_ms to index (d_sys_m, ' ',
+				    'januari', 'februari', 'maart',
+				    'april',   'mei',	   'juni',
+				    'juli',    'augustus', 'september',
+				    'oktober', 'november', 'december')
+    set D_sys   to Sprintf ('%02d-%02d-%04d', d_sys_d, d_sys_m, d_sys_y)
+    set D_sys_s to Sprintf ('%02d %s %04d', d_sys_d, d_sys_ms, d_sys_y)
+
+    set lpseqno	to 1
+    set lp_new	to 1
+
+    if cat = 10 and type = 0010 then
+	set e100010 to data /+ ''
+    else
+	set e100010 to ''
+
+before cat
+    if lp_new = 1 then
+	begin
+	set lp_new	to 0
+
+	set c18		to 0
+	set c15		to 0
+	:
+	set c35		to 0
+
+	set i		to ar_close ('a18')
+	set e180000	to ' '
+	set e180010	to ' '
+	set e180011	to ' '
+	set e180020	to ' '
+	set e180021	to ' '
+	set e180030	to ' '
+	set e180031	to ' '
+	set e180040	to ' '
+	set e180041	to ' '
+	:
+	set e350092	to ' '
+	set e350093	to ' '
+	set e350094	to ' '
+	set e359999	to ' '
+
+	end
+
+    if cat = 99 then
+	set lp_new	to 1
+
+after data
+    set Data to data /+ ''
+
+    if cat = 18 then
+	begin
+	if c18 = 0 then
+	    begin
+		 if type = 0000 then set e180000 to Data
+	    else if type = 0010 then set e180010 to flip_str (Data, flip)
+	    else if type = 0011 then set e180011 to flip_str (Data, flip)
+	    else if type = 0020 then set e180020 to Data
+	    else if type = 0021 then set e180021 to Data
+	    else if type = 0030 then set e180030 to Data
+	    :
+	    [[ many many lines later ]]
+	    :
+	    else if type = 0070 then set i to ar_write ('a22', c22, n220070, Data)
+	    else if type = 9999 then set i to ar_write ('a22', c22, n229999, Data)
+	    end
+	if type = 9999 then
+	    set c22 to c22 + 1
+	end
+
+    if cat = 32 then
+	begin
+	if c32 = 0 then
+	    begin
+		 if type = 0010 then set e320010 to Data
+	    else if type = 7010 then set e327010 to flip_str (Data, flip)
+	    :
+	    [[ many lines later ]]
+	    :
+	    else if type = 0091 then set i to ar_write ('a35', c35, n350091, Data)
+		 if type = 0092 then set i to ar_write ('a35', c35, n350092, Data)
+	    else if type = 0093 then set i to ar_write ('a35', c35, n350093, Data)
+	    else if type = 0094 then set i to ar_write ('a35', c35, n350094, Data)
+	    else if type = 9999 then set i to ar_write ('a35', c35, n359999, Data)
+	    end
+	if type = 9999 then
+	    set c35 to c35 + 1
+	end
+
+after cat
+    if cat = 99 then
+	begin
+</pre>
+<p>Hmm, I hope you'll see the maintainability factor of such code is
+extremely low :-(</p>
+<p>But since this code is the same for all reports, it's stored in a seperate
+file, which is prepended to the format part on a "need-now" basis, which
+enables easy to maintain the different format scripts as such.</p>
+
+<hr />
+<a href="chap2.html">Prev</a> <a href="chap4.html">Next</a>
+</body>
+</html>

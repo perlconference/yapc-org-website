@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: A calculator</title>
+</head>
+
+<body>
+<h1 align = "center">A calculator</h1>
+
+<pre>
+                                         {my %variables}
+
+start:          statement  /^\Z/         {$variables {'.'} = $item [1]}
+
+statement:      variable '=' statement   {$variables {$item [1]} = $item [3]}
+              | expression
+
+expression:     term '+' expression      {$item [1] + $item [3]}
+              | term '-' expression      {$item [1] - $item [3]}
+              | term
+
+term:           factor '*' term          {$item [1] * $item [3]}
+              | factor '/' term          {$item [1] / $item [3]}
+              | factor
+
+factor:         number
+              | variable                 {$variables {$item [1]} ||=
+                                                Math::BigInt -> new (0)}
+              | '+' factor               {$item [2]}
+              | '-' factor               {$item [2] * -1}
+              | '(' statement ')'        {$item [2]}
+
+number:         /\d+/                    {Math::BigInt -> new ($item [1])}
+
+variable:       /[a-z]+/i
+              | '.'
+</pre>
+
+<hr>
+<a href = '22.html'>[Prev]</a>
+<a href = '24.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

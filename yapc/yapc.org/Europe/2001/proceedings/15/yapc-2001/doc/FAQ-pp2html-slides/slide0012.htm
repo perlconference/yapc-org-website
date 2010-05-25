@@ -1,0 +1,110 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>How to use navigation bars</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0013.htm">Syntax</a>
+    &nbsp;&nbsp;Previous: <a href="slide0011.htm">How to include images</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="How to use navigation bars">
+
+<H1>How to use navigation bars
+</H1>
+
+
+<P>
+<B><U>Question:</U></B>
+</P>
+
+
+<P>
+How can I use <A name="index_12_5"></A>navigation bars?
+</P>
+
+
+<P>
+<B><U>Answer:</U></B>
+</P>
+
+
+<P>
+Navigation bars are realized by template files. Normally they contain an HTML table with hyperlinks to the previous and next page and to the table of contents.  The text of the hyperlinks and the targets of the HREF tags should be replaced with special keywords:
+</P>
+
+<UL>
+<LI>URL_NEXT, TXT_NEXT</LI>
+<LI>URL_PREV, TXT_PREV</LI>
+<LI>URL_CONTENTS, TXT_CONTENTS</LI>
+</UL>
+
+
+<P>
+<B>Example:</B>
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+&lt;TABLE&gt;
+&lt;TR&gt;
+  &lt;TD colspan=3 &gt;
+    Next:  &lt;a href=&quot;URL_NEXT&quot;&gt;TXT_NEXT&lt;/a&gt;
+    &amp;nbsp;&amp;nbsp;Previous:  &lt;a href=&quot;URL_PREV&quot;&gt;TXT_PREV&lt;/a&gt;
+     &amp;nbsp;&amp;nbsp;Contents: &lt;a href=&quot;URL_CONTENTS&quot;&gt;TXT_CONTENTS&lt;/a&gt;
+  &lt;/td&gt;
+&lt;/TR&gt;
+&lt;/TABLE&gt;
+&lt;!-- ---- Navigation Bar -------------------------------- END --&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B><U>Discussion:</U></B>
+</P>
+
+
+<P>
+The navigation template file is includced in each slide on top and at the bottom according to the following options:
+</P>
+
+<UL>
+<LI>--nav_template (top and bnottom)</LI>
+<LI>--nav_top_template (top only)</LI>
+<LI>--nav_bottom_template (bottom only)</LI>
+</UL>
+
+
+<P>
+The keywords are replaced with the filenames and headers of the corresponding HTML files.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0013.htm">Syntax</a>
+    &nbsp;&nbsp;Previous: <a href="slide0011.htm">How to include images</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

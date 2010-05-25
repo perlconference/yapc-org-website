@@ -1,0 +1,149 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Common options</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0022.htm">Usual startup operations</a>
+    &nbsp;&nbsp;Previous: <a href="slide0020.htm">Option files</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Common options">
+
+<H1>4.4.2 Common options
+</H1>
+
+
+<P>
+I personally prefer <B><CODE>Getopt::Long</CODE></B> for option handling. Your preferences may vary, but please provide at least the options specified in this example statement:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # get options
+  GetOptions(%options,
+
+             &quot;activeContents&quot;,    # evaluation of active contents;
+             &quot;cache&quot;,             # control the cache;
+             &quot;cacheCleanup&quot;,      # cache cleanup;
+             &quot;help&quot;,              # online help, usage;
+             &quot;nocopyright&quot;,       # suppress copyright message;
+             &quot;noinfo&quot;,            # suppress runtime informations;
+             &quot;nowarn&quot;,            # suppress runtime warnings;
+             &quot;quiet&quot;,             # suppress all runtime messages except of error ones;
+             &quot;safeOpcode=s@&quot;,     # permitted opcodes in active contents;
+             &quot;set=s@&quot;,            # user settings;
+             &quot;tagset=s@&quot;,         # add a tag set to the scripts own tag declarations;
+             &quot;trace:i&quot;,           # activate trace messages;
+            );
+</FONT></PRE></TD></TR></TABLE>
+
+<DL>
+<DT>
+<B><CODE>activeContents</CODE></B></DT>
+<DD>
+flags if active contents shall be evaluated or not.
+</DD>
+<DT>
+<B><CODE>cache</CODE></B></DT>
+<DD>
+allows user to activate and deactivate the cache.
+</DD>
+<DT>
+<B><CODE>cacheCleanup</CODE></B></DT>
+<DD>
+enforces a cleanup of existing cache files.
+</DD>
+<DT>
+<B><CODE>help</CODE></B></DT>
+<DD>
+displays a usage message, which is usually the complete converter manpage. The converter is stopped after performing the display task.
+</DD>
+<DT>
+<B><CODE>nocopyright</CODE></B>, <B><CODE>noinfo</CODE></B> and <B><CODE>nowarn</CODE></B></DT>
+<DD>
+suppress informations a user can occasionally live without: copyright messages, informations and warnings.
+</DD>
+<DT>
+<B><CODE>quiet</CODE></B></DT>
+<DD>
+combines <CODE>nocopyright</CODE>, <CODE>noinfo</CODE> and <CODE>nowarn</CODE>.
+</DD>
+<DT>
+<B><CODE>safeOpcode</CODE></B></DT>
+<DD>
+Embedded code (&quot;Active Contents&quot;) is usually executed in a <B><CODE>Safe</CODE></B> compartment. This way a user can control which operations shall be allowed and which shall be denied. According to the interface of <CODE>Safe</CODE>, allowed operations are specified by Perl opcodes as defined by the <B><CODE>Opcode</CODE></B> module. With this option, a user can specify such an opcode to allow its execution. It can be used multiply to accept several opcodes. Alternatively, the user might pass the special string <CODE>ALL</CODE> which flags that Active Contents shall be executed without any restriction - which will be done by using <CODE>eval()</CODE> instead of <CODE>Safe</CODE>.
+</DD>
+<DT>
+<B><CODE>set</CODE></B></DT>
+<DD>
+provides a way to inject user defined settings into Active Contents. This is helpful to process documents in various ways, without a need to modify document sources.
+</DD>
+<DT>
+<B><CODE>tagset</CODE></B></DT>
+<DD>
+can be used multiply to declare that foreign tags shall be accepted. Foreign tags are tags not supported by the converter, but defined for other converters. By accepting them, a user can make a source pass to the converter even if it uses tags of another converter.
+</DD>
+<DT>
+<B><CODE>trace</CODE></B></DT>
+<DD>
+activates several traces, at least of the frameset modules.
+</DD>
+</DL>
+
+
+<P>
+Luckily, the implementation of most of these options is as common as the options themselves and shown in the following sections. So in most cases it's no extra effort to provide these features.
+</P>
+
+
+<P>
+For example, <CODE>quiet</CODE> can be implemented by
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  @options{qw(nocopyright noinfo nowarn)}=() x 3 if exists $options{quiet};
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+It should be possible to control traces by an environment variable <B><CODE>SCRIPTDEBUG</CODE></B> as well as by option <CODE>trace</CODE>:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  $options{trace}=$ENV{SCRIPTDEBUG} if not exists $options{trace} and exists $ENV{SCRIPTDEBUG};
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0022.htm">Usual startup operations</a>
+    &nbsp;&nbsp;Previous: <a href="slide0020.htm">Option files</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,40 @@
+<html>
+<header>
+    <title>The alternative</title>
+    </header>
+<body>
+<h1>A different approach</h1>
+<ul>
+  <li><h2>Using bad words (@%#$!%^#)</h2></li>
+
+  <h3>Reproducable test case</h3>
+  <pre>
+    #!/usr/bin/perl -w
+
+    # use strict;
+    # use diagnostics;
+
+    my $e010101 = "Value 1";
+    my @e = (0, { 101 => $e010101 });
+
+    format OLD0 =
+    @<<<<<<<<<<
+    $e010101
+    .
+
+    format NEW0 =
+    @<<<<<<<<<<
+    $e[1]{101}
+    .
+
+    format NEW0 =
+    @<<<<<<<<<<
+    "$e[1]{101}"
+    .</pre>
+
+    </li>
+    </ul>
+<hr />
+<a href="C2-3.html">Prev</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="C2-4.html">Next</a>
+</body>
+</html>

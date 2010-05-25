@@ -1,0 +1,110 @@
+#!/usr/bin/perl -w
+# File: atsar-pack
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+use strict;
+
+use constant ATMAGIC => 0xfeedbabe;
+
+use Config;
+use constant CHAR    => $Config{charsize};
+use constant SHORT   => $Config{shortsize};
+use constant INT     => $Config{intsize};
+use constant LONG    => $Config{longsize};
+use constant POINTER => $Config{ptrsize};
+
+# Collect other constants from the perl-versions of the C-headerfiles.
+# This does not work will with `use strict' nor `use warnings', but
+# with some tricks... [constants are actually subs, you now]
+
+$^W=0; require 'sys/utsname.ph'; $^W=1;
+sub _UTSNAME_LENGTH();
+sub _UTSNAME_NODENAME_LENGTH();
+sub _UTSNAME_DOMAIN_LENGTH();
+
+# Some prototypes
+
+sub print_hash($);
+sub dumpmain();
+
+sub aligned4($) { ($_[0] +3) & ~3 }
+sub aligned8($) { ($_[0] +7) & ~7 }
+
+my $utsname_struct_size = aligned4
+    _UTSNAME_LENGTH*4 + _UTSNAME_NODENAME_LENGTH + _UTSNAME_DOMAIN_LENGTH;
+
+# Read may be on socket, which may result in smaller packages
+# then asked for.  Enforce to receive enough bytes.  By the
+# way: Perl-strings may contain \0 bytes.
+
+sub read_exact($)
+{   my $bytes_to_read = shift || return '';
+    my $bytes_read    = 0;
+    my $block;
+
+    while(1)
+    {   my $read_bytes = sysread IN, $block, $bytes_to_read, $bytes_read;
+        die "Input too short by $bytes_to_read bytes.\n" unless $read_bytes;
+
+        $bytes_read    += $read_bytes;
+        $bytes_to_read -= $read_bytes;
+        last if $bytes_to_read == 0;
+    }
+
+    $block;
+}
+
+sub read_header()
+{   my $headsize  = aligned4 LONG + 9*INT + $utsname_struct_size;
+    my $header    = read_exact($headsize);
+
+    my $utsname   = 'A'._UTSNAME_LENGTH;
+    my $utsnode   = 'A'._UTSNAME_NODENAME_LENGTH;
+    my $utsdomain = 'A'._UTSNAME_DOMAIN_LENGTH;
+
+    my %header;
+    @header{ qw/magic hdrsize oncecnt oncenames oncevars
+                sampcnt sampnames sampvars hertz numcpu
+                sysname nodename release version machine domain/
+     } = unpack "Li9" . $utsname . $utsnode . ($utsname x 3) . $utsdomain
+               , $header;
+
+     \%header;
+}
+
+sub read_countdef()
+{    my $countdef = read_exact(aligned4 POINTER + 2*SHORT);
+     my %countdef;
+     @countdef{ qw/kname ksize kinst/ } = unpack "LSS", $countdef;
+     \%countdef;
+}
+
+sub read_countdefs($$)
+{   my ($number, $names_size) = @_;
+    return unless $number;
+
+    my @defs  = map {read_countdef} 1..$number;
+    my @names = split /\0/, read_exact($names_size);
+    map {$_->{kname} = shift @names} @defs;
+    @defs;
+}
+
+###
+### The MAIN thing!
+###
+
+# Open input from file(s) or stdin.
+if(@ARGV) { open IN, "cat @ARGV |" or die }
+else      { *IN = *STDIN }
+
+my $header = read_header;
+
+die "Not an atsar file.\n"
+    if $header->{magic} != ATMAGIC;
+
+my @once   = read_countdefs($header->{oncecnt}, $header->{oncenames});
+my @sample = read_countdefs($header->{sampcnt}, $header->{sampnames});
+my $conce  = read_exact($header->{oncevars});
+
+#### and much more of the same to follow...

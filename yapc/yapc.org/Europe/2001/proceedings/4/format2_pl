@@ -1,0 +1,41 @@
+#!/pro/bin/perl -w
+
+use strict;
+
+format HEADER =
+HEADER
+.
+sub HEADER ()
+{
+    local $~ = "HEADER";
+    my $HEADER;
+				    if ($^V le v5.6.1) {
+					open HEADER, "> HEADER";
+					}
+				    else {
+    open HEADER, ">", \$HEADER;
+					}
+    select HEADER;
+    write;
+    close HEADER;
+				    if ($^V le v5.6.1) {
+					local $/ = undef;
+					open HEADER, "<HEADER";
+					$HEADER = <HEADER>;
+					close HEADER;
+					unlink "HEADER";
+					}
+    select STDOUT;
+    $HEADER;
+    } # HEADER
+format STDOUT_TOP =
+TOP
+@<<<<<
+@{[HEADER]}
+.
+format STDOUT =
+STDOUT
+@<<<<
+$%
+.
+write;

@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+
+<html>
+<head>
+<title>Parsing: CFG</title>
+</head>
+
+<body>
+<h1 align = "center">Context Free Grammars</h1>
+
+<ul><li>Context Free Grammars describe Context Free Languages.
+    <li>All production rules are of the form
+        <tt>A -> b</tt>, where <tt>A</tt> is a <em>non-terminal</em>
+        and <tt>b</tt> a (possibly empty) string of <em>terminals</em>
+        and <em>non-terminals</em>.
+    <li>Require a push down automaton (PDA), which is essentially
+        a FA and a stack.
+    <li>Many different kinds of CFGs.
+    <ul><li>Bottom up parsers.
+        <ul><li>Shift-reduce parsers.
+            <li>Operator Precedence parsing.
+            <li><tt>yacc</tt>
+        </ul>
+        <li>Top down parsers.
+        <ul><li>Recursive Descent parsers.
+        </ul>
+        <li>Predictive Parsers (LL(k), LR(k), LALR(k)).
+    </ul>
+</ul>
+
+<hr>
+
+<ul><li><tt>Parse::RecDescent</tt> mostly recognizes CFGs; however, it
+        has enough hooks and features to recognize a subset of CSGs.
+    <li><tt>Parse::RecDescent</tt> generates top down parsers.
+    <li><tt>Parse::RecDescent</tt> doesn't generate predictive parsers;
+        its parsers backtrack.
+</ul>
+<hr>
+<a href = '05.html'>[Prev]</a>
+<a href = '07.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

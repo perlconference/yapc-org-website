@@ -1,0 +1,50 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>The other YAPC::Europe-2.0.01 T-shirt: 4/6</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>The program to run</h2>
+<p>Once you add a little whitespace here and there, the block looks like
+this:</p><!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="i">$c</SPAN> = <SPAN CLASS="q">'( +)'</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="q">s/(key)|eval/$1?&quot;value&quot;:&quot;&quot;/eg</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="i">*y</SPAN> = <SPAN CLASS="s">[</SPAN> <SPAN CLASS="k">split</SPAN> <SPAN CLASS="q">/(\W+)/</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$_</SPAN>{<SPAN CLASS="w">t</SPAN>} <SPAN CLASS="s">]</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$_</SPAN> = <SPAN CLASS="k">eval</SPAN> <SPAN CLASS="p">)</SPAN> =~ <SPAN CLASS="q">y/\n//d</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="i">sub c</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="k">length</SPAN> <SPAN CLASS="s">}</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">for</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">split</SPAN> <SPAN CLASS="i">$c</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN>
+<SPAN CLASS="k">    print</SPAN> <SPAN CLASS="i">@y</SPAN>
+<SPAN CLASS="k">      if</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">select</SPAN><SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$/</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$,</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$&lt;</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="n">.1</SPAN> * <SPAN CLASS="k">rand</SPAN> <SPAN CLASS="p">)</SPAN> || <SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$y</SPAN> += <SPAN CLASS="i">$p</SPAN>++ + <SPAN CLASS="i">&amp;c</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="p">)</SPAN>
+      ... <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">substr</SPAN><SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$y</SPAN>[<SPAN CLASS="i">&amp;a</SPAN>]<SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">&amp;p</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="n">1</SPAN> <SPAN CLASS="p">)</SPAN> = <SPAN CLASS="k">chr</SPAN> <SPAN CLASS="n">97</SPAN> + <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">ord</SPAN><SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">substr</SPAN> <SPAN CLASS="i">$y</SPAN>[<SPAN CLASS="i">&amp;a</SPAN>]<SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">&amp;p</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="n">1</SPAN> <SPAN CLASS="p">)</SPAN> + <SPAN CLASS="i">c</SPAN><SPAN CLASS="s">(</SPAN><SPAN CLASS="s">)</SPAN> <SPAN CLASS="p">)</SPAN> % <SPAN CLASS="n">26</SPAN> <SPAN CLASS="p">)</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="i">sub p</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="i">$y</SPAN> % <SPAN CLASS="k">length</SPAN> <SPAN CLASS="i">$y</SPAN>[<SPAN CLASS="i">&amp;a</SPAN>] <SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="i">sub a</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="i">$p</SPAN> % <SPAN CLASS="n">3</SPAN> * <SPAN CLASS="n">2</SPAN> <SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="k">print</SPAN> <SPAN CLASS="q">&quot;\n&quot;</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">study</SPAN>
+</PRE>
+<ul>
+<li><tt>$_</tt> is still '<tt>eval join"",sort+keys%_</tt>'.</li>
+<li>The substitution changes <tt>keys</tt> into <tt>values</tt>, and
+wipes <tt>eval</tt> out of the string.</li>
+<li>So now <tt>$_</tt> is the concatenation of all values of <tt>%_</tt>,
+with all <tt>\n</tt> removed, thanks to <tt>s///</tt>.</li>
+<li>In the meantime, <tt>@y</tt> received the list of words and non-words
+in <tt>$_{t}</tt>.</li>
+<li>Various <tt>sub</tt>s (<tt>a</tt>, <tt>p</tt>, <tt>c</tt>) are
+defined as small helpers.</li>
+</ul>
+<p align="center"> <a href="tshirt_03.html">Previous</a> | <a href="tshirt_05.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

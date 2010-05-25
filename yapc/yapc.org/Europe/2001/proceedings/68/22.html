@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Repetition</title>
+</head>
+
+<body>
+<h1 align = "center">Repetition</h1>
+
+<pre>
+start:        die  /^\Z/            {$item [1]}
+
+die:          number<font color = "red">(?)</font> 'd' number  {my $s = 0;
+                                     foreach (1 .. (<font color = "red">$item [1] -> [0] || 1</font>)) {
+                                        $s += 1 + int rand $item [3]
+                                     }
+                                     $s}
+
+number:       /\d+/
+</pre>
+
+
+<hr>
+<a href = '21.html'>[Prev]</a>
+<a href = '23.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

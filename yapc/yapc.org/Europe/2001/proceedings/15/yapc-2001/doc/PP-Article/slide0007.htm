@@ -1,0 +1,85 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Variables</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0008.htm">Macros</a>
+    &nbsp;&nbsp;Previous: <a href="slide0006.htm">Included Text</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Variables">
+
+<H1>4.3 Variables
+</H1>
+
+
+<P>
+PerlPoint provides document variables. Variable definitions are made in a special paragraph type:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ $author=Jochen Stenzel
+
+ $mail=perl@jochen-stenzel.de
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Note that before and after the equal sign there are no blanks. The value of the variable is not included in quotes because all the text after the equal sign up to the end of the paragraph defines the value. Each variable definition must be closed by an empty line (end of paragraph).
+</P>
+
+
+<P>
+The above definition set the variables <CODE>$author</CODE> and <CODE>$mail</CODE>. From now on, they can be used in the PerlPoint input text. The parser will replace them automatically by their value:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ The author, $author, can be reached
+ under the following mail address:
+ $mail
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+All variables can be used in embedded Perl code and in <A HREF="slide0010.htm#Conditions">Conditions</A> as well. They can be addressed there as package variables of <B>main::</B>. As the parser tries to replace all variables by their values, it is necessary to address variables by their fully qualified name (<CODE>$mail::author</CODE>), or you must escape the Dollar sign by a backslash:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \EMBED{lang=perl}join(',', $main::author, \$mail)\END_EMBED
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0008.htm">Macros</a>
+    &nbsp;&nbsp;Previous: <a href="slide0006.htm">Included Text</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

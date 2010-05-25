@@ -1,0 +1,33 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Actions</title>
+</head>
+
+<body>
+<h1 align = "center">Actions</h1>
+
+<pre>
+start:        die  /^\Z/         {$item {die}}
+
+die:          'd' faces         {1 + int rand $item {faces}}
+            | count 'd' faces   {my $s = 0;
+                                  foreach (1 .. $item {count}) {
+                                     $s += 1 + int rand $item {faces}
+                                  }
+                                  <font color = "red">$return = $s</font>;
+                                  print "$item{count}d$item{faces} gives $s\n"}
+
+count:        number
+faces:        number
+number:       /\d+/
+</pre>
+
+
+<hr>
+<a href = '17.html'>[Prev]</a>
+<a href = '19.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

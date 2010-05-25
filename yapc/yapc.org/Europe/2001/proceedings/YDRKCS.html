@@ -1,0 +1,305 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="Author" content="Jeremy Gurney">
+   <meta name="GENERATOR" content="Mozilla/4.75 [en] (WinNT; U) [Netscape]">
+   <title>YDRK(C)S</title>
+</head>
+<body>
+
+<h1>
+You don’t really need (CGI) security anyway!</h1>
+By <i>Someone-who-doesn't-want-to-be-named<a href="#doh">*</a></i>
+<p>Presented as a lightning talk at <a href="http://www.yapc.org/Europe/">YAPC::Europe</a>
+2.0.01 03-Aug-2001
+<br>&nbsp;
+<table BORDER COLS=1 WIDTH="100%" >
+<tr>
+<td BGCOLOR="#CCCCCC"><b>Disclaimer:-</b>
+<br><i>This presentation is <u>not</u> meant to be taken seriously. A lot
+has been lost in the conversion of what was more like 'stand-up with slides'
+to HTML only. No offence was intended by any of the comments and this advice
+is <u>not</u> meant to be followed.</i></td>
+</tr>
+</table>
+
+<h2>
+Popular misconceptions about security</h2>
+
+<ul>
+<li>
+Security is your responsibility.</li>
+
+<ul>
+<li>
+If your system is compromised it is the systems administrator who gets
+the blame, therefore it must be the sysadmin's responsibility. If the sysadmin
+were doing his job properly he should be staying after hours to check through
+your work.</li>
+</ul>
+
+<li>
+Security is more important than functionality.</li>
+
+<ul>
+<li>
+Yeah right!</li>
+
+<li>
+"Hello World" is secure, it's easy to be secure if you're not actually
+doing anything.</li>
+</ul>
+
+<li>
+Your site is under threat from hackers.</li>
+
+<ul>
+<li>
+Wrong again, see next point.</li>
+</ul>
+</ul>
+
+<h2>
+The most important thing to remember</h2>
+
+<ul>
+<li>
+The internet is a very, very big place and it’s growing all the time.</li>
+
+<li>
+Your one site is just one of millions out there.</li>
+
+<li>
+The chances of a hacker, let alone a competent hacker finding your site
+is very, very small.</li>
+
+<li>
+All of this means that in short you're safe anyway so worrying about security
+is a waste of time.</li>
+</ul>
+
+<h2>
+Writing Secure Code</h2>
+
+<ul>
+<li>
+You could write it all yourself deducing everything from first principles
+or …</li>
+
+<li>
+You could use tried and tested code written by an expert …</li>
+
+<li>
+Matt Wright - Security Guru</li>
+
+<ul>
+<li>
+What this man doesn’t know isn’t worth knowing.</li>
+
+<li>
+As recommended by the best industry sources including Gerald Newton of
+electrician.com</li>
+</ul>
+</ul>
+
+<h2>
+General Tips</h2>
+
+<ul>
+<li>
+Make your scripts portable - put the Perl interpreter in the cgi-bin.</li>
+
+<ul>
+<li>
+This allows you to have the same shebang line no matter what type of server
+your script is running on. It also makes your script just a few characters
+shorter which improves efficiency.</li>
+</ul>
+
+<li>
+Give your process enough permission to do what you want.</li>
+
+<ul>
+<li>
+Nothing is more annoying than having a script die due to permissions issues,
+so right from the word go, give your script enough permission for it to
+do what you want.</li>
+
+<ul>
+<li>
+On the whole Root seems to work well for this (Administrator if you're
+running on NT).</li>
+</ul>
+</ul>
+
+<li>
+Make your scripts flexible - you never know what uses you’ll find for them
+further down the line.</li>
+
+<ul>
+<li>
+Adding redundant extra functionality will enable you to quickly adapt your
+script to be used for other tasks should that be required at a later date.</li>
+</ul>
+</ul>
+
+<h2>
+Testing</h2>
+
+<ul>
+<li>
+Testing eats into your development time ...</li>
+
+<li>
+So if you're a contractor don’t bother, that’s what the warranty and installation
+period is for.</li>
+
+<ul>
+<li>
+This way the customer tests the parts of the code that are important to
+him and you don't have to spend any time checking the parts which don't
+get used.</li>
+</ul>
+
+<li>
+Peer review is a good alternative to testing.</li>
+</ul>
+
+<h2>
+Peer Review</h2>
+
+<ul>
+<li>
+Post your code to a friendly internet forum and ask for advice. Remember
+to post the actual code or they won’t be able to help out as they'll be
+looking at it out of context.</li>
+</ul>
+
+<table BORDER COLS=1 >
+<tr>
+<td BGCOLOR="#FFFFCC"><tt>...</tt>
+<br><tt># Link to the Credit Card Server</tt>
+<br><tt>$dbh = DBI->connect("dbi:Oracle:CCard","Jeff", "figtree");</tt>
+<p><tt># Assuming we connect do the rest</tt>
+<br><tt>...</tt></td>
+</tr>
+</table>
+
+<ul>
+<li>
+If nobody posts anything saying your script is insecure that means people
+have checked through it and not found anything and we're ready for stage
+2.</li>
+</ul>
+
+<h2>
+Peer Review Stage 2</h2>
+
+<ul>
+<li>
+Go to a less friendly internet forum and give them the address of your
+page.</li>
+</ul>
+
+<table BORDER COLS=1 WIDTH="100%" BGCOLOR="#FFFFCC" >
+<tr>
+<td><tt>“Hey l4me skript kiddies betcha can’t crack this - http://www.hackme.com/”</tt></td>
+</tr>
+</table>
+
+<ul>
+<li>
+Not only will this give your site's security a good work out, as a bonus
+this should increase your hits for that week and you may even get some
+new customers out of it.</li>
+</ul>
+
+<h2>
+Obscurity is Job Security</h2>
+
+<ul>
+<li>
+Protecting your code from snoopers (including your co-workers) can be difficult.</li>
+
+<li>
+Perl provides many neat features which allow you to write unbelievably
+obfuscated code, but that’s hard.</li>
+
+<li>
+For all those who want the same effect with little effort use Acme::Buffy.</li>
+
+<ul>
+<li>
+Simply download the Acme::Buffy module from CPAN and insert use Acme::Buffy
+at the top of all your scripts.</li>
+
+<ul>
+<li>
+Our sample Hello World script like this:-</li>
+</ul>
+</ul>
+</ul>
+
+<table BORDER COLS=1 WIDTH="100%" BGCOLOR="#FFFFCC" >
+<tr>
+<td><tt>use Acme::Buffy;</tt>
+<p><tt>print "Hello world";</tt></td>
+</tr>
+</table>
+
+<ul>
+<ul>
+<ul>
+<li>
+Becomes:-</li>
+</ul>
+</ul>
+</ul>
+
+<table BORDER COLS=1 WIDTH="100%" BGCOLOR="#FFFFCC" >
+<tr>
+<td><tt>use Acme::Buffy;</tt>
+<br><tt>BUffY bUFFY BUffY bUFFY bUfFy buffy BUFfy buFFY BufFy BufFY bUFfy
+BuFFY buffy bufFy bUffy bUffY BuFfy BuffY bUFfy BUfFY BUFFy Buffy bUffY
+BuFFY BUFFy BufFy BUFfy BUfFY buFfy BufFy bUffY bUFFy&nbsp;</tt></td>
+</tr>
+</table>
+
+<ul>
+<ul>
+<li>
+Not only does this protect your script from snoopers but it's now Buffy
+too.</li>
+</ul>
+</ul>
+
+<hr WIDTH="100%">
+<h2>
+With Thanks to ...</h2>
+
+<ul>
+<li>
+This talk was the product of the insanity of more than one mind and I would
+like to thank the following:-</li>
+
+<ul>
+<li>
+All the folks on comp.infosystems.www.authoring.cgi</li>
+
+<li>
+Randal Schwartz</li>
+
+<li>
+Dave L</li>
+
+<li>
+Revjack</li>
+
+<li>
+… and those who wish to remain anonymous.</li>
+</ul>
+</ul>
+Jeremy Gurney 2001 (<a NAME="doh"></a>*Doh!)
+</body>
+</html>

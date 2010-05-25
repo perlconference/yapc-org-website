@@ -1,0 +1,47 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Directives: uncommit</title>
+</head>
+
+<body>
+<h1 align = "center">Directives: uncommit</h1>
+
+<pre>
+start:       action   /^\Z/      {$item [1]}
+
+action:      '/' <font color = "red">&lt;commit></font> word ...!/./
+                                 {system "perldoc -f $item[3]"; ""}
+          |  'quit'              {exit}
+          |  /.*/                {eval $item [1]}
+
+word:        /-?[a-z]+/
+</pre>
+<hr>
+<pre>
+In [1] := /uc
+=item uc EXPR
+
+=item uc
+
+Returns an uppercased version of EXPR.  This is the internal function
+implementing the C&lt;\U> escape in double-quoted strings.
+Respects current LC_CTYPE locale if C&lt;use locale> in force.  See L&lt;perllocale>.
+(It does not attempt to do titlecase mapping on initial letters.  See C&lt;ucfirst()> for that.)
+
+If EXPR is omitted, uses C&lt;$_>.
+
+Out [1] = 
+In [2] := $_ = "uc"
+Out [2] = uc
+In [3] := <font color = "red">/uc/</font>
+Out [3] = &lt;&lt;UNDEF>>
+In [4] := quit
+</pre>
+<hr>
+<a href = '34.html'>[Prev]</a>
+<a href = '36.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

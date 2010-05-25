@@ -1,0 +1,61 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>The other YAPC::Europe-2.0.01 T-shirt: 5/6</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>An airport animation</h2><!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="c"># remember @y = (&quot;smrfnexi', &quot;--&quot;, &quot;tjfillx&quot;, &quot;ybvwvngwr&quot;, &quot; ;-)\r&quot;) in the beginning</SPAN>
+<SPAN CLASS="k">for</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">split</SPAN> <SPAN CLASS="i">$c</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN>
+<SPAN CLASS="k">    print</SPAN> <SPAN CLASS="i">@y</SPAN> <SPAN CLASS="k">if</SPAN> <SPAN CLASS="p">(</SPAN>
+<SPAN CLASS="k">       select</SPAN><SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$/</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$,</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$&lt;</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="n">.1</SPAN> * <SPAN CLASS="k">rand</SPAN> <SPAN CLASS="p">)</SPAN> || <SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$y</SPAN> += <SPAN CLASS="i">$p</SPAN>++ + <SPAN CLASS="i">&amp;c</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="p">)</SPAN>
+       ... <SPAN CLASS="c"># the range operator</SPAN>
+<SPAN CLASS="p">      (</SPAN> <SPAN CLASS="k">substr</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$y</SPAN>[<SPAN CLASS="i">&amp;a</SPAN>]<SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">&amp;p</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="n">1</SPAN><SPAN CLASS="p">)</SPAN> = <SPAN CLASS="k">chr</SPAN> <SPAN CLASS="n">97</SPAN> + <SPAN CLASS="p">(</SPAN><SPAN CLASS="k">ord</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="k">substr</SPAN> <SPAN CLASS="i">$y</SPAN>[<SPAN CLASS="i">&amp;a</SPAN>]<SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">&amp;p</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="n">1</SPAN><SPAN CLASS="p">)</SPAN> + <SPAN CLASS="w">c</SPAN><SPAN CLASS="s">(</SPAN><SPAN CLASS="s">)</SPAN><SPAN CLASS="p">)</SPAN> % <SPAN CLASS="n">26</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="c"># for the record: the helper subs</SPAN>
+<SPAN CLASS="i">sub a</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="i">$p</SPAN> % <SPAN CLASS="n">3</SPAN> * <SPAN CLASS="n">2</SPAN> <SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="i">sub p</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="i">$y</SPAN> % <SPAN CLASS="k">length</SPAN> <SPAN CLASS="i">$y</SPAN>[<SPAN CLASS="i">&amp;a</SPAN>] <SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="i">sub c</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="k">length</SPAN> <SPAN CLASS="s">}</SPAN>
+</PRE>
+<ul>
+<li>The <tt>for</tt> loop works on the parts of <tt>$_</tt> (which is the
+concatenation of <tt>%_</tt> values) separated by blocks of space
+and theses spaces themselves (there are perentheses in the <tt>$c</tt>
+regex).</li>
+<li>The range operator:</li>
+<ul>
+<li>The left part sleeps for a random time less than one tenth of a second,
+and since <tt>select</tt> returns false (we went to the end of the timeout)
+<tt>$y</tt> is calculated and <tt>$p</tt> is incremented.</li>
+<li>The right side change the current word (<tt>$y[&amp;a]</tt>)
+at letter number <tt>&amp;p</tt>. The increment is equal to the length
+of the current piece of the logo.</li>
+<li>Since both parts are always true, the range operator alternates
+between evaluating its left and right sides.</li>
+</ul>
+<li><tt>$y</tt> (modulo the lenghth of the word) is used as
+an offset inside a word.</li>
+<li><tt>a()</tt> returns the number of the current string (either 0, 2 or
+4) in <tt>@y</tt>.
+</ul>
+<p><b>Explanation:</b> The words are changed in a cyclic way. In each
+word, one letter is changed at a time. The index of the letter in the
+current word, and the offset to get to the next letter are calculated
+from the length of the current block.</p>
+<p>Naturaly, the initial string was calculated with the current logo
+to obtain the message.</p>
+<p align="center"> <a href="tshirt_04.html">Previous</a> | <a href="tshirt_06.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

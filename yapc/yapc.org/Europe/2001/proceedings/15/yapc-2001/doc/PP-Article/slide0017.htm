@@ -1,0 +1,122 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Tag definitions</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0018.htm">Tag activation</a>
+    &nbsp;&nbsp;Previous: <a href="slide0016.htm">Tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Tag definitions">
+
+<H1>5.2.2.1 Tag definitions
+</H1>
+
+
+<P>
+Let's have a look at a tag definition module. The tags of a certain converter are declared by a hash reference:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # pragmata
+  use strict;
+  use vars qw(%tags %sets);
+
+  # tag declarations
+  %tags=(
+         EMPHASIZE =&gt; {
+                       # options
+                       options =&gt; TAGS_OPTIONAL,
+
+                       # don't miss the body!
+                       body    =&gt; TAGS_MANDATORY,
+                      },
+
+         COLORIZE =&gt; {...},
+
+         FONTIFY  =&gt; {...},
+
+         ...
+        );
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This looks complicated but is easy to understand. The <CODE>option</CODE> and <CODE>body</CODE> slots express if options and body are obsolete, optional or mandatory. This is done by using constants provided by <B><CODE>PerlPoint::Constants</CODE></B> (which comes with the framework). Omitted <CODE>options</CODE> or <CODE>body</CODE> slots mean that options or body are <I>optional</I>. Depending on the declaration, the parser will strictly require options or body (mandatory), recognize but not require them (optional) or completely ignore any occurence of them (obsolete). This means that a tag declaration controls the way a parser handles input. In other words, they are a grammar extension.
+</P>
+
+
+<P>
+If further checks are necessary a tag author can even hook into the parser by using the <CODE>hook</CODE> key, specifying a subroutine:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  %tags=(
+         EMPHASIZE =&gt; {
+                       # options
+                       options =&gt; TAGS_OPTIONAL,
+
+                       # perform special checks
+                       <B>hook</B> =&gt; sub {
+                                    # get parameters
+                                    my ($tagline, $options, @body)=@_;
+
+                                    # checks
+                                    $rc=...
+
+                                    reply results
+                                    $rc;
+                                   }
+                      },
+
+         COLORIZE =&gt; {...},
+
+         FONTIFY  =&gt; {...},
+
+         ...
+        );
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Whenever the parser detects an occurence of a hook tag, it will invoke the hook function and pass the source line, a reference to a hash of option name / value pairs to check, and a body array. Using the option hash reference, <I>the hook can modify the options</I>. Different to this, the body array is <I>a copy</I> of the body part of the stream. Therefore the hook cannot modify the body part.
+</P>
+
+
+<P>
+The value replied by a hool function determines how the parser continues to work. A hook can express that the tag was ok, and the parser will continue to process the source. Alternatively, the hook can enforce the parser to stop immediately, declaring the parsed input to be valid or syntactically incorrect.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0018.htm">Tag activation</a>
+    &nbsp;&nbsp;Previous: <a href="slide0016.htm">Tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

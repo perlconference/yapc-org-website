@@ -1,0 +1,75 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>The converter package</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0017.htm">Modules to load</a>
+    &nbsp;&nbsp;Previous: <a href="slide0015.htm">Writing the converter</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="The converter package">
+
+<H1>4.1 The converter package
+</H1>
+
+
+<P>
+Different to usual Perl scripts, each PerlPoint converter should declare its own namespace, which is by convention <CODE>PerlPoint::Converter::&lt;converter name&gt;</CODE>.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # declare script package
+  package <B>PerlPoint::Converter::pp2sdf</B>;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The background of this convention is the way <I>Active Contents</I> is implemented. <I>Active Contents</I> means PerlPoint source parts made from embedded Perl. To make document source sharing as secure as possible, and configurable to PerlPoint users, this embedded Perl can be evaluated in a compartment provided by the <B><CODE>Safe</CODE></B> module.
+</P>
+
+
+<P>
+<CODE>Safe</CODE> executes passed code in a special namespace, to suppress access to &quot;unsafed&quot; code parts. It is arranged that the <I>executed code itself</I> sees this namespace as <CODE>main</CODE>. So the embedded code uses <CODE>main</CODE>, which is in fact the special compartment namespace <I>different</I> to <CODE>main</CODE>.
+</P>
+
+
+<P>
+OK. That's no problem. But unfortunately not all code can be executed by <CODE>Safe</CODE>. It is different to use <CODE>sort</CODE> and to load modules, for example. That's why current versions of the frameset allow to execute Active Contents by <CODE>eval()</CODE> alternatively.
+</P>
+
+
+<P>
+Now, if a document author writes Active Contents, he's not necessarily aware of how this embedded code will be executed. He doesn't know about <CODE>Safe</CODE> and <CODE>eval()</CODE>, so PerlPoint has to arrange that the code can be executed <I>both</I> ways. Because it cannot modify <CODE>Safe</CODE>, it has to deal with <CODE>eval()</CODE>, so it makes it working in <CODE>main</CODE>. This means that embedded user code will access <CODE>main</CODE>, and that's why <CODE>main</CODE> should not be used by a converter itself.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0017.htm">Modules to load</a>
+    &nbsp;&nbsp;Previous: <a href="slide0015.htm">Writing the converter</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

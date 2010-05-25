@@ -1,0 +1,224 @@
+
+<HTML>
+<BODY>
+
+<H2>AxKit -- integrated XML processing solution</H2>
+
+<H3><I>Jan Pazdziora</I></H3>
+
+<P>
+Scheduled: 
+Iterative Software room on Friday at 16:00-16:20 (paper # 35)
+</P>
+
+<P>
+<B>Abstract:</B> AxKit is a package integrating flexible XML processing
+management into Apache/mod_perl environment. It comes with wide range
+of configuration options and programming hooks that allow fine tuning
+of processes that will be run on input XML data. Originally written
+and maintained by Matt Sergeant, it adopts quickly to changing world
+of XML tools and adds supports for most of popular ones.
+</P>
+
+<P>
+This presentation will introduce the AxKit architecture and steps that
+are done during a data processing. Simple setups will be shown, but
+focus will be put on explaining concepts of various stages and
+hooks. Overview of available processors (XSLT, XPS) and trends will be
+mentioned.
+</P>
+
+<HR />
+
+<H3>XML is a good format</H3>
+
+<P>
+XML (Extensible Markup Language) is
+
+<UL>
+<LI>strictly defined;</LI>
+<LI>and therefore compatible;</LI>
+<LI>with good chance that it will be possible to process it by any
+XML compliant software.</LI>
+</UL>
+</P>
+
+<P>
+It can be used to store structured information.
+</P>
+
+<P>
+But people prefer other formats for their daily work, namely HTML
+or PDF.
+</P>
+
+<P>
+XML can be transformed into other formats, using many ways. Usually
+the input XML, some transforming engine and a stylesheet are
+involved.
+</P>
+
+<P>
+Let's store data in XML and process it into other formats on demand.
+</P>
+
+<H3>AxKit for XML transformations and delivery</H3>
+
+<P>Written by Matt Sergeant, it makes on-the-fly XML transformation
+easy. Easier.</P>
+
+<P>It supports a lot of transforming and generation engines,
+LibXSLT and Sablotron for XSLT (Extensible Stylesheet Language
+Transformations), XPathScript for transformations written in Perl
+in more or less declarative way, or XSP for XML generation with
+code embedded into XML source and with extensions in form of
+taglibs, to name a few. 
+</P>
+
+<P>It also bundles other utility functions, like charset
+transformation on output or gzipping the output.</P>
+
+<P>Its main purpose is to provide framework in which order of
+transformations and type of processing can be configured without
+programming, using configuration options or processing instructions.
+</P>
+
+<H3>Let's start delivering XML data</H3>
+
+<P>
+AxKit works with Apache in mod_perl environment, so these better be
+working first, and a couple of other modules will be required during
+installation. Using <TT>perl -MCPAN -e shell</TT> will try to fetch
+the prerequisites but some adjustment may be needed, especially if
+external libraries are installed in
+nonstandard places.
+</P>
+
+<P>
+AxKit is the enabled and configured using
+
+<PRE>
+	PerlModule AxKit
+</PRE>
+
+in <TT>httpd.conf</TT> which loads the whole thing. For certain files,
+directories or locations, AxKit is then enabled using
+
+<PRE>
+	SetHandler perl-script
+	PerlHandler AxKit
+</PRE>
+
+and we'd better also say what transformation engine should be applied
+for certain style:
+
+<PRE>
+	AxAddStyleMap text/xslt Apache::AxKit::Language::LibXSLT
+</PRE>
+
+</P>
+
+<P>
+If our source XML file contains processing instruction
+
+<PRE>
+	<?xml-stylesheet href="file.xslt" type="text/xslt"?>
+</PRE>
+
+AxKit will know that the LibXSLT library should be invoked to do the
+transformation, using the stylesheet <TT>file.xslt</TT>.
+</P>
+
+<H3>Many configuration options</H3>
+
+<P>
+AxKit comes with large number of configuration options that can be
+used to alter its transformation behavior. We can use
+<TT>httpd.conf</TT> file to say what processors and what
+transformations should be run, based on URI or media of the request
+or DOCTYPE, DTD or other features of the source XML file.
+</P>
+
+<P>
+Should available configuration options fail to provide enough
+flexibility for our setup, we can always resort to extending AxKit
+with our modules, that will be deployed by proper configuration.
+</P>
+
+<H3>Steps in request processing</H3>
+
+<P>
+
+<OL>
+<LI>Request comes to Apache, it recognizes that it should be handled
+	by AxKit.</LI>
+<LI>AxKit is invoked and the request object passed to it.</LI>
+<LI>Default environment is set for the request, including media and
+	style.</LI>
+<LI>Processing instructions from the source XML are fetched.</LI>
+<LI>Processors are run in proper order.</LI>
+<LI>Final actions (like character set conversions) are done on the
+	output and that is sent back to client.</LI>
+</OL>
+
+AxKit handles caching of transformation results so if the requested
+series of transformations was done before, stored results is passed
+back to client. You can switch off the caching feature.
+</P>
+
+<P>
+As more processors can be run on one source to achieve step-by-step
+transformation, care must be taken when producing the output. If the
+next processor expects to work on well formed XML, the previous one
+has to provide it. On the other hand, with AxKit it is possible to
+put into the chain transformations that do not work on XML at all and
+are pure text processing done on text stream.
+</P>
+
+<H3>XSLT and XPathScript transformations</H3>
+
+<P>
+XSLT is a W3C standard for transformation of XML documents. 
+Stylesheets contain templates for elements, attributes and other
+parts of input XML, and output document mixed with other elements of
+XSLT transformation that can process the input. External processors,
+Sablotron or LibXSLT, are called to do the actual work..
+</P>
+
+<P>
+XPathScript includes Perl code inside of output markup, and this code
+can declaratively specify actions that should be done with
+subdocuments of the input XML, based on element names.
+</P>
+
+<H3>XSP for XML generation</H3>
+
+<P>
+XSP is templating scheme that uses special XML element to include
+dynamic content into static markup. Inside element
+<TT>&lt;xsp:expr&gt;</TT>, any arbitrary Perl code can be included.
+Special sets of elements, defined by taglibs, can be used to use
+functionality from external modules, while avoiding
+Perl code in XSP pages.
+</P>
+
+<H3>And it's written in Perl</H3>
+
+<P>
+AxKit is written in Perl and runs in mod_perl environment. Customized
+modules can be added to extend its functionality both to support more
+transformers or data producers, and to do specialized fine-tuning
+tasks. Modules are run under mod_perl which gives them full access to
+Apache's internals.
+</P>
+
+<P>
+Already now the choice of tools bundled with AxKit is wide and Matt
+is planning for more. From DocBook presentation of source XML documents
+to cascades of transformations of dynamic content, the framework is
+worth to be considered.
+</P>
+
+</BODY>
+</HTML>
+

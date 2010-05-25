@@ -1,0 +1,38 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Repetition</title>
+</head>
+
+<body>
+<h1 align = "center">Repetition</h1>
+
+<pre>
+start:        die  /^\Z/
+
+die:          number(?) 'd' number
+
+number:       /\d+/
+</pre>
+<hr>
+
+<ul><li>Items can have <strong>repetition specifiers</strong>
+    <ul><li><tt>item(?)</tt>    Match one  or zero times.
+        <li><tt>item(s)</tt>    Match one  or more times.
+        <li><tt>item(s?)</tt>   Match zero or more times.
+        <li><tt>item(N)</tt>    Match exactly N time.
+        <li><tt>item(N..M)</tt> Match at least N times, at most M times.
+        <li><tt>item(..M)</tt>  Match at least once, at most M times.
+        <li><tt>item(N..)</tt>  Match at least N times.
+    </ul>
+    <li>Return value is a array ref, with the matched items as elements.
+</ul>
+
+
+<hr>
+<a href = '20.html'>[Prev]</a>
+<a href = '22.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

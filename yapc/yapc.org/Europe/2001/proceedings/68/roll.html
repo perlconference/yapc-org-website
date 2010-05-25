@@ -1,0 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Rolling a die</title>
+</head>
+
+<body>
+<h1 align = "center">Rolling a die</h1>
+
+<pre>
+start:        die  /^\Z/         {$item [1]}
+
+die:          'd' number         {1 + int rand $item [2]}
+            | number 'd' number  {my $s = 0;
+                                  foreach (1 .. $item [1]) {
+                                     $s += 1 + int rand $item [3]
+                                  }
+                                  $s}
+
+number:       /\d+/
+</pre>
+<hr>
+
+<pre>
+In [1] := d3
+Out [1] = 1
+In [2] := d3
+Out [2] = 2
+In [3] := 2d4
+Out [3] = 4
+In [4] := 3 d  5
+Out [4] = 7
+In [5] := 3d5
+Out [5] = 8
+In [6] := foo
+Out [6] = &lt;&lt;UNDEF>>
+</pre>
+
+<hr>
+<a href = '19.html'>[Prev]</a>
+<a href = '21.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

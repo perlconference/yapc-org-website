@@ -1,0 +1,57 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, Mega widget -3</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:54:24 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../40-0/index.html>Mega widget -2</A><BR>next: <A HREF=../42-1/index.html>Atsar encap -3</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+(<A HREF=examples/vumeter.pm>Full source</A> of vumeter.pm)
+For my vumeter to work, I combine a few vu-bars.  When a new set of
+values arrive, I shift the values from each vu-bar to its neighbour
+on the left. Then I pass the new values to the last vu-bar.
+<P>
+In my implementation, the <CODE>values</CODE> method makes use of the
+values as stored in the internals of th widget.  That means that I'm stuck
+with the <CODE>configure</CODE> and <CODE>cget</CODE> calls.
+<P>
+With little effort, I can extend the flexibility of my widget, such that I
+can write:
+<PRE>
+   $vu1->values($vu2->values);
+   $vu2->values($new);
+</PRE>
+This can be achieved by adding the line:
+<PRE>
+   $self->{Configure}{-values} = $values;
+</PRE>
+in the <CODE>values()</CODE> method of <CODE>vu.pm</CODE>: a forced
+store.
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../40-0/index.html>Mega widget -2</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../42-1/index.html>Atsar encap -3</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

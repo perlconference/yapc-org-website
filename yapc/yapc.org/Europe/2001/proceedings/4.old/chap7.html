@@ -1,0 +1,48 @@
+<html>
+<head>
+  <title>How <code>use strict;</code> made me a perl5-porter</title>
+  </head>
+<body>
+
+<hr />
+
+<h3><a name="oops">Oops. @$@%#^</a></h3>
+
+<p>But, but, but .... the code just presented doesn't compile! It does not
+even spit out an appropriate error message or some useful diagnostics.
+WHY? What is happening here?</p>
+
+<p>Faced with this problem, I had to reduce the problem to a minimum,
+something I learned in the past. So I came up with a test case that I
+could post to perlbug@perl.org</p>
+<pre>
+    #!/usr/bin/perl -w
+
+    # use strict;
+    # use diagnostics;
+
+    my $e010101 = "Value 1";
+    my @e = (0, { 101 => $e010101 });
+
+    format OLD0 =
+    @<<<<<<<<<<
+    $e010101
+    .
+
+    format NEW0 =
+    @<<<<<<<<<<
+    $e[1]{101}
+    .
+
+    format NEW0 =
+    @<<<<<<<<<<
+    "$e[1]{101}"
+    .</pre>
+
+<p>No answers, no patches, no nothing. I was left on my own. What
+next?</p>
+
+<hr />
+<a href="chap6.html">Prev</a> <a href="chap8.html">Next</a>
+</body>
+</html>

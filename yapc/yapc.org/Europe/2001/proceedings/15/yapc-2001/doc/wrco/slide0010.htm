@@ -1,0 +1,101 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Tag sets</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0011.htm">Completing the module</a>
+    &nbsp;&nbsp;Previous: <a href="slide0009.htm">Tag definition</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Tag sets">
+
+<H1>3.2.2 Tag sets
+</H1>
+
+
+<P>
+Tag definitions can be grouped by setting up a global hash named <CODE>%sets</CODE>.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  %sets=(
+         pointto =&gt; [qw(EMPHASIZE COLORIZE)],
+        );
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+When using the definition module, this allows to activate the tags <CODE>\EMPHASIZE</CODE> and <CODE>\COLORIZE</CODE> together:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # declare all the tags to recognize
+  use PerlPoint::Tags::New <B>qw(:pointto)</B>;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The syntax is obviously borrowed from Perls usual import mechanism.
+</P>
+
+
+<P>
+Tag sets can overlap:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  %sets=(
+         pointto =&gt; [qw(EMPHASIZE <B>COLORIZE</B>)],
+         set2    =&gt; [qw(<B>COLORIZE</B> FONTIFY)],
+        );
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+And of course they can be nested:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  %sets=(
+         <B>pointto</B> =&gt; [qw(EMPHASIZE COLORIZE)],
+         all     =&gt; [(<B>':pointto'</B>, qw(FONTIFY))],
+        );
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0011.htm">Completing the module</a>
+    &nbsp;&nbsp;Previous: <a href="slide0009.htm">Tag definition</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

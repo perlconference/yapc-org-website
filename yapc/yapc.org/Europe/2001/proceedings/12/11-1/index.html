@@ -1,0 +1,59 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, Tk - a button</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:51:21 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../10-1/index.html>Ties</A><BR>next: <A HREF=../12-0/index.html>Tk items</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P><IMG SRC=../dumps/tk-basic.gif WIDTH=69 HEIGTH=60 ALIGN=right VSPACE=10
+ HSPACE=10 BORDER=0> (<A HREF=../examples/tk-basic>program source</A>)
+This is one of the simplest Tk programs you can write.  First, you have to
+create a main window (a big thing with border).  Each call for
+<CODE>MainWindow::new</CODE> creates a new one.  You can create more than
+one for one application, and they can reside on different screens... only
+on UNIX, of course.</P>
+
+<P>Not before the <CODE>MainLoop</CODE> the window will appear.  On the moment
+your program reaches the MainLoop statement, the whole interface must be
+built.  The program will never return from the MainLoop: the rest must be
+done (user-)event driven.</P>
+
+<P>To show an object, like a button, you require two things: first you have
+to create the object to be displayed on a window.  Then you give the object
+a place in the window.</P>
+
+<P>The list of parameters looks like a hash, which is almost true: within the
+object creation routines it is tranformed into a hash.  The labels start with a
+dash which is (happily) accepted by Perl as part of a string left from the
+'<CODE>=&gt;</CODE>'.  The names are usually equivalent to the option-names
+which can be used with other X11 client programs.  Even X-resource files can
+be used.</P>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../10-1/index.html>Ties</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../12-0/index.html>Tk items</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

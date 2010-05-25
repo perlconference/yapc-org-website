@@ -1,0 +1,79 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Target in Top Level Window</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a name="xx"></a>
+    &nbsp;&nbsp;Previous: <a href="slide0018.htm">Hyperlinks</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Target in Top Level Window">
+
+<H1>Target in Top Level Window
+</H1>
+
+
+<P>
+<B><U>Question:</U></B>
+</P>
+
+
+<P>
+How can I achieve that a hyperlink presents the new page or frame set in the <A name="index_19_6"></A>top level window ?
+</P>
+
+
+<P>
+<B><U>Answer:</U></B>
+</P>
+
+
+<P>
+You can use the <I>target</I> option of the <CODE>\L</CODE> tag:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \L{url=&quot;../FAQ-pp2html-slides/frame_set.html&quot; <B>target=_top</B>}&lt;pp2html FAQ&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B><U>Discussion:</U></B>
+</P>
+
+
+<P>
+If you use an <CODE>\L</CODE> tag in a page which is part of a frame set, then the target page is noramlly displayed in the same frame where the hyperlink was located. If you want the target to be displayed in the top level window of the browser, you should use <CODE>target=_top</CODE>. The <CODE>target=_blank</CODE> option presents the new page in a <A name="index_19_7"></A>new browser window.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a name="xx"></a>
+    &nbsp;&nbsp;Previous: <a href="slide0018.htm">Hyperlinks</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

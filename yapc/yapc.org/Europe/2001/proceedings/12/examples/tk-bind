@@ -1,0 +1,31 @@
+#!/usr/bin/perl -w
+
+# File: tk-bind
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+
+use strict;
+use Tk;
+
+my $mw = MainWindow->new;
+
+# The entry of a line, with its special bindings.
+
+my $l  = $mw->Entry->pack;
+$l->bind('<Return>'             => sub {exit 0});
+$l->bind('<FocusOut>'           => sub {exit 0});
+$l->bind('<Button-1><Button-3>' => sub {print "Hello world\n"});
+
+# A blank canvas, without items (this time), but with a special
+# action connected to the whole canvas.
+
+my $c = $mw->Canvas(-background => 'green')
+           ->pack;
+
+$c->CanvasBind
+  ( 'all'
+  , '<c>' => sub {$c->configure(-background => 'blue')}
+  );
+
+MainLoop;

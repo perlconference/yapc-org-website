@@ -1,0 +1,55 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>The Best Ever: PostScript 1/2</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>Redefinition list</h2>
+<p>Let's look at all the redefinitions that took place in the first
+few lines...</p>
+<pre>
+/;{}def                            <span class="c">% <b>;</b> is redefined to nothing</span>
+                                   <span class="c">% So don't mind the next <b>;</b> we'll encounter.</span>
+/#{def}def                         <span class="c">% <b>#</b> is redefined to <b>def</b></span>
+/$_={/Times-Bold exch selectfont}# <span class="c">% <b>$_=</b> is redefined to <b>{/Times-Bold exch selectfont}</b></span>
+/_{rmoveto}#                       <span class="c">% <b>_</b> is redefined to <b>rmoveto</b></span>
+/"{dup}#                           <span class="c">% <b>"</b> is redefined to <b>dup</b></span>
+/*/!/$                             <span class="c">% <b>*</b>, <b>!</b> and <b>$</b> are kept on the stack for later use</span>
+;/q{exch}#                         <span class="c">% <b>q</b> is redefined to <b>exch</b></span>
+/x ; {/J q #}#                     <span class="c">% <b>x</b> is redefined to <b>/J exch def</b></span>
+/.{/T q #}#                        <span class="c">% <b>.</b> is redefined to <b>/T exch def</b></span>
+{stringwidth}#{}#{}#               <span class="c">% now, <b>*</b>, <b>!</b> and <b>$</b> are redefined respectively
+                                   % to nothing, nothing and <b>stringwidth</b></span>
+<!--
+                                                       14 string dup dup dup
+260 40 moveto 90 rotate ; <span class="c">%/}};$0='"\e[7m \e[0m"';@ARGV=split//,reverse </span>
+q(ThePerl). q(Journal) x 220 ; q ; 0 T putinterval exch 7 J putinterval ;
+ <span class="comment">;</span> $_= q /m$ pop T($*!$"=!$ " )pop " * true
+! charpath {!"""}pop $ pop{""!}pop ! neg{!#}pop 220 ! neg _{!!}pop J false <span class="c">%T</span>
+charpath  clip " pop 0 " moveto 6{!!}pop $_= 105{!!}pop {$ ! $ " !  #! ##}
+pop{dup dup $ ! " pop pop q{"}pop 22{dup show}repeat {"}pop q 22 mul{$ "} pop
+neg{!#! $ "}pop ! 8 .65 mul{$ # # $}pop ! neg{"}pop  _ pop{"}pop } repeat pop
+" {  $ " ! ! ! $ " ! !" "#"  #"!"""""! #" " # "m/;@ARGV=(@ARGV[-14..-1])x50;q}
+ 0 "<span class="c">%};s/m[ou]|[-\dA-ln-z.\n_{}]|\$_=//gx;s/(.)(?{$*=''})/('$*.='.(++$#</span>
+<span class="c">%2?'':"$0;").'pop;')x(ord($1)-31).'$*'/gee;s/((.(\e\[.m)*|.){77})/$1\n/g;print</span>
+; sub showpage {}
+-->
+</pre>
+<ul>
+<li>More precisely, <tt>{}</tt> is a piece of executable code doing
+nothing.</li>
+</ul>
+<p align="center"> <a href="best_postscript_00.html">Previous</a> | <a href="best_postscript_02.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

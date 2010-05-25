@@ -1,0 +1,91 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Tags</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0017.htm">Tag definitions</a>
+    &nbsp;&nbsp;Previous: <a href="slide0015.htm">Parser Design</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Tags">
+
+<H1>5.2.2 Tags
+</H1>
+
+
+<P>
+As mentioned above, only the general syntax of tags is part of the base language definition. The declaration of the accepted tags is almost completely the task of the author of a PerlPoint converter because tags are very converter specific. They usually reflect a feature of the target format or a special feature the converter author wants to provide.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  Hyperlinks, for example, are essential if converting
+  to HTML. They can be used in PDF as well. But if you
+  are writing a converter to <I>pure text</I>, they might
+  be useless.
+
+  Or: one author wants to provide footnotes, while another
+  one does not.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+To implement all wished tags in the parser would make the converter framework of parser and backend modules very inflexible and hard to maintain. Such an approach could end up with a huge, difficult to maintain or even unusable tag library. All tag implementation details of all converters would need to be well coordinated. So that's no real alternative.
+</P>
+
+
+<P>
+Instead of this, PerlPoint (or its <I>base</I> definition) only defines the <I>syntax</I> of a tag (and reserves a small set of tags implementing base features like tables or image integration). <I>The definition of concrete tags, however, is a task of the several converters.</I> So a converter author is free to define all the tags he wants, and he can modify this set without changes to the framework. A definition currently includes the tag name, option and body declarations, and controls how the parser handles tag occurences. It's even possible to hook into the parsers tag processing.
+</P>
+
+
+<P>
+Tags are defined by <I>Perl modules</I>, for a simple reason: we looked for a way to make their usage as easy as possible. And what could be easier than to write something like
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  use PerlPoint::Tags::<B>MyFormat</B>;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+? Hardly nothing.
+</P>
+
+
+<P>
+But there are even more advantages. Defining tags by modules provides a simple way to <I>combine</I> definitions, to publish them in a central tag repository (CPAN) and to use them in various converters. PerlPoint even offers a way to say the parser &quot;We do not implement the tags of target language SuperDooper, but please treat them as tags anywhere (we will ignore them in the backend running subsequently).&quot; - which makes it easy to process one and the same source by numerous converters defining completely different tag sets.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0017.htm">Tag definitions</a>
+    &nbsp;&nbsp;Previous: <a href="slide0015.htm">Parser Design</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

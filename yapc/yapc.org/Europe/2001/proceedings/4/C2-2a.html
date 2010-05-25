@@ -1,0 +1,81 @@
+<html>
+<header>
+    <title>The alternative</title>
+    </header>
+<body>
+<h1>A different approach</h1>
+<ul>
+  <li><h2>Using 'use strict'</h2>
+
+  <h3>Generally a good idea</h3>
+
+  <h3>Data representation change</h3>
+  <table width="60%" border="0" cellspacing="5" cellpadding="0">
+    <colgroup>
+      <col width="10%">
+      <col width="30%">
+      <col width="30%">
+      <col width="30%">
+    <tbody>
+    <tr>
+      <td />
+      <td>RPT</td>
+      <td>symbolic references</td>
+      <td><code>use 'strict'</code></td>
+      </tr>
+    <tr>
+      <td />
+      <td><code>e010110</code></td>
+      <td><code>$e010110</code></td>
+      <td><code>$e[1]{110}</code></td>
+      </tr>
+    </table>
+
+  <h3>Data initialization section (using strict)</h3>
+    <pre>
+    while (<>) {
+        s/\s*$//;
+        push @elp, $_;
+        m/^99/ or next;
+
+        # Convert the expanded LP-list to elements known in the format(s)
+        foreach my $lp (@elp) {
+            my ($cat, $type, $data) = split m/\|/, $lp, 3;
+            $e[$cat]{$type} = $data;
+            }
+
+        # format this entity
+        write;
+
+        @e = ();
+        }</pre>
+
+  <h3>Data formatting section</h3>
+  <pre>
+    format TOP =
+    Gemeente @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             Blad: @>>>>>>
+	     $s_gem,							$%
+    Leerlingen                                              Datum: @<<<<<<<<< @<<<<
+								   $D_sys,   $T_sys
+    ===============================================================================
+    Achternaam                          Voornaam + initialen           Geb dat Gesl
+	Adres                                    Postcode + Plaats
+	SrtOnd School                                              Klas
+    -------------------------------------------------------------------------------
+    .
+    format A01 =
+    @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<< @>>>>>>>>>>>>>>
+    $e[1]{241},                        $e[1]{214},         "$e[1]{311}  $e[1]{411}"
+    $line1
+	@<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+	$e[1]{1100},			     $e[1]{1025}
+    ~   @<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<
+	$e[1]{2021},$e[1]{2012},                                    $e[1]{2040}
+    .</pre>
+
+    </li>
+    </ul>
+<hr />
+<a href="C2-2.html">Prev</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="C2-3.html">Next</a>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>A</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0034.htm">B</a>
+    &nbsp;&nbsp;Previous: <a href="slide0032.htm">Supported tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="A">
+
+<H1>A
+</H1>
+
+
+<P>
+<A name="index_33_3"></A> The <B>\A</B> tag is used to set an <I><A name="index_33_4"></A>anchor</I> or an invislible <I>mark</I> within the input text. This can then be used in <CODE>\XREF</CODE> tags to create cross references.
+</P>
+
+
+<P>
+<B>Syntax</B>
+</P>
+
+
+<P>
+\A{name=&quot;some name for this anchor&quot;}
+</P>
+
+
+<P>
+<B>Options</B>
+</P>
+
+<DL>
+<DT>
+<B>name</B></DT>
+<DD>
+The <I>name</I> option is mandatory and specifies a name for this anchor. All anchor names within a document must be unique.<BR>
+ <B>Note:</B> For each page header there is an anchor tag created autmatically which uses the page header as name.
+</DD>
+</DL>
+
+
+<P>
+<B>Body</B>
+</P>
+
+
+<P>
+No body is allowed.
+</P>
+
+
+<P>
+<B>Example</B>
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  This text contains an \A{name=&quot;a-name&quot;}invisible anchor.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+produces
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  This text contains an <A name="a-name"></A>invisible anchor.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This anchor can be used in a cross reference like:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  See also the \XREF{name=&quot;a-name&quot;}&lt;anchor example&gt;.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+which produces:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  See also the <A HREF="slide0033.htm#a-name">anchor example</A>.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B>See also</B>
+</P>
+
+
+<P>
+<B>\XREF</B>
+</P>
+
+
+<P>
+
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0034.htm">B</a>
+    &nbsp;&nbsp;Previous: <a href="slide0032.htm">Supported tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

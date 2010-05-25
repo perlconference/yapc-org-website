@@ -1,0 +1,112 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Installation</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0003.htm">Sources and Support</a>
+    &nbsp;&nbsp;Previous: <a href="slide0001.htm">Introduction</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Installation">
+
+<H1>Installation
+</H1>
+
+
+<P>
+<A name="index_2_1"></A>For using PerlPoint and pp2html you need the following components:
+</P>
+
+<UL>
+<LI>Perl 5.6.0 or better</LI>
+<LI>Storable</LI>
+<LI>Digest::SHA1</LI>
+<LI>Getopt::ArgvFile</LI>
+<LI>PerlPoint-Package</LI>
+<LI>PerlPoint-Converters</LI>
+</UL>
+
+
+<P>
+To install a module you must do the following steps:
+</P>
+
+<OL>
+<LI VALUE=1>Get the module form CPAN.</LI>
+<LI>Unpack the tar.gz or .tgz file and cd to the new module directory, for example:</LI>
+</OL>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ % gunzip PerlPoint-Package-0.35.tgz
+ % cd PerlPoint-Package-0.35
+</FONT></PRE></TD></TR></TABLE>
+
+<OL>
+<LI VALUE=1>Make and install the package:</LI>
+</OL>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ % perl Makefile.PL
+ % make test
+ % make install
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+If you do not have write permission in the standard Perl installation path you may install the modules in your home directory:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ % perl Makefile.PL PREFIX=$HOME
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This will install the package somewhere in ./lib/perl5/... under your home. Don't forget to set <CODE>PERL5LIB</CODE> to include the corresponding paths. Otherwise the new modules will not be found in <CODE>@INC</CODE>.
+</P>
+
+
+<P>
+<B>Special hint for NT or Win9x systems:</B>
+</P>
+
+
+<P>
+Versions before 0.35 of <B>PerlPoint-Package</B> may have problems with the <CODE>--cache</CODE> option. Disable this option in the .cfg option files for the pp2html examples.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0003.htm">Sources and Support</a>
+    &nbsp;&nbsp;Previous: <a href="slide0001.htm">Introduction</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

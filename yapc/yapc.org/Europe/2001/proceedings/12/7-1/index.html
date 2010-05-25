@@ -1,0 +1,77 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, OO in Perl -1</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:50:59 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../6-1/index.html>References in Perl</A><BR>next: <A HREF=../8-0/index.html>OO in Perl -2</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P>Just to fresh-up some things about OO in Perl.  In practice, the syntax is
+simple. But writing OO-programs requires different programming techniques
+than functional programming.</P>
+
+<P>In Perl, <EM>objects</EM> are simply references to hashes (in rare cases you
+could use references to arrays or references to scalars too).  The hash
+stores the data of the actual object.
+The reference is blessed into a <EM>class</EM>, which is in Perl represented
+by a single package.</P>
+
+<P>Example:
+<PRE>
+   $teacher = {name => 'Mark', awake => 1};
+   bless $teacher, 'Animal::Human::Male';
+</PRE>
+Now we have one object (referred to by <CODE>$teacher</CODE>), which is
+of class <CODE>Animal::Human::Male</CODE>.
+The call
+<PRE>
+   $teacher->eat('now');
+</PRE>
+will be translated by Perl to
+<PRE>
+   Animal::Human::Male::eat($teacher, 'now')</CODE>.
+</PRE>
+<P>
+The creation of the object (the creation of a blessed reference to a hash
+with data, also called <EM>instantiation</EM> is per agreement performed
+a function called <EM>new</EM>.<BR>
+<P>
+<H3>Books</H3>
+There are a few books on writing Perl in the OO way: read one.
+<DL>
+<DT>???????????????????????????????
+<DD>By Damian Conway
+    <BR>&nbsp;
+<DT><A HREF=http://www.oreilly.com/catalog/advperl/>Advanced Perl Programming</A>
+    Chapter 7.
+<DD>By Sriram Srinivasan, 1st Edition August 1997, O'Reilly,<BR>
+    ISBN: 1-56592-220-4, 434 pages, US$34.95.
+</DL>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../6-1/index.html>References in Perl</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../8-0/index.html>OO in Perl -2</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

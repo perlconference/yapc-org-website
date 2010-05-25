@@ -1,0 +1,117 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Tag activation</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0019.htm">Accepting unknown tags</a>
+    &nbsp;&nbsp;Previous: <a href="slide0017.htm">Tag definitions</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Tag activation">
+
+<H1>5.2.2.2 Tag activation
+</H1>
+
+
+<P>
+Now, in a translator software where a parser object should be built, tag declarations can be accessed by simply loading the declaration modules, just as usual:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # declare all the tags to recognize
+  use PerlPoint::Tags::New;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This updates a structure in the <B><CODE>PerlPoint::Tags</CODE></B> namespace. <I>The parser knows about this structure and will automatically evaluate it.</I>
+</P>
+
+
+<P>
+Several declaration modules can be loaded subsequently. Each <I>new</I> tag is added to the internal structure, while <I>predeclared</I> tags are overwritten by new declarations.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # declare all the tags to recognize
+  use PerlPoint::Tags::Basic;
+  use PerlPoint::Tags::HTML;
+  use PerlPoint::Tags::SDF;
+  use PerlPoint::Tags::New;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Certain translators might only want to support <I>subsets</I> of tags declared in a <B>PerlPoint::Parser</B> submodule. This is possible as well, similar to the usual import mechanism:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # declare all the tags to recognize
+  use PerlPoint::Tags::New <B>qw(COLORIZE)</B>;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This does only declare the <CODE>COLORIZE</CODE> tag, but ignores <CODE>EMPHASIZE</CODE> and <CODE>FONTIFY</CODE>.
+</P>
+
+
+<P>
+And if a tag definition module declared a &quot;tag set&quot; by something like
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  %sets=(
+         <B>pointto</B> =&gt; [qw(EMPHASIZE COLORIZE)],
+        );
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+various tags can be activated at once:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # declare all the tags to recognize
+  use PerlPoint::Tags::New <B>qw(:pointto)</B>;
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0019.htm">Accepting unknown tags</a>
+    &nbsp;&nbsp;Previous: <a href="slide0017.htm">Tag definitions</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,21 @@
+#!/usr/bin/perl -w
+
+# File: tk-grid
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+# This program demonstrates a simple 2x2 grid.
+
+use strict;
+use Tk;
+
+my $mw = MainWindow->new;
+
+my ($b1, $b2, $b3, $b4)
+   = map {$mw->Button(-text => $_)}
+       qw/one two three four/;
+
+$b1->grid($b2, -sticky => 'nsew');
+$b3->grid($b4, -sticky => 'nsew');
+
+MainLoop;

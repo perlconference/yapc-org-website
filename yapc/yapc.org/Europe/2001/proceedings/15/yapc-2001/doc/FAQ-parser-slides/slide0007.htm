@@ -1,0 +1,115 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Can I process DOS documents on UNIX?</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a name="xx"></a>
+    &nbsp;&nbsp;Previous: <a href="slide0006.htm">Portability</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Can I process DOS documents on UNIX?">
+
+<H1>Can I process DOS documents on UNIX?
+</H1>
+
+
+<P>
+<B><U>Question:</U></B>
+</P>
+
+
+<P>
+I wrote a document on DOS and processed it under UNIX. It worked well till I activated the PerlPoint parser cache. Then chapters disappeared when the document was reparsed.
+</P>
+
+
+<P>
+<B><U>Answer:</U></B>
+</P>
+
+
+<P>
+Transform the line endings by replacing <CODE>&quot;\r\n&quot;</CODE> by <CODE>&quot;\n&quot;</CODE>. This could be done, for example, by a Perl one liner like
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  perl -pae '<B>s/\r\n/\n/</B>' dos.pp &gt; unix.pp
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+On Solaris the <CODE>dos2unix</CODE> utility can be used as well. Take care to call it with option <CODE>-ascii</CODE>:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  dos2unix -ascii dos.pp &gt; unix.pp
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+There might be more utilities performing this job.
+</P>
+
+
+<P>
+<B><U>Discussion:</U></B>
+</P>
+
+
+<P>
+While PerlPoint documents are <I>highly</I> portable because of their text file nature, things become difficult when the cache is activated. The cache works on base of paragraphs and uses Perls <I>paragraph mode</I> to read in complete paragraphs by one call of the <B><CODE>&lt;&gt;</CODE></B> operator. The paragraph is checksummed and stored then.
+</P>
+
+
+<P>
+Well, it happens that although perl can handle line endings correctly both in program and data files, its paragraph mode cannot. I do not call this a bug, it is well documented that the usual behaviour is to separate paragraphs by <CODE>/\n{2,}/</CODE>. Unfortunately, <CODE>\n</CODE> under UNIX does <I>not</I> match DOS line endings of <CODE><B>\r</B>\n</CODE> <I>in paragraph mode</I>, so the <I>remaining file</I> is read in instead of <I>the next paragraph</I> and checksummed.
+</P>
+
+
+<P>
+After having read in and checksummed a paragraph which does not match an already cached one, the PerlPoint parser switches back to line reading mode and scans the paragraph line by line, transforming it into an internal data structure. Line reading mode works fine even for DOS files under UNIX, it is completely transparent so the paragraph is processed correctly. This means the parser produces internal data for just this paragraph, not the remaining file. Finally, this paragraph data is stored in the cache, together with the checksum which was made <I>for the remaining file</I>.
+</P>
+
+
+<P>
+Now when the file is processed the next time and remained unchanged, PerlPoint again invokes paragraph mode, gets the complete file instead of a paragraph and builds a checksum. This time there is a cache hit for this checksum! The parser restores the paragraph from cache - and this is really only one paragraph. Then it continues reading <I>after</I> the &quot;paragraph&quot; read in in paragraph mode, which was the remaining file, so it finds the file is parsed completely. The result of all this is that with a cache hit only the first paragraph is restored, and the remaining parts disappear.
+</P>
+
+
+<P>
+To avoid this, documents need to be transformed. Use any utility you like, but take care to <I>only</I> transform line endings. <CODE>dos2unix</CODE> on Solaris, for example, by default also transforms special characters like umlauts, which could cause special character translation of certain converters to fail. Thats why <CODE>dos2unix</CODE> is recommended to be invoked with option <CODE>-ascii</CODE>.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a name="xx"></a>
+    &nbsp;&nbsp;Previous: <a href="slide0006.htm">Portability</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

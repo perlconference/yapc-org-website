@@ -1,0 +1,73 @@
+#!/usr/bin/perl -w
+
+# File: shutit2
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+use strict;
+use Tk;
+
+my $shutdown = '/sbin/shutdown';
+
+my $mw       = MainWindow->new;
+
+my ($when, $what) = ('', 'halt');
+
+
+#
+# Option-menu to specify kind of shutdown.
+#
+
+my $button = $mw->Button
+  ( -text       => 'Shutdown'
+  , -background => 'red'
+  , -command    => \&shutdown
+  );
+
+my $menu   = $mw->Optionmenu
+  ( -options    => [ 'halt', 'reboot' ]
+  , -variable   => \$what
+  );
+
+
+#
+# Create the frame where the time till shutdown can be specified.
+#
+
+my $radio  = $mw->Frame;
+
+$radio->Radiobutton
+  ( -text       => 'disabled'
+  , -value      => ''
+  , -variable   => \$when
+  )->pack(-anchor => 'w');
+
+$radio->Radiobutton
+  ( -text       => 'now'
+  , -value      => 'now'
+  , -variable   => \$when
+  )->pack(-anchor => 'w');
+
+$radio->Radiobutton
+  ( -text       => '5 min'
+  , -value      => '+300'
+  , -variable   => \$when
+  )->pack(-anchor => 'w');
+
+$button->grid($radio, -sticky => 'nesw');
+$menu->grid('^', -sticky => 'nesw');
+
+
+#
+# SHUTDOWN
+# The real program.
+#
+
+sub shutdown()
+{   return unless $when;
+    system $shutdown
+         , ($what eq 'halt' ? '-h' : '-r')
+         , $when;
+}
+
+MainLoop;

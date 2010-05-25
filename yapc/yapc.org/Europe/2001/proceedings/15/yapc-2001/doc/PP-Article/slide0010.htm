@@ -1,0 +1,108 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Conditions</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0011.htm">Embedded Code</a>
+    &nbsp;&nbsp;Previous: <a href="slide0009.htm">Dynamic Contents</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Conditions">
+
+<H1>4.5.1 Conditions
+</H1>
+
+
+<P>
+Sometimes it is useful to include a certain part of your input text only under certain conditions. For example in training material you may include the solutions in the trainer version but hide them in the version presented to the trainees or via intranet. Conditions allow you to do that. You simply pass a flag to the converter and then use conditions of the form
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ ? flagSet(flagname)
+
+ This text appears only if the flag <I>flagname</I> is set.
+
+ ? 1
+
+ This text appears in every version of this document.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+In the above example we used the built-in PerlPoint function <CODE>flagSet</CODE> to check if the condition has been set. The condtion itself is set while calling the converter program: use the <CODE>--set</CODE> option:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  pp2html --set flagname input.pp
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Conditions are special control paragraphs and start with a question mark. After the question mark arbitrary Perl code can be placed. The value returned by that code is evaluated to decide if the condition is true or not, according to Perls definition of truth. In the example above, we used a function (<CODE>flagSet()</CODE>) and a constant (<CODE>1</CODE>, which is always true) as conditions.
+</P>
+
+
+<P>
+The builtin <CODE>flagSet()</CODE> function checks a Perl structure which is passed to the condition code and can be accessed directly as well. So, to check if a certain flag was set, you could write
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ ? exists $PerlPoint-&gt;{userSettings}{flagname}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+and this would do exactly the same as
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ ? flagSet(flagname)
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+However, <CODE>flagSet()</CODE> is easier to use (and does the same thing :-), so we invited it to simplify condition writing.
+</P>
+
+
+<P>
+Building conditions on base of user settings makes it possible to control the result of document converting without changes of the document source, making it easy to use one source for several purposes. But because conditions are written in Perl, they can be as complex as necessary to include source parts depending on system states, database data or whatever can be checked by Perl.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0011.htm">Embedded Code</a>
+    &nbsp;&nbsp;Previous: <a href="slide0009.htm">Dynamic Contents</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

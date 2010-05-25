@@ -1,0 +1,85 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Creating Slides</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0005.htm">More Slides</a>
+    &nbsp;&nbsp;Previous: <a href="slide0003.htm">Adding Headlines</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Creating Slides">
+
+<H1>Creating Slides
+</H1>
+
+
+<P>
+It's time now to make our source a document. HTML can be displayed everywhere, so we choose the converter <B><CODE>pp2html</CODE></B> which converts PerlPoint sources into HTML pages. As mentioned before, the converter adds layout. HTML layouts can be configured very fine grained by the various options of <CODE>pp2html</CODE>, or one can use predeclared layouts called &quot;styles&quot;. Luckily, <CODE>pp2html</CODE> comes with several example styles, so we take one of them.
+</P>
+
+
+<P>
+Please remember where you installed <CODE>PerlPoint::Converters</CODE> from (the directory where you called <CODE>make install</CODE>). Let's say it is stored in the environment variable <CODE>$PPCPATH</CODE>. Please ask your administrator for assitance if necessary.
+</P>
+
+
+<P>
+Assumed the text source was stored in <CODE>coffee.pp</CODE>, you can call <CODE>pp2html</CODE> the following way now:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  pp2html -style_dir $PPCPATH/pp2html_styles -style orange_slides coffee.pp
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Several files are made just where you are. To look at the result, open <CODE>frame_set.html</CODE> in a Web browser.
+</P>
+
+
+<P>
+If you want to try another layout, try
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  pp2html -style_dir $PPCPATH/pp2html_styles -style <B>big_blue</B> coffee.pp
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+and open <CODE>slide0001.htm</CODE>. Notice that with these layouts, a list of contents and navigation elements were automatically added for you, so that a presenter can easily switch between pages.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0005.htm">More Slides</a>
+    &nbsp;&nbsp;Previous: <a href="slide0003.htm">Adding Headlines</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

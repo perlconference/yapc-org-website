@@ -1,0 +1,48 @@
+/* LPE sort02______!O-s18 -e0x510!	Etiketten met minimale leerlinggevens
+/* Instelling printer: top = 2, bodem = 3, links = 4, regel = 80 + diacs
+/*                     pagina = 9, cmd = lp -s -op10 -onolm
+
+    if e180025 ^= '' then
+	set e180012 to e180025 + ' ' + e180011
+    else
+	set e180012 to e180011
+    if rpt_strlen (e180012) > 33 then
+	set e180012 to e180012 substr [1-33]
+    set incr_n to gbadiaccnt (e180012)
+
+    if rpt_strlen (e180152) > 33 then
+	set e180152 to e180152 substr [1-33]
+
+    if lpseqno = 1 then
+	begin
+	set lpseqno to 2
+	set b180041 to e180041
+	set b180012 to e180012
+	set bincr_n to incr_n
+	set b180152 to e180152
+	set b180212 to e180212
+	end
+    else
+	begin
+	print b180041	col  24,
+	      e180041	col  61
+	print b180012	col   1,
+	      e180012	col  38 + bincr_n
+	print b180152	col   1,
+	      e180152	col  38
+	print b180212	col   1,
+	      e180212	col  38
+	set lpseqno to 1
+	end
+    end
+
+after report
+    if lpseqno = 2 then
+	begin
+	print b180041	col  24
+	print b180012	col   1
+	print b180152	col   1
+	print b180212	col   1
+	end
+
+end

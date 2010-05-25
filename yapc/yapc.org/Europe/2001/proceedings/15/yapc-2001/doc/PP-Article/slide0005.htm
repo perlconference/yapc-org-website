@@ -1,0 +1,233 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Tags</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0006.htm">Included Text</a>
+    &nbsp;&nbsp;Previous: <a href="slide0004.htm">Extended PerlPoint Language</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Tags">
+
+<H1>4.1 Tags
+</H1>
+
+
+<P>
+Many basic formatting issues and layout options are handled by <I>tags</I> in PerlPoint. Beside this, each converter program (e. g. <CODE>pp2html</CODE>) can define backend specific tags which can then be used for special purpose.
+</P>
+
+
+<P>
+With the exception of several reserved basic tags, tags are no part of the base language but are to be defined by each converter program. This is done by providing special tag definition modules, see below for details.
+</P>
+
+
+<P>
+<B>The tag syntax is defined as follows:</B>
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \TAGNAME[{&lt;<I>optional params</I>&gt;}][&lt;<I>optional tag body</I>&gt;]
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The tag name begins with a backslash, followed by the name string (in capital letters). The parameters are optional and enclosed in curly braces (&quot;{}&quot;). The last part ist the tag body which is enclosed in ancle braces (&quot;<CODE>&lt;&gt;</CODE>&quot;).
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \TAGNAME
+ \TAGNAME&lt; .... &gt;
+ \TAGNAME{par1=value1 par2=&quot;value2&quot; par3=&quot;value with blanks&quot;}&lt; ... &gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The parser recognizes all declared tags of the above form.
+</P>
+
+
+<P>
+If a tag has <I>options</I>, they follow the tag name immediately, enclosed in curly braces. Each option is a simple string assignment: <I>name=value</I>. The value must be enclosed in double quotes (<CODE>&quot;</CODE>) if it does not match the pattern <B><CODE>/^\w+$/</CODE></B> .
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \TAG{par1=value1 par2=&quot;www.perl.com&quot; par3=&quot;words and blanks&quot;}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The tag <I>body</I> is the part of the input text which is modified by the tag. Tag bodies are enclosed in ancle brackets and follow the tag name or the parameters, respectively.
+</P>
+
+
+<P>
+Tags may be combined (i. e. tag bodies may contain other tags), but be careful: some combinations may not work or you must reverse the order of tags. Try and check the results.
+</P>
+
+
+<P>
+<B>Reserved Tags:</B>
+</P>
+
+
+<P>
+The following tags are reserved by the PerlPoint parser and cannot be defined by converter authors:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \INCLUDE
+ \TABLE  \END_TABLE
+ \EMBED  \END_EMBED
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+PerlPoint supports simple tables. They are implemented as a paragraph type which starts with a <B><CODE>@</CODE></B> character. (Memo: A table is an array of lines). The string following the <CODE>@</CODE> character is the column separator. The first line of such a table is automatically formatted as a table headline.
+</P>
+
+
+<P>
+<B>Example:</B>
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ @|
+ column 1     |   column 2     |  column 3
+   xxxx       |     yyyy       |  zzzzz
+   uuuu       |     vvvv       |  wwwww
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+As a true Perl tool, PerlPoint offers yet another way to create tables: the <B>\TABLE</B> and <B>\END_TABLE</B> tags. This allows better control of table layout because <B>\TABLE</B> (as a tag) accepts options.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \TABLE{bgcolor=blue separator=&quot;|&quot; border=2}
+ \B&lt;column 1&gt;  |  \B&lt;column 2&gt;  | \B&lt;column 3&gt;
+  xxxx         |     yyyy       |  zzzzz
+  uuuu         |     vvvv       |  wwwww
+\END_TABLE
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+These tags are sligthly more powerfull than the paragraph syntax because tags can take <I>options</I>: you can set up several table features like the border width yourself, and you can format the headlines as you like.
+</P>
+
+
+<P>
+Here is a list of basically supported tag options (by table):
+</P>
+<TABLE border=2><TR>
+<TD><B>option</B></TD><TD><B>description</B></TD></TR>
+<TR>
+<TD><B><CODE>separator</CODE></B></TD><TD>a string separating the table <I>columns</I> (can contain more than one character)</TD></TR>
+<TR>
+<TD><B><CODE>rowseparator</CODE></B></TD><TD>a string separating the table <I>rows</I> (can contain more than one character)</TD></TR>
+<TR>
+<TD><B><CODE>gracecr</CODE></B></TD><TD>usually set correctly by default, this specifies the number of row separators to be ignored before they are treated as separators - which usually allows to start the table contents in a subsequent line <I>after</I> the line containing the <CODE>\TABLE</CODE> tag</TD></TR>
+</TABLE>
+<P>
+
+
+<P>
+More options can be supported by the several converters. <CODE>pp2html</CODE>, for example, currently additionally supports:
+</P>
+<TABLE border=2><TR>
+<TD><B>option</B></TD><TD><B>description</B></TD></TR>
+<TR>
+<TD><B><CODE>bgcolor</CODE></B></TD><TD>table background color</TD></TR>
+<TR>
+<TD><B><CODE>head_bgcolor</CODE></B></TD><TD>table header background color</TD></TR>
+<TR>
+<TD><B><CODE>border</CODE></B></TD><TD>border width</TD></TR>
+</TABLE>
+<P>
+
+
+<P>
+All enclosed lines in a tag defined table are evaluated as table rows by default, which means that each source line between <CODE>\TABLE</CODE> and <CODE>\END_TABLE</CODE> is treated as a table row. PerlPoint as well allows you to specify a string of your own choice to separate rows by option <CODE>rowseparator</CODE>. This allows to specify a table <I>inlined</I> into a paragraph.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  \TABLE{bg=blue separator=&quot;|&quot; border=2 rowseparator=&quot;+++&quot;}
+  \B&lt;column 1&gt; | \B&lt;column 2&gt; | \B&lt;column 3&gt; +++ aaaa
+  | bbbb | cccc +++ uuuu | vvvv|  wwww \END_TABLE
+
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This is exactly the same table as above.
+</P>
+
+
+<P>
+To go on further, inlining tables enables us to <I>nest</I> tables as well. (Due to target format limitations, this feature is not supported by all converters yet. You can try it with <CODE>pp2html</CODE>.)
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \TABLE{rowseparator=&quot;+++&quot;} column 1 | column 2 |
+  <B>\TABLE{rowseparator=&quot;%%%&quot;} n1 | n2 %%% n3 | n4 \END_TABLE</B>
+  +++ xxxx | yyyy | zzzzz +++ uuuu | vvvv | wwwww \END_TABLE
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+In <I>all</I> tables, leading and trailing whitespaces of a cell are automatically removed, so you can use as many of them as you want to improve the readability of your source.
+</P>
+
+
+<P>
+And if all these table features are insufficient still, you can always include pure target format text in your PerlPoint input, let's say HTML for example. See the following chapter about included text.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0006.htm">Included Text</a>
+    &nbsp;&nbsp;Previous: <a href="slide0004.htm">Extended PerlPoint Language</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

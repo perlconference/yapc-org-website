@@ -1,0 +1,78 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Accepting unknown tags</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0020.htm">The stream format</a>
+    &nbsp;&nbsp;Previous: <a href="slide0018.htm">Tag activation</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Accepting unknown tags">
+
+<H1>5.2.2.3 Accepting unknown tags
+</H1>
+
+
+<P>
+Every converter supports a set of tags, but users can process the same sources by <I>several</I> converters which support different tags, so a source processed by one converter may contain tags which are not supported. Fortunately a user only needs to specify <CODE>-tagset FORMAT</CODE> to make all definitions of pp2format known to every other PerlPoint converter.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  If a document was initially written to be processed
+  by pp2<B>html</B> and is now passed to another converter,
+  a user can use &quot;-tagset <B>HTML</B>&quot;.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+How does this work? When <CODE>-tagset</CODE> is used, PerlPoint extends the converters tag definitions by loading the specified foreign tag definition files additionally.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  If &quot;-tagset <B>HTML</B>&quot; is specified, the definition
+  module PerlPoint::Tags::<B>HTML</B> is loaded.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Different to usual tag activation, no warning is displayed here if a loaded foreign tag is named like an own one, and the <I>original</I> converter definition will remain established to give the converter first priority.
+</P>
+
+
+<P>
+By this mechanism, each source should be accepted by every converter. Of course, accepting the foreign tags does not mean that they are translated into the target format. Instead of this, foreign tags will be simply ignored when the converters backend processed the intermediate stream.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0020.htm">The stream format</a>
+    &nbsp;&nbsp;Previous: <a href="slide0018.htm">Tag activation</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,42 @@
+#!/usr/bin/perl -w
+
+# File: tk-callback
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+# This program demonstrates callbacks.  It is not easy to construct
+# the right syntax.  You can try different options by removing some #'s
+
+use strict;
+use Tk;
+
+my $mw     = MainWindow->new;
+my $canvas = $mw->Canvas->pack;
+my $line   = $canvas->createLine(10,10, 90,90);
+
+my ($x, $y) = (15,10);
+$mw->Entry(-textvariable => \$x)->pack;
+$mw->Entry(-textvariable => \$y)->pack;
+
+$mw->Button( -text    => 'move'
+
+#          , -command => $canvas->move($line, $x, $y)
+# Performed immediately, even before button is created.  The returned
+# canvas is assigned as command.  Must be wrong!
+
+           , -command => sub {$canvas->move($line, $x, $y)}
+# Uses the current value of $line, $x, and $y when the button
+# is clicked.  The variables are kept alive, even when the variables
+# get out of scope!
+
+#          , -command => [ 'move', $canvas, $line, $x, $y ]
+# Calls $canvas->move('t0', 15, 10), because all values are taken on
+# moment of declaration.
+
+#          , -command => [ sub {$canvas->move($line, @_)}, $x, $y ]
+# $line is inserted when this line is run, but it will always move
+# over 15,10.
+
+           )->pack;
+
+MainLoop;

@@ -1,0 +1,74 @@
+<html>
+<head>
+  <title>How <code>use strict;</code> made me a perl5-porter</title>
+  </head>
+<body>
+
+<hr />
+
+<h3><a name="strict"><code>use strict;</code></a></h3>
+
+<p>As the symbolic reference solution looked like a good solution when I
+started, given the time saved by not having to go through all those report
+scripts doing more then just prefix all variables with a dollar sign (and
+keep the variables readable), I learned over time that <code><b>use
+strict;</b></code> was not a bad idea.</p>
+
+<p>So I started to use lexicals, and convert the data structure from
+<code>$e010110</code> to <code>$e[1]{110}</code>, something some of you,
+if not most of you, would have thought of when faced with the problem in
+the beginning.</p>
+
+<p>From the programmers eye, this is no problem, but more simple users
+have less problems recognizing $e010240 as being the surname of the person
+is much easier than recognizing $e[1]{240}, but - since most of my user
+base didn't change to formats anyway, I decided that to be a <i>minor</i>
+problem.</p>
+
+<p>Now the initialization becomes something like:</p>
+<pre>
+    while (<>) {
+        s/\s*$//;
+        push @elp, $_;
+        m/^99/ or next;
+
+        # Convert the expanded LP-list to elements known in the format(s)
+        foreach my $lp (@elp) {
+            my ($cat, $type, $data) = split m/\|/, $lp, 3;
+            $e[$cat]{$type} = $data;
+            }
+
+        # format this entity
+        write;
+
+        @e = ();
+        }</pre>
+<p>... much cleaner and loosing the <code>reset</code>, also less error-prone.
+The format script would become something <a href="strict/lp_002_pl">like:</a>
+</p>
+<pre>
+format TOP =
+Gemeente @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             Blad: @>>>>>>
+	 $s_gem,							$%
+Leerlingen                                              Datum: @<<<<<<<<< @<<<<
+							       $D_sys,   $T_sys
+===============================================================================
+Achternaam                          Voornaam + initialen           Geb dat Gesl
+    Adres                                    Postcode + Plaats
+    SrtOnd School                                              Klas
+-------------------------------------------------------------------------------
+.
+format A01 =
+@<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<< @>>>>>>>>>>>>>>
+$e[1]{241},                        $e[1]{214},         "$e[1]{311}  $e[1]{411}"
+$line1
+    @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    $e[1]{1100},			     $e[1]{1025}
+~   @<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<
+    $e[1]{2021},$e[1]{2012},                                    $e[1]{2040}
+.</pre>
+
+<hr />
+<a href="chap5.html">Prev</a> <a href="chap7.html">Next</a>
+</body>
+</html>

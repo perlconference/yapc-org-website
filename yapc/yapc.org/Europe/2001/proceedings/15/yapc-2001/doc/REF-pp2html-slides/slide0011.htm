@@ -1,0 +1,83 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Blocks</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0012.htm">Verbatim blocks</a>
+    &nbsp;&nbsp;Previous: <a href="slide0010.htm">Texts</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Blocks">
+
+<H1>Blocks
+</H1>
+
+
+<P>
+are intended to contain examples or code <I>with</I> tag recognition. This means that the parser will discover embedded tags. Blocks begin with an <I>indentation</I> and are completed by the next empty line.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  * Look at these examples:
+
+      A block.
+
+      <I>Another</I> block.
+      Escape &quot;&gt;&quot; in tags: \C&lt;&lt;<B>\&gt;</B>&gt;.
+
+  Examples completed.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Subsequent blocks are joined together automatically: the intermediate empty lines which would usually complete a block are translated into real empty lines <I>within</I> the block. This makes it easier to integrate real code sequences as one block, regardless of the empty lines included. However, one may explicitly <I>wish</I> to separate subsequent blocks and can do so by delimiting them by a special control paragraph:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  * Separated subsequent blocks:
+
+      The first block.
+
+  -
+
+      The second block.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Note that the control paragraph starts at the left margin.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0012.htm">Verbatim blocks</a>
+    &nbsp;&nbsp;Previous: <a href="slide0010.htm">Texts</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

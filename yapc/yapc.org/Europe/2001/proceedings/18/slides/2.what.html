@@ -1,0 +1,91 @@
+<html>
+	<head>
+		<title>Slide 2: Mutating meaning: WTF?</title>
+	</head>
+	
+	<body bgcolor="white">
+			<table border="0" width="80%" align="center">
+				<tr>
+					<td align="left"  ><font face="sans-serif" size="+3" color="darkgray">
+						<a href="1.intro.html">
+							PREV</a>
+					</font></td>
+					<td align="center"><font face="sans-serif" size="+2">
+						Mutating meaning: What?!
+					</font></td>
+					<td align="right" ><font face="sans-serif" size="+3" color="darkgray">
+						<a href="3.how.html">
+							NEXT</a>
+					</font></td>
+				</tr>
+			</table>
+
+			<hr width="80%">
+			
+			<p>&nbsp;</p>
+			
+			<table width="80%" align="center">
+				<tr><td>
+					<font face="sans-serif" size="+2">
+					
+						<h2>Mutating meaning</h2>
+
+						<ul>
+							<li> The idea is that some sort of declaration can
+								 change the meaning of subsequent code.<br /><br />
+							<li> Pragmas do it:
+<pre>use integer;
+print (0.3 + 1.2);</pre>
+								The <code>+</code> sign takes on a different meaning
+								when <code>use integer</code> is in scope. It does
+								integer addition rather than floating point addition.
+								<br /><br />
+							
+							<li> <code>use strict</code> is a pragma which <i>restricts</i>
+								the meaning of your code, rather than actually changing it.
+								If the <code>strict 'refs'</code> pragma is in scope, then when
+								we see an expression like <code>$$foo</code> we can be sure
+								that <code>$foo</code> is a reference rather than a string.
+								<p>
+								An ambiguity has been eliminated by <i>prohibiting</i> one
+								of the possible meanings: symbolic reference.<br /><br />
+								
+							<li> Pragmas can only work by co-operating with the perl core,
+								 but...<br />
+							<li> It's possible, to some extent, to write pure modules which
+								can change the meaning of code. I'll call them <b>Mutagenic
+								Modules</b>. <br /><br />
+							
+							<li>There's a hotchpotch of
+								mechanisms in Perl, each of which allows us to change the
+								meaning of a particular type of operation. We'll look at
+								some of these in the next section. <br /><br />
+								
+							<li> Dave Cross's <code>Symbol::Approx::Sub</code> is, of course, a
+								mutagenic module. So is Abigail's <code>Pythonesque</code>.
+								<br /><br />
+								
+							<li> Brian Ingerson's <code>Inline</code> and Damian Conway's
+								<code>Switch</code> are both examples of modules which add
+								<i>extra</i> syntax to the language, but couldn't ever change
+								the meaning of existing programs. So I'd say they aren't truly
+								mutagenic, and I'll call them <b>language extensions</b>. We'll
+								see that some of the techniques that are useful for writing
+								mutagenic modules can also be used to extend the language.
+								<br /><br />
+							
+							<li> There is also a family of modules which change the code syntax,
+								 often very radically. Damian's <code>Lingua::Romana::Perligata</code>,
+								 Evil Dave's <code>Pony</code> and so on.  I'll call them
+								 <b>translator modules</b>. They're not the same as mutagenic
+								 modules.
+								 
+								 <a href="3.how.html">&gt;&gt;</a>
+								 
+						</ul>
+
+					</font>
+				</td></tr>
+			</table>
+	</body>
+</html>

@@ -1,0 +1,64 @@
+<html>
+<head>
+  <title>How <code>use strict;</code> made me a perl5-porter</title>
+  </head>
+<body>
+
+<hr />
+
+<h3><a name="next">The next temptation</a></h3>
+
+<p>By extending the test suite for the <code>write</code> functionality, in
+order to get the patches also accepted for 5.8.0, I hit a new
+<a href="format2_pl">problem</a> in a situation where I tried to <i>nest</i>
+(yes I know that's sick) formats:</p>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+
+format HEADER =
+HEADER
+.
+sub HEADER ()
+{
+    local $~ = "HEADER";
+    my $HEADER;
+    open HEADER, ">", \$HEADER;
+    select HEADER;
+    write;
+    close HEADER;
+    select STDOUT;
+    $HEADER;
+    } # HEADER
+format STDOUT_TOP =
+TOP
+@<<<<<
+@{[HEADER]}
+.
+format STDOUT =
+STDOUT
+@<<<<
+$%
+.
+write;</pre>
+<p>which should produce:</p>
+<pre>
+TOP
+HEADER
+STDOUT
+1</pre>
+<p>but instead produces:</p>
+<pre>
+page overflow at format2_pl line 19.
+STDOUT
+0
+TOP
+HEADER</pre>
+<p>I did not have enough time to find out what exactly is going on, but I
+<i>did</i> find out that it needs some serious hacking</p>
+
+<hr />
+<a href="chapb.html">Prev</a> <a href="chapd.html">Next</a>
+</body>
+</html>

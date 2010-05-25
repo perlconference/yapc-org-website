@@ -1,0 +1,84 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>set=flag</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0106.htm">Option Files</a>
+    &nbsp;&nbsp;Previous: <a href="slide0104.htm">safeOpcode=opcode</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="set=flag">
+
+<H1>set=flag
+</H1>
+
+
+<P>
+<A name="--set=flag"></A><B><A name="index_105_109"></A>--set=flag</B>
+</P>
+
+
+<P>
+This option allows you to pass certain settings - of your choice - to active contents (like conditions) where it can be accessed via the $PerlPoint hash reference. For example, your PerlPoint code could contain a condition like
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  ? $PerlPoint-&gt;{userSettings}{special}
+
+  Special part.
+
+  ? 1
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The special part enclosed by the two conditions would then be processed <I>only</I> if you call <CODE>pp2html</CODE> with
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  --set special
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+and if active contents was enabled by <I>-active</I>, of course.
+</P>
+
+
+<P>
+This option can be used multiply.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0106.htm">Option Files</a>
+    &nbsp;&nbsp;Previous: <a href="slide0104.htm">safeOpcode=opcode</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

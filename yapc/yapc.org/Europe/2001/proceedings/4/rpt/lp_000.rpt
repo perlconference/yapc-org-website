@@ -1,0 +1,24 @@
+/* LPE	sort00x_____!O-Es18!	Geslachtstellingen
+
+    if lpseqno = 1 then
+	begin
+	set cntm to 0
+	set cntv to 0
+	set cnto to 0
+	set lpseqno to lpseqno + 1
+	end
+    if e180050 = 'M' then
+	set cntm to cntm + 1
+    else
+    if e180050 = 'V' then
+	set cntv to cntv + 1
+    else
+	set cnto to cnto + 1
+    end
+
+after report
+    print 'Aantal mannen     :', cntm
+    print '       vrouwen    :', cntv
+    print '       onbekend   :', cnto
+
+end

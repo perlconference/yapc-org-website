@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Directives: error</title>
+</head>
+
+<body>
+<h1 align = "center">Directives: error</h1>
+
+<pre>
+                                         {my %variables}
+
+start:          statement &lt;commit>  eof  {$variables {'.'} = $item [1]}
+              | <font color = "red">&lt;error?></font> &lt;reject>
+
+eof:            /^\Z/
+
+statement:      variable '=' &lt;commit> statement
+                                         {$variables {$item [1]} = $item [4]}
+              | expression
+
+expression:     &lt;leftop: term ('+' | '-') term>
+                        {my $s = shift @{$item [1]};
+                         while (@{$item [1]}) {
+                             my ($op, $exp) = splice @{$item [1]}, 0, 2;
+                             if ($op eq '+') {$s += $exp}
+                             else            {$s -= $exp}
+                         }
+                         $s
+                        }
+
+term:           &lt;leftop: factor m{([*/])} factor>
+                        {my $p = shift @{$item [1]};
+                         while (@{$item [1]}) {
+                             my ($op, $term) = splice @{$item [1]}, 0, 2;
+                             if ($op eq '*') {$p *= $term}
+                             else            {$p /= $term}
+                         }
+                         $p
+                        }
+
+factor:         number
+              | variable                 {$variables {$item [1]} ||=
+                                                Math::BigInt -> new (0)}
+              | '+' &lt;commit> factor      {$item [3]}
+              | '-' &lt;commit> factor      {$item [3] * -1}
+              | '(' &lt;commit> statement ')'
+                                         {$item [3]}
+              | <font color = "red">&lt;error></font>
+
+number:         /\d+/                    {Math::BigInt -> new ($item [1])}
+
+variable:       /[a-z]+/i
+              | '.'
+</pre>
+<hr>
+<pre>
+In [1] := * 12
+
+       ERROR (line 1): Invalid factor: Was expecting number, or variable,
+                       or '+', or '-', or '('
+Out [1] = &lt;&lt;UNDEF>>
+In [2] := 12 (13)
+
+       ERROR (line 1): Invalid start: Was expecting eof but found "(13)"
+                       instead
+Out [2] = &lt;&lt;UNDEF>>
+In [3] := 
+</pre>
+<hr>
+<ul><li>An <strong><tt>&lt;error></tt></strong> can be used to generate
+        error messages.
+    <li>Errors will be queued, and only displayed when the match
+        ultimately fails.
+    <li>High level and low level rules.
+    <li><strong><tt>&lt;error?></tt></strong> will only give an error
+        if the rule has been committed.
+    <li><strong><tt>&lt;error: message></tt></strong> for customized
+        message.
+</ul>
+<hr>
+<a href = '38.html'>[Prev]</a>
+<a href = '40.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

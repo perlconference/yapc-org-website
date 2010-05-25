@@ -1,0 +1,65 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Directives: commit</title>
+</head>
+
+<body>
+<h1 align = "center">Directives: commit</h1>
+
+<pre>
+                                         {my %variables}
+
+start:          statement  /^\Z/         {$variables {'.'} = $item [1]}
+
+statement:      variable '=' <font color = "red">&lt;commit></font> statement
+                                         {$variables {$item [1]} = $item [4]}
+              | expression
+
+expression:     &lt;leftop: term ('+' | '-') term>
+                        {my $s = shift @{$item [1]};
+                         while (@{$item [1]}) {
+                             my ($op, $exp) = splice @{$item [1]}, 0, 2;
+                             if ($op eq '+') {$s += $exp}
+                             else            {$s -= $exp}
+                         }
+                         $s
+                        }
+
+term:           &lt;leftop: factor m{([*/])} factor>
+                        {my $p = shift @{$item [1]};
+                         while (@{$item [1]}) {
+                             my ($op, $term) = splice @{$item [1]}, 0, 2;
+                             if ($op eq '*') {$p *= $term}
+                             else            {$p /= $term}
+                         }
+                         $p
+                        }
+
+factor:         number
+              | variable                 {$variables {$item [1]} ||=
+                                                Math::BigInt -> new (0)}
+              | '+' <font color = "red">&lt;commit></font> factor      {$item [3]}
+              | '-' <font color = "red">&lt;commit></font> factor      {$item [3] * -1}
+              | '(' <font color = "red">&lt;commit></font> statement ')'
+                                         {$item [3]}
+
+number:         /\d+/                    {Math::BigInt -> new ($item [1])}
+variable:       /[.a-z]+/i
+</pre>
+<hr>
+<ul><li>The <strong><tt>&lt;commit></tt></strong> directive tells the parser
+        that once this directive has been matched, none of the subsequent
+        productions need to be tried if the current production fails.
+    <li><strong><tt>&lt;commit></tt></strong> always matches, and its 
+        return value is 1.
+    <li>Benefit: less backtracking, hence more efficient.
+    <li>One can <strong><tt>&lt;uncommit></tt></strong> as well.
+</ul>
+<hr>
+<a href = '33.html'>[Prev]</a>
+<a href = '35.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

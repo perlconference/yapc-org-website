@@ -1,0 +1,59 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>Julia Mandelbrot: 3/9</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>The reversed program (now in full color)</h2><!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="q"> &quot;-|=I+X#.&quot;</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">eval</SPAN> <SPAN CLASS="k">reverse</SPAN><SPAN CLASS="q">';)1,52,1,2,2,32,97(=)i$,n$,z$,h$,w$,H$,W$(;&quot;.#X+I=|-&quot;</SPAN>
+<SPAN CLASS="q">'</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">while</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">@ARGV</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="i">$</SPAN>{<SPAN CLASS="k">pop</SPAN><SPAN CLASS="i">@ARGV</SPAN>}=<SPAN CLASS="k">pop</SPAN><SPAN CLASS="s">}</SPAN><SPAN CLASS="k">do</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="k">while</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="q">/([a-z])\s*([-\d.]*)/cgi</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="i">$</SPAN>{<SPAN CLASS="i">$1</SPAN>}=<SPAN CLASS="i">$2if</SPAN><SPAN CLASS="i">$1</SPAN><SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="i">$e</SPAN>=<SPAN CLASS="i">$_</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">$_</SPAN>=<SPAN CLASS="q">qq#'&lt;$W%;&lt;$H%(&lt;$j%[&lt;$w%|&lt;$h%!&lt;$x%=&lt;$y}_&lt;$A%^&lt;$a%*&lt;$z%:&lt;$n\n]@//^:&quot;)%#</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="i">@c</SPAN>=<SPAN CLASS="k">split</SPAN><SPAN CLASS="q">//</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$00</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">for</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="n">1</SPAN>..<SPAN CLASS="i">$i</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="i">$w</SPAN>*=<SPAN CLASS="i">$z</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">$h</SPAN>*=<SPAN CLASS="i">$z</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">$A</SPAN>+=<SPAN CLASS="i">$a</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">for</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="n">0</SPAN>..<SPAN CLASS="i">$H</SPAN>*<SPAN CLASS="i">$W</SPAN>-<SPAN CLASS="n">1</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$U</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$R</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">@0</SPAN><SPAN CLASS="p">)</SPAN>=<SPAN CLASS="s">(</SPAN><SPAN CLASS="w">f</SPAN><SPAN CLASS="s">(</SPAN><SPAN CLASS="i">$_</SPAN>
+%<SPAN CLASS="i">$W</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="k">int</SPAN><SPAN CLASS="i">$_</SPAN>/<SPAN CLASS="i">$W</SPAN><SPAN CLASS="s">)</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$n</SPAN><SPAN CLASS="s">)</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$p</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$q</SPAN><SPAN CLASS="p">)</SPAN>=<SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$j</SPAN>?<SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$x</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$y</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="co">:</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="c">#(:)y$,x$(?j$(=)q$,p$(;)n$,)W$/_$tni,W$%</SPAN>
+<SPAN CLASS="i">$U</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$R</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">do</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$U</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$R</SPAN><SPAN CLASS="p">)</SPAN>=<SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$U</SPAN>*<SPAN CLASS="i">$U</SPAN>-<SPAN CLASS="i">$R</SPAN>*<SPAN CLASS="i">$R</SPAN>+<SPAN CLASS="i">$p</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$U</SPAN>*<SPAN CLASS="n">2</SPAN>*<SPAN CLASS="i">$R</SPAN>+<SPAN CLASS="i">$q</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="s">}</SPAN><SPAN CLASS="k">until</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$U</SPAN>*<SPAN CLASS="i">$U</SPAN>+<SPAN CLASS="i">$R</SPAN>*<SPAN CLASS="i">$R</SPAN>&gt;<SPAN CLASS="n">4</SPAN><SPAN CLASS="p">)</SPAN>||--<SPAN CLASS="i">$0</SPAN>[<SPAN CLASS="n">0</SPAN>]==
+<SPAN CLASS="n">0</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">print</SPAN><SPAN CLASS="i">$c</SPAN>[<SPAN CLASS="k">int</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$0</SPAN>[<SPAN CLASS="n">0</SPAN>]*<SPAN CLASS="n">9</SPAN>/<SPAN CLASS="i">$n</SPAN><SPAN CLASS="p">)</SPAN>]<SPAN CLASS="cm">,</SPAN>++<SPAN CLASS="i">$_</SPAN>%<SPAN CLASS="i">$W</SPAN>?<SPAN CLASS="i">$#</SPAN> <SPAN CLASS="co">:</SPAN> <SPAN CLASS="c">#$?W$%_$++,])n$/9*]0[0$(tni[c$tnirp;)0</SPAN>
+<SPAN CLASS="q">&quot;\n&quot;</SPAN><SPAN CLASS="s">}</SPAN><SPAN CLASS="s">}</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">sub f</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$w</SPAN>/<SPAN CLASS="i">$W</SPAN>*<SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$_</SPAN>[<SPAN CLASS="n">0</SPAN>]-<SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$W</SPAN>-<SPAN CLASS="n">1</SPAN><SPAN CLASS="p">)</SPAN>/<SPAN CLASS="n">2</SPAN><SPAN CLASS="p">)</SPAN>*<SPAN CLASS="k">cos</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$A</SPAN><SPAN CLASS="p">)</SPAN>+<SPAN CLASS="i">$h</SPAN>/<SPAN CLASS="i">$H</SPAN>*<SPAN CLASS="p">(</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$H</SPAN>-<SPAN CLASS="n">1</SPAN><SPAN CLASS="p">)</SPAN>/<SPAN CLASS="n">2</SPAN>-<SPAN CLASS="i">$_</SPAN>[<SPAN CLASS="n">1</SPAN>]<SPAN CLASS="p">)</SPAN>*<SPAN CLASS="k">sin</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$A</SPAN><SPAN CLASS="p">)</SPAN>+<SPAN CLASS="i">$x</SPAN><SPAN CLASS="cm">,</SPAN>
+<SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$_</SPAN>[<SPAN CLASS="n">0</SPAN>]-<SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$W</SPAN>-<SPAN CLASS="n">1</SPAN><SPAN CLASS="p">)</SPAN>/<SPAN CLASS="n">2</SPAN><SPAN CLASS="p">)</SPAN>*-<SPAN CLASS="i">$w</SPAN>/<SPAN CLASS="i">$W</SPAN>*<SPAN CLASS="k">sin</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$A</SPAN><SPAN CLASS="p">)</SPAN>+<SPAN CLASS="i">$h</SPAN>/<SPAN CLASS="i">$H</SPAN>*<SPAN CLASS="p">(</SPAN><SPAN CLASS="c">#(*H$/h$+)A$(nis*W$/w$-*)2/)1-W$(-]0[_$(</SPAN>
+<SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$H</SPAN>-<SPAN CLASS="n">1</SPAN><SPAN CLASS="p">)</SPAN>/<SPAN CLASS="n">2</SPAN>-<SPAN CLASS="i">$_</SPAN>[<SPAN CLASS="n">1</SPAN>]<SPAN CLASS="p">)</SPAN>*<SPAN CLASS="k">cos</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$A</SPAN><SPAN CLASS="p">)</SPAN>+<SPAN CLASS="i">$y</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="s">}</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">exit</SPAN> <SPAN CLASS="k">if</SPAN><SPAN CLASS="i">$e</SPAN>=~<SPAN CLASS="q">/q/</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">BEGIN</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="k">push</SPAN><SPAN CLASS="i">@ARGV</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="k">split</SPAN><SPAN CLASS="q">' '</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$ENV</SPAN>{<SPAN CLASS="w">TPJ</SPAN>}<SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="sc">;</SPAN><SPAN CLASS="q">s/}/%X&lt;$X%Y&lt;$Y%/</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="q">y&quot;=_!'&lt;%:/;[^]@|*)\&quot;({&quot;yAxW= nmHwaCohz:dju&quot;</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">print</SPAN><SPAN CLASS="s">}</SPAN><SPAN CLASS="k">while</SPAN><SPAN CLASS="p">(</SPAN>&lt;&gt;<SPAN CLASS="p">)</SPAN><SPAN CLASS="c">#}</SPAN>
+</PRE>
+<p>Here is what the first line of this colorful program does:</p>
+<ul>
+<li>Reverse <tt>;)1,52,1,2,2,32,97(=)i$,n$,z$,h$,w$,H$,W$(;".#X+I=|-"</tt></li>
+<li>(Notice the string ending on the beginning of line 2.)</li>
+<li>Eval <tt>"-|=I+X#.";($W,$H,$w,$h,$z,$n,$i)=(79,23,2,2,1,25,1);</tt></li>
+<li>This sets the default variables (for information):
+<ul>
+<li><tt>$x</tt>: x-coordinate of the center of the screen (default: 0) 
+<li><tt>$y</tt>: y-coordinate of the center of the screen (default: 0) 
+<li><tt>$W</tt>: width of the output in characters (default: 79) 
+<li><tt>$H</tt>: height of the output in characters (default: 23) 
+<li><tt>$w</tt>: width of the printed screen (in real coordinates) (default: 2) 
+<li><tt>$h</tt>: height of the printed screen (in real coordinates) (default: 2) 
+<li><tt>$j</tt>: if non-zero, the printed image is the Julia set of parameter (x,y) (default: 0) 
+<li><tt>$X</tt>: x-coordinate of the center of the screen when displaying a Julia set (default: 0) 
+<li><tt>$Y</tt>: y-coordinate of the center of the screen when displaying a Julia set (default: 0) 
+<li><tt>$A</tt>: absolute rotation angle of the image (default: 0) 
+<li><tt>$a</tt>: relative rotation angle between the image and the next (default: 0) 
+<li><tt>$z</tt>: zooming factor between two images (default: 1) 
+<li><tt>$n</tt>: number of iterations for the calculation (default: 25) 
+</ul>
+<li>(Note that on line 2 <tt><span class="i">$2if$1</span></tt> should read
+<tt><span class="i">$2</span><span class="k">if</span><span class="i">$1</span></tt>,
+but perltidy decided otherwise.)
+</ul>
+<p align="center"> <a href="fractal_02.html">Previous</a> | <a href="fractal_04.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

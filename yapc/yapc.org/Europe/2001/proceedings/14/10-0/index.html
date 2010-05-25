@@ -1,0 +1,45 @@
+<HTML>
+<HEAD><TITLE>Mail::Box, Autoloading on data</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:05:03 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Mail::Box</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../9-0/index.html>Autoloading and Inheritance</A><BR>next: <A HREF=../11-2/index.html>Autoloading in Mail::Box</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P>I think for most of you, this is rather explosive code.  In the
+<CODE>main</CODE> package, I first create a dumb object, which has no data
+and functionality at all.  On the moment I call a method on it --here
+simply <CODE>print()</CODE>--, the <CODE>AUTOLOAD</CODE> is triggered.</P>
+
+<P>The <CODE>AUTOLOAD</CODE> method does two things: load data
+<STRONG>and</STRONG> assigns functionally by changing the type of the
+object.  The latter is typical Perl, and not possible in any other
+language I know of.</P>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../9-0/index.html>Autoloading and Inheritance</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../11-2/index.html>Autoloading in Mail::Box</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 July 2001
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

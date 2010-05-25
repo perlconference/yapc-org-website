@@ -1,0 +1,50 @@
+<HTML>
+<HEAD><TITLE>Perl/Tk saves your favourite tools, Atsar XS -1</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:54:41 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Perl/Tk saves your favourite tools</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../43-0/index.html>Atsar library</A><BR>next: <A HREF=../45-0/index.html>Atsar XS -2 ;0</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+The starting-point is the <CODE>h2xs</CODE> command which can convert a
+C header-file of an existing library and create an XS interface from it.
+A lot of files are created, including template manual-pages and such.<BR>
+This is sufficient in most cases, but is a bit limited to the things you can
+do in C: only single return-values for a function, for instance.
+<P>
+Then you extend the <CODE>Atsar.xs</CODE> with your special features.
+When this is done, you simply run
+<PRE>
+    perl Makefile.PL
+    make
+    make install
+</PRE>
+and you can use your C-library.
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../43-0/index.html>Atsar library</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../45-0/index.html>Atsar XS -2 ;0</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 juli 2001.
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

@@ -1,0 +1,98 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>The stream format</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0021.htm">Writing converters</a>
+    &nbsp;&nbsp;Previous: <a href="slide0019.htm">Accepting unknown tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="The stream format">
+
+<H1>5.3 The stream format
+</H1>
+<IMG SRC="./PerlPoint-Stream.gif" ALT="./PerlPoint-Stream.gif">
+
+<P>
+All informations gathered from the sources are stored in an intermediate, internal data structure which represents a sequence of symbols - a stream. One could say that this is just a slightly modified version of the <I>input</I> stream. And indeed, the literal <I>contents</I> (words etc.) is simply copied.
+</P>
+
+
+<P>
+The current stream implementation is a simple array. Pure contents is stored by strings, while logical elements or control directives - opening and closing tags, embedded parts in another language, image hints etc. - are array references. This design makes it very easy to recognize control directives while processing the stream, while literal contents can usually be copied to the output unchanged.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  The source <B>&quot;\I&lt;Sometimes</B> I'm writing italicized.&quot;&gt;
+  is stored by something like
+
+ (
+  [DIRECTIVE_TAG, DIRECTIVE_START, &quot;I&quot;],
+  &quot;Sometimes&quot;,
+  [DIRECTIVE_TAG, DIRECTIVE_COMPLETE, &quot;I&quot;],
+  &quot; I'm writing italicized.&quot;
+ )
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This format consumes less space than might be guessed at first sight because all directives are stored by numeric constants like <CODE>DIRECTIVE_TAG</CODE>. It is relatively flexible because additional informations like tag options can be easily stored as directive array fields.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  [
+   DIRECTIVE_TAG,
+   DIRECTIVE_START,
+   &quot;FONT&quot;,
+   <B>{color =&gt; &quot;red&quot;}</B>,
+  ]
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Streams are not necessarily the prefered format of storing intermediate informations in a translator. Compilers usually use trees, a hierarchical data structure which is well known in translator theory. So why a stream?
+</P>
+
+
+<P>
+The simple answer is that it looked very appropriate: PerlPoint itself <I>is</I> a stream format, and numerous target formats as well. Even more, the stream solution is now prooved to be very stable and relatively compact. There's no need of the additional effort of managing a tree. Most of the usual compiler tasks which require trees do not need to be performed when processing PerlPoint - there are no operators, no priority, no associativity, no operations to split into base parts accordingly etc. Instead, the nature of a PerlPoint source is comparable to a book: it is read (and translated) from left to right. Changes like activation of italic formatting are toggling switches which are activated and deactivated while walking the source way. The source structure is almost everywhere very linear.
+</P>
+
+
+<P>
+Well, there <I>are</I> exceptions. Headlines are the best example of hierarchies. Converters like <CODE>pp2html</CODE> writing a table of contents need to collect the headlines while the stream is processed. A tree structure would relieve converter authors at this point. Hyperlinks are another example. For these reasons, the intermediate format might be modified in future releases. Existing converters will not be affected by such a change - assumed they use the converter framework to process the stream.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0021.htm">Writing converters</a>
+    &nbsp;&nbsp;Previous: <a href="slide0019.htm">Accepting unknown tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,81 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Embedded code</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0029.htm">Embedding PerlPoint into PerlPoint</a>
+    &nbsp;&nbsp;Previous: <a href="slide0027.htm">Including Examples</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Embedded code">
+
+<H1>Embedded code
+</H1>
+
+
+<P>
+Target format code does not necessarily need to be imported by file - it can be directly <I>embedded</I> as well. This means that one can write target language code within the input stream using <CODE>\EMBED</CODE>, maybe because you miss a certain feature in the current translator version:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  \EMBED{lang=HTML}
+  This is &lt;i&gt;&lt;b&gt;embedded&lt;/b&gt; HTML&lt;/i&gt;. The parser detects &lt;i&gt;no&lt;/i&gt;
+  Perl Point tag here, except of &lt;b&gt;END_EMBED&lt;/b&gt;.
+  \END_EMBED
+
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The mandatory <I>lang</I> option specifies which language the embedded code is of. Usually a translator only supports its own target format to be embedded. (You will not be surprised that language values of <CODE>&quot;perl&quot;</CODE> and <CODE>&quot;pp&quot;</CODE> are special cases - see the related subsections.)
+</P>
+
+
+<P>
+Please note that the <CODE>\EMBED</CODE> tag does not accept a tag body to avoid ambiguities. Use <CODE>\END_EMBED</CODE> to flag where the embedded code is completed. <I>It is the only recognized tag therein.</I>
+</P>
+
+
+<P>
+Because embedding is not implemented by a paragraph but by a <I>tag</I>, \EMBED can be placed <I>directly</I> in a text like this:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  These \EMBED{lang=HTML}&lt;i&gt;italics&lt;/i&gt;\END_EMBED are formatted
+  by HTML code.
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0029.htm">Embedding PerlPoint into PerlPoint</a>
+    &nbsp;&nbsp;Previous: <a href="slide0027.htm">Including Examples</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

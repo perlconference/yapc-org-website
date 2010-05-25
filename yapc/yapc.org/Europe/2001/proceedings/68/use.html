@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+
+<html>
+<head>
+<title>Parsing: Use</title>
+</head>
+
+<body>
+<h1 align = "center">Using <tt>Parse::RecDescent</tt></h1>
+
+<ul>
+<li>The Perl part of using <tt>Parse::RecDescent</tt> is very simple.
+<li>Basically, one has two strings. One string containing the grammar,
+    another string containing the text that has to be parsed.
+<li>First, create a <em>parser</em>:<br><br>
+    <tt>my $parser = Parse::RecDescent -> new ($grammar) or die;</tt>
+    <br><br>
+<li>Then, parse the text given a certain <em>startrule</em>:<br><br>
+    <tt>my $result = $parser -> startrule ($text);</tt>
+</ul>
+
+<hr>
+<a href = '10.html'>[Prev]</a>
+<a href = '12.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

@@ -1,0 +1,169 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Lists</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0014.htm">Tables</a>
+    &nbsp;&nbsp;Previous: <a href="slide0012.htm">Verbatim blocks</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Lists">
+
+<H1>Lists
+</H1>
+
+
+<P>
+<B>Unordered lists</B> start with a <B>&quot;*&quot;</B> character.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  * This is a first point.
+
+  * And, I forgot,
+    there is something more to point out.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+There are <B>ordered lists</B> as well, and <I>they</I> start with a hash sign (<B>&quot;#&quot;</B>):
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # First, check the number of this.
+
+  # Second, don't forget the first.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The hash signs will be automatically replaced by numbers.
+</P>
+
+
+<P>
+Because PerlPoint works on base of paragraphs, any paragraph different to an ordered list point <I>closes an ordered list</I>. If you wish the list to be continued use a double hash sign in case of the single one in the point that reopens the list.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # Here the ordered list begins.
+
+  ? $includeMore
+
+  <B>##</B> This is point <I>2</I> of the list that started before.
+     Without the second &quot;#&quot; character this point would start
+     a new list.
+
+  # In subsequent points, the usual single hash sign works as
+    expected again.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+List continuation works list level specific (see below for level details). A list cannot be continued in another chapter. Using <CODE>##</CODE> in the first point of a new list takes no special effect: the list will begin as usual (with number 1).
+</P>
+
+
+<P>
+<B>Definition lists</B> are a third list variant. Each item starts with the described phrase enclosed by a pair of colons, followed by the definition text:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  :first things: are usually described first,
+
+  :others:       later then.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Definition items can be formatted as usual:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  :A \I&lt;formatted&gt; item: is an item \I&lt;formatted&gt; by tags.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+All lists can be <I>nested</I>. A new level is introduced by a special paragraph called <I>&quot;list indention&quot;</I> which starts with a <B>&quot;&gt;&quot;</B>. A list level can be terminated by a <I>&quot;list indention stop&quot;</I> paragraph containing of a <B>&quot;&lt;&quot;</B> character. (These startup characters symbolize &quot;level shifts&quot;.)
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  * First level.
+
+  * Still there.
+
+  &gt;
+
+  * A list point of the 2nd level.
+
+  &lt;
+
+  * Back on first level.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+You can decide to shift more than one level at once. The number of shifted levels is passed immediately after the directive character (&quot;&lt;&quot; or &quot;&gt;&quot;, respectively):
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  * First level.
+
+  &gt;2
+
+  * A list point of the 3rd level.
+
+  &lt;2
+
+  * Back on first level.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Level shifts are accepted between list items <I>only</I>.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0014.htm">Tables</a>
+    &nbsp;&nbsp;Previous: <a href="slide0012.htm">Verbatim blocks</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

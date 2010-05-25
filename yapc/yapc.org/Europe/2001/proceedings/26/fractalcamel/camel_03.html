@@ -1,0 +1,49 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>Camel code 3/7</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>(F)actual code</h2>
+<p>The actual code looks like this:</p>
+<!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="i">$_</SPAN> = <SPAN CLASS="q">'...camel top...'</SPAN><SPAN CLASS="sc">;</SPAN>     <SPAN CLASS="c"># define the code</SPAN>
+<SPAN CLASS="q">s/\s*//g</SPAN><SPAN CLASS="sc">;</SPAN>                   <SPAN CLASS="c"># tidy it</SPAN>
+<SPAN CLASS="k">eval</SPAN><SPAN CLASS="sc">;</SPAN>                       <SPAN CLASS="c"># run it</SPAN>
+
+<SPAN CLASS="k">eval</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="q">&quot;seek\040DATA,0,0;&quot;</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="sc">;</SPAN>  <SPAN CLASS="c"># go to the start of the file</SPAN>
+<SPAN CLASS="k">undef</SPAN> <SPAN CLASS="i">$/</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="i">$_</SPAN> = <SPAN CLASS="q">&lt;DATA&gt;</SPAN><SPAN CLASS="sc">;</SPAN>      <SPAN CLASS="c"># slurp the whole file</SPAN>
+<SPAN CLASS="q">s/\s*//g</SPAN><SPAN CLASS="sc">;</SPAN>                   <SPAN CLASS="c"># remove blanks</SPAN>
+<SPAN CLASS="q">s;^.*_;;</SPAN><SPAN CLASS="sc">;</SPAN>                   <SPAN CLASS="c"># remove everything up to __DATA__ (included)</SPAN>
+<SPAN CLASS="k">map</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="k">eval</SPAN> <SPAN CLASS="q">&quot;print\&quot;$_\&quot;&quot;</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="s">}</SPAN> <SPAN CLASS="c"># convert octal and print</SPAN>
+<SPAN CLASS="q">    /.{4}/g</SPAN><SPAN CLASS="sc">;</SPAN>                <SPAN CLASS="c"># the octal characters after __DATA__</SPAN>
+<SPAN CLASS="q">__DATA__</SPAN>
+<SPAN CLASS="q">lots of octal codes</SPAN>
+<SPAN CLASS="q">intermixed with whitespace</SPAN>
+</PRE>
+<ul>
+<li>The code in <tt>$_</tt> is cleaned up of all whitespace
+and <tt>eval</tt>'ed.</li>
+<li>More on this in the following slides.</li>
+<li>The end of the file is composed of octal escapes of the
+characters composing the usual disclaimer:
+"The use of a camel image in association with Perl is a trademark of O'Reilly
+&amp; Associates, Inc. Used with permission."</li>
+<li>The <tt>map</tt> statement simply <tt>eval</tt>s a string
+that prints every character (thanks to the global match).</li>
+</ul>
+<p align="center"> <a href="camel_02.html">Previous</a> | <a href="camel_04.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat. <br> Camel code, copyright &copy; 2000, Stephen B. Jenkins.</span>
+</p>
+</body>
+</html>
+

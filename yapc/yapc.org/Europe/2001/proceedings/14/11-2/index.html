@@ -1,0 +1,54 @@
+<HTML>
+<HEAD><TITLE>Mail::Box, Autoloading in Mail::Box</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:05:08 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Mail::Box</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../10-0/index.html>Autoloading on data</A><BR>next: <A HREF=../12-0/index.html>Tackle a Mail::Box</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P>Now the use of <EM>autoloading of data</EM> implemented in
+<CODE>Mail::Box</CODE>.  It looks quite tricky, and actually it certainly
+is.  The user of an Mbox-folder (used as example) has his hands on a
+list of <CODE>Mail::Box::Mbox::Message</CODE> messages.</P>
+
+<P>Well, yes and no: it's only half of the story: it is either the
+<CODE>::Parsed</CODE> sub-class of the message, or the <CODE>::NotParsed</CODE>
+version (respectively, the body of the message is read from its folder-file,
+or not read from its file yet).  On the moment you need the body of
+the message, the <CODE>AUTOLOAD</CODE>ing of <STRONG>data</STRONG> is
+used to get the body content in.</P>
+
+<P>The strategy used avoids the need for the user of the message to know
+whether the message has been read or not.  Not reading the message, when
+it is never used, is much faster than reading it.  It also is much more
+memory friendly and therefor suitable for huge folders.  As long as you
+do not need all the messages, you gain.  Otherwise you hardly lose
+anything.</P>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../10-0/index.html>Autoloading on data</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../12-0/index.html>Tackle a Mail::Box</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 July 2001
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

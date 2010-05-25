@@ -1,0 +1,53 @@
+<HTML>
+<HEAD><TITLE>Mail::Box</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:04:42 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1>Mail::Box</H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../5-0/index.html>Inheritance</A><BR>next: <A HREF=../7-3/index.html>To Test or Not to Test</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P>Above shows my <CODE>Mail::Box</CODE> objects.
+Close observers see the difference between the
+<CODE>Mail::Box</CODE>-approach and the <CODE>Mail::Folder</CODE> set-up.
+The specialisation is broken-up further, till now without replacing the
+existing modules.</P>
+
+<P>The <CODE>Mail::Box::Message</CODE> extends the <CODE>MIME::Entity</CODE>
+for instance by containing a sequence-number within the folder, which is not
+a habit of a basic message.  The <CODE>Mail::Box::Mbox::Message</CODE>
+extends a normal folder message even further, containing information about
+where in the folder-file, the message was found.  This is not the case
+for <CODE>Mail::Box::MH::Message</CODE>'s, where each message has a
+file-name related to it.</P>
+
+<P>One of the main targets of OO-design is to find characteristic knowledge
+and functionality, and split it into different objects, in stead of throwing
+all on one huge pile.</P>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../5-0/index.html>Inheritance</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../7-3/index.html>To Test or Not to Test</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 July 2001
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

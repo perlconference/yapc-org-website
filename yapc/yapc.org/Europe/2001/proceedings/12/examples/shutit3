@@ -1,0 +1,123 @@
+#!/usr/bin/perl -w
+
+# File: shutit3
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+# This program is a graphical shell around shutdown, which provides
+# ways to configure close to all flags available.
+
+# Support /sbin/shutdown for Linux SuSE6.3; adaptions are likely to be
+# when run on other unixes.
+
+use strict;
+use Tk;
+use Tk::DialogBox;
+
+my $shutdown = '/sbin/shutdown';
+
+my ($when, $what, $delay) = ('now', 'halt', 0);
+    
+sub create_dialog($)
+{   my $parent = shift;
+
+    #
+    # Create main popup-window
+    #
+
+    my $dialog = $parent->DialogBox
+      ( -title      => 'Shutdown settings'
+      , -buttons    => [ 'Shutdown', 'Cancel shutdown', 'Dismiss' ]
+      , -default_button => 'Cancel shutdown'
+      );
+    
+    my $upper  = $dialog->add('Frame', -borderwidth => 10)->pack;
+    
+    # What kind of shutdown.
+
+    my $whatmenu  = $upper->Optionmenu
+      ( -options    => [ 'halt', 'reboot', 'warn only' ]
+      , -variable   => \$what
+      );
+    
+    # When to reboot.
+
+    my $whenframe = $upper->Frame(-borderwidth => 10);
+    $whenframe->Radiobutton
+      ( -text       => 'now'
+      , -value      => 'now'
+      , -variable   => \$when
+      )->pack(-anchor => 'w');
+    
+    $whenframe->Radiobutton
+      ( -text       => '5 min'
+      , -value      => '+300'
+      , -variable   => \$when
+      )->pack(-anchor => 'w');
+
+    $whenframe->Entry(-textvariable => \$when)
+              ->pack(-anchor => 'w');
+    
+    # Entry field with label (see LabEntry for other way to do this)
+    
+    my $delayframe = $upper->Frame;
+    
+    $delayframe->Label(-text => 'delay')
+               ->pack(-side => 'left');
+    $delayframe->Entry(-textvariable => \$delay)
+               ->pack(-side => 'left');
+    
+    # Glue all together into one frame.
+    
+    $whatmenu->grid($whenframe, -sticky => 'ew');
+    $delayframe->grid('^', -sticky => 'ew');
+
+    # Display the popup.
+
+    $dialog->Show(1);
+}
+
+#
+# MAIN
+#
+
+my $mw     = MainWindow->new;
+
+my $button = $mw->Button
+  ( -text       => 'Shutdown'
+  , -background => 'red'
+  , -command    => \&shutdown
+  )->pack;
+
+#
+# SHUTDOWN
+# The real thing happens here...
+#
+
+sub shutdown()
+{
+    # The dialog will show-up.  It returns the text on the button
+    # which resulted in the removal of the dialog.
+
+    my $go = create_dialog $mw;
+    return if $go eq 'Dismiss';
+
+    # Cancelling a shutdown is a very special case.
+    if($go eq 'Cancel shutdown')
+    {   system $shutdown, '-c';
+        return;
+    }
+ 
+    # Translate the content of variables into command-flags to
+    # shutdown.
+    my @flags = $what eq 'halt'   ? '-h'
+              : $what eq 'reboot' ? '-r'
+              :                     '-k';
+    push @flags, '-t', $delay if $delay;
+    push @flags, $when;
+
+    # Execute the shutdown.
+    system $shutdown, @flags;
+}
+
+MainLoop;

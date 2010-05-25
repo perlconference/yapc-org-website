@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="ISO-8859-1" standalone="no"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<title>pVoice - using Perl to enable the disabled</title>
+<link rel="stylesheet" href="pVoice.css" type="text/css" />
+<body>
+<h2>The code</h2>
+<p>
+<ul>
+<li><b>Maximizing a window</b><br />
+<pre>
+my ($screenw, $screenh) = ($main->screenwidth, $main->screenheight);
+$main->withdraw();
+$main->geometry($screenw."x".$screenh."+0+0");
+$main->deiconify();
+$main->raise();
+</pre>
+</li>
+<li><b>pVoiceCommon module</b><br />
+	I recently OO-ified everything by creating a pVoiceCommon object and called the needed methods on that. This is mainly because I want to reuse the interface for more 'p' series programs.</li>
+<pre>
+my $pv = new pvoicecommon(
+               program_title    => "pVoice 0.02.1 development",
+               bgcolor        => 'white',
+               active_bgcolor    => 'red',
+               sounddir    => "./data",
+               current_category=> "",
+               current_page    => 1,
+               indexfile     => "index.txt",
+               catfile        => "cat.txt",
+               sound_ext    => "wav",
+               img_ext        => "jpg",
+               border_width    => 10,
+               cellpadding    => 4,
+               columns        => 4,
+               rows        => 4,
+               selected_button    => 0
+               );
+
+$pv->mainframe($main->Frame(-background => $pv->bgcolor())->pack());
+</pre>
+<li><b> Binding the mouseclicks</b><br />
+	Not the click <b>on</b> the button creates the invocation, but clicks on the background of the $main window:
+<pre>
+# Right mouseclick means select next item
+$main->bind('<Button-3>', 
+            sub {
+                $pv->buttons()->[$pv->selected_button()]->configure(
+                                -state => 'normal');
+                if ($pv->selected_button() &lt; @{$pv->buttons()} -1)
+                    {$pv->selected_button($pv->selected_button()+1)}
+                else    {$pv->selected_button(0)}
+                $pv->buttons()->[$pv->selected_button()]->configure(
+                                -state => 'active');
+                }
+            );
+
+# Left mouseclick means execute current item
+$main->bind('<Button-1>', 
+            sub {
+                $pv->buttons()->[$pv->selected_button()]->invoke();
+                }
+            );
+</pre>
+</li>
+</ul>
+</p>
+<p>
+<a href="7.html">Next</a>
+</p>
+</body>
+</html>

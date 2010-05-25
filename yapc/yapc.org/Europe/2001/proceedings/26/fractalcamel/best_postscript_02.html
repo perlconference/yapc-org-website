@@ -1,0 +1,60 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>The Best Ever: PostScript 2/2</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>Turn it all into <em>readable</em> PostScript</h2>
+<p>The following code is <i>exactly</i> the same as before, but with the
+redefined symbols turned back into what they really mean.</p>
+<p>I added a little indentation and whitespace. And comments too.</p>
+<pre>
+14 string dup dup dup                 <span class="c">% push a 14 char long string, and 3 references to it on the stack</span>
+260 40 moveto 90 rotate               <span class="c">% reorient the whole page (rotate left)</span>
+exch (ThePerl) /T exch def            <span class="c">% define the T and J strings</span>
+exch (Journal) /J exch def            <span class="c">% while moving around the top of the stack</span>
+220                                   <span class="c">% keep this for later use</span>
+exch 0 T putinterval                  <span class="c">% put the string in T at position 0</span>
+exch 7 J putinterval                  <span class="c">% put the string in J at position 7</span>
+                                      <span class="c">% so now the string on top of the stack is (ThePerlJournal)</span>
+/Times-Bold exch selectfont           <span class="c">% current font is now Times-Bold 220</span>
+exch <span class="q">/m$ pop</span> T <span class="q">($*!$"=!$ " ) pop</span>
+dup true charpath                     <span class="c">% define a path with string T (in Times-Bold 220)</span>
+<span class="q">{!"""}pop</span> stringwidth pop<span class="q">{""!}pop</span> neg <span class="c">% negate the width of the string T (the copy left on the stack)</span>
+<span class="q">{!#}pop</span> 220 neg rmoveto               <span class="c">% move back horizontally and down vertically</span>
+<span class="q">{!!}pop</span> J false charpath              <span class="c">% now add the J string to the current path</span>
+clip                                  <span class="c">% and make all this the clipping path</span>
+dup pop 0 dup moveto                  <span class="c">% go back to (0,0)</span>
+6 <span class="q">{!!}pop</span> /Times-Bold exch selectfont <span class="c">% set curent font to Times-Bold 6</span>
+<span class="c">% we now have a clipping path, and two copies of (ThePerlJournal) on top of the stack</span>
+105<span class="q">{!!}pop {$ ! $ " !  #! ##} pop</span> {   <span class="c">% start of the repeat loop</span>
+   dup dup stringwidth dup pop pop    <span class="c">% circuitously get the length of the string</span>
+   exch<span class="q">{"}pop</span> 22{dup show}repeat      <span class="c">% put the string back on top and print it 22 times</span>
+   <span class="q">{"}pop</span> exch 22 mul<span class="q">{$ "} pop</span> neg<span class="q">    <span class="c">% calculate the width of the printed line</span> 
+   {!#! $ "}pop</span> 8 .65 mul<span class="q">{$ # # $}pop</span> <span class="c">% the vertical step</span>
+   neg <span class="q">{"}pop</span> rmoveto pop<span class="q">{"}pop</span>       <span class="c">% move to the start of the following line and cleanup</span>
+} repeat                              <span class="c">% repeat this 105 times</span>
+pop dup {  $ " ! ! ! $ " ! !" "#"  #"!"""""! #" " # "m/;@ARGV=(@ARGV[-14..-1])x50;q} 
+0 dup sub showpage {}                 <span class="c">% preceding line is useless, 0 - 0 is null, but print the whole page</span>
+</pre>
+<ul>
+<li>The code in <span class="q">pink</span> amounts to nothing, since it's
+mostly pushing something on the stack and <tt>pop</tt>ing it right after.</li>
+<li>Here is <a href="../code/tpj.pl.ps">the result</a> (you will need
+<a href="http://www.cs.wisc.edu/~ghost/">Ghostview</a>
+or equivalent to see it).</li>
+</ul>
+<p align="center"> <a href="best_postscript_01.html">Previous</a> | <a href="bestever.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

@@ -1,0 +1,156 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Embedded Code</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0012.htm">Internal Architecture</a>
+    &nbsp;&nbsp;Previous: <a href="slide0010.htm">Conditions</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Embedded Code">
+
+<H1>4.5.2 Embedded Code
+</H1>
+
+
+<P>
+Input text can be included by the <CODE>\INCLUDE</CODE> tag as mentioned before, but there is another possiblity as well - it can be embedded directly.
+</P>
+
+
+<P>
+<B>Embedded HTML:</B>
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \EMBED{lang=HTML}
+ Target Code. Taag recognition is suspended until \\END_EMBED.
+ \END_EMBED
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+As this is controlled by tags and not by control paragraphs, you may embed code in any place:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ This chapter with some words in\EMBED{lang=HTML}&lt;I&gt;intalics&lt;/I&gt;\END_EMBED
+ is created with ebmedded HTML Code.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Note: \EMBED does not allow a tag body. This avoids ambigouities.
+</P>
+
+
+<P>
+<B>Filter:</B>
+</P>
+
+
+<P>
+A PerlPoint converter can set a <I>filter</I> while calling the PerlPoint parser. Then only those \INCLUDE and \EMBED tags are parsed whose <I>lang</I> parameter matches the filter expression:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ $parser-&gt;run(
+              ...
+              <B>filter  =&gt; 'HTML',</B>
+             );
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The value of the filter parameter is a regular expression, which is evaluated case insensitively. Each PerlPoint converter program should provide the <CODE>--filter</CODE> switch which allows to set the filter expression.
+</P>
+
+
+<P>
+<B>Embedded Perl:</B>
+</P>
+
+
+<P>
+In contrary to other embedded Code, Perl code is <I>evaluated</I> by the parser (if Active Contents is allowed). The output of the Perl code is parsed as PerlPoint text and the result is passed to the intermediate stream format.
+</P>
+
+
+<P>
+The following example includes the current date and time in your input file:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \EMBED{lang=perl}
+
+ # get date
+ my ($min, $hour, $day, $month, $year)=(localtime)[1..5];
+ $month++;
+ $year+=1900;
+
+ join('',
+     '\EMBED{lang=html}',
+     '&lt;p align=center&gt;',
+     &quot;Version vom $day.$month.$year, $hour:$min.&quot;,
+     '&lt;/p&gt;',
+     # split up the end tag to avoid early evaluation by PP::Parser
+     '\END', '_EMBED',
+     );
+
+ \END_EMBED
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Changes to variables in embedded or included Perl do not affect the variables which are seen by the parser. (This is also true for conditions.)
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ $var=10
+ \EMBED{lang=perl}$main::var*=2;\END_EMBED
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This has the effect that $var has different values with respect to the parser and to embedded Perl code. The parser always sees the value 10, but embedded Perl deals with a value of 20.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0012.htm">Internal Architecture</a>
+    &nbsp;&nbsp;Previous: <a href="slide0010.htm">Conditions</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

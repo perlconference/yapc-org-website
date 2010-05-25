@@ -1,0 +1,70 @@
+<!-- best viewed with 8-character tab spacing :-) -->
+<html>
+  <head>
+    <title>Mutagenic modules FAQ</title>
+    <style type="text/css">
+      body        {background: white; color: black; font-family: Verdana, Arial, sans-serif;}
+      div.main    {margin-left: 2em; margin-right: 2em;}
+      h1.main     {font-style: italic; text-align: left; font-family: sans-serif;}
+      p.updated   {font-weight: bold; }
+      dt	  {font-weight: bold; }
+      dd	  {margin-bottom: 0.5em; } 
+    </style>
+  </head>
+  
+  <body>
+    <h1 class="main">Mutagenic modules FAQ</h1>
+    
+    <div class="main">
+      Here are a few questions which I've been asked about this talk after I
+      delivered a preliminary version to London.pm.
+      If your question isn't here then either collar me at the conference
+      or send me email.
+      
+      <dl>
+        <dt>What does <i>mutagenic</i> mean?</dt>
+        <dd>My dictionary (the Shorter Oxford) says <i>Causing or capable
+            of causing mutation.</i>  It's appropriate enough to make some
+            kind of sense, as well as sounding suitably scary :-)</dd>
+        
+        <dt>How far have you got with the <code>B::Parse</code> module
+            mentioned at the end of the talk?
+        <dd>I haven't started working on it yet. There are several things
+            that need to be done first: most importantly there is a crippling
+            limitation of compiler backends in general, and B::Deparse in
+            particular, which needs to overcome before it could be made to
+            work properly.
+        
+        <dt>How does all this relate to Perl 6?</dt>
+        <dd>It's impossible to give a definitive answer until we can
+            see the final shape that Perl 6 is going to take. However we can be fairly
+            sure that Perl 6 will be even more flexible than Perl 5, particularly
+            in the way that it's parsed. It should create some exciting new
+            possibilities in this area.
+        
+        <dt>How does it relate to Damian Conway's work on filtering and parsing?
+        <dd>A lot of Dr Conway's work involves taking extraordinary and unlikely-seeming
+            structures, and transforming them into Perl code. His Lingua::Romana::Perligata
+            is a fine example. The projected Parse::Perl module will provide a general
+            mechanism for doing this sort of thing.
+            
+            <p>On one interpretation, that's the <i>opposite</i> of what I'm trying to
+            do. I want to be able to take perfectly ordinary Perl code and make it
+            <i>behave</i> in new and strange ways. Of course there's no reason
+            that you couldn't combine the two, if you were feeling especially evil.</p>
+        
+        <dt>How does it relate to Simon Cozens's <code>B::Generate</code> module?
+        <dd>That's similar to the previous question. B::Generate enables one to write
+        (among other things) compilers which will turn other languages into Perl bytecode.
+        
+        <dt>Have you thought of such-and-such an idea?</dt>
+        <dd>Probably not, but I'd like to hear about it. Send me an email; or accost
+        me at the conference if you're still here, or at a London.pm meeting if you
+        live in London.
+        
+      </dl>
+    </div>
+    
+    <address>Robin Houston / robin@kitsite.com</address>
+  </body>
+</html>

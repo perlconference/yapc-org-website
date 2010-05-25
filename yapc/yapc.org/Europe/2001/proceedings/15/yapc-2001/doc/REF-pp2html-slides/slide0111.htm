@@ -1,0 +1,80 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Using Styles</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0112.htm">Cache</a>
+    &nbsp;&nbsp;Previous: <a href="slide0110.htm">Keyword Replacement</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Using Styles">
+
+<H1>Using Styles
+</H1>
+
+
+<P>
+Using styles is simple. You need to specify the <CODE>--style</CODE> option and eventually the <CODE>--style_dir</CODE> option if the styles directory is not a subdirectory of the current working directory:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ pp2html --style pp_book --style_dir /home/PP/styles input.pp
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+A typical option file for usage with styles looks like:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ --activeContents
+ --safeOpcode ALL
+ --cache
+ --slide_dir orange_slides
+ --image_ref .
+ --count_only
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This activates active contents and the cache. The target directory for the slides is specified and the path for referencing images in &lt;IMG&gt; tags is defined. The <CODE>--count_only</CODE> switch suppresses the output of all headers of the created pages.
+</P>
+
+
+<P>
+The second block defines the style to be used and overwrites some of the texts used in the styles template files.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0112.htm">Cache</a>
+    &nbsp;&nbsp;Previous: <a href="slide0110.htm">Keyword Replacement</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

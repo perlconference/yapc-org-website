@@ -1,0 +1,67 @@
+<html>
+<head>
+  <title>How <code>use strict;</code> made me a perl5-porter</title>
+  </head>
+<body>
+
+<hr />
+
+<h3><a name="else">What else and why</a></h3>
+<p>By that time, perl5 just hit the street, and I played with perl4 for
+some time, also building a perl interface to our (so far unsupported)
+database into perl4.</p>
+<p>Reading the advantages of perl5 over perl4, the symbolic references hit
+me as extremely useful, because conversion would be easy as pie. The format
+part would become something <a href="symref/lp_002_pl">like</a>:</p>
+<pre>
+format STDOUT =
+@<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<< @<<<
+$e180010,                           $e180020,                 $e180030,$e180040
+    @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    $e180152,				     $e180212
+~   @<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<
+    $e180142,$e180263,                                          $e180270
+.
+format STDOUT_TOP =
+Gemeente @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             Blad: @>>>>>>
+	 $s_gem,							$%
+Leerlingen                                              Datum: @<<<<<<<<< @<<<<
+							       $D_sys,   $T_sys
+===============================================================================
+Achternaam                          Voornaam + initialen           Geb dat Gesl
+    Adres                                    Postcode + Plaats
+    SrtOnd School                                              Klas
+-------------------------------------------------------------------------------
+.</pre>
+<p>which makes it already quite a lot easier to see what the user expects as
+output, and all the variables are the same, except for that funny leading
+dollarsign in front.<br />
+The initialization part would become <i>real easy</i> <a href="symref/lpepl">
+(shortened):</a></p>
+<pre>
+    while (<>) {
+        chomp;
+        push @elp, $_;
+        m/^99/ || next;
+
+        # Convert the expanded LP-list to elements known in the format(s)
+        foreach $lp (@elp) {
+            ($cat, $type, $data) = split m/\|/, $lp, 3;
+            $data =~ s/\s+$//;
+            $ect  = "$cat$type";
+            $e    = "e$ect";
+            $$e   = $data;
+            }
+
+        # format this entity
+        write;
+
+        reset "e";
+        }</pre>
+<p>In fact, the first version of the perl equivalent of the 1350 line RPT
+script, were reduced to a mere 150 line of code!<p>
+
+<hr />
+<a href="chap4.html">Prev</a> <a href="chap6.html">Next</a>
+</body>
+</html>

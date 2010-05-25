@@ -1,0 +1,79 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>safeOpcode=opcode</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0105.htm">set=flag</a>
+    &nbsp;&nbsp;Previous: <a href="slide0103.htm">count_only</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="safeOpcode=opcode">
+
+<H1>safeOpcode=opcode
+</H1>
+
+
+<P>
+<A name="--safeOpcode=opcode"></A><B><A name="index_104_108"></A>--safeOpcode=opcode</B>
+</P>
+
+
+<P>
+If active contents is enabled (<I>--activeContents</I>), Perl code embedded into the translated PerlPoint sources will be evaluated. To keep security this is done via an object of class <B>Safe</B> which restricts code to permitted operations. By this option you can declare which opcode (or opcode tag) is permitted. Please see the <B>Safe</B> and <B>Opcode</B> manual pages for further details. (These modules come with perl.)
+</P>
+
+
+<P>
+Pass <CODE>ALL</CODE> to allow <I>everything</I>.
+</P>
+
+
+<P>
+This option can be used multiply.
+</P>
+
+
+<P>
+You may want to store these options in default option files, see below for details.
+</P>
+
+
+<P>
+For the examples used in <I>ppdoc.pp</I> you should use
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ --safeOpcode=:filesys_open --safeOpcode=:still_to_be_decided --safeOpcode=:browse
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0105.htm">set=flag</a>
+    &nbsp;&nbsp;Previous: <a href="slide0103.htm">count_only</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

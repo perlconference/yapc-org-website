@@ -1,0 +1,43 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Matching</title>
+</head>
+
+<body>
+<h1 align = "center">Matching</h1>
+
+<pre>
+start:        die  /^\Z/
+
+die:          'd' number
+            | number 'd' number
+
+number:       /\d+/
+
+</pre>
+
+<hr>
+<ul>
+<li>A rule matches if one of its productions matches; the parser will
+    try alternative productions in order.
+<li>A production matches if each of its items matches in the order
+    given.
+<li>Items match:
+    <ul><li><strong>Subrule</strong>:   if the rule matches.
+        <li><strong>Token</strong>:     literal or regex match.
+        <li><strong>Action</strong>:    if the code returns a defined value.
+        <li><strong>Directive</strong>: we'll come back to that.
+        <li><strong>Comment</strong>:   always a match; no text is consumed.
+    </ul>
+<li>Tokens match a prefix of the to be parsed strings. The part that is
+    matched will be <em>consumed</em>; this is similar to matching with
+    regular expressions.
+</ul>
+<hr>
+<a href = '09.html'>[Prev]</a>
+<a href = '11.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

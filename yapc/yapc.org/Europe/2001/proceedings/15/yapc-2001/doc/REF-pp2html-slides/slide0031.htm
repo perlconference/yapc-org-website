@@ -1,0 +1,135 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Tables by tag</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0032.htm">Supported tags</a>
+    &nbsp;&nbsp;Previous: <a href="slide0030.htm">Embedding Perl</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Tables by tag">
+
+<H1>Tables by tag
+</H1>
+
+
+<P>
+It was mentioned in the <I>paragraph</I> chapter that tables can be built by table paragraphs. Well, there is a tag variant of this:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  \TABLE{bg=blue separator=&quot;|&quot; border=2}
+  \B&lt;column 1&gt;  |  \B&lt;column 2&gt;  | \B&lt;column 3&gt;
+     aaaa       |     bbbb       |  cccc
+     uuuu       |     vvvv       |  wwww
+  \END_TABLE
+
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<CODE>\TABLE</CODE> opens the table, while <CODE>\END_TABLE</CODE> closes it.
+</P>
+
+
+<P>
+These tags are sligthly more powerfull than the paragraph syntax: you can set up several table features like the border width yourself, and you can format the headlines as you like.
+</P>
+
+
+<P>
+All enclosed lines are evaluated as table rows by default, which means that each source line between <CODE>\TABLE</CODE> and <CODE>\END_TABLE</CODE> is treated as a table row. PerlPoint as well allows you to specify a string of your own choice to separate rows by option <CODE>rowseparator</CODE>. This allows to specify a table <I>inlined</I> into a paragraph.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  \TABLE{bg=blue separator=&quot;|&quot; border=2 rowseparator=&quot;+++&quot;}
+  \B&lt;column 1&gt; | \B&lt;column 2&gt; | \B&lt;column 3&gt; +++ aaaa
+  | bbbb | cccc +++ uuuu | vvvv|  wwww \END_TABLE
+
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This is exactly the same table as above.
+</P>
+
+
+<P>
+As in all tables, leading and trailing whitespaces of a cell are automatically removed, so you can use as many of them as you want to improve the readability of your source.
+</P>
+
+
+<P>
+Tables built by tag are normalized the same way as table paragraphs are.
+</P>
+
+
+<P>
+Here is a list of basically supported tag options (by table):
+</P>
+<TABLE border=2><TR>
+<TD><B>option</B></TD><TD><B>description</B></TD></TR>
+<TR>
+<TD><CODE>separator</CODE></TD><TD>a string separating the table <I>columns</I> (can contain more than one character)</TD></TR>
+<TR>
+<TD><CODE>rowseparator</CODE></TD><TD>a string separating the table <I>rows</I> (can contain more than one character)</TD></TR>
+<TR>
+<TD><CODE>gracecr</CODE></TD><TD>usually set correctly by default, this specifies the number of row separators to be ignored before they are treated as separators - which usually allows to start the table contents in a subsequent line <I>after</I> the line containing the <CODE>\TABLE</CODE> tag</TD></TR>
+</TABLE>
+<P>
+
+
+<P>
+More options may be supported by your PerlPoint translator software.
+</P>
+
+
+<P>
+
+</P>
+
+
+<P>
+
+</P>
+
+
+<P>
+
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0032.htm">Supported tags</a>
+    &nbsp;&nbsp;Previous: <a href="slide0030.htm">Embedding Perl</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

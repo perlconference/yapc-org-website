@@ -1,0 +1,49 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>The other YAPC::Europe-2.0.01 T-shirt: 3/6</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>What's in the safe?</h2>
+<p>After defining <tt>%_</tt>, the program continues at the end of
+last line:<!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="i">$|</SPAN>++<SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">$s</SPAN><SPAN CLASS="i">-&gt;reval</SPAN><SPAN CLASS="s">(</SPAN><SPAN CLASS="i">$_</SPAN>=<SPAN CLASS="q">'eval join&quot;&quot;,sort+keys%_'</SPAN><SPAN CLASS="s">)</SPAN>
+</PRE>
+<ul>
+<li><tt>$|++</tt> will help have a smooth animation with the
+<tt>\r</tt> you probably noticed in <tt>$_{t}</tt>.</li>
+<li>The string we <tt>reval</tt> in the <tt>Safe</tt> is
+the concatenated ASCIIbetically sorted list of <tt>%_</tt> keys:<!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="i">$c</SPAN>=<SPAN CLASS="q">'( +)'</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="q">s/(key)|eval/$1?&quot;value&quot;:&quot;&quot;/eg</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">*y</SPAN>=<SPAN CLASS="s">[</SPAN><SPAN CLASS="k">split</SPAN><SPAN CLASS="q">/(\W+</SPAN>
+<SPAN CLASS="q">)/</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$_</SPAN>{<SPAN CLASS="w">t</SPAN>}<SPAN CLASS="s">]</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$_</SPAN>=<SPAN CLASS="k">eval</SPAN><SPAN CLASS="p">)</SPAN>=~<SPAN CLASS="q">y/\n//d</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">sub c</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="k">length</SPAN><SPAN CLASS="s">}</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">for</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="k">split</SPAN><SPAN CLASS="i">$c</SPAN>
+<SPAN CLASS="p">)</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="k">print</SPAN><SPAN CLASS="i">@y</SPAN> <SPAN CLASS="k">if</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="k">select</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$/</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$,</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">$&lt;</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="n">.1</SPAN>*<SPAN CLASS="k">rand</SPAN><SPAN CLASS="p">)</SPAN>||<SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$y</SPAN>+=<SPAN CLASS="i">$p</SPAN>+++<SPAN CLASS="i">&amp;c</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="p">)</SPAN>.
+..<SPAN CLASS="p">(</SPAN><SPAN CLASS="k">substr</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="i">$y</SPAN>[<SPAN CLASS="i">&amp;a</SPAN>]<SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">&amp;p</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="n">1</SPAN><SPAN CLASS="p">)</SPAN>=<SPAN CLASS="k">chr</SPAN> <SPAN CLASS="n">97</SPAN>+<SPAN CLASS="p">(</SPAN><SPAN CLASS="k">ord</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="k">substr</SPAN><SPAN CLASS="i">$y</SPAN>[<SPAN CLASS="i">&amp;a</SPAN>]<SPAN CLASS="cm">,</SPAN><SPAN CLASS="i">&amp;p</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="n">1</SPAN><SPAN CLASS="p">)</SPAN>+
+<SPAN CLASS="i">c</SPAN><SPAN CLASS="s">(</SPAN><SPAN CLASS="s">)</SPAN><SPAN CLASS="p">)</SPAN>%<SPAN CLASS="n">26</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="s">}</SPAN><SPAN CLASS="i">sub p</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="i">$y</SPAN>%<SPAN CLASS="k">length</SPAN><SPAN CLASS="i">$y</SPAN>[<SPAN CLASS="i">&amp;a</SPAN>]<SPAN CLASS="s">}</SPAN><SPAN CLASS="i">sub a</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="i">$p</SPAN>%<SPAN CLASS="n">3</SPAN>*<SPAN CLASS="n">2</SPAN><SPAN CLASS="s">}</SPAN><SPAN CLASS="k">print</SPAN><SPAN CLASS="q">&quot;\n&quot;</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="q">s</SPAN>
+<SPAN CLASS="q">t</SPAN>
+<SPAN CLASS="q">udy</SPAN>
+</PRE>
+</li>
+<li>In fact, it is a loooong line, since the keys are <tt>join</tt>ed with
+empty strings.</li>
+<li>Note that <tt>study</tt> is the last function that has its first
+three letters in alphabetical order.
+<li>This can be useful if,
+like me, you don't know what to do with the useless keys of <tt>%_</tt>.
+</ul>
+<p align="center"> <a href="tshirt_02.html">Previous</a> | <a href="tshirt_04.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Dynamic rules</title>
+</head>
+
+<body>
+<h1 align = "center">Dynamic rules</h1>
+
+<pre>
+            {my %braces = qw /{ } &lt; > ( ) [ ]/;
+                $braces {'\\'} = '\\\\';}
+
+start:      string /^\Z/ {"That's a string!"}
+          | &lt;error: That's not a string!>
+
+string:     /["']/ &lt;skip: ""> /(?:[^<font color = "red">$item[1]</font>\\]+|\\.)*/ "<font color = "red">$item[1]</font>"
+          | /qq?/ /./ &lt;skip: ""> {$braces {$item [2]} || $item [2]}
+                              /(?:[^<font color = "red">$item[4]</font>\\]+|\\.)*/ /[<font color = "red">$item[4]</font>]/
+</pre>
+<hr>
+<pre>
+In [1] := q [foo bar]
+Out [1] = That's a string!
+In [2] := q {foo bar}
+Out [2] = That's a string!
+In [3] := q =foo bar=
+Out [3] = That's a string!
+In [4] := "foo bar"
+Out [4] = That's a string!
+In [5] := q [foo \]bar]
+Out [5] = That's a string!
+In [6] := q \foo bar\
+Out [6] = That's a string!
+In [7] := q !foo bar!
+Out [7] = That's a string!
+In [8] := 'foo \'bar ""'
+Out [8] = That's a string!
+In [9] := 'foo bar"
+
+       ERROR (line 1):  That's not a string!
+Out [9] = &lt;&lt;UNDEF>>
+In [10] := 
+</pre>
+
+<hr>
+<a href = '42.html'>[Prev]</a>
+<a href = '44.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

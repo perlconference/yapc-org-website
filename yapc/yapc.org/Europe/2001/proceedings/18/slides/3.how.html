@@ -1,0 +1,114 @@
+<html>
+	<head>
+		<title>Slide 3: Mechanisms of mutability</title>
+	</head>
+	
+	<body bgcolor="white">
+			<table border="0" width="80%" align="center">
+				<tr>
+					<td align="left"  ><font face="sans-serif" size="+3" color="darkgray">
+						<a href="2.what.html">
+							PREV</a>
+					</font></td>
+					<td align="center"><font face="sans-serif" size="+2">
+						Mechanisms of mutability
+					</font></td>
+					<td align="right" ><font face="sans-serif" size="+3" color="darkgray">
+						<a href="4.examples.html">
+							NEXT</a>
+					</font></td>
+				</tr>
+			</table>
+
+			<hr width="80%">
+			
+			<p>&nbsp;</p>
+			
+			<table width="80%" align="center">
+				<tr><td>
+					<font face="sans-serif" size="+2">
+					
+						<!--h2>Mechanisms of mutability</h2-->
+
+						<ul>
+							<li> Perl allows us to change the meaning of programs in
+								 an unusually large number of ways. <font color=darkgray>(Of mainstream
+								 languages, only C++ comes close in this respect. Mind you,
+								 the C pre-processor gives you a lot of flexibility too.)</font>
+								 <br /><br />
+							<li>  Here's a partial list, to give you a flavour:<br /><br />
+							
+								  <table border=1>
+								  	<font face="sans-serif" size="+2">
+								  	<tr>
+								  		<th><font face="sans-serif" size="+2">Language feature:</font></th>
+								  		<th><font face="sans-serif" size="+2">Mechanism of mutability:</font></th>
+								  	</tr>
+								  	
+								  	<tr>
+								  		<td><font face="sans-serif" size="+2">Subroutine calls</font></td>
+								  		<td><font face="sans-serif" size="+2"><code>AUTOLOAD</code></font></td>
+								  	</tr>
+
+								  	<tr>
+								  		<td><font face="sans-serif" size="+2">Module loading (use/require)</font></td>
+								  		<td><font face="sans-serif" size="+2">Code references in <code>@INC</code></font></td>
+								  	</tr>
+
+
+								  	<tr>
+								  		<td><font face="sans-serif" size="+2">Regex syntax</font></td>
+								  		<td><font face="sans-serif" size="+2">Overloaded <code>qr//</code> operator</font></td>
+								  	</tr>
+
+								  	<tr>
+								  		<td><font face="sans-serif" size="+2">Input file syntax</font></td>
+								  		<td><font face="sans-serif" size="+2">Source filters<sup>*</sup></font></td>
+								  	</tr>
+
+								  	<tr>
+								  		<td><font face="sans-serif" size="+2">Behaviour of builtins</font></td>
+								  		<td><font face="sans-serif" size="+2"><code>CORE::GLOBAL</code> functions</font></td>
+								  	</tr>
+
+								  	<tr>
+								  		<td><font face="sans-serif" size="+2">Variable semantics</font></td>
+								  		<td><font face="sans-serif" size="+2">The <code>tie</code> mechanism</font></td>
+								  	</tr>
+
+								  	<tr>
+								  		<td><font face="sans-serif" size="+2">Filehandle semantics</font></td>
+								  		<td><font face="sans-serif" size="+2"><code>tie</code>, or PerlIO layers</font></td>
+								  	</tr>
+
+								  	</font>
+								  </table>
+								  
+								  <font size="+1"><br />
+								  * It's very difficult to use source filters to implement mutation
+								    in general, because you'd need a complete way to parse Perl code,
+								    which is hard because of the context-dependence of the grammar.
+								    (On the other hand, they're the only mechanism to use for translator
+								    modules.)
+								  </font>
+								  <br /><br />
+							<li> Other relevant language features include:
+								<ul>
+									<li> Operator overloading
+									<li> Subroutine prototypes
+									<li> :Attributes
+									<li> <code>CHECK</code> blocks
+									<li> Exporting functions to the caller's namespace
+									<li> The ability to go beyond the facilities of the language,
+										 using <code>XS</code> or <code>Inline</code>
+									<li> Symbol tables, special variables and so on
+								</ul>
+								<br />
+							<li> <a href="4.examples.html">&gt;&gt;</a>
+						</ul>
+
+					</font>
+				</td></tr>
+			</table>
+	</body>
+</html>

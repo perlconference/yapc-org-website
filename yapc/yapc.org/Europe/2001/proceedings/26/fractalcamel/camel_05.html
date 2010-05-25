@@ -1,0 +1,52 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>Camel code 5/7</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>Jivaro code</h2>
+<p>This is the code that does the head (and body) shrinking.</p>
+<!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="k">eval</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="q">&quot;seek\040DATA,0,0;&quot;</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="sc">;</SPAN>            <SPAN CLASS="c"># start of file</SPAN>
+<SPAN CLASS="k">foreach</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="n">1</SPAN> .. <SPAN CLASS="n">3</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="q">&lt;DATA&gt;</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="s">}</SPAN>        <SPAN CLASS="c"># skip 3 lines</SPAN>
+<SPAN CLASS="k">my</SPAN> <SPAN CLASS="i">@camel1hump</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="k">my</SPAN> <SPAN CLASS="i">$camel</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="k">my</SPAN> <SPAN CLASS="i">$Camel</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="c"># define stuff</SPAN>
+<SPAN CLASS="k">while</SPAN> <SPAN CLASS="p">(</SPAN><SPAN CLASS="q">&lt;DATA&gt;</SPAN><SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN>
+<SPAN CLASS="i">    $_</SPAN> = <SPAN CLASS="k">sprintf</SPAN><SPAN CLASS="s">(</SPAN> <SPAN CLASS="q">&quot;%-69s&quot;</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="i">$_</SPAN> <SPAN CLASS="s">)</SPAN><SPAN CLASS="sc">;</SPAN>      <SPAN CLASS="c"># format line</SPAN>
+<SPAN CLASS="k">    my</SPAN> <SPAN CLASS="i">@dromedary1</SPAN> = <SPAN CLASS="k">split</SPAN> <SPAN CLASS="p">(</SPAN><SPAN CLASS="q">//</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="sc">;</SPAN>      <SPAN CLASS="c"># odd line</SPAN>
+<SPAN CLASS="k">    if</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">defined</SPAN><SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$_</SPAN> = <SPAN CLASS="q">&lt;DATA&gt;</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="i">@camel1hump</SPAN> = <SPAN CLASS="k">split</SPAN> <SPAN CLASS="p">(</SPAN><SPAN CLASS="q">//</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="s">}</SPAN> <SPAN CLASS="c"># even line</SPAN>
+<SPAN CLASS="k">    while</SPAN> <SPAN CLASS="p">(</SPAN><SPAN CLASS="i">@dromedary1</SPAN><SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN>
+<SPAN CLASS="k">        my</SPAN> <SPAN CLASS="i">$camel1hump</SPAN> = <SPAN CLASS="n">0</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="k">my</SPAN> <SPAN CLASS="i">$CAMEL</SPAN> = <SPAN CLASS="n">3</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">        if</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">defined</SPAN><SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$_</SPAN> = <SPAN CLASS="k">shift</SPAN> <SPAN CLASS="p">(</SPAN><SPAN CLASS="i">@dromedary1</SPAN><SPAN CLASS="p">)</SPAN> <SPAN CLASS="p">)</SPAN> &amp;&amp; <SPAN CLASS="q">/\S/</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="i">$camel1hump</SPAN> += <SPAN CLASS="n">1</SPAN> &lt;&lt; <SPAN CLASS="i">$CAMEL</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="i">        $CAMEL</SPAN>--<SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">        if</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">defined</SPAN><SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$_</SPAN> = <SPAN CLASS="k">shift</SPAN> <SPAN CLASS="p">(</SPAN><SPAN CLASS="i">@dromedary1</SPAN><SPAN CLASS="p">)</SPAN> <SPAN CLASS="p">)</SPAN> &amp;&amp; <SPAN CLASS="q">/\S/</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="i">$camel1hump</SPAN> += <SPAN CLASS="n">1</SPAN> &lt;&lt; <SPAN CLASS="i">$CAMEL</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="i">        $CAMEL</SPAN>--<SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">        if</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">defined</SPAN><SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$_</SPAN> = <SPAN CLASS="k">shift</SPAN> <SPAN CLASS="p">(</SPAN><SPAN CLASS="i">@camel1hump</SPAN><SPAN CLASS="p">)</SPAN> <SPAN CLASS="p">)</SPAN> &amp;&amp; <SPAN CLASS="q">/\S/</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="i">$camel1hump</SPAN> += <SPAN CLASS="n">1</SPAN> &lt;&lt; <SPAN CLASS="i">$CAMEL</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="i">        $CAMEL</SPAN>--<SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="k">        if</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">defined</SPAN><SPAN CLASS="p">(</SPAN> <SPAN CLASS="i">$_</SPAN> = <SPAN CLASS="k">shift</SPAN> <SPAN CLASS="p">(</SPAN><SPAN CLASS="i">@camel1hump</SPAN><SPAN CLASS="p">)</SPAN> <SPAN CLASS="p">)</SPAN> &amp;&amp; <SPAN CLASS="q">/\S/</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="s">{</SPAN> <SPAN CLASS="i">$camel1hump</SPAN> += <SPAN CLASS="n">1</SPAN> &lt;&lt; <SPAN CLASS="i">$CAMEL</SPAN><SPAN CLASS="sc">;</SPAN> <SPAN CLASS="sc">;</SPAN> <SPAN CLASS="s">}</SPAN>
+<SPAN CLASS="i">        $camel</SPAN> .= <SPAN CLASS="p">(</SPAN> <SPAN CLASS="k">split</SPAN> <SPAN CLASS="p">(</SPAN> <SPAN CLASS="q">//</SPAN><SPAN CLASS="cm">,</SPAN> <SPAN CLASS="q">&quot;\040..m`{/J\047\134}L^7FX&quot;</SPAN> <SPAN CLASS="p">)</SPAN> <SPAN CLASS="p">)</SPAN>[<SPAN CLASS="i">$camel1hump</SPAN>]<SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="s">    }</SPAN>
+<SPAN CLASS="i">    $camel</SPAN> .= <SPAN CLASS="q">&quot;\n&quot;</SPAN><SPAN CLASS="sc">;</SPAN>
+<SPAN CLASS="s">}</SPAN>
+</PRE>
+<ul>
+<li>Go to the top of the file, and skip the first three lines.</li>
+<li>After defining a few variables (we run under <tt>strict</tt> and
+<tt>-w</tt>), read the rest of the file, line by line.</li>
+<li>Fetch the odd line, and split it into <tt>@dromadery1</tt>.</li>
+<li>Same with the even line (if applicable), into <tt>@camel1hump</tt>.</li>
+</ul>
+<p align="center"> <a href="camel_04.html">Previous</a> | <a href="camel_06.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat. <br> Camel code, copyright &copy; 2000, Stephen B. Jenkins.</span>
+</p>
+</body>
+</html>
+

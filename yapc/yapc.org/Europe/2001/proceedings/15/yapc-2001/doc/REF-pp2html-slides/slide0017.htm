@@ -1,0 +1,205 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Macro definitions</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0018.htm">Tags</a>
+    &nbsp;&nbsp;Previous: <a href="slide0016.htm">Variable assignments</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Macro definitions">
+
+<H1>Macro definitions
+</H1>
+
+
+<P>
+Sometimes certain text parts are used more than once. It would be a relieve to have a shortcut instead of having to insert them again and again. The same is true for tag combinations a user may prefer to use. That's what <I>aliases</I> (or &quot;macros&quot;) are designed for. They allow a presentation author to declare his own shortcuts and to use them like a tag. The parser will resolve such aliases, replace them by the defined replacement text and work on with this replacement.
+</P>
+
+
+<P>
+An alias declaration starts with a <B>&quot;+&quot;</B> character followed <I>immediately</I> by the alias <I>name</I> (without backslash prefix), followed <I>immediately</I> by a colon. (No additional spaces here.) <I>All text after this colon up to the paragraph closing empty line is stored as the replacement text.</I> So, whereever you will use the new macro, the parser will replace it by this text and <I>reparse</I> the result. This means that your macro text can contain any valid constructions like tags or other macros.
+</P>
+
+
+<P>
+The replacement text may contain strings embedded into doubled underscores like <CODE>__this__</CODE>. This is a special syntax to mark that the macro takes parameters of these names (e.g. <CODE>this</CODE>). If a tag is used and these parameters are set, their values will replace the mentioned placeholders. The special placeholder <CODE>__body__</CODE> is used to mark the place where the macro body is to place.
+</P>
+
+
+<P>
+Here are a few examples:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  +RED:\FONT{color=red}&lt;__body__&gt;
+
+  +F:\FONT{color=__c__}&lt;__body__&gt;
+
+  +IB:\B&lt;\I&lt;__body__&gt;&gt;
+
+  This \IB&lt;text&gt; is \RED&lt;colored&gt;.
+
+  +TEXT:Macros can be used to abbreviate longer
+  texts as well as other tags
+  or tag combinations.
+
+  +HTML:\EMBED{lang=html}
+
+  Tags can be \RED&lt;\I&lt;nested&gt;&gt; into macros. And \I&lt;\F{c=blue}&lt;vice versa&gt;&gt;.
+  \IB&lt;\RED&lt;This&gt;&gt; is formatted by nested macros.
+  \HTML This is &lt;i&gt;embedded HTML&lt;/i&gt;\END_EMBED.
+
+  Please note: \TEXT
+
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<I>If no parameter is defined in the macro definition, options will not be recognized.</I> The same is true for the body part. <I>Unless <CODE>&quot;__body__&quot;</CODE> is used in the macro definition, macro bodies will not be recognized.</I> This means that with the definition
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  +OPTIONLESS:\B&lt;__body__&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+the construction
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \OPTIONLESS{something=this}&lt;more&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+is evaluated as a usage of <CODE>\OPTIONLESS</CODE> without body, followed by the <I>string</I> <CODE>&quot;{something=here}&quot;</CODE>. Likewise, the definition
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  +BODYLESS:found __something__
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+causes
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \BODYLESS{something=this}&lt;more&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+to be recognized as a usage of <CODE>\BODYLESS</CODE> with option <CODE>something</CODE>, followed by the <I>string</I> <CODE>&quot;&lt;more&gt;&quot;</CODE>. So this will be resolved as <CODE>&quot;found this&quot;</CODE>. Finally,
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  +JUSTTHENAME:Text phrase.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+enforces these constructions
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  ... \JUSTTHENAME, ...
+  ... \JUSTTHENAME{name=Name}, ...
+  ... \JUSTTHENAME&lt;text&gt;, ...
+  ... \JUSTTHENAME{name=Name}&lt;text&gt; ...
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+to be translated into
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  ... Text phrase. ...
+  ... Text phrase.{name=Name} ...
+  ... Text phrase.&lt;text&gt;, ...
+  ... Text phrase.{name=Name}&lt;text&gt; ...
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The principle behind all this is to make macro usage <I>easier</I> and intuative: why think of options or a body or of special characters possibly treated as option/body part openers unless the macro makes use of an option or body?
+</P>
+
+
+<P>
+An <I>empty</I> macro text <I>undefines</I> the macro (if it was already known).
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  // undeclare the IB alias
+  +IB:
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+An alias can be used everywhere a tag can be. Tags and macros are indeed that interchangable that macros can be used to overwrite existing tags. The paragraph
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  +B:\I&lt;__body__&gt;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+transforms all occurences of \B tags into \I ones.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0018.htm">Tags</a>
+    &nbsp;&nbsp;Previous: <a href="slide0016.htm">Variable assignments</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

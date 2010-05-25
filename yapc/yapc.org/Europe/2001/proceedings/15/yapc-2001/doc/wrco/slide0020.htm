@@ -1,0 +1,100 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Option files</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0021.htm">Common options</a>
+    &nbsp;&nbsp;Previous: <a href="slide0019.htm">Option handling</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Option files">
+
+<H1>4.4.1 Option files
+</H1>
+
+
+<P>
+Option files allow to specify Perl script options <I>by files</I>, so they simply contain what would normally be specified in the commandline. This relieves a user from typing in typical options again and again. It also allows to <I>reuse</I> options, which is helpful if a script provides a great option number. <CODE>pp2html</CODE>, for example, currently offers about 80 options. It is almost impossible to remember the combinations which produce a certain result, but it is easy to store them in a file like this:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # configure style
+  -style_dir /opt/perlpoint/pp2html/styles
+  -style surprise
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+, to store this file as <CODE>style.cfg</CODE> and to invoke <CODE>pp2html</CODE> as in
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  &gt; pp2html <B>@style.cfg</B> ...
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Option files can be nested and cascaded, and you can use as many of them as you want. It is also possible to use <I>default</I> option files which do not need to be specified when calling the script but are resolved automatically. They make it very handy to use a multi option script.
+</P>
+
+
+<P>
+To provide option file usage, all you have to do is to integrate the following statement.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # resolve option files
+  argvFile(default=&gt;1, home=&gt;1);
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<CODE>argvFile()</CODE> is a function of <CODE>Getopt::ArgvFile</CODE> which was already <A HREF="slide0017.htm#Modules to load">loaded</A> and performs three tasks in this call:
+</P>
+
+<OL>
+<LI VALUE=1>It searches the users home directory for a file named <CODE>.&lt;converter name&gt;</CODE>, e.g. <CODE><B>.</B>pp2sdf</CODE>. All options found therein are &quot;unshifted&quot; into <CODE>@ARGV</CODE>. A default option file in ones home directory stores individual preferences of calling the converter.</LI>
+<LI>It searches the directory where the converter script is located for (probably another) <CODE>.&lt;converter name&gt;</CODE> and integrates its options likewise, &quot;unshifting&quot; them to <CODE>@ARGV</CODE> as well. Such a global option file can be used to set up options to be used by all script users.</LI>
+<LI>It processes <CODE>@ARGV</CODE> to resolve any explicit and nested option files.</LI>
+</OL>
+
+
+<P>
+The result is an <CODE>@ARGV</CODE> array which contains all options, both specified directly and by file, ready to be processed by usual option handling modules like <B><CODE>Getopt::Long</CODE></B>.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0021.htm">Common options</a>
+    &nbsp;&nbsp;Previous: <a href="slide0019.htm">Option handling</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

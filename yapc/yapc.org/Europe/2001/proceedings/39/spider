@@ -1,0 +1,52 @@
+#!/usr/longitude/bin/perl -w
+
+# YAPC::Europe 2001
+# "Parallel Processing with Perl and PVM" - Benjamin Holzman: Longitude, Inc.
+
+# Listing One : "spider"
+
+use strict;
+require LWP::UserAgent;
+require URI;
+require HTML::Parse;
+use Digest::MD5 qw(md5);
+
+my $ua = LWP::UserAgent->new();
+my $base = $ARGV[0] || "http://127.0.0.1/";
+
+my(%visited); # md5(content) -> URI
+
+my(@URIs) = ($base);
+
+while (@URIs) {
+  my %pending = ();
+  for my $reqURI (@URIs) {
+    my $request  = HTTP::Request->new('GET', $reqURI);
+    my $response = $ua->request($request);
+    if ($response->is_success) {
+      my $key = md5($response->content);
+      next if exists $visited{$key};
+
+      $visited{$key} = $reqURI;
+
+      for my $uri (extract_uris($response->content_ref, $reqURI)) {
+	$pending{$uri} = 1 if $uri =~ /^$base/;
+      }
+    }
+  }
+  @URIs = keys %pending;
+}
+
+print "$_\n" for sort values %visited;
+
+sub extract_uris {
+  my($content, $base) = @_;
+  my @uris;
+  for (@{ HTML::Parse::parse_html($$content)->extract_links }) {
+    my($link, $elem) = @$_;
+    my $uri = URI->new($link)->abs($base);
+    push @uris, join(":", $uri->scheme, $uri->opaque);
+  }
+  return @uris;
+}
+

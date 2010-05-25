@@ -1,0 +1,80 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Integrating foreign tags</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0013.htm">Documentation</a>
+    &nbsp;&nbsp;Previous: <a href="slide0011.htm">Completing the module</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Integrating foreign tags">
+
+<H1>3.2.4 Integrating foreign tags
+</H1>
+
+
+<P>
+You may want your converter to provide tags already defined somewhere. It is not necessary to redefine them, which would make it hard to keep all definitions synchronized later. Instead of this, simply load the appropriate modules. As an example, here's the (almost) complete code of <CODE>PerlPoint::Tags::SDF</CODE>. The related converter <CODE>pp2sdf</CODE> does not define a single tag itself - its tag definitions are just a combination of &quot;foreign&quot; tags.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  01: # declare package
+  02: package PerlPoint::Tags::SDF;
+  03:
+  04: # declare package version
+  05: $VERSION=...;
+  06:
+  07: # declare base &quot;class&quot;
+  08: use base qw(PerlPoint::Tags);
+  09:
+  10: # set pragmata
+  11: use strict;
+  12:
+  13: # declare tags (reuse definitions made elsewhere)
+  14: <B>use PerlPoint::Tags::Basic;</B>
+  15: <B>use PerlPoint::Tags::HTML qw(A L PAGEREF SECTIONREF U XREF);</B>
+  16:
+  17: 1;
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This example demonstrates two methods of reusing other definitions. Line 14 loads all definitions made by <CODE>PerlPoint::Tags::Basic</CODE>. Line 15, on the other hand, picks certain definitions made by <CODE>PerlPoint::Tags::HTML</CODE>, the definition file of <CODE>pp2html</CODE>, ignoring all definitions not explicitly listed in the <CODE>use</CODE> statement.
+</P>
+
+
+<P>
+If tags are defined in more than one of the included modules, messages will be displayed warning about duplicated definitions. New definitions overwrite earlier ones, so the last appearing definition of a tag wins.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0013.htm">Documentation</a>
+    &nbsp;&nbsp;Previous: <a href="slide0011.htm">Completing the module</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

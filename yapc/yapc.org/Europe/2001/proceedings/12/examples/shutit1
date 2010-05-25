@@ -1,0 +1,25 @@
+#!/usr/bin/perl -w
+
+# File: shutit1
+# Mark Overmeer, AT Computing bv, The Netherlands
+# Example for YAPC::Europe 2001
+
+# A simple graphical shell around a command which has to be
+# started.  It is really revolutionary, don't you think?
+
+use strict;
+use Tk;
+
+my $shutdown = '/sbin/shutdown -h now &';
+
+my $mw       = MainWindow->new;
+
+my $button   = $mw->Button
+  ( -text       => 'Shutdown'
+  , -background => 'red'
+  , -command    => sub { system $shutdown }
+  );
+
+$button->pack;
+
+MainLoop;

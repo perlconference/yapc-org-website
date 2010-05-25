@@ -1,0 +1,63 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Introduction</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0003.htm">Language Overview</a>
+    &nbsp;&nbsp;Previous: <a href="slide0001.htm">PerlPoint</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Introduction">
+
+<H1>2 Introduction
+</H1>
+
+
+<P>
+If you are about to prepare a presentation you will probably consider programs like PowerPoint, StarImpress or Harvard Graphics. They offer cool optical effects, provide professional templates and support you with graphical tools and <I>wizzards</I>. And they are often included into common office suites.
+</P>
+
+
+<P>
+On the other hand this kind of programs often requires to install large packages, and the software itself is usually really big not very portable. Presentations made this way depend on corresponding projectors (i. e. PowerPoint or StarOffice). Even if the projector software can be freely <I>distributed</I>, it may not <I>run</I> on every platform and you have to install it first. If you want to work platform independently, often the only solution is to make bitmap graphics from your slides, which consume a lot of space and (download) time. If several persons want to prepare a presentation or write a document <I>together</I>, all of them are in need of the <I>same</I> software. And if you like to use Open Source programs there are not that many alternatives yet.
+</P>
+
+
+<P>
+It was this Open Source aspect especially which brought <I>Tom Cristiansen</I> to invent PerlPoint several years ago. He noticed that more and more PowerPoint talks were presented on Open Source conferences. So he created a simple <I>text</I> format which could be transformed to HTML pages by a little Perl script. He called it <I><B>PerlPoint</B></I>. The choice of HTML as a presentation format had the big advantage that PerlPoint presentations could be shown on <I>every platform</I>, without any system specific adaptations. All you needed was a web browser, nothing more! The presentations could be instantly published in the Internet or in an intranet as well. <I>Authoring</I> presentations was very simple, too: each text editor could be used for that.
+</P>
+
+
+<P>
+Tom's idea fascinated us at once and we started to write large documents in PerlPoint (not only presentations!). Soon we had requests for more features and more flexibility. Lorenz started to enhance PerlPoint essentially. The formerly simple <I>pp2html</I> script grew more and more, and at a certain point, we decided to redesign it completely. Jochen had the idea to base the new design on a common parser which should read PerlPoint source files and provide an intermediate stream format. The stream could then be translated to arbitrary target formats like HTML, SDF or XML. It would be a modular concept with one frontend (parser) and several backends (converters). After the Second German Perl Workshop, we started this new implementation which shall be presented in this article.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0003.htm">Language Overview</a>
+    &nbsp;&nbsp;Previous: <a href="slide0001.htm">PerlPoint</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

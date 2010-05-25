@@ -1,0 +1,44 @@
+=head2 Wed Jul 11 21:54:12 2001: C<Module> L<Storable>
+
+=over 4
+
+=item *
+
+C<installed into: /home/lorenz/projekte/yapc-2001/doc/lib/site_perl/5.6.0>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 1.006>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+
+=head2 Wed Jul 11 21:56:43 2001: C<Module> L<Digest::MD5>
+
+=over 4
+
+=item *
+
+C<installed into: /home/lorenz/projekte/yapc-2001/doc/lib/site_perl/5.6.0>
+
+=item *
+
+C<LINKTYPE: dynamic>
+
+=item *
+
+C<VERSION: 2.12>
+
+=item *
+
+C<EXE_FILES: >
+
+=back
+

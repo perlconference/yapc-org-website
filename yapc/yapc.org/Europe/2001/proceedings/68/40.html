@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Directives: error</title>
+</head>
+
+<body>
+<h1 align = "center">Directives: error</h1>
+
+<pre>
+start: McCoy {1}
+
+McCoy:  curse ',' name ", I'm a Perl Hacker, not a" a_hacker '!'
+      | pronoun 'broken,' name '!'
+      | &lt;error>
+
+
+curse:    "Rotten Camels" | "Holy regex" | "Greedy globs"
+name:     "Larry" | "Guido" | "John" | "Dennis" | "Bjarne"
+pronoun:  "It's" | "The code is"
+a_hacker: "Python programmer" | "C coder" | "Basic builder" | "Lisp linguist"
+</pre>
+
+<hr>
+<pre>
+In [1] := Rotten Camels,
+
+       ERROR (line 1): Invalid McCoy: Was expecting name
+Out [1] = &lt;&lt;UNDEF>>
+In [2] := Holy regex, Guido, I'm a Perl Hacker, not a doctor!
+
+       ERROR (line 1): Invalid McCoy: Was expecting a hacker but found
+                       "doctor!" instead
+Out [2] = &lt;&lt;UNDEF>>
+In [3] := The code is working
+
+       ERROR (line 1): Invalid McCoy: Was expecting 'broken,' but found
+                       "working" instead
+Out [3] = &lt;&lt;UNDEF>>
+</pre>
+
+<hr>
+<a href = '39.html'>[Prev]</a>
+<a href = '41.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

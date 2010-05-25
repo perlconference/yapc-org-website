@@ -1,0 +1,42 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Return values</title>
+</head>
+
+<body>
+<h1 align = "center">Return values</h1>
+
+<pre>
+start:        die  /^\Z/
+
+die:          'd' number
+            | number 'd' number
+
+number:       /\d+/
+
+</pre>
+
+<hr>
+<ul>
+<li>A rule returns the value of the production that matched;
+    undefined if no production matched.
+<li>If a production matches, it will return the return value of the last
+    non-comment item. (This is not always true!).
+<li>Items return:
+    <ul><li><strong>Subrule</strong>:   what the subrule matches.
+        <li><strong>Token</strong>:     the substring of the literal
+                                        or regex match.
+        <li><strong>Action</strong>:    the value of the last statement
+                                        of the block.
+        <li><strong>Directive</strong>: we'll come back to that.
+        <li><strong>Comment</strong>:   doesn't return anything.
+    </ul>
+</ul>
+<hr>
+<a href = '12.html'>[Prev]</a>
+<a href = '14.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

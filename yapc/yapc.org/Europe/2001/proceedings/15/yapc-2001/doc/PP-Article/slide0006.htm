@@ -1,0 +1,94 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Included Text</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0007.htm">Variables</a>
+    &nbsp;&nbsp;Previous: <a href="slide0005.htm">Tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Included Text">
+
+<H1>4.2 Included Text
+</H1>
+
+
+<P>
+With the help of the <B>\INCLUDE</B> tag it is possible to include pre-formatted text in the format of the target language or to create hierarchical documents.
+</P>
+
+
+<P>
+<B>Includes:</B>
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \INCLUDE{type=HTML file=filename}
+ \INCLUDE{type=PP file=filename}
+ \INCLUDE{type=PP file=filename headlinebase=&lt;number&gt;}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+In the first case the imported file <CODE>filename</CODE> becomes part of the created intermediate stream format (see <I><A HREF="UNDEF#Parsing the Input">UNDEF</A></I>). The file is not parsed and can contain arbitrary code in the format of the target language (which is HTML in this case).
+</P>
+
+
+<P>
+If <CODE>type</CODE> is set to <CODE>PP</CODE>, file contents is scanned by the parser. This allows to split a big document into several parts which can be eventually written by different authors:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ // distributed document:
+
+ =Intro
+
+ \INCLUDE{type=PP file=chapter_01.pp}
+
+ =PerlPoint as a Documentation System
+
+ \INCLUDE{type=PP file=chapter_02.pp}
+
+ =Appendix
+
+ \INCLUDE{type=PP file=appendix.pp}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+In this context the <CODE>headlinebase</CODE> parameter shown above can be useful. It has the effect that each headline of the included document gets an additional level offset. For example, if the <CODE>headlinebase</CODE> is set to 2, then <CODE>=A Subsection</CODE> will be interpreted as a header of level 3. This allows to use an included document on different levels of a main document, without modification.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0007.htm">Variables</a>
+    &nbsp;&nbsp;Previous: <a href="slide0005.htm">Tags</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

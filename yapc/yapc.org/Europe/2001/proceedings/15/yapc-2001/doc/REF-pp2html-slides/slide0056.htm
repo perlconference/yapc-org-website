@@ -1,0 +1,90 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Accessing base data</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0057.htm">Known problems</a>
+    &nbsp;&nbsp;Previous: <a href="slide0055.htm">Using document variables</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Accessing base data">
+
+<H1>Accessing base data
+</H1>
+
+
+<P>
+Base data like the target language is provided by a global pseudo hash reference variable <CODE><B>$main::PerlPoint</B></CODE> (which belongs to the usual namespace <CODE>main::</CODE> of the <B>Safe</B> object, if used). Please see specific translator documentations for a list of passed data. By convention, this hash provides the target language and user settings at least:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  // include the following to HTML documents only
+  ? $PerlPoint-&gt;{targetLanguage} eq 'HTML'
+
+  // include the following depending on command
+  ? $PerlPoint-&gt;{userSettings}{special}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+There is also a less rough function interface to access these data:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  // include the following depending on command
+  ? flagSet('special')
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Active contents can modify the provided data but changes will <I>expire</I> when a code snippet is executed completely.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  // active contents modifying base data
+  \EMBED{lang=perl}
+     $PerlPoint-&gt;{targetLanguage}='modified';
+  \END_EMBED
+
+  // base data is automatically restored now,
+  // so the condition checks the original value
+  ? $PerlPoint-&gt;{targetLanguage} eq 'HTML'
+
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0057.htm">Known problems</a>
+    &nbsp;&nbsp;Previous: <a href="slide0055.htm">Using document variables</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

@@ -1,0 +1,74 @@
+<HTML>
+<HEAD><TITLE>Mail::Box, To Test or Not to Test</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:04:49 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Mail::Box</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../6-0/index.html>Mail::Box</A><BR>next: <A HREF=../8-2/index.html>Autoloading</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P>With some effort (based on experience), object oriented code can be
+very readable.  One thing you must not be afraid of, is to create many
+small packages.</P>
+
+<P>Let us look at different ways to do the same, starting with a blunt
+approach, by adding a field to the internal data of the object.</P>
+<PRE>
+package Cat;
+sub new() {...; $self->{persian} = ...}
+sub isPersian() { shift->{persian} }
+
+package main;
+my $mycat = Cat->new(persian => 1);
+if($mycat->isPersian) {...}
+</PRE>
+
+<P>A nicer approach on the same problem is:
+<PRE>
+package Cat;
+sub isPersian() {0};
+
+package Cat::Persian;
+use base 'Cat';
+sub isPersian() {1};
+
+package main;
+my $mycat = Cat->new(persian => 1);
+if($mycat->isPersian) {...}
+</PRE>
+Now the data-field is replaced by an object-type.</P>
+
+<P>The third solution is shown on the image at top.  There you see we do
+not need a field, nor a specific method to encode a specialised cat.</P>
+
+<P>There are no strict rules about what to represent in a type, and what
+in internal data of the object.  There should be a strive for
+small, but not too small objects, which form some consistent pattern.
+Usually you known at the third or fourth implementation.</P>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../6-0/index.html>Mail::Box</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../8-2/index.html>Autoloading</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 July 2001
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

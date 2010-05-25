@@ -1,0 +1,321 @@
+#!/pro/bin/perl
+
+# Replaces RPT for generating reports from lpe output
+#
+# lpepl format-file [page-length]
+#
+#	lpe 1 | lpepl lp_102.pl
+#	lpe -Es1 xx.L | lpepl lp_000
+#
+# Called from lperpt, which is the default user interface
+#
+# Beware of variables starting with "e" ($e180010, @e18)
+# THEY WILL BE CLEARED AFTER EVERY LP!
+
+# %W%	[%E%]
+
+use IO::Handle;
+use PROCURA::RPT;
+
+$fmt = chk_fmt (shift);
+$= = shift || 64;
+
+require $fmt;
+
+init_var ();
+
+while (<>) {
+    chomp;
+    if (m/^10\|0010/) {
+	$s_gem   = (split m/\|/, $_, 3)[2];
+	$s_gem   =~ s/\s+$//;
+	$e100010 = $s_gem;
+	next;
+	}
+    push @elp, $_;
+    m/^99/	|| next;
+
+    # Convert the expanded LP-list to elements known in the format(s)
+    foreach $lp (@elp) {
+	($cat, $type, $data) = split m/\|/, $lp, 3;
+	$data	=~ s/\s+$//;
+
+	$ect    = "$cat$type";
+	$e      = "e$ect";
+	$en     = "en$cat";
+	$$en > 0        && ($e .= "_$$en");
+
+	$$en{$type}++;	# Keep track of supplied fields for StackFormat
+
+	if ($ect =~ m/$dates/) {
+	    $data =~ s/(\d+)(\d\d)(\d\d)$/$3-$2-$1/;
+	    }
+	elsif ($ect =~ m/$flips/) {
+	    # $flip can be magic, but again, it might not be
+	    $ei = index ($data, $flip);
+	    if ($ei >= 0) {
+		$e0 = substr ($data, $ei + 1);
+		$e1 = substr ($data, 0, $ei);
+		$e0 =~ s/^\s+//;
+		$e1 =~ s/\s+$//;
+		$data = "$e0 $e1";
+		}
+	    }
+	elsif ($ect =~ m/$postc/ && $data ne "") {
+	    $e1 = $e;
+	    $d1 = $data;
+	    substr ($e1, 6, 1) = "1";
+	    $d1 =~ s/(\d\d\d\d)(\w\w)/$1 $2  /;
+	    $$e1 = $d1;
+
+	    $$en{substr ($e1, 3, 4)}++;
+	    }
+	$$e		= $data;
+
+	$type == 9999 && ($$en)++;
+	}
+
+    # set additional elements
+    create_elements ();
+
+    # Do all additional functions optionally supplied
+    # Each of them might modify or create elements
+    foreach $fnc (@fnc) {
+	&$fnc;
+	}
+
+    if (exists $::{'TOP'}) {
+	# defined *{$::{'TOP'}}{FORMAT} is not (yet) supported
+	$^ = "TOP";
+	}
+    else {
+	$^ = "EmptyTOP";
+	}
+
+    foreach $fmt (@fmt) {
+	$~ = $fmt;
+	unless ($fmt =~ m/^S(\d+)/) {
+	    defined (&$fmt)		&& &$fmt;
+	    write;
+	    next;
+	    }
+	$cat = $1;
+	$fmt =~ s/:(\d+)// && ($~ = $fmt, $cat = $1);
+	$en = "en$cat";
+	foreach $ei (1 .. ($$en - 1)) {
+	    # Move stack values to actual (and destroy)
+	    foreach $type (keys %$en) {
+		$ea = "e$cat$type";
+		$es = $ea . "_$ei";
+		$$ea = $$es;
+		}
+
+	    foreach $fnc (@fns) {
+		&$fnc;
+		}
+	    defined (&$fmt)		&& &$fmt;
+	    write;
+	    }
+	}
+
+    reset_lp ();
+    }
+
+if ($footer) {
+    $_ = "";
+    $~ = "EOF";
+    defined (&EOF) && &EOF;
+    write;
+    }
+
+exit 0;
+
+# #############################################################################
+
+format EmptyTOP =
+.
+
+sub usage
+{
+    print "usage: lpepl <format-file>\n";
+    print "example: lpe 1 | lpepl lp_102\n";
+    exit 1;
+    } # usage
+
+sub chk_fmt
+{
+    my ($f) = @_;
+    my $s = $ENV{"SCRIPTS"};
+    my $F;
+
+    -f $f && return ($f);
+
+    ($F = $f) =~ s/(\.pl)?$/.pl/;
+    -f $F && return ($F);
+
+    -f "$s/$f" && return ("$s/$f");
+    -f "$s/$F" && return ("$s/$F");
+    
+    usage ();
+    } # chk_fmt
+
+sub init_var
+{
+    select STDOUT;
+    STDOUT->autoflush (1);
+
+    $dates = "^(180(0[478]|1[02]|30)|1900[348]|(20|3[34])00[23]|2200[56])1";
+    $flips = "^180(01[01]|111|28[01])|1972[0124]1|3270[17][01]";
+    $postc = "^(18021|19711|19728|e35008)0";
+
+    $flip = $ENV{"FLIP"} || "^";
+
+    chomp ($d_sys = `date '+%Y%m%d'`);
+    ($d_sys_y, $d_sys_m, $d_sys_d) = ($d_sys =~ m/(\d+)(\d\d)(\d\d)$/);
+    $d_sys_ms	= ("jan", "feb", "mrt", "apr", "mei", "jun",
+		 "jul", "aug", "sep", "okt", "nov", "dec")[$d_sys_m - 1];
+    $d_sys_ml	= ("januari", "februari", "maart",
+		 "april",   "mei",	  "juni",
+		 "juli",    "augustus", "september",
+		 "oktober", "november", "december")[$d_sys_m - 1];
+    $D_sys	= "$d_sys_d-$d_sys_m-$d_sys_y";
+    $D_sys_s	= "$d_sys_d $d_sys_ms $d_sys_y";
+    $D_sys_l	= "$d_sys_d $d_sys_ml $d_sys_y";
+
+    chomp ($t_sys = `date '+%H%M%S'`);
+    ($t_sys_h, $t_sys_m, $t_sys_s) = ($t_sys =~ m/(\d+)(\d\d)(\d\d)$/);
+    $T_sys	= "$t_sys_h:$t_sys_m";
+
+    $dashes0	= "." x 255;
+    $dashes1	= "-" x 255;
+    $dashes2	= "=" x 255;
+    $dashes3	= "*" x 255;
+    $dashes4	= "#" x 255;
+    $dashes5	= "_" x 255;
+    $dashes6	= "+" x 255;
+    $dashes7	= "<" x 255;
+    $dashes8	= ">" x 255;
+    $dashes9	= "/" x 255;
+
+    $sex{""}	= "   ";
+    $sex{"M"}	= "MAN";
+    $sex{"V"}	= "VRW";
+    $sex{"O"}	= "ONB";
+    $sxx{""}	= "Onbekend";
+    $sxx{"M"}	= "Man";
+    $sxx{"V"}	= "Vrouw";
+    $sxx{"O"}	= "Onbekend";
+
+    $bss{""}	= "Ong";
+    $bss{"O"}	= "Ong";
+    $bss{"H"}	= "Huw";
+    $bss{"S"}	= "Sch";
+    $bss{"W"}	= "Wed";
+    $bss{"  "}	= "Ongehuwd";
+    $bss{"O "}	= "Ongehuwd";
+    $bss{"H "}	= "Gehuwd";
+    $bss{"S "}	= "Gescheiden";
+    $bss{"W "}	= "Weduw(e/naar)";
+    $bss{" M"}	= "Ongehuwd";
+    $bss{"OM"}	= "Ongehuwd";
+    $bss{"HM"}	= "Gehuwd";
+    $bss{"SM"}	= "Gescheiden";
+    $bss{"WM"}	= "Weduwnaar";
+    $bss{" V"}	= "Ongehuwd";
+    $bss{"OV"}	= "Ongehuwd";
+    $bss{"HV"}	= "Gehuwd";
+    $bss{"SV"}	= "Gescheiden";
+    $bss{"WV"}	= "Weduwe";
+    $bss{" O"}	= "Ongehuwd";
+    $bss{"OO"}	= "Ongehuwd";
+    $bss{"HO"}	= "Gehuwd";
+    $bss{"SO"}	= "Gescheiden";
+    $bss{"WO"}	= "Weduw(e/naar)";
+
+    $vtr{""}	= "";
+    $vtr{"V"}	= "Vertrek";
+    $vtr{"E"}	= "Emigratie";
+    $vtr{"O"}	= "Overlijden";
+    $vtr{"H"}	= "Huwelijk";
+    $vtr{"S"}	= "Vrijstelling";
+    $vtr{"D"}	= "Diversen";
+
+    $s_gem	= "";
+    $lpseqno	= 0;
+
+    reset_lp ();
+
+    $footer = 0;
+    if (@fmt && $fmt[-1] eq "EOF") {
+	pop @fmt;
+	$footer = 1;
+	}
+    } # init_var
+
+sub reset_lp
+{
+    $lpseqno++;
+    reset "en";
+    $e100010 = $s_gem;
+    } # reset_lp
+
+sub create_elements
+{
+    $e180011 eq "" && ($e180011 = $e180010);
+    $e180021 eq "" && ($e180021 = $e180020);
+    $e180251 eq "" && ($e180251 = $e180250);
+    $e180281 eq "" && ($e180281 = $e180280);
+
+    $e180022 = initials  ($e180020);
+    $e180023 = initials  ($e180021);
+    $e180024 = initials2 ($e180020);
+    $e180025 = initials2 ($e180021);
+
+    ($e180012 = "$e180025 $e180011") =~ s/^\s+//;
+
+    $e180051 = $sex{$e180050};
+    $e180052 = $sxx{$e180050};
+    $e180431 = $bss{$e180430};
+    $e180432 = $bss{pack ("AA", $e180430, $e180050)};
+
+    $e180131 = $vtr{$e180130};
+
+    $e180152 = $e180150 eq "" ? $e180241 : join " ",
+		grep (m/\S/, $e180190, $e180151, $e180160, $e180170, $e180180);
+
+    $e180221 eq "" && ($e180221 = $s_gem);
+    $e180212 = "$e180211$e180221";
+
+    $e180411 = $e180410 || "0";
+
+    $e150021 = $e150020;
+    foreach $ei (1 .. $en15) {
+	$e = "e150020_$ei";
+	$e150021 .= " $$e";
+	}
+    $e150021 =~ s/\s\s+/ /g;
+
+    $e327011 eq "" && ($e327011 = $e327010); $en32{"7011"}++;
+    $e327031 eq "" && ($e327031 = $e327030); $en32{"7031"}++;
+    $e327071 eq "" && ($e327071 = $e327070); $en32{"7071"}++;
+    $e327091 eq "" && ($e327091 = $e327090); $en32{"7091"}++;
+
+    # Datum ingang school, rekening houdend met `gaten'
+    $ei = $en19 - 1;
+    while ($ei >= 1) {
+	$e0030 = ${"e190030_$ei"};
+	$e0031 = ${"e190031_$ei"};
+	for ($ej = $ei; $ei >= 1 && ${"e190050_$ej"} == ${"e190050_$ei"}; $ei--) {
+	    ${"e190080_$ei"} = $e0030;
+	    ${"e190081_$ei"} = $e0031;
+	    }
+	}
+    if ($e190050 == $e190050_1) {
+	$e190080 = $e0030;
+	$e190081 = $e0031;
+	}
+    else {
+	$e190080 = $e190030;
+	$e190081 = $e190031;
+	}
+    } # create_elements

@@ -1,0 +1,351 @@
+#!/usr/bin/perl -w
+# File: atsar-tk
+# Mark Overmeer, AT Computing, The Netherlands
+# Example for YAPC::Europe 2001
+#
+# This example program demonstrates a graphical interface built over
+# the output of the linux version of the command `atsar'.  It is *not*
+# a full implementation, nor robust.  The main limitation is that
+# it can not handle multi-network-interface and multi-processor
+# information as presented by atsar (when applicable)
+#
+# Atsar is available from ftp://ftp.ATComputing.nl/pub/tools/linux
+
+use strict;
+
+use Tk;
+use Tk::Dialog;
+use IO::File;
+
+use lib 'examples';
+use vumeter;
+
+my $atsar    = 'atsar';
+my $interval = 1;
+
+# Fields of the header.
+# Linux  meteor  2.2.13  #4 Tue Mar 28 18:54:06 CEST 2000  i686  04/23/2000
+
+my @headerfields = qw/sysname nodename release runlevel
+   buildwday buildmonth buildmday buildtime buildtimezone buildyear
+   processor date/;
+my @showheader   = qw/nodename date sysname release processor/;
+
+my @tables =
+( { button  => 'Processor'
+  , title   => 'Processor information'
+  , command => "$atsar -u"
+  , extras  => \&cpu_create_bar
+  , update  => \&cpu_update_bar
+  }
+, { button  => 'Disk util'
+  , title   => 'Disk Utilization'
+  , command => "$atsar -d"
+  }
+, { button  => 'Disk part'
+  , title   => 'Disk Partition Utilization'
+  , command => "$atsar -D"
+  }
+, { button  => 'Memory'
+  , title   => 'Memory and Swap'
+  , command => "$atsar -r"
+  , convert => sub { $_ = ($`*1024).'K' if $_[0] ne 'time' && /M$/ }
+  }
+, { button  => 'Paging'
+  , title   => 'Paging and Swapping'
+  , command => "$atsar -p"
+  }
+, { button  => 'Interrupts'
+  , title   => 'Interrupts per seconds'
+  , command => "$atsar -I"
+  }
+, { button  => 'Kernel'
+  , title   => 'Utilization of kernel-tables'
+  , command => "$atsar -v"
+  }
+, { button  => 'Networking'
+  , title   => 'Network interfaces'
+  , command => "$atsar -l"
+  }
+, { button  => 'Net errors'
+  , title   => 'Network interface errors'
+  , command => "$atsar -l"
+  }
+, { button  => 'IP traffic'
+  , title   => 'IP network traffic'
+  , command => "$atsar -w"
+  }
+, { button  => 'IP errors'
+  , title   => 'IP network errors'
+  , command => "$atsar -W"
+  }
+, { button  => 'ICMP layer'
+  , title   => 'General ICMP layer'
+  , command => "$atsar -m"
+  }
+, { button  => 'ICMP per-type'
+  , title   => 'Per-type ICMP layer'
+  , command => "$atsar -M"
+  }
+, { button  => 'TCP traffic'
+  , title   => 'TCP network traffic'
+  , command => "$atsar -t"
+  }
+, { button  => 'TCP errors'
+  , title   => 'TCP traffic errors'
+  , command => "$atsar -T"
+  }
+);
+
+# FILLHASH
+# Split the line in fields according to the column-names.
+
+sub fillhash($$@)
+{   my ($hash, $line, @fieldorder) = @_;
+    @$hash{ @fieldorder } = split " ", $line;
+}
+
+# FIELDLIST
+# Create Tk-list combining fieldname and related value.
+
+sub fieldlist($$$;@)
+{   my ($mw, $hash, $anchor, @fieldselection) = @_;
+
+    # If we received a list of options, we take that list, otherwise
+    # all fields are taken in the order of the fields as found in the
+    # atsar output.
+    my @order = @fieldselection
+              ? @fieldselection
+              : $hash->{_default_order};
+
+    my $f = $mw->Frame;
+
+    foreach (@order)
+    {
+        # Label showing the name of the field.
+        my $name    = $f->Label
+           ( -text    => $_
+           , -anchor  => 'w'
+           );
+
+        # Be sure the field is initialised before the tie for
+        # the button is created.
+        $hash->{$_} = ''
+           unless exists $hash->{$_};
+
+        # Label showing the actual value for the field.
+        my $value   = $f->Label
+          ( -textvariable => \$hash->{$_}
+          , -anchor  => $anchor 
+          , -width   => 12
+          );
+
+        # Put both labels next to each other as one row within the frame.
+        $name->grid($value, -sticky => 'we');
+    }
+
+    $f;
+}
+
+# CREATE_HEADER(parent)
+# General system information window.
+
+sub create_header($)
+{   my $mw     = shift;
+    my $header = {};
+
+    # Get first line with content.
+    open IN, "$atsar -r 1 0 |" or die;
+    while(<IN>) {last if length > 10}
+    close IN;
+
+    # Combine content of line with variables.
+    fillhash $header, $_, @headerfields;
+
+    # Create the visible representation for this data.  Not
+    # all fields are shown.
+    my $window = fieldlist $mw, $header, 'w', @showheader;
+
+    ($header, $window);
+}
+
+sub start()
+{   my $table  = shift;
+    my $fields = {};
+
+    my $in = new IO::File;
+
+    # Start atsar with the right flags.  To have atsar run unlimited,
+    # you have to request for a huge number of intervals.
+    open $in, "$table->{command} $interval 100000 |" or die;
+
+    # Get the table description line.
+    while(<$in>) { last if /_\s*$/ }
+    my @line_order = split;       # get the column-names.
+    $line_order[0] = 'time';      # replace start-time by a name.
+    pop @line_order;              # name of value-set not needed.
+
+    # Create the window to display the requested kind of atsar output.
+    my $popup = new MainWindow;
+    $popup->title($table->{title});
+
+    # Create the (vertical) list of fieldnames -- values.
+    my $l = fieldlist $popup, $fields, ($table->{anchor} || 'e'), @line_order;
+
+    # We need some info later, when displaying the lines of values.
+    $fields->{_default_order} = \@line_order;
+    $fields->{_update}        = $table->{update} if exists $table->{update};
+    $fields->{_convert}       = $table->{convert}
+        if exists $table->{convert};
+
+    # You may want to stop once...
+    my $d = $popup->Button
+      ( -text    => 'Dismiss'
+      , -command => [ sub {close $in; $popup->destroy} ]
+      );
+
+    # Show description of value-set.
+    $popup->Label
+      ( -text    => $table->{title}
+      , -width   => 20
+      , -anchor  => 'c'
+      )->grid(-sticky => 'ew');
+
+    # Show how often we update.
+    $popup->Label
+      ( -text    => "Interval: $interval secs"
+      , -anchor  => 'c'
+      )->grid(-sticky => 'ew');
+
+    # Hook for tricks.
+    if(exists $table->{extras})
+    {   my $extras = $table->{extras}->($popup);
+        $l->grid($extras);
+        $d->grid(-pady => '3m');
+    }
+    else
+    {   $l->grid();
+        $d->grid(-pady => '3m');
+    }
+
+    # Start waiting for new datalines to arrive.
+    $popup->fileevent($in, 'readable', [ \&line, $popup, $in, $fields ]);
+
+    $popup;
+}
+
+#
+# LINE
+# Process one arrived line.
+#
+
+sub line($$)
+{   my ($popup, $file, $hash) = @_;
+    my $line = <$file>;
+
+    if($line =~ /not supported/)
+    {    $popup->Dialog
+           ( -text    => 'Not supported'
+           , -buttons => [ 'OK' ]
+           )->Show;
+
+         $popup->withdraw;
+         $popup->destroy;
+    }
+
+    my @fields = split " ", $line;
+
+    if(exists $hash->{_convert})
+    {   my @order  = @{$hash->{_default_order}};
+        map {$hash->{_convert}->(shift @order)} @fields;
+    }
+
+    # Update the values related to the columns.  Because to the tie
+    # which is created by Tk, the value displayed on the related labels
+    # are automagically updated.
+    # A line may only contain a time-update.
+
+    my @line_order = @{$hash->{_default_order}};
+    if(@fields==1) { $hash->{$line_order[0]} = $fields[0] }
+    else           { @$hash{ @line_order }   = @fields    }
+
+    # Hook for updating extras.
+    $hash->{_update}->($popup, $hash)
+        if exists $hash->{_update};
+
+    $popup;
+}
+
+#
+# Create an cpu-bar
+#
+
+sub cpu_create_bar($)
+{   my $parent  = shift;
+    my $cpu_bar = $parent->vumeter
+      ( -background  => 'white'
+      , -maxsum      => 100
+      );
+
+    $parent->Advertise(cpu => $cpu_bar);
+    $cpu_bar;
+}
+
+sub cpu_update_bar($$)
+{   my ($parent, $hash) = @_;
+    $parent->Subwidget('cpu')
+           ->addValues([ @$hash{qw(%usr %sys %nice)} ]);
+}
+
+# Create entry where user can specify the update interval.
+sub create_interval($)
+{   my $mw = shift;
+    my $f  = $mw->Frame;
+
+    my $l  = $f->Label(-text => 'Interval', -anchor => 'e');
+    my $e  = $f->Entry(-textvariable => \$interval, -width => 5);
+    my $s  = $f->Label(-text => 'secs', -anchor => 'w');
+    
+    $l->grid($e, $s, -sticky => 'ne');
+    $f;
+}
+
+# Create a matrix of buttons for all kinds of atsar output.
+sub create_buttons($)
+{   my $mw  = shift;
+
+    my $buttons = $mw->Frame;
+    my @buttons = map { $buttons->Button
+      ( -text    => $_->{button}
+      , -command => [ \&start, $_ ]
+      ) } @tables;
+
+    for(my $i=0; $i<@buttons; $i++)
+    {   $buttons[$i]->grid
+          ( -row    => $i%4
+          , -column => int($i/4)
+          , -sticky => 'ew'
+          );
+    }
+
+    $buttons;
+}
+
+#
+# Create MainWindow
+#
+
+my $mw               = new MainWindow;
+my ($header, $frame) = create_header   $mw;
+my $set_interval     = create_interval $mw;
+my $buttons          = create_buttons  $mw;
+
+my $quit = $mw->Button
+  ( -text     => 'Quit'
+  , -command  => sub {exit 0}
+  );
+
+$frame->grid($buttons, -sticky => 'nsew');
+$set_interval->grid($quit, -pady => '3m');
+
+MainLoop;

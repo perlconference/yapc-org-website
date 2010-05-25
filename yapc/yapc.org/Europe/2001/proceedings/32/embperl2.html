@@ -1,0 +1,1808 @@
+<HTML>
+<HEAD>
+<TITLE>Embperl - Building dynamic Websites with Perl</TITLE>
+</HEAD>
+
+<BODY>
+<center>
+<H1><A NAME="name">Embperl - Building dynamic Websites with Perl</A></H1>
+
+<p>YAPC Europe / Amsterdam</p>
+<p>Friday, 3 August 2001</p>
+<p>Gerald Richter / ecos gmbh &lt;richter@dev.ecos.de&gt;</p>
+
+</center>
+<hr>
+<!-- INDEX BEGIN -->
+
+<UL>
+
+	<LI><A HREF="#Embperl_Building_dynamic_Websi">Embperl - Building dynamic Websites with Perl</A>
+	<LI><A HREF="#What_is_Embperl_">What is Embperl?</A>
+	<UL>
+
+		<LI><A HREF="#How_does_it_compare_to_other_tem">How does it compare to other templating solutions ?</A>
+		<LI><A HREF="#Focus_of_this_document">Focus of this document</A>
+	</UL>
+
+	<LI><A HREF="#How_to_Embed_Perl_Code_in_HTML_D">How to Embed Perl Code in HTML Documents</A>
+	<UL>
+
+		<LI><A HREF="#1_Execute_code">1.)    [- ... -]    Execute code</A>
+		<LI><A HREF="#2_Output_the_result">2.)    [+ ... +]    Output the result</A>
+		<LI><A HREF="#3_Execute_code_once">3.)    [! ... !]    Execute code once</A>
+		<LI><A HREF="#Meta_Commands">Meta-Commands</A>
+		<UL>
+
+			<LI><A HREF="#if_elsif_else_endif">if, elsif, else, endif</A>
+			<LI><A HREF="#while_endwhile">while, endwhile</A>
+			<LI><A HREF="#do_until">do, until</A>
+			<LI><A HREF="#foreach_endforeach">foreach, endforeach</A>
+			<LI><A HREF="#var_var1_var2_">var &lt;var1&gt; &lt;var2&gt; ...</A>
+			<LI><A HREF="#hidden">hidden</A>
+		</UL>
+
+	</UL>
+
+	<LI><A HREF="#Dynamic_Tables">Dynamic Tables</A>
+	<UL>
+
+		<LI><A HREF="#Display_a_Perl_Array">Display a Perl Array</A>
+		<LI><A HREF="#Simple_DBI_Example">Simple DBI Example</A>
+	</UL>
+
+	<LI><A HREF="#Form_fields">Form fields</A>
+	<UL>
+
+		<LI><A HREF="#Posted_form_data_available_in_f">Posted form data available in %fdat/@ffld</A>
+		<LI><A HREF="#Input_Textarea_Select_tags_take_">Input/Textarea/Select tags take values from %fdat</A>
+		<LI><A HREF="#_hidden_">[$ hidden $]</A>
+		<LI><A HREF="#A_simple_Text_input_Confirmati">A simple Text input / Confirmation form</A>
+	</UL>
+
+	<LI><A HREF="#Maintaining_persistent_session_">Maintaining persistent (session) data</A>
+	<LI><A HREF="#Database_access">Database access</A>
+	<UL>
+
+		<LI><A HREF="#Plain_DBI">Plain DBI</A>
+		<LI><A HREF="#DBIx_Recordset">DBIx::Recordset</A>
+		<LI><A HREF="#Search_Example">Search Example</A>
+		<LI><A HREF="#Search_sets_up_a_Recordset_objec">Search sets up a Recordset object</A>
+		<LI><A HREF="#Data_can_accessed_as_array_or_vi">Data can accessed as array or via the current record</A>
+		<LI><A HREF="#Fields_can_be_accessed_by_name">Fields can be accessed by name</A>
+		<LI><A HREF="#PrevNextForm_generates_no_one_tw">PrevNextForm generates no/one/two buttons depending if</A>
+		<LI><A HREF="#As_for_Search_there_are_methods_">As for Search there are methods for Insert/Update/Delete</A>
+		<LI><A HREF="#Database_table_can_also_tied_to_">Database table can also tied to a hash</A>
+	</UL>
+
+	<LI><A HREF="#Breaking_your_code_up_into_compo">Breaking your code up into components</A>
+	<UL>
+
+		<LI><A HREF="#Subroutines">Subroutines</A>
+		<LI><A HREF="#Execute">Execute</A>
+	</UL>
+
+	<LI><A HREF="#EmbperlObject">EmbperlObject</A>
+	<UL>
+
+		<LI><A HREF="#Motivation_Constructing_Modular">Motivation: Constructing Modular Websites</A>
+		<LI><A HREF="#Configuring_F_httpd_conf_">Configuring &lt;EM&gt;httpd.conf&lt;/EM&gt;</A>
+	</UL>
+
+	<LI><A HREF="#Hello_World">Hello World</A>
+	<LI><A HREF="#Website_Global_Variables">Website-Global Variables</A>
+	<LI><A HREF="#Modular_Files">Modular Files</A>
+	<LI><A HREF="#Modular_File_Inheritance">Modular File Inheritance</A>
+	<LI><A HREF="#Subroutines_in_EmbperlObject">Subroutines in EmbperlObject</A>
+	<LI><A HREF="#Embperl_2_0">Embperl 2.0</A>
+	<LI><A HREF="#Custom_Syntaxes">Custom Syntaxes</A>
+	<UL>
+
+		<LI><A HREF="#Example_for_the_definition_of_th">Example for the definition of the INPUT tag in Embperl</A>
+		<LI><A HREF="#Example_for_modifying_the_SRC_at">Example for modifying the SRC attribute of an IMG tag</A>
+		<LI><A HREF="#Adding_new_HTML_XML_tags">Adding new HTML/XML tags</A>
+	</UL>
+
+	<LI><A HREF="#XML">XML</A>
+	<LI><A HREF="#Performance">Performance</A>
+	<LI><A HREF="#More_Information_Support">More Information / Support</A>
+	<LI><A HREF="#Author">Author</A>
+</UL>
+<!-- INDEX END -->
+
+<HR>
+<P>
+<HR>
+<H1><A NAME="Embperl_Building_dynamic_Websi">Embperl - Building dynamic Websites with Perl</A></H1>
+<P>
+
+<P>
+<HR>
+<H1><A NAME="What_is_Embperl_">What is Embperl?</A></H1>
+<P>
+Embperl started as a Perl module for simply embedding Perl into HTML and
+has grown into a full-featured system for building dynamic content, not
+only under mod_perl. The version 1.x focuses on HTML documents, but it
+could also be used for any kind of ascii files, and it has a lot of
+features which are especially useful in a Web environment. These features
+include handling of form data, dynamic HTML tables/lists, session
+management and context sensitive escaping and unescaping. Moreover you can
+break up your documents into small reusable components/objects and build an
+object-oriented website out of these objects, by using inheritance and
+specifically overriding parts of the page. Also, Embperl can cope with
+pages that are screwed up by high-level HTML editors, so your designer can
+still use their favorite tool.
+
+<P>
+Embperl 2.0, which is a complete rewrite of the Embperl core, is not only
+much faster than 1.x, but adds many new possibilities. You can extend or
+define your own syntax, thus having the chance to trigger actions on
+certain tags or inventing your own tags (creating a taglib). It is much
+more modularized, so specific steps could be replaced by a custom
+processor, and more than one processor can act on a document before it goes
+to the browser (just like a Unix pipe). To enhance performance Embperl 2.0
+introduces caching of the output or intermediate steps.
+
+<P>
+Due to this modularization, it is now possible to replace the Embperl
+parser by an XML parser and do XML processing, for example by plugging in
+an XSLT processor in the processing pipeline. Embperl 2.0 will soon come
+with modules to use the Apache XERCES C++ XML Parser and XALAN C++ XSLT
+processor.
+
+<P>
+All versions of Embperl can be used offline (as a normal CGI script or as a
+module from other Perl code), but its real power comes when running under
+mod_perl and Apache. It's directly integrated with Apache and mod_perl to
+achieve the best performance by directly using Apache functions and
+precompiling your code to avoid a recompile on every request.
+
+<P>
+<HR>
+<H2><A NAME="How_does_it_compare_to_other_tem">How does it compare to other templating solutions ?</A></H2>
+<P>
+Embperl is not the only processor for embedded Perl code. It sometimes
+seems like every other web programmer builds his own templating engine!
+Most of them are very similar and easy, and do a good job in a certain
+environment. Often after a while these developers discover that they need
+more features and that other people in the same situation have already
+built a solution for their problems. At the moment there are five widely
+used Perl modules for generating dynamic web content (HTML::Embperl,
+Apache::ASP, HTML::Mason, Template::Toolkit and AxKit). All of these have
+their special strengths. So why use Embperl? We believe that Embperl,
+especially the upcoming version 2.0, covers all of the aspects of these
+modules and integrates them in one module with additional benefits that are
+unique to Embperl. Additionally Embperl is the fastest of these solutions,
+because its engine is totally written in C and is optimized for delivering
+dynamic content online.
+
+<P>
+A another competitor to Embperl is PHP. PHP is developing a strong user
+base, because it is rumored to be easy to learn, and was designed
+specifically for HTML. Also PHP is probably one of the strongest open
+source alternatives to using Perl in your HTML; however its target is very
+web-centric and you may discover at a certain point that it has its
+limitations when you try to realize great projects. Finally, it's not true
+(as some anecdotal stories on the Web might want to make you believe), that
+PHP is faster than Perl. Perl, and therfore Embperl also, scales and
+performs very well for high-end solutions. 
+
+<P>
+<HR>
+<H2><A NAME="Focus_of_this_document">Focus of this document</A></H2>
+<P>
+This document starts with an introduction to the basics of Embperl,
+continues with object-oriented website building and finally talks about
+Embperl 2.0, covering the definition of syntaxes, XML and performance.
+Since especialy the XML part of Embperl is under heavily developement you
+should check out the Embperl website for updated informations.
+
+<P>
+<HR>
+<H1><A NAME="How_to_Embed_Perl_Code_in_HTML_D">How to Embed Perl Code in HTML Documents</A></H1>
+<P>
+Perl code can be embedded in three ways:
+
+<P>
+<HR>
+<H2><A NAME="1_Execute_code">1.)    [- ... -]    Execute code</A></H2>
+<P>
+<PRE>    [- $a = 5 -]  [- $b = 6 if ($a == 5) -]
+</PRE>
+<P>
+The code between the [- and the -] is executed. No output will be generated
+in the HTML. This is mainly for assignments, function calls, database
+queries, etc.
+
+<P>
+<HR>
+<H2><A NAME="2_Output_the_result">2.)    [+ ... +]    Output the result</A></H2>
+<P>
+<PRE>    [+ $a +]  [+ $array[$b] +] [+ &quot;A is $a&quot; +]
+</PRE>
+<P>
+The code between the [+ and the +] is executed and the return value (the
+value of the last expression evaluated) is output (sent to the browser in
+the HTML stream).
+
+<P>
+<HR>
+<H2><A NAME="3_Execute_code_once">3.)    [! ... !]    Execute code once</A></H2>
+<P>
+<PRE>    [! sub foo { my ($a, $b) = @_ ; $a * $b + 7 } !]
+</PRE>
+<P>
+Same as [- ... -], but the code is only executed for the first request.
+This is mainly for function definitions and one-time initialization.
+
+<P>
+<HR>
+<H2><A NAME="Meta_Commands">Meta-Commands</A></H2>
+<P>
+Embperl support some meta commands to control the ``program flow'' within
+the Embperl document. This can be compared to preprocessor commands in C.
+The meta commands take the following form:
+
+<P>
+<PRE>    [$ &lt;cmd&gt; &lt;arg&gt; $]
+</PRE>
+<P>
+<HR>
+<H3><A NAME="if_elsif_else_endif">if, elsif, else, endif</A></H3>
+<P>
+The if command is just the same as in Perl. It is used to conditionally
+output/process parts of the document. Example:
+
+<P>
+<PRE> [$ if $ENV{REQUEST_METHOD} eq 'GET' $]
+    This is a GET request
+ [$ elsif $ENV{REQUEST_METHOD} eq 'POST' $]
+    This is a POST request
+ [$ else $]
+    This is not GET and not POST
+ [$ endif $]
+</PRE>
+<P>
+This will output one of the three lines depending on the setting of
+$ENV{REQUEST_METHOD}.
+
+<P>
+<HR>
+<H3><A NAME="while_endwhile">while, endwhile</A></H3>
+<P>
+The while command can be used to create a loop in the HTML document. For
+example:
+
+<P>
+<PRE> [$ while ($k, $v) = each (%ENV) $]
+    [+ $k +] = [+ $v +] &lt;BR&gt;
+ [$ endwhile $]
+</PRE>
+<P>
+The above example will display all environment variables, each terminated
+with a line break.
+
+<P>
+<HR>
+<H3><A NAME="do_until">do, until</A></H3>
+<P>
+The do until also create a loop, but with a condition at the end. For
+example:
+
+<P>
+<PRE> [- @arr = (3, 5, 7); $i = 0 -]
+ [$ do $]
+    [+ $arr[ $i++ ] +]
+ [$ until $i &gt; $#arr $]
+</PRE>
+<P>
+<HR>
+<H3><A NAME="foreach_endforeach">foreach, endforeach</A></H3>
+<P>
+Create a loop iterating over every element of an array/list. Example:
+
+<P>
+<PRE> [$ foreach $v (1..10) $]
+    [+ $v +]
+ [$ endforeach $]
+</PRE>
+<P>
+<HR>
+<H3><A NAME="var_var1_var2_">var &lt;var1&gt; &lt;var2&gt; ...</A></H3>
+<P>
+By default, you do not need to declare any variables you use within an
+Embperl page. Embperl takes care of deleting them at the end of each
+request. Sometimes, though, you want to declare them explicitly. You can do
+this by using var:
+
+<P>
+<PRE> [$ var $a @b %c $]
+</PRE>
+<P>
+Has the same effect as the Perl code:
+
+<P>
+<PRE> use strict ;use vars qw {$a @b %c} ;
+</PRE>
+<P>
+<HR>
+<H3><A NAME="hidden">hidden</A></H3>
+<P>
+hidden is used for creating hidden form fields and is described in the form
+field section below.
+
+<P>
+<HR>
+<H1><A NAME="Dynamic_Tables">Dynamic Tables</A></H1>
+<P>
+A very powerful feature of Embperl is the processing of dynamic tables.
+This feature was designed mainly to display Perl arrays (one or two
+dimensional, regular and irregular), but can also be used in other ways.
+
+<P>
+<HR>
+<H2><A NAME="Display_a_Perl_Array">Display a Perl Array</A></H2>
+<P>
+<PRE> [- @a = ( 'A', 'B', 'C') ; -]
+ &lt;TABLE BORDER=1&gt;
+   &lt;TR&gt;
+        &lt;TD&gt; [+ $a[$row] +] &lt;/TD&gt;
+   &lt;/TR&gt;
+ &lt;/TABLE&gt;
+</PRE>
+<P>
+The above example simply displays a table with three rows containing A, B
+and C.
+
+<P>
+The trick is done by using the magical variable <CODE>$row</CODE> which
+contains the row count and is incremented for every row. The table ends if
+the expression which contains <CODE>$row</CODE> returns &lt;undef&gt;. The
+same can be done with <CODE>$col</CODE> for columns and <CODE>$cnt</CODE>
+can be used if you need a table which wraps after a certain number of
+elements.
+
+<P>
+This works with table/select/menu/ol/dl/dir
+
+<P>
+<HR>
+<H2><A NAME="Simple_DBI_Example">Simple DBI Example</A></H2>
+<P>
+Here is a simple DBI example that displays the result of a query as a two
+dimension table, with field names as headings in the first row:
+
+<P>
+<PRE> [-
+ # connect to database
+  $dbh = DBI-&gt;connect($DSN) ;
+</PRE>
+<P>
+<PRE> # prepare the sql select
+ $sth = $dbh -&gt; prepare (&quot;SELECT * from $table&quot;) ;
+</PRE>
+<P>
+<PRE> # excute the query
+ $sth -&gt; execute ;
+</PRE>
+<P>
+<PRE> # get the fieldnames for the heading in $head
+ $head = $sth -&gt; {NAME} ;
+</PRE>
+<P>
+<PRE> #continues on the next page...
+ # get the result in $dat $dat = $sth -&gt; fetchall_arrayref ;
+ -]
+</PRE>
+<P>
+<PRE> &lt;table&gt;
+    &lt;tr&gt;&lt;th&gt;[+ $head-&gt;[$col] +]&lt;/th&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;[+ $dat -&gt; [$row][$col] +]&lt;/td&gt;&lt;/tr&gt;
+ &lt;/table&gt;
+</PRE>
+<P>
+<HR>
+<H1><A NAME="Form_fields">Form fields</A></H1>
+<P>
+<HR>
+<H2><A NAME="Posted_form_data_available_in_f">Posted form data available in %fdat/@ffld</A></H2>
+<P>
+The hash <CODE>%fdat</CODE> contains all values of form fields. The array @ffld contains the names in the order in which they were submitted.
+
+<P>
+<HR>
+<H2><A NAME="Input_Textarea_Select_tags_take_">Input/Textarea/Select tags take values from %fdat</A></H2>
+<P>
+If you do not specify a default value for an input tag and a value for that
+input tag is available in %fdat, Embperl will automatically insert this
+value and send it to the browser. This is similar to the behavior of
+CGI.pm. This means that if you post a form to itself, the browser will
+display the values you just entered.
+
+<P>
+<HR>
+<H2><A NAME="_hidden_">[$ hidden $]</A></H2>
+<P>
+[$ hidden $] creates hidden form fields for all fields not in another input
+field. This can be used to transport data through confirmation forms. (For
+example, a wizard.)
+
+<P>
+<HR>
+<H2><A NAME="A_simple_Text_input_Confirmati">A simple Text input / Confirmation form</A></H2>
+<P>
+The following example shows many of the possibilities of Embperl. It's a
+simple form where you can enter your name, your email address and a
+message. If you hit the send button, you see the data you just entered and
+can confirm the information by hitting the ``send via mail'' button, or you
+can go back to the input form to change the data. If you confirm your
+input, the data will be sent to a predefined e-mail address. The example
+also shows how you can implement error checking--if you miss your name or
+your e- mail address, you will get a corresponding error message and the
+input form is shown again.
+
+<P>
+The first part is the error checking; the second part the confirmation
+form; the third part sends the mail if the input was ok and is confirmed;
+the last part is the input form itself.
+
+<P>
+Depending on the values of $fdat{check}, $fdat{send} and if $fdat{name} and
+$fdat{email} contains data, the document decides which part to show.
+
+<P>
+<PRE> [-  $MailTo = 'richter\@ecos.de' ;
+</PRE>
+<P>
+<PRE>  @errors = () ;
+  if (defined($fdat{check}) || defined($fdat{send}))
+    {
+    push @errors, &quot;**Please enter your name&quot; if (!$fdat{name}) ;
+    push @errors, &quot;**Please enter your e-mail address&quot; if (!$fdat{email}) ;
+    }
+ -]
+</PRE>
+<P>
+<PRE> [$if (defined($fdat{check}) and $#errors == -1)$]
+ [-
+  delete $fdat{input} ;
+  delete $fdat{check} ;
+  delete $fdat{send}
+ -]
+</PRE>
+<P>
+<PRE> &lt;hr&gt;&lt;h3&gt; You have entered the following data:&lt;/h3&gt;
+ &lt;table&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt;&lt;td&gt;[+$fdat{name}+]&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;E-Mail&lt;/b&gt;&lt;/td&gt;&lt;td&gt;[+$fdat{email}+]&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td&gt;&lt;b&gt;Message&lt;/b&gt;&lt;/td&gt;&lt;td&gt;[+$fdat{msg}+]&lt;/td&gt;&lt;/tr&gt;
+  &lt;tr&gt;&lt;td align=&quot;center&quot; colspan=&quot;2&quot;&gt;
+     &lt;form action=&quot;input.htm&quot; method=&quot;GET&quot;&gt;
+       &lt;input type=&quot;submit&quot; name=&quot;send&quot;
+              value=&quot;Send to [+ $MailTo +]&quot;&gt;
+       &lt;input type=&quot;submit&quot; name=&quot;input&quot; value=&quot;Change your data&quot;&gt;
+       [$hidden$]
+    &lt;/form&gt;
+    &lt;/td&gt;&lt;/tr&gt;
+ &lt;/table&gt;
+</PRE>
+<P>
+<PRE> [$elsif defined($fdat{send}) and $#errors == -1$]
+</PRE>
+<P>
+<PRE> [- MailFormTo ($MailTo,'Formdata','email') -]
+ &lt;hr&gt;&lt;h3&gt;Your input has been sent&lt;/h3&gt;
+</PRE>
+<P>
+<PRE> [$else$]
+</PRE>
+<P>
+<PRE> &lt;hr&gt;&lt;h3&gt;Please enter your data&lt;/h3&gt;
+</PRE>
+<P>
+<PRE> &lt;form action=&quot;input.htm&quot; method=&quot;GET&quot;&gt;
+  &lt;table&gt;
+    [$if $#errors != -1 $]
+      &lt;tr&gt;&lt;td colspan=&quot;2&quot;&gt;
+      &lt;table&gt;
+    &lt;tr&gt;&lt;td&gt;[+$errors[$row]+]&lt;/td&gt;&lt;/tr&gt;
+      &lt;/table&gt;
+      &lt;/td&gt;&lt;/tr&gt;
+    [$endif$]
+    &lt;tr&gt;&lt;td&gt;&lt;b&gt;Name&lt;/b&gt;&lt;/td&gt; &lt;td&gt;&lt;input type=&quot;text&quot;
+                                        name=&quot;name&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;&lt;b&gt;E-Mail&lt;/b&gt;&lt;/td&gt; &lt;td&gt;&lt;input type=&quot;text&quot;
+                                          name=&quot;email&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td&gt;&lt;b&gt;Message&lt;/b&gt;&lt;/td&gt; &lt;td&gt;&lt;input type=&quot;text&quot;
+                                           name=&quot;msg&quot;&gt;&lt;/td&gt;&lt;/tr&gt;
+    &lt;tr&gt;&lt;td colspan=2&gt;&lt;input type=&quot;submit&quot;
+                             name=&quot;check&quot; value=&quot;Send&quot;&gt;&lt;/td&gt;&lt;/tr&gt;  &lt;/table&gt;
+ &lt;/form&gt;
+</PRE>
+<P>
+<PRE> [$endif$]
+</PRE>
+<P>
+<HR>
+<H1><A NAME="Maintaining_persistent_session_">Maintaining persistent (session) data</A></H1>
+<P>
+<PRE> (Embperl 1.2 or above)
+</PRE>
+<P>
+While hidden fields are useful when working with forms, it's often
+necessary to <STRONG>store persistent data</STRONG> in a more general way. Embperl utilizes <STRONG>Apache::Session</STRONG> to do this job. Apache::Session is caple of storing persistent data in
+memory, in a textfile or in a database. More storage methods may supported
+in the future. While you can simply call Apache::Session from an Embperl
+page, Embperl can do it for you. All you need to do is to put your data in
+the hash <STRONG>%udat</STRONG>. The next time the same user requests any Embperl page <CODE>%udat</CODE>
+will contain the same data. You can simply use this to keep state
+information for the user. Depending on your expire settings, the state can
+also kept between mulitiple sessions. A second hash, <STRONG>%mdat</STRONG>, can be used to keep a state for one page, but for multiple users. A
+simple example would be a page hit counter:
+
+<P>
+<PRE>  The page is requested [+ $mdat{counter}++ +] times
+  since [+ $mdat{date} ||= localtime +]
+</PRE>
+<P>
+The above example counts the page hits and shows the date when the page is
+first requested. You don't need to worry about performance - as long as you
+don't touch <CODE>%udat</CODE> or %mdat, no action is taken.
+
+<P>
+<HR>
+<H1><A NAME="Database_access">Database access</A></H1>
+<P>
+<HR>
+<H2><A NAME="Plain_DBI">Plain DBI</A></H2>
+<P>
+This is another example of using plain DBI within Embperl. In opposition to
+the <A HREF="#Simple_DBI_Example">example</A> I gave in the chapter about dynamic tables, this example works with
+explicit loops.
+
+<P>
+<PRE> [-
+ # connect to database
+ $dbh = DBI-&gt;connect($DSN) ;
+ # prepare the sql select
+ $sth = $dbh -&gt; prepare (&quot;SELECT * from $table&quot;) ;
+</PRE>
+<P>
+<PRE> # excute the query
+ $sth -&gt; execute ;
+</PRE>
+<P>
+<PRE> # get the fieldnames for the heading in $head
+ $head = $sth -&gt; {NAME} ;
+ -]
+</PRE>
+<P>
+<PRE> &lt;table&gt;
+    &lt;tr&gt;
+    [$ foreach $h @$head $]
+        &lt;th&gt;[+ $h +]&lt;/th&gt;
+    [$ endforeach $]
+    &lt;/tr&gt;
+    [$ while $dat = $sth -&gt; fetchrow_arrayref $]
+        &lt;tr&gt;
+            [$ foreach $v @$dat $]
+                &lt;td&gt;[+ $v +]&lt;/td&gt;
+            [$ endforeach $]   
+        &lt;/tr&gt;
+    [$ endwhile $]
+ &lt;/table&gt;
+</PRE>
+<P>
+<HR>
+<H2><A NAME="DBIx_Recordset">DBIx::Recordset</A></H2>
+<P>
+DBIx::Recordset is a module for easy database access.
+
+<P>
+<HR>
+<H2><A NAME="Search_Example">Search Example</A></H2>
+<P>
+<PRE> [-*set = DBIx::Recordset -&gt; Search ({%fdat,
+                                     ('!DataSource'   =&gt; $DSN,
+                                      '!Table' =&gt; $table,
+                                      '$max'   =&gt; 5,)}) ; -]
+ &lt;table&gt;
+  &lt;tr&gt;&lt;th&gt;ID&lt;/th&gt;&lt;th&gt;NAME&lt;/th&gt;&lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;[+ $set[$row]{id} +]&lt;/td&gt;
+    &lt;td&gt;[+ $set[$row]{name} +]&lt;/td&gt;
+  &lt;/tr&gt;
+ &lt;/table&gt;
+ [+ $set -&gt; PrevNextForm ('Previous Records',
+                          'Next Records',
+                          \%fdat) +]
+</PRE>
+<P>
+<HR>
+<H2><A NAME="Search_sets_up_a_Recordset_objec">Search sets up a Recordset object</A></H2>
+<P>
+Search will take the values from <CODE>%fdat</CODE> and use them to build a
+SQL WHERE expression. This way, what you search for depends on what is
+posted to the document. For example, if you request the document with <A
+HREF="http://host/mydoc.html?id=5">http://host/mydoc.html?id=5</A> the
+above example will display all database records where the field 'id'
+contains the value 5.
+
+<P>
+<HR>
+<H2><A NAME="Data_can_accessed_as_array_or_vi">Data can accessed as array or via the current record</A></H2>
+<P>
+The result of the query can be accessed as an array (this does not mean
+that the whole array is actually fetched from the database). Alternative,
+you can directly access the current record just by accessing the fields.
+
+<P>
+<PRE>    set[5]{id}   access the field 'id' of the sixth found record
+    set{id}      access the field 'id' of the current record
+</PRE>
+<P>
+<HR>
+<H2><A NAME="Fields_can_be_accessed_by_name">Fields can be accessed by name</A></H2>
+<P>
+While normal DBI let you access your data by column numbers,
+DBIx::Recordset uses the field names. This makes your program easier to
+write, more verbose and independent of database changes.
+
+<P>
+<HR>
+<H2><A NAME="PrevNextForm_generates_no_one_tw">PrevNextForm generates no/one/two buttons depending if
+there are more records to display</A></H2>
+<P>
+The PrevNextButtons function can be used to generate button for showing the
+previous record or the next records. PrevNextButton generates a small form
+and includes all necessary data as hidden fields. To get it to work, it's
+enough to feed this data to the next request to Search.
+
+<P>
+<HR>
+<H2><A NAME="As_for_Search_there_are_methods_">As for Search there are methods for Insert/Update/Delete</A></H2>
+<P>
+Example for Insert
+
+<P>
+If <CODE>%fdat</CODE> contains the data for the new record, the following
+code will insert a new record into the database.
+
+<P>
+<PRE> [-*set = DBIx::Recordset -&gt; Insert ({%fdat,
+                                      ('!DataSource'   =&gt; $DSN,
+                                       '!Table' =&gt; $table)}) ; -]
+</PRE>
+<P>
+<HR>
+<H2><A NAME="Database_table_can_also_tied_to_">Database table can also tied to a hash</A></H2>
+<P>
+DBIx::Recordset can also tie a database table to a hash. You need to
+specify a primary key for the table, which is used as key in the hash.
+
+<P>
+<PRE>    $set{5}{name}    access the name with the id=5
+                     (id is primary key)
+</PRE>
+<P>
+<HR>
+<H1><A NAME="Breaking_your_code_up_into_compo">Breaking your code up into components</A></H1>
+<P>
+<PRE> (Embperl 1.2 or above)
+</PRE>
+<P>
+<HR>
+<H2><A NAME="Subroutines">Subroutines</A></H2>
+<P>
+It is better to write subroutines than to keep placing repetitive pieces of
+code in your program many times. You can do this with Embperl too. As an
+example, if you have text input fields with labels, this may work better
+for you:
+
+<P>
+<PRE> [$ sub textinput $]
+    [- ($label, $name) = @_ -]
+    [+ $label +]&lt;input type=text name=[+ $name +]&gt;
+ [$ endsub $]
+</PRE>
+<P>
+<PRE> &lt;form&gt;
+    [- textinput ('Last Name', 'lname')  -]&lt;p&gt;
+    [- textinput ('First Name', 'fname') -]&lt;p&gt;
+ &lt;/form&gt;
+</PRE>
+<P>
+The <STRONG>sub</STRONG> metacommand starts the subroutine and the parameters are passed in the
+array <CODE>@_</CODE>. You can do anything in the subroutine that you would normally be able to
+do inside normal Embperl pages. Embperl lets you call this subroutine just
+like any other Perl subroutine: just write its name and, if necessary, the
+parameter list.
+
+<P>
+<HR>
+<H2><A NAME="Execute">Execute</A></H2>
+<P>
+If you are working on an entire site rather than just a few pages, you are
+well aware that there are always elements which occur in every page or
+across many pages. Instead of copying the source code to every page, you
+can include other Embperl pages in your page - so you have to write the
+source only once. Such an included page could be a header, a footer, a
+navigation bar, and so on. Embperl is not only capable of including such
+partial pages, you can also pass arguments - for example, to tell the
+navigation bar which of its own element to highlight:
+
+<P>
+<PRE> Example for a simple navigation bar
+</PRE>
+<P>
+<PRE> [- @buttons = ('Index', 'Infos', 'Search') -]
+ &lt;table&gt;&lt;tr&gt;&lt;td&gt;
+     [$if $buttons[$col] eq $param[0]$] &lt;bold&gt; [$endif$]
+     &lt;a href=&quot;[+ $buttons[$col] +].html&quot;&gt; [+ $buttons[$col] +] &lt;/a&gt;
+     [$if $buttons[$col] eq $param[0]$] &lt;/bold&gt; [$endif$]
+ &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+ &lt;hr&gt;
+</PRE>
+<P>
+Now if you are on the ``Info'' page you can include the navigation bar this
+way:
+
+<P>
+<PRE> [- Execute ('navbar.html', 'Infos') -]
+</PRE>
+<P>
+This will include the navigation bar, which is stored in the file
+navbar.html, and pass as its first parameter the string 'Infos'. The
+navigation bar module itself uses a dynamic table to display one column -
+which contains the text and a link - for every item in the array @buttons.
+The text which matches that which is passed as the first parameter is
+displayed in bold. There is also a long form of the Execute call, which
+allows you to control all of the details of how the called page is
+executed.
+
+<P>
+<HR>
+<H1><A NAME="EmbperlObject">EmbperlObject</A></H1>
+<P>
+A more sophisticated way of building a website out of components than
+simply using <CODE>sub</CODE> and <CODE>Execute</CODE>, is to use EmbperlObject. 
+
+<P>
+<HR>
+<H2><A NAME="Motivation_Constructing_Modular">Motivation: Constructing Modular Websites</A></H2>
+<P>
+Embperl is a tool which allows you to embed Perl code in your HTML
+documents. As such, it could by itself handle just about everything you
+need to do with your website. So what is the point of EmbperlObject? What
+does it give us that we don't already get with basic Embperl?
+
+<P>
+As often seems to be the case with Perl, the answer has to do with
+laziness. We would all like the task of building websites to be as simple
+as possible. Anyone who has had to build a non-trivial site using pure HTML
+will have quickly experienced the irritation of having to copy-and-paste
+common code between documents - stuff like navigation bars and table
+formats. We have probably all wished for an ``include'' HTML tag.
+EmbperlObject goes a long way toward solving this problem, without
+requiring the developer to resort to a lot of customized Perl code. 
+
+<P>
+In a nutshell, EmbperlObject extends Embperl by enabling the construction
+of websites in a modular, or object-oriented, fashion. I am using the term
+``object-oriented'' (OO) loosely here in the context of inheritance and
+overloading, but you don't really need to know anything about the OO
+paradigm to benefit from EmbperlObject. As you will see from this short
+tutorial, it is possible to benefit from using EmbperlObject with even a
+minimal knowledge of Perl. With just a little instruction, in fact, pure
+HTML coders could use it to improve their website architecture. Having said
+that, however, EmbperlObject also provides for more advanced OO
+functionality, as we'll see later.
+
+<P>
+<HR>
+<H2><A NAME="Configuring_F_httpd_conf_">Configuring &lt;EM&gt;httpd.conf&lt;/EM&gt;</A></H2>
+<P>
+The following is an example configuration for a single virtual host to use
+EmbperlObject. There are, as usual, different ways to do this; but if you
+are starting from scratch then it may be useful as a template. It works
+with the later versions of Apache (1.3.6 and up). Obviously, substitute
+your own IP address and domain name. 
+
+<P>
+<PRE>        NameVirtualHost 10.1.1.3:80
+</PRE>
+<P>
+<PRE>        &lt;VirtualHost 10.1.1.3:80&gt;
+                ServerName www.mydomain.com
+                ServerAdmin webmaster@mydomain.com
+                DocumentRoot /www/mydomain/com/htdocs
+                DirectoryIndex index.html
+                ErrorLog /www/mydomain/com/logs/error_log
+                TransferLog /www/mydomain/com/logs/access_log
+                PerlSetEnv EMBPERL_ESCMODE 0
+                PerlSetEnv EMBPERL_OPTIONS 16
+                PerlSetEnv EMBPERL_MAILHOST mail.mydomain.com
+                PerlSetEnv EMBPERL_OBJECT_BASE base.epl
+                PerlSetEnv EMBPERL_OBJECT_FALLBACK notfound.html
+                PerlSetEnv EMBPERL_DEBUG 0
+        &lt;/VirtualHost&gt;
+</PRE>
+<P>
+<PRE>        # Set EmbPerl handler for main directory
+        &lt;Directory &quot;/www/mydomain/com/htdocs/&quot;&gt;
+                &lt;FilesMatch &quot;.*\.html$&quot;&gt;
+                        SetHandler  perl-script
+                        PerlHandler HTML::EmbperlObject
+                        Options     ExecCGI
+                &lt;/FilesMatch&gt;
+                &lt;FilesMatch &quot;.*\.epl$&quot;&gt;
+                        Order allow,deny
+                        Deny From all
+                &lt;/FilesMatch&gt;
+        &lt;/Directory&gt;
+</PRE>
+<P>
+Note that you could change the .html file extension in the FilesMatch
+directive; this is a personal preference issue. Personally, I use .html for
+the main document files simply because I can edit files using my favorite
+editor (emacs) and it will automatically load html mode. Plus, this may be
+a minor thing - but using .html rather than a special extension such as
+.epl adds a small amount of security to your site since it provides no clue
+that the website is using Embperl. If you're careful about the handling of
+error messages, then there never be any indication of this. These days, the
+less the script kiddies can deduce about you, the better...
+
+<P>
+Also, note that we have added a second FilesMatch directive, which denies
+direct access to files with .epl extensions (again, you could change this
+extension to another if you like, for example .obj). This can be helpful
+for cases where you have Embperl files which contain fragments of code or
+HTML; you want those files to be in the Apache document tree, but you don't
+want people to be able to request them directly - these files should only
+included directly into other documents from within Embperl, using
+<CODE>Execute().</CODE> This is really a security issue. In the examples
+that follow, we name files which are not intended to be requested directly
+with the .epl extension. Files which are intended to be directly requested
+are named with the standard .html extension. This can also be helpful when
+scanning a directory, to see which are the main document files and which
+are the modules. Finally, note that using the Apache FilesMatch directive
+to restrict access does not prevent us from accessing these files (via
+Execute) in Embperl.
+
+<P>
+So how does all this translate into a real website? Let's have a look at
+the classic first example, Hello World.
+
+<P>
+<HR>
+<H1><A NAME="Hello_World">Hello World</A></H1>
+<P>
+The file specified by the EMBPERL_OBJECT_BASE apache directive (usually
+called <EM>base.epl</EM>) is the lynchpin of how EmbperlObject operates. Whenever a request comes
+in for any page on this website, Emperl will look for <EM>base.epl</EM> - first in the same directory as the request, and if not found there then
+working up the directory tree to the root dir of the website. For example,
+if a request comes in for <A
+HREF="http://www.yoursite.com/foo/bar/file.html,">http://www.yoursite.com/foo/bar/file.html,</A>
+then Embperl first looks for <EM>/foo/bar/base.epl</EM>. If it doesn't find <EM>base.epl</EM> there, then it looks in <EM>/foo/base.epl</EM>. If no luck, then finally
+<EM>/base.epl</EM>. (These paths are all relative to the document root for the website). What
+is the point of all this?
+
+<P>
+In a nutshell, <EM>base.epl</EM> is a template for giving a common look-and-feel to your web pages. This
+file is what is actually used to build the response to any request,
+regardless of the actual filename which was asked for. So even if <EM>file.html</EM> was requested,
+<EM>base.epl</EM> is what is actually executed. <EM>base.epl</EM> is a normal file containing valid HTML mixed with Perl code, but with a
+couple of small differences. Here's a simple 'Hello World' example of this
+approach:
+
+<P>
+<EM>/base.epl</EM>
+
+
+
+<P>
+<PRE>        &lt;HTML&gt;
+        &lt;HEAD&gt;
+                &lt;TITLE&gt;Some title&lt;/TITLE&gt;
+        &lt;/HEAD&gt;
+        &lt;BODY&gt;
+        Joe's Website
+        &lt;P&gt;
+        [- Execute ('*') -]
+        &lt;/BODY&gt;
+        &lt;/HTML&gt;
+</PRE>
+<P>
+<EM>/hello.html</EM>
+
+
+
+<P>
+<PRE>        Hello world!
+</PRE>
+<P>
+Now, if the file <A
+HREF="http://www.yoursite.com/hello.html">http://www.yoursite.com/hello.html</A>
+is requested, then
+<EM>base.epl</EM> is what will actually get executed initially. So where does the file <EM>hello.html</EM> get into the picture? Well, the key is the '*' parameter in the call to
+<CODE>Execute().</CODE> '*' is a special filename, only used in <EM>base.epl</EM>. It means, literally, ``the filename which was actually requested''.
+
+<P>
+What you will see if you try this example is something like this:
+
+<P>
+<PRE>        Joe's Website
+</PRE>
+<P>
+<PRE>        Hello world!
+</PRE>
+<P>
+As you can see here, the text ``Joe's Website'' is from <EM>base.epl</EM> and the ``Hello world!'' is from <EM>hello.html</EM>.
+
+<P>
+This architecture also means that only <EM>base.epl</EM> has to have the boilerplate code which every HTML file normally needs to
+contain - namely the &lt;HTML&gt; &lt;BODY&gt;, &lt;/HTML&gt; and so on. Since the '*' file is simply inserted into the code,
+all it needs to contain is the actual content which is specific to that
+file. Nothing else is necessary, because <EM>base.epl</EM> has all the standard HTML trappings. Of course, you'll probably have more
+interesting content, but you get the point.
+
+<P>
+<HR>
+<H1><A NAME="Website_Global_Variables">Website-Global Variables</A></H1>
+<P>
+Now let's look at a slightly more interesting example. When you create Perl
+variables in Embperl usually, their scope is the current file; so, they are
+effectively ``local'' to that file. When you come to split your website up
+into modules, however, it quickly becomes apparent that it is very useful
+to have variables which are global to the website, i.e. shared between
+multiple files.
+
+<P>
+To achieve this, EmbperlObject has special object which is automatically
+passed to every page as it is executed. This object is usually referred to
+as the ``Request'' object, because we get one of these objects created for
+every document request that the web server receives. This object is passed
+in on the stack, so you can retrieve it using the Perl ``shift'' statement.
+This object is also automatically destroyed after the request, so the
+Request object cannot be used to store data between requests. The idea is
+that you can store variables which are local to the current request, and
+shared between all documents on the current website; plus, as we'll see
+later, we can also use it to call object methods. For example, Let's say
+you set up some variables in <EM>base.epl</EM>, and then use them in <EM>file.html</EM>:
+
+<P>
+<EM>/base.epl</EM>
+
+
+
+<P>
+<PRE>        &lt;HTML&gt;
+        &lt;HEAD&gt;
+                &lt;TITLE&gt;Some title&lt;/TITLE&gt;
+        &lt;/HEAD&gt;
+        [- 
+                $req = shift;
+                $req-&gt;{webmaster} = 'John Smith'
+        -]
+        &lt;BODY&gt;
+        [- Execute ('*') -]
+        &lt;/BODY&gt;
+        &lt;/HTML&gt;
+</PRE>
+<P>
+<EM>/file.html</EM>
+
+
+
+<P>
+<PRE>        [- $req = shift -]
+        Please send all suggestions to [+ $req-&gt;{webmaster} +].
+</PRE>
+<P>
+You can see that EmbperlObject is allowing us to set up global variables in
+one place, and share them throughout the website. If you place <EM>base.epl</EM> in the root document directory, you can have any number of other files in
+this and subdirectories, and they will all get these variables whenever
+they are executed. No matter which file is requested, <EM>/base.epl</EM> is executed first, and then the requested file.
+
+<P>
+You don't even need to include the requested '*' file, but the usual case
+would be to do so - it would be a little odd to completely ignore the
+requested file!
+
+<P>
+<HR>
+<H1><A NAME="Modular_Files">Modular Files</A></H1>
+<P>
+The previous example is nice, it demonstrates the basic ability to have
+website-wide variables set up in <EM>base.epl</EM> and then automatically shared by all other files. Leading on from this, we
+probably want to split up our files, for both maintainability and
+readability. For example, a non-trivial website will probably define some
+website-wide constants, perhaps some global variables, and maybe also have
+some kind of initialization code which has to be executed for every page
+(e.g. setting up a database connection). We could put all of this in <EM>base.epl</EM>, but this file would quickly begin to look really messy. It would be nice
+to split this stuff out into other files. For example:
+
+<P>
+<EM>/base.epl</EM>
+
+
+
+<P>
+<PRE>        &lt;HTML&gt;
+        [- Execute ('constants.epl')-]
+        [- Execute ('init.epl')-]
+        &lt;HEAD&gt;
+                &lt;TITLE&gt;Some title&lt;/TITLE&gt;
+        &lt;/HEAD&gt;
+        &lt;BODY&gt;
+        [- Execute ('*') -]
+        &lt;/BODY&gt;
+        [- Execute ('cleanup.epl') -]
+        &lt;/HTML&gt;
+</PRE>
+<P>
+<EM>/constants.epl</EM>
+
+
+
+<P>
+<PRE>        [-
+                $req = shift;
+                $req-&gt;{bgcolor} = &quot;white&quot;;
+                $req-&gt;{webmaster} = &quot;John Smith&quot;;
+                $req-&gt;{website_database} = &quot;mydatabase&quot;;
+        -]
+</PRE>
+<P>
+<EM>/init.epl</EM>
+
+
+
+<P>
+<PRE>        [-
+                $req = shift;
+                # Set up database connection
+                use DBI;
+                use CGI qw(:standard);
+                $dsn = &quot;DBI:mysql:$req-&gt;{website_database}&quot;;
+                $req-&gt;{dbh} = DBI-&gt;connect ($dsn);
+        -]
+</PRE>
+<P>
+<EM>/cleanup.epl</EM>
+
+
+
+<P>
+<PRE>        [-
+                $req = shift;
+                # Close down database connection
+                $req-&gt;{dbh}-&gt;disconnect();
+        -]
+</PRE>
+<P>
+You can see how this would be useful, since every page on your site now has
+available a database connection, in $req-&gt;{dbh}. Also notice that we
+have a <EM>cleanup.epl</EM> file which is always executed at the end - this is very useful for cleaning
+up, shutting down connections and so on.
+
+<P>
+<HR>
+<H1><A NAME="Modular_File_Inheritance">Modular File Inheritance</A></H1>
+<P>
+To recap, we have seen how we can break our site into modules which are
+common across multiple files, because they are automatically included by <EM>base.epl</EM>. Inheritance is a way in which we can make our websites even more modular.
+
+<P>
+Although the concept of inheritance is one that stems from the
+object-oriented paradigm, you really don't need to be an OO guru to
+understand it. We will demonstrate the concept through a simple example,
+leading on from the previous one.
+
+<P>
+Say you wanted different parts of your website to have different &lt;TITLE&gt; tags. You could set the title in each page manually, but if you
+had a number of different pages in each section, then this would quickly
+get tiresome. Now we could split off the &lt;HEAD&gt; section into its own file, just like <EM>constants.epl</EM> and <EM>init.epl</EM>, right? But so far, it looks like we are stuck with a single <EM>head.epl</EM> file for the entire website, which doesn't really help much.
+
+<P>
+The answer lies in subdirectories. This is the key to unlocking
+inheritance, and one of the most powerful features of EmbperlObject. You
+may use subdirectories currently in your website design, maybe for purposes
+of organization and maintenance. But here, subdirectories actually enable
+you to override files from upper directories. This is best demonstrated by
+example (simplified to make this specific point clearer - assume <EM>constants.epl</EM>, <EM>init.epl</EM>
+and <EM>cleanup.epl</EM> are the same as in the previous example):
+
+<P>
+<EM>/base.epl</EM>
+
+
+
+<P>
+<PRE>        &lt;HTML&gt;
+        [- Execute ('constants.epl')-]
+        [- Execute ('init.epl')-]
+        &lt;HEAD&gt;
+        [- Execute ('head.epl')-]
+        &lt;/HEAD&gt;
+        &lt;BODY&gt;
+        [- Execute ('*') -]
+        &lt;/BODY&gt;
+        [- Execute ('cleanup.epl') -]
+        &lt;/HTML&gt;
+</PRE>
+<P>
+<EM>/head.epl</EM>
+
+
+
+<P>
+<PRE>        &lt;TITLE&gt;Joe's Website&lt;/TITLE&gt;
+</PRE>
+<P>
+<EM>/contact/head.epl</EM>
+
+
+
+<P>
+<PRE>        &lt;TITLE&gt;Contacting Joe&lt;/TITLE&gt;
+</PRE>
+<P>
+Assume here that we have an <EM>index.html</EM> file in each directory that does something useful. The main thing to focus
+on here is
+<EM>head.epl</EM>. You can see that we have one instance of this file in the root directory,
+and one in a subdirectory, namely
+<EM>/contact/head.epl</EM>. Here's the neat part: When a page is requested from your website,
+EmbperlObject will search automatically for
+<EM>base.epl</EM> first in the same directory as the requested page. If it doesn't find it
+there, then it tracks back up the directory tree until it does find the
+file. But then, when executing <EM>base.epl</EM>, any files which are Executed (such as <EM>head.epl</EM>) are first looked for in the <STRONG>original directory</STRONG> of the requested file. Again, if the file is not found there, then
+EmbperlObject tracks back up the directory tree.
+
+<P>
+So what does this mean exactly? Well, if we have a subdirectory, then we
+can if we want just have the usual <EM>index.html</EM> file and nothing else. In that case, all the files included by <EM>base.epl</EM> will be found in the root document directory. But if we redefine <EM>head.epl</EM>, as in our example, then EmbperlObject will pick up that version of the
+file whenever we are in the /contact/ subdirectory.
+
+<P>
+That is inheritance in action. In a nutshell, subdirectories inherit files
+such as <EM>head.epl</EM>, <EM>constants.epl</EM> and so on from upper, ``parent'' directories. But if we want, we can
+redefine any of these files in our subdirectories, thus specializing that
+functionality for that part of our website. If we had 20 .html files in
+/contact/, then loading any one of them would automatically get
+<EM>/contact/head.epl</EM>.
+
+<P>
+This is all very cool, but there is one more wrinkle. Let's say we want to
+redefine <EM>init.epl</EM>, because there is some initialization which is specific to the /contact/
+subdirectory. That's fine, we could create <EM>/contact/init.epl</EM> and that file would be loaded instead of
+<EM>/init.epl</EM> whenever a file is requested from the /contact/ subdir. But this also means
+that the initialization code which is in
+<EM>/init.epl</EM> would never get executed, right? That's bad, because the base version of
+the file does a lot of useful set up. The answer is simple: For cases like
+this, we just make sure and call the parent version of the file at the
+start. For example:
+
+<P>
+<EM>/contact/init.epl</EM>
+
+
+
+<P>
+<PRE>        [- Execute ('../init.epl') -]
+</PRE>
+<P>
+<PRE>        [-
+                # Do some setup specific to this subdirectory
+        -]
+</PRE>
+<P>
+You can see that the very first thing we do here is to Execute the parent
+version of the file (i.e. the one in the immediate parent directory). Thus
+we can ensure the integrity of the basic initialization which every page
+should receive.
+
+<P>
+EmbperlObject is very smart about this process. Say, for example, we have a
+situation where we have several levels of subdirectory; then, say we only
+redefine <EM>init.epl</EM> in one of the deeper levels, say
+<EM>/sub/sub/sub/init.epl</EM>. Now, if this file tries to Execute
+<EM>../init.epl</EM>, there may not be any such file in the immediate parent directory - so
+EmbperlObject automatically tracks back up the directories until it finds
+the base version, <EM>/init.epl</EM>. So, for any subdirectory level in your website, you only have to redefine
+those files which are specific to this particular area. This results in a
+much cleaner website.
+
+<P>
+You may break your files up into whatever level of granularity you want,
+depending on your needs. For instance, instead of just
+<EM>head.epl</EM> you might break it down into <EM>title.epl</EM>,
+<EM>metatags.epl</EM> and so on. It's up to you. The more you split it up, the more you can
+specialize in each of the subdirectories. There is a balance however,
+because splitting things up too much results in an overly fragmented site
+that can be harder to maintain. Moderation is the key - only split out
+files if they contain a substantial chunk of code, or if you know that you
+need to redefine them in subdirectories, generally speaking.
+
+<P>
+<HR>
+<H1><A NAME="Subroutines_in_EmbperlObject">Subroutines in EmbperlObject</A></H1>
+<P>
+There are two kinds of inheritance in EmbperlObject. The first is the one
+which we described in the previous section, i.e. inheritance of modular
+files via the directory hierarchy. The other kind, closely related, is the
+inheritance of subroutines (both pure Perl and Embperl). In this context,
+subroutines are really object methods, as we'll see below. As you are
+probably already aware, there are two kinds of subroutine in Embperl, for
+example:
+
+<P>
+<PRE>        [!
+                sub perl_sub
+                {
+                        # Some perl code
+                }
+        !]
+</PRE>
+<P>
+<PRE>        [$ sub embperl_sub $]
+                Some HTML
+        [$ endsub $]
+</PRE>
+<P>
+In EmbperlObject, subroutines become object methods; the difference is that
+you always call an object method through an object reference. For example,
+instead of a straight subroutine call like this:
+
+<P>
+<PRE>        foo();
+</PRE>
+<P>
+We have instead a call through some object:
+
+<P>
+<PRE>        $obj-&gt;foo();
+</PRE>
+<P>
+EmbperlObject allows you to inherit object methods in much the same way as
+files. Because of the way that Perl implements objects and methods, there
+is just a little extra consideration needed. (Note: This is not really a
+good place to introduce Perl's object functionality. If you're not
+comfortable with inheritance, <CODE>@ISA</CODE> and object methods, then I
+suggest you take a look at the book ``Programming Perl'' (O'Reilly) or
+``Object Oriented Perl'' by Damien Conway (Manning).)
+
+<P>
+A simple use of methods can be demonstrated using the following example:
+
+<P>
+<EM>/base.epl</EM>
+
+
+
+<P>
+<PRE>        [! sub title {'Joe's Website'} !]
+        [- $req = shift -]
+        &lt;HTML&gt;
+        &lt;HEAD&gt;
+        &lt;TITLE&gt;[+ $req-&gt;title() +]&lt;/TITLE&gt;
+        &lt;/HEAD&gt;
+        &lt;/HTML&gt;
+</PRE>
+<P>
+<EM>/contact/index.html</EM>
+
+
+
+<P>
+<PRE>        [! sub title {'Contacting Joe'} !]
+        [- $req = shift -]
+        &lt;HTML&gt;
+                A contact form goes here
+        &lt;/HTML&gt;
+</PRE>
+<P>
+This is an alternative way of implementing the previous ``contact''
+example, which still uses inheritance - but instead of placing the &lt;TITLE&gt; tag in a separate file (<EM>head.epl</EM>), we use a method (title()). You can see that we define this method in
+<EM>/base.epl</EM>, so any page which is requested from the root directory will get the title
+``Joe's Website''. This is a pretty good default title. Then, in <EM>/foo/index.html</EM> we redefine the <CODE>title()</CODE> method to return ``Contacting Joe''.
+Inheritance insures that when the call to <CODE>title()</CODE> occurs in <EM>/base.epl</EM>, the correct version of the method will be executed. Since <EM>/foo/index.html</EM> has its own version of that method, it will automatically be called instead
+of the base version. This allows every file to potentially redefine methods
+which were defined in <EM>/base.epl</EM>, and it works well. But, as your websites get bigger, you will probably
+want to split off some routines into their own files.
+
+<P>
+EmbperlObject also allows us to create special files which just contain
+inheritable object methods. EmbperlObject can set up <CODE>@ISA</CODE> for
+us, so that the Perl object methods will work as expected. To do this, we
+need to access our methods through a specially created object rather than
+directly through the Request object (usually called <CODE>$r</CODE> or
+$req). This is best illustrated by the following example, which
+demonstrates the code that needs to be added to <EM>base.epl</EM> and also shows how we implement inheritance via a subdirectory. Once again,
+assume that missing files such as <EM>constants.epl</EM> are the same as previously (Note that the 'object' parameter to Execute
+only works in 1.3.1 and above).
+
+<P>
+<EM>/base.epl</EM>
+
+
+
+<P>
+<PRE>        &lt;HTML&gt;
+        [- $subs = Execute ({object =&gt; 'subs.epl'}); -]
+        [- Execute ('constants.epl') -]
+        [- Execute ('init.epl') -]
+        &lt;HEAD&gt;
+        [- Execute ('head.epl') -]
+        &lt;/HEAD&gt;
+        &lt;BODY&gt;
+        [- Execute ('*', $subs) -]
+        &lt;/BODY&gt;
+        [- Execute ('cleanup.epl') -]
+        &lt;/HTML&gt;
+</PRE>
+<P>
+<EM>/subs.epl</EM>
+
+
+
+<P>
+<PRE>        [!
+                sub hello
+                {
+                        my ($self, $name) = @_;
+                        print OUT &quot;Hello, $name&quot;;
+                }
+        !]
+</PRE>
+<P>
+<EM>/insult/index.html</EM>
+
+
+
+<P>
+<PRE>        [-
+                $subs = $param[0];
+                $subs-&gt;hello (&quot;Joe&quot;);
+        -]
+</PRE>
+<P>
+<EM>/insult/subs.epl</EM>
+
+
+
+<P>
+<PRE>        [! Execute ({isa =&gt; '../subs.epl'}) !]
+</PRE>
+<P>
+<PRE>        [!
+                sub hello
+                {
+                        my ($self, $name) = @_;
+                        $self-&gt;SUPER::hello ($name);
+                        print OUT &quot;, you schmuck&quot;;
+                }
+        !]
+</PRE>
+<P>
+If we requested the file <EM>/insult/index.html</EM> then we would see something like
+
+<P>
+<PRE>        Hello, Joe, you schmuck
+</PRE>
+<P>
+So what is happening here? First of all, note that we create a
+<CODE>$subs</CODE> object in <EM>base.epl</EM>, using a special call to <CODE>Execute().</CODE> We then pass this object
+to files which will need it, via an <CODE>Execute()</CODE> parameter. This
+can be seen with the '*' file.
+
+<P>
+Next, we have two versions of <EM>subs.epl</EM>. The first, <EM>/subs.epl</EM>, is pretty straightforward. All we need to do is remember that all of
+these subroutines are now object methods, and so take the extra parameter
+($self). The basic <CODE>hello()</CODE> method simply says Hello to the
+name of the person passed in.
+
+<P>
+Then we have a subdirectory, called /insult/. Here we have another instance
+of <EM>subs.epl</EM>, and we redefine <CODE>hello().</CODE> We call the parent version of the
+function, and then add the insult (``you schmuck''). You don't have to call
+the parent version of methods you define, of course, but it's a useful
+demonstration of the possibilities.
+
+<P>
+The file <EM>/insult/subs.epl</EM> has to have a call to <CODE>Execute()</CODE> which sets up @ISA. This is
+the first line. You might ask why EmbperlObject doesn't do this
+automatically; it is mainly for reasons of efficiency. Not every file is
+going to contain methods which need to inherit from the parent file, and so
+simply requiring this one line seemed to be a good compromise. It also
+allows for a bit more flexibility, as you can if you want include other
+arbitrary files into the <CODE>@ISA</CODE> tree. 
+
+<P>
+<HR>
+<H1><A NAME="Embperl_2_0">Embperl 2.0</A></H1>
+<P>
+Embperl 2.0 has a totally rewritten core. It splits up the processing into
+serveral steps. Here is a small ascii graphic that should show you what
+basicly happens:
+
+<P>
+<PRE>   1 Source *
+             *
+   2          *&gt;  Parse   *
+                           *
+   3                        *&gt; Data Tree
+                           *
+   4             Compile &lt;*
+                           *
+   5                        *&gt; Data Tree
+                           * *
+   6                     &lt;*   *-------------&gt; Perl Program
+   7               Run    &lt;-----------------*
+                           *
+   8                        *&gt; Data Tree
+                           *
+   9           Stringify &lt;*
+                           *
+   10                       *---------------------------------&gt; Output
+</PRE>
+<P>
+The steps are:
+
+<OL>
+<LI><STRONG><A NAME="item_Loading_the_source">Loading the source</A></STRONG>
+<LI><STRONG><A NAME="item_Parse_the_source_">Parse the source...</A></STRONG>
+<LI><STRONG><A NAME="item__and_generate_an_internal_tree">...and generate an internal tree representation of the source</A></STRONG>
+<LI><STRONG><A NAME="item_Compile_this_tree_">Compile this tree...</A></STRONG>
+<LI><STRONG><A NAME="item__which_modifies_the_source_tre">...which modifies the source tree to fit the need for further processing</A></STRONG>
+<LI><STRONG><A NAME="item__and_generate_a_Perl_program">...and generate a Perl program</A></STRONG>
+<LI><STRONG><A NAME="item_Run_the_program">Run the program</A></STRONG>
+<LI><STRONG><A NAME="item__which_modifies_the_tree_in_th">...which modifies the tree in the desired way into a new one</A></STRONG>
+<LI><STRONG><A NAME="item_This_output_tree_is_now_converte">This output tree is now converted back into a string</A></STRONG>
+<LI><STRONG><A NAME="item__and_output_">...and output.</A></STRONG>
+</OL>
+<P>
+Because of the modular design of Embperl every step is replaceable by a
+custom module e.g. the parser could be replaced by an XML Parser instead of
+the Embperl Parser. Additionally the Run step can happen multiple times,
+which means you can have several transformations coming one after the
+other. For example the first transformation could intrepret Embperl
+directives, while the second executes SSI tags. This works like a Unix
+commandline pipe or filter. Because every step works on the already parsed
+internal tree structure, there is no need to reparse the source for every
+step, as is the case for solutions which are using for example
+Apache::Filter under mod_perl.
+
+<P>
+This gives Embperl 2.0 great fexibility and makes it possible to use
+Embperl as a framework for other templating solutions. 
+
+<P>
+<HR>
+<H1><A NAME="Custom_Syntaxes">Custom Syntaxes</A></H1>
+<P>
+The Syntax that Embperl uses can be defined and extended by the User.
+Embperl comes with a standard Syntax definition, as we have seen in the
+previous sections, but perhaps you would prefer to use an ASP-like syntax
+instead of the square brackets. In this case you could create a simple Perl
+class, which is derived form HTML::Embperl::Syntax, inherit any definition
+you want to keep and add your new ones. In this way Embperl could be
+extended for example to understand SSI or other syntaxes of templating
+engines. Even those other engines (which do not directly embed Perl into
+HTML but rather create their own language) could be emulated easily this
+way, and they would automatically benefit from all features that Embperl
+provides. However this feature is not only useful for emulating other
+template engines; you can also extend Embperl in a way that triggers
+special action on some HTML/XML tags, like Embperl does it already for
+input and table tags. Additionally it allows you to create your own tags
+and taglibs that could be used inside your pages. For example you could
+create your own tags for database queries or mail sending or whatever you
+need. In this way you could hide a complex piece of code behind a simple
+tag and by this have a proper separation between code and layout.
+
+<P>
+Of course you are not limited to one syntax for the whole site; the syntax
+could be different for different files and may be dynamically chosen on
+things like mime-type, location or file extension.
+
+<P>
+<HR>
+<H2><A NAME="Example_for_the_definition_of_th">Example for the definition of the INPUT tag in Embperl</A></H2>
+<P>
+<PRE>    $self -&gt; AddTag ('input', ['type', 'name', 'value'], ['src'], ['checked'], 
+                { 
+                perlcode =&gt;
+                    [ 
+                    'HTML::Embperl::Cmd::InputCheck (%$n%, %&amp;*\'name%, %&amp;*\'value%) ;  %&amp;=-type:radio|checkbox% ',
+                    '$idat{%&amp;*\'name%}=$fdat{%&amp;*\'name%} ; _ep_sa(%$n%, \'value\', $fdat{%&amp;*\'name%} || \'\') ;   %&amp;!-value%',
+                    '$idat{%&amp;*\'name%}=%&amp;*\'value% ; ',
+                    ]
+                }) ;
+</PRE>
+<P>
+<CODE>$self</CODE> is a refenence to the syntax object, which has several methods to add
+something to a syntax. The above example shows the simple case of adding a
+HTML tag. It takes the name of the tag, and three lists of attributes: The
+first list is normal attributes, the second is attributes that contain an
+URL and the third list is attributes that do not take a value. As the fifth
+argument the function takes the Perl code that should be generated for that
+tag. Everything between
+<CODE>%</CODE> and <CODE>%</CODE> has a special meaning and is replaced by the Embperl compiler. In the above
+case the Embperl compiler will automatically insert the correct Perl code
+for retrieving the attributes ``name'' and ``value''. By letting the
+compiler do this it can generate optimal code, depending on source.
+Additionally the compiler will pick only one of three lines of Perl code,
+depending on what attributes the <CODE>INPUT</CODE> tag contains.
+
+<P>
+<HR>
+<H2><A NAME="Example_for_modifying_the_SRC_at">Example for modifying the SRC attribute of an IMG tag</A></H2>
+<P>
+Imagine you need to modify the URL of the <CODE>SRC</CODE> attribute in every <CODE>IMG</CODE> tag that occurs. You can do this with the following small piece of code:
+
+<P>
+Definition:
+
+<P>
+<PRE>    $self -&gt; AddTag ('img', undef, ['src'], undef, 
+                { 
+                perlcode =&gt; [ 'Mytags::IMG (%$n%, %&amp;*\'src%) ;' ]
+                }) ;
+</PRE>
+<P>
+Code:
+
+<P>
+<PRE>    package Mytags ;
+</PRE>
+<P>
+<PRE>    sub IMG
+</PRE>
+<P>
+<PRE>        {
+        my ($tree, $node, $src) = @_ ;
+</PRE>
+<P>
+<PRE>        $src =~ s/.../.../ ;
+</PRE>
+<P>
+<PRE>        XML::Embperl::DOM::Node::iSetAttribute ($tree, $node, 'src', $src) ;
+        }
+</PRE>
+<P>
+or a method interface to SetAttribute
+
+<P>
+<PRE>    sub IMG
+</PRE>
+<P>
+<PRE>        {
+        my ($n, $src) = @_ ;
+</PRE>
+<P>
+<PRE>        $src =~ s/.../.../ ;
+</PRE>
+<P>
+<PRE>        $n -&gt; SetAttribute ('src', $src) ;
+        }
+</PRE>
+<P>
+The above definition tells Embperl to parse the <CODE>IMG</CODE> tag and insert a call to <CODE>Mytags::IMG</CODE> into the generated Perl program for every <CODE>IMG</CODE> tag. Not only is the function called, but additionally the value of the <CODE>SRC</CODE>
+attribute is passed to it. When the function is invoked during runtime, it
+can simply modify the value of the <CODE>SRC</CODE>
+attribute and afterwards call the function <CODE>SetAttribute</CODE> to change the value in the Embperl internal data tree.
+
+<P>
+<HR>
+<H2><A NAME="Adding_new_HTML_XML_tags">Adding new HTML/XML tags</A></H2>
+<P>
+Example:
+
+<P>
+<PRE>  [$ syntax + Mail $]
+</PRE>
+<P>
+<PRE>  &lt;mail:send to=&quot;richter@ecos.de&quot; subject=&quot;Testmail&quot;&gt;
+    Hi,
+    this is a test for a new mail tag
+    it is send at [+ scalar(localtime) +]
+    from Embperl's Mail taglib.
+  &lt;/mail:send&gt;
+</PRE>
+<P>
+<PRE>  [$ if $? $]
+    &lt;h2&gt;Sorry, there was an error, your mail couldn't be send&lt;/h2&gt;
+  [$else$]
+    &lt;h2&gt;Your mail was successfully delivered&lt;/h2&gt;
+  [$endif$]
+</PRE>
+<P>
+Syntax definition:
+
+<P>
+<PRE>      $self -&gt; AddTagBlock ('mail:send', ['from', 'to', 'cc', 'bcc', 'subject', 'reply-to',
+                                        'mailhost', 'mailhelo', 'maildebug'], undef, undef, 
+                { 
+                removenode  =&gt;  42,
+                perlcodeend =&gt;  q{
+                    {
+                    use HTML::Embperl::Mail ;
+</PRE>
+<P>
+<PRE>                    my $txt = XML::Embperl::DOM::Node::iChildsText (%$n%) ;
+                    $? = HTML::Embperl::Mail::Execute (
+                        {
+                        'input'       =&gt; \$txt,
+                        'inputfile'   =&gt; 'mail',
+                        'syntax'      =&gt; 'Text',
+                        'from'        =&gt; %&amp;'from%,
+                        'to'          =&gt; %&amp;'to%,
+                        'cc'          =&gt; %&amp;'cc%,
+                        'bcc'         =&gt; %&amp;'bcc%,
+                        'subject'     =&gt; %&amp;'subject%,
+                        'reply-to'    =&gt; %&amp;'reply-to%,
+                        'mailhost'    =&gt; %&amp;'mailhost%,
+                        'mailhelo'    =&gt; %&amp;'mailhelo%,
+                        'maildebug'   =&gt; %&amp;'maildebug%,
+                        }) ;
+                    }
+                  },
+                }) ;
+</PRE>
+<P>
+Now, when Embperl encounters the <CODE>mail:send</CODE> tag in your document, it retrieves the data between &lt;mail:send&gt; and &lt;/mail:send&gt; and passes it to the <CODE>HTML::Embperl::Mail::Execute</CODE> function, along with the attributes like <CODE>to</CODE> and <CODE>subject</CODE>. <CODE>HTML::Embperl::Mail::Execute</CODE>
+will actually send out the mail for us. Before Embperl hands the data to
+the function, it makes sure that any dynamic content that is in the data is
+executed, so <CODE>HTML::Embperl::Mail::Execute</CODE> gets literal text that it is able to send out.
+
+<P>
+Of course these definitions for new elements are not limited to HTML tags;
+the Embperl parser is also cable of handling non-HTML constructs, like the
+[ ] blocks that Embperl uses. This also works if you use an XML parser
+instead of the Embperl parser. This lets you define XML taglibs, to cleanly
+separate design and code.
+
+<P>
+The current version of <EM>Embperl</EM> comes with syntax definiton for SSI, ASP, Pure Perl, Text, Mail and RTF.
+You can use them directly or derive our own syntax from them.
+
+<P>
+<HR>
+<H1><A NAME="XML">XML</A></H1>
+<P>
+Although you can already use Embperl with XML (because XML is a text file
+and Embperl can work on all text files), it is limited to the cases where
+you have XML as both source and destination.
+
+<P>
+But it gets really interesting when we replace the Embperl parser with an
+XML parser and create processors that are able to transform this XML into
+various destination formats. We can use the syntax definition (as described
+above) to create various possibilities for transforming the XML (e.g. XSP,
+an SQL taglib, etc). Afterwards we can run a formatter (e.g. XSLT) on the
+XML tree, which creates the destination format.
+
+<P>
+The basic point here is that since the XML contains only the data, the
+source data could be dynamically modified by various processors. For
+example some placeholders in the source data could be replaced by database
+content, depending on the actual request. This allows the separation of
+data and code. Note that at this point there is no layout present - the
+layout is generated after all necessary transformations have taken place,
+by transforming the XML tree into its destination format. This could for
+example be done by an XSLT processor. The XSLT stylesheet contains the
+actual layout, and by choosing different stylesheets we are able to
+generate different layouts. So at the end we have a clear separation of
+data, code and presentation.
+
+<P>
+Which processors are invoked and which stylesheets are used can be
+determined dynamically at runtime. You are free to let this depend on
+whatever you like, for example mime-type, file extention, location etc.
+
+<P>
+How does XML processing works:
+
+<P>
+<PRE>    +---------------------------+
+    |                           |
+    |   XML doucment            |
+    |                           |
+    +---------------------------+
+</PRE>
+<P>
+<PRE>                 |
+                 |
+                 v
+</PRE>
+<P>
+<PRE>    +---------------------------+
+    |                           |
+    |   do transformations e.g. |
+    |   SQL taglib              |
+    |                           |
+    +---------------------------+
+</PRE>
+<P>
+<PRE>                 |
+                 |
+                 v
+</PRE>
+<P>
+<PRE>    +---------------------------+
+    |                           |
+    |   Formatter e.g. XSLT     |
+    |                           |
+    +---------------------------+
+</PRE>
+<P>
+<PRE>                 |
+                 |
+                 v
+</PRE>
+<P>
+<PRE>    +---------------------------+
+    |                           |
+    |   Output document e.g.    |
+    |   HTML, WML, etc.         |
+    |                           |
+    +---------------------------+
+</PRE>
+<P>
+<HR>
+<H1><A NAME="Performance">Performance</A></H1>
+<P>
+Since Embperl's main purpose is to deliver dynamic content online, it is
+built for high performance. It is implemented in C, uses the Apache API
+directly and utilizes mod_perl to get the benefits of a persistent Perl
+interpreter.
+
+<P>
+Embperl 2.0 is about 25-100% faster than Embperl 1.x, since it is able to
+cache both the output for quasi-static pages (which seldom change) and
+intermediate results (which are more or less static), on which further
+dynamic transformations could be performed. You have full control over what
+data is stored in this cache, and for how long. Expiration could be either
+on a timely basis or the result of the return value of a Perl function,
+which can do any check (for instance, querying a file or database for
+modifications). To make the tree storage and caching more efficient Embperl
+comes with its own tree storage mechanism implemented in C, with several
+optimizations for online dynamic content delivery and caching.
+
+<P>
+<HR>
+<H1><A NAME="More_Information_Support">More Information / Support</A></H1>
+<P>
+Since especialy the XML part of Embperl is under heavily developement you
+should check out the Embperl website for updated informations.
+
+<P>
+English website: <A
+HREF="http://perl.apache.org/embperl/">http://perl.apache.org/embperl/</A>
+
+<P>
+German website: <A
+HREF="http://www.ecos.de/embperl/">http://www.ecos.de/embperl/</A>
+
+<P>
+Mailinglist: <A
+HREF="mailto:embperl@perl.apache.org">embperl@perl.apache.org</A>
+
+<P>
+Commercial Support: <A
+HREF="http://www.ecos.de/x/index.htm/support/eng_r_support.htm">http://www.ecos.de/x/index.htm/support/eng_r_support.htm</A>
+
+
+<P>
+<HR>
+<H1><A NAME="Author">Author</A></H1>
+<P>
+Gerald Richter &lt;<A HREF="mailto:richter@ecos.de">richter@ecos.de</A>&gt;
+
+<P>
+EmbperlObject part: Neil Gunton &lt;<A
+HREF="mailto:neil@nilspace.com">neil@nilspace.com</A>&gt;
+
+</BODY>
+
+</HTML>

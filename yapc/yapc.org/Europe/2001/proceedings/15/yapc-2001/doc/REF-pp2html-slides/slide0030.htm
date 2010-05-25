@@ -1,0 +1,95 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Embedding Perl</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0031.htm">Tables by tag</a>
+    &nbsp;&nbsp;Previous: <a href="slide0029.htm">Embedding PerlPoint into PerlPoint</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Embedding Perl">
+
+<H1>Embedding Perl
+</H1>
+
+
+<P>
+This feature offers dynamic PerlPoint generation at <I>translation time</I>.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \EMBED{lang=perl}hello\END_EMBED
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B>Embedded Perl is <I>active contents</I> - see the special chapter about it.</B>
+</P>
+
+
+<P>
+<I>If</I> active contents is enabled, embedded Perl code is evaluated. The code is expected to produce a PerlPoint string which then replaces the inclusion tag and is read like static PerlPoint.
+</P>
+
+
+<P>
+If the included code fails, an error message is displayed and the result is ignored.
+</P>
+
+
+<P>
+Here's another example:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+
+  \EMBED{lang=PERL}
+
+  # build a message
+  my $msg=&quot;Perl may be embedded as well.&quot;;
+
+  # and supply it
+  $msg;
+
+  \END_EMBED
+
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+The feature is of course more powerful. You may generate images at translation time and include them, scan the disk and include a formatted listing, download data from a webserver and make it part of your presentation, autoformat complex data, include formatted source code, keep your presentation up to date in any way and so on.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0031.htm">Tables by tag</a>
+    &nbsp;&nbsp;Previous: <a href="slide0029.htm">Embedding PerlPoint into PerlPoint</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

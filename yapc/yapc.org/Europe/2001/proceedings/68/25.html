@@ -1,0 +1,41 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: leftop</title>
+</head>
+
+<body>
+<h1 align = "center">leftop and rightop</h1>
+
+<p>
+In the production rules of the calculator, the grammar rules for
+<tt>statement</tt>, <tt>expression</tt> and <tt>term</tt> are kind
+of awkward and inefficient. They are recursive, which could lead to
+backtracking, and it's not always easy to get the rules right.
+<p>
+Therefore, <tt>Parse::RecDescent</tt> has 2 directives, <tt>leftop</tt>
+and <tt>rightop</tt>, which can be used to to describe the behaviour
+of left associative and right associative operators.
+<p>
+The syntax is:
+<pre>
+        &lt;leftop: left operator right>
+        &lt;rightop: left operator right>
+</pre>
+where <tt>left</tt>, <tt>operator</tt> and <tt>right</tt> are items
+as described earlier.
+<p>
+The return value of such a directive is a reference to an array, 
+whose elements are the values of the items <tt>left</tt> and
+<tt>right</tt>. That is, the value of <tt>operator</tt> is discarded,
+<strong>except</strong> when <tt>operator</tt> is a rule, or when
+<tt>operand</tt> is a regular expression, and the first bracketed
+expression returns a value (that is, <tt>$1</tt> is defined).
+
+<hr>
+<a href = '24.html'>[Prev]</a>
+<a href = '26.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

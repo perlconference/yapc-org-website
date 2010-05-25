@@ -1,0 +1,40 @@
+This directory contains documentation about PerlPoint
+and a selfcontained installation of all PerlPoint modules
+in the ./lib directory.
+
+To use the pp2html script set the YAPC_PP envionment variable
+to the directory (absolute pathname) which contains this
+README file:
+
+On a Linux or UNIX system with csh/tcsh:
+
+  setenv YAPC_PP `pwd`
+
+or in a bash or sh:
+
+  YAPC_PP=`pwd`
+
+All the needed modules should be installed in ./lib and should be
+found after setting this variable: The pp2html program has been
+patched with "use lib" statements, using $ENV{YAPC_PP}.
+
+(I hope I have included all what is not in the standard perl5.6.0
+installation path. This is not tested yet, so it may be that you
+have to install some additional modules ...)
+
+The ./doc directory contains HTML versions of six documents:
+
+* Getting-started-slides/frame_set.html
+
+* FAQ-pp2html-slides/frame_set.html
+
+* FAQ-parser-slides/frame_set.html
+
+* REF-pp2html-slides/frame_set.html
+
+* wrco/frame_set.html
+
+* PP_article/frame_set.html
+
+All documents can be created via Makefile from PerlPoint
+input files (.pp files).

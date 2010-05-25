@@ -1,0 +1,253 @@
+
+<HTML>
+<BODY>
+
+<H2>Data layer in dynamic applications and presentation formatting</H2>
+
+<H3><I>Jan Pazdziora</I></H3>
+
+<P>Scheduled: Iterative Software room on Friday at 16:20-17:00 (paper # 30)</P>
+
+<P>
+<B>Abstract:</B> To achieve multiple user designs and page layouts of Web
+applications, including output for paper media or handheld devices
+from one code base, the structure of the data must be well defined
+and described. It can then be transparently filled with output
+structures of mod_perl/Apache::Registry handlers, producing XML data
+output. Using AxKit, a series of transformations can be applied to
+this XML data, producing various outputs depending on many factors.
+</P>
+
+<P>
+The approach presented is aimed at large systems with hundreds of
+applications where embedding the code into HTML markup leads to
+unmanageable setup and code lost inside of formatting details. The
+handlers are run in mod_perl environment and return only Perl
+hashes, programmers are not slowed down by generating HTML tags.
+XML data stream is created on the fly, available for logging,
+auditing or testing, and XSLT and other transformations produce
+client-friendly formatting on the server side.
+</P>
+
+<P>
+As the markup is not produced by function calls in applications
+but rather rendered in single place, using fast XSLT transformers,
+the performance is comparable with templating approaches, but with
+data being strictly separated from presentation. The approach allows
+using the applications as Web enabled components using for example
+SOAP, and to combine them together, suitable for toolbars or
+sideboxes. Multilingual pages can be served without any language
+specific code in individual applications, thanks to dynamic
+processing offered by AxKit.
+</P>
+
+<HR />
+
+<H3>Single presentation point for hundreds of applications</H3>
+
+<P>
+Information system of my university consists of over 300 perl scripts
+run in mod_perl environment. We are happy with having the applications
+isolated into individual files that can be used immediately when copied
+into proper directory tree. But we feel we need more flexibility in
+creating and maintaining consistent presentation, with possibly more
+designs of the web site to choose from, more language versions, and
+support for more output media.
+</P>
+
+<P>
+The requirements:
+
+<UL>
+<LI>Application code with business logic mustn't be duplicated to
+	achieve these multiple outputs.</LI>
+<LI>Presentation should be completely separated from the actual code;
+	application programmer should write SQL commands against the
+	database and parse and merge results, but not create HTML
+	markup.</LI>
+</UL>
+
+Even if Perl is very good for text processing and for HTML generation
+alike, application program should never emit HTML. Why? Once its code
+is tied to HTML, it's very hard (impossible?) to make it to also
+output WML, PDF or SOAP responses. Code would have to be duplicated
+and that is something that should be avoided.
+</P>
+
+<P>
+Solution? Have application produce only data, in standard, compatible
+form. Any output presentation can be created from the data.
+Applications will get much simpler and presentation will be
+centralized into one, easily maintainable point. XML seems like
+a good choice these days; AxKit then adds instant framework that
+only needs to be extended a bit to support that kind of dynamic
+applications we need, and mod_perl provides the performance
+we expect.
+</P>
+
+<H3>Interpolation into XML</H3>
+
+<P>
+We could generate the XML using
+
+<PRE>
+	print "&lt;name&gt;$name&lt;/name&gt;\n";
+	print "&lt;age&gt;$computed_age&lt;/age&gt;\n";
+</PRE>
+
+calls but that still leaves the burden of watching for and escaping
+characters that are special in XML on application programmer, not
+mentioning the basic requirement of producing well formed XML with
+matching tag names.
+</P>
+
+<P>
+Since our scripts will be run in mod_perl environment and they will be
+thus invoked as subroutines inside of <TT>Apache::Registry</TT> or
+other dispatcher code, we can return <B>native Perl structures</B>
+from them:
+
+<PRE>
+	return {
+		'name' =&gt; $name,
+		'age' =&gt; $computed_age,
+		'cars' =&gt; $dbh-&gt;selectall_arrayref(q!
+			select year_from, year_until, make
+			from car_owners
+			where owner = ?
+			!, {}, $id),
+		'owner_id' =&gt; $id,
+	};
+</PRE>
+</P>
+
+<P>
+These data structures can be serialized into XML automatically, by
+conversion of hashes and arrays into XML elements.
+Alternatively, the data can be interpolated into structural
+description of application's data which can be provided in
+another, external XML source. In our example, the structural
+description might be
+
+<PRE>
+  &lt;application&gt;
+    &lt;search_cars&gt;
+      &lt;inputbox name="owner_id"/&gt;
+    &lt;/search_cars&gt;
+    &lt;more_owners_found&gt;
+      &lt;datalist name="more_owners"&gt;
+        &lt;id/&gt;&lt;name/&gt;
+      &lt;/datalist&gt;
+    &lt;/more_owners_found&gt;
+    &lt;owner_info&gt;
+      &lt;data name="name"/&gt;&lt;data name="age"/&gt;
+      &lt;datalist name="cars"&gt;
+        &lt;year_from/&gt;&lt;year_to/&gt;&lt;car_make/&gt;
+      &lt;/datalist&gt;
+    &lt;/owner_info&gt;
+  &lt;/application&gt;
+</PRE>
+
+and it both describes the logical structure of the application and its
+input parameter (which may be used for parameter validation), and
+provides placeholders for data returned from application.
+</P>
+
+<P>
+After interpolation, the resulting XML is
+
+<PRE>
+  &lt;application&gt;
+    &lt;search_cars&gt;
+      &lt;inputbox name="owner_id"&gt72588&lt;/inputbox&gt;
+    &lt;/search_cars&gt;
+    &lt;more_owners_found&gt;
+    &lt;/more_owners_found&gt;
+    &lt;owner_info&gt;
+      &lt;name&gt;John Smith&lt;/name&gt;
+      &lt;age&gt;36&lt;/age&gt;
+      &lt;cars&gt;
+      &lt;row num="1"&gt;&lt;year_from&gt;1993&lt;/year_from&gt;
+	&lt;year_to&gt;1998&lt;/year_to&gt;
+	&lt;car_make&gt;Saab&lt;/car_make&gt;&lt;/row&gt;
+      &lt;row num="2"&gt;&lt;year_from&gt;1997&lt;/year_from&gt;
+	&lt;year_to&gt;&lt;/year_to&gt;
+	&lt;car_make&gt;Volvo&lt;/car_make&gt;&lt;/row&gt;
+      &lt;/cars&gt;
+    &lt;/owner_info&gt;
+  &lt;/application&gt;
+</PRE>
+</P>
+
+<P>
+Application thus consists of the description of its structure and the
+actual code. While the first could be omitted, it provides good
+communication tool among application analyst, application programmer
+and presentation designers, and it can also serve for result
+verification.
+</P>
+
+<H3>Presentation in AxKit</H3>
+
+<P>
+In AxKit, we can write our own handlers that will setup
+presentation transformations based on user's requirements. Once the
+data is available in XML, we can use standard chain of transformers to
+provide desired design of pages, and also include output of some other
+standard components on the output page ("news should be displayed on
+top of all output pages, besides those intended for printing").
+We can even provide localized stylesheets based on user's preferences
+(sent by browser in HTTP headers, for example). We have also been
+able to get PDF output, generated via stylesheet that creates TeX
+source and running pdfTeX on it. For non-authenticated pages, AxKit's
+builtin caching mechanism can speedup response and save CPU cycles.
+</P>
+
+<P>
+The biggest problem with multiple format output seems to be design of
+good structure of presentation stylesheets. With hundreds of
+applications, hundreds of XML element names may appear in the system
+and it is not practical to write new transformation for all of them
+in each new design. Some sort of generalization is needed, which
+would make it possible to keep the size and number of stylesheets
+under control.
+</P>
+
+<P>
+The bundle of modules that provide the interpolation of applications
+output into XML and run necessary transformation on that data layer
+is called <B>RayApp</B> and is available. For actual deployment,
+modification to local specifics may be needed. That includes setup of
+paths to stylesheets and handling of their localized versions; some
+coding rather than just configuring will probably be involved.
+</P>
+
+<H3>Future of this approach</H3>
+
+<P>
+Only a small part of existing system was converted to use the XML data
+layer. It provides great advantage in really separating presentation
+from content -- application programmer doesn't care about HTML markup,
+and applications do not even know if the actual request is for HTML
+output or for WML. All the application has to do is to run desired
+actions with data in database and produce output data structures.
+</P>
+
+<P>
+With AxKit framework, all necessary pieces could be put together fast
+-- Apache::Registry(NG) for application execution, LibXSLT for XSLT
+transformation and Perl and its modules for the glue around it.
+Management of presentation stylesheets seems to be the hardest part,
+but it is not unique to this approach.
+</P>
+
+<P>
+For environments where the number of individual applications is
+relatively small, systems with embedded code may be superior. If the
+number of application gets high, like with large systems, strictly
+separating presentation from code is the way to go.
+</P>
+
+</BODY>
+</HTML>
+

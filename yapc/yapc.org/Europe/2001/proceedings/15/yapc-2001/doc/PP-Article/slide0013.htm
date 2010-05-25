@@ -1,0 +1,71 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>A Modular Concept</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0014.htm">Parsing sources</a>
+    &nbsp;&nbsp;Previous: <a href="slide0012.htm">Internal Architecture</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="A Modular Concept">
+
+<H1>5.1 A Modular Concept
+</H1>
+
+
+<P>
+The PerlPoint scripts of the first generation were monolithic, performing all parts of source translation by one code. This worked well, but with increasing complexity it became more and more difficult to maintain the code. To write another converter for another target language, we would have had to extract large parts of the code and adapt it to a new program. An enhancements after that would have had to be integrated in many different places. Modularisation helped us out of this situation:
+</P>
+<IMG SRC="./PerlPoint-Structure3.gif" ALT="./PerlPoint-Structure3.gif">
+
+<P>
+The basic module underlying all converters is the parser module <B><CODE>PerlPoint::Parser</CODE></B>. The parser scans the passed PerlPoint source, validates it and splits it into its components. The result is an intermediate stream format. The <B><CODE>PerlPoint::Backend</CODE></B> module is specialized to this stream format and serves as a basis of converter programs which generate certain output (or presentation) formats.
+</P>
+
+
+<P>
+This architecture provides a great flexibility.
+</P>
+
+<UL>
+<LI>All converters read sources the same way. It is possible to process the same source by various converters.</LI>
+<LI>All converters can profit from new parser features instantly.</LI>
+<LI>Specialization of the modules allows to use optimized algorithms.</LI>
+<LI>The intermediate stream format could be changed or replaced by another format without breaking existing converter programs.</LI>
+<LI>The intermediate stream format gained from one PerlPoint source file can be processed multiply by different backend converters. The intermediate format could be stored for later processing or transfered to another process.</LI>
+</UL>
+
+<UL>
+<LI>Converter authors are relieved from common tasks. Writing of a new converter is essentially reduced to transforming the stream symbols provided by the <B><CODE>PerlPoint::Backend</CODE></B> module to their corresponding elements in the target language. (Special features for the end user, however, can always be added by the author of a converter program).</LI>
+<LI>The open architecture allows also adding of individual features, for example for in-house usage, without modifying the basic software.</LI>
+</UL>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0014.htm">Parsing sources</a>
+    &nbsp;&nbsp;Previous: <a href="slide0012.htm">Internal Architecture</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

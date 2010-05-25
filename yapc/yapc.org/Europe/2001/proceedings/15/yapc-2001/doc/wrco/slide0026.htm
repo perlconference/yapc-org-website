@@ -1,0 +1,96 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Backend construction</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0027.htm">Backend callbacks</a>
+    &nbsp;&nbsp;Previous: <a href="slide0025.htm">The parser call</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Backend construction">
+
+<H1>4.9 Backend construction
+</H1>
+
+
+<P>
+When the sources are parsed their data are represented in the stream where they can be processed to produce the final document(s). It is strongly recommended to do this by using the backend class shipped with the converter framework. In a first step, we have to make an object of this class. It is immediately configured, right by the constructor call.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  # build a backend
+  my $backend=new PerlPoint::Backend(
+                                     name    =&gt; 'pp2sdf',
+                                     display =&gt;   DISPLAY_ALL
+                                                + (exists $options{noinfo} ? DISPLAY_NOINFO : 0)
+                                                + (exists $options{nowarn} ? DISPLAY_NOWARN : 0),
+                                     trace   =&gt;   TRACE_NOTHING
+                                                + ((exists $options{trace} and $options{trace} &amp; 32) ? TRACE_BACKEND : 0),
+                                     vispro  =&gt; 1,
+                                    );
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Names and behaviour of these constructor options are mostly known from <A HREF="slide0025.htm#The parser call">call</A> of the parsers <CODE>run()</CODE> method.
+</P>
+
+<DL>
+<DT>
+<B><CODE>name</CODE></B></DT>
+<DD>
+a description used to identify the backend.
+</DD>
+<DT>
+<B><CODE>display</CODE></B></DT>
+<DD>
+used to pass the display settings. Please copy this code.
+</DD>
+<DT>
+<B><CODE>trace</CODE></B></DT>
+<DD>
+used to pass the trace settings. Please copy this code.
+</DD>
+<DT>
+<B><CODE>vispro</CODE></B></DT>
+<DD>
+if set to a true value, the backend will display runtime informations.
+</DD>
+</DL>
+
+
+<P>
+Note: because backend processing does not consume stream data, it is possible to use more than one backend at a time, but there are side effects still. This may be improved by future framework versions.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0027.htm">Backend callbacks</a>
+    &nbsp;&nbsp;Previous: <a href="slide0025.htm">The parser call</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

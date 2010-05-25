@@ -1,0 +1,30 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Actions</title>
+</head>
+
+<body>
+<h1 align = "center">Actions</h1>
+
+<pre>
+start:        die  /^\Z/         {<font color = "red">$item [1]</font>}
+
+die:          'd' number         {1 + int rand <font color = "red">$item [2]</font>}
+            | number 'd' number  {my $s = 0;
+                                  foreach (1 .. <font color = "red">$item [1]</font>) {
+                                     $s += 1 + int rand <font color = "red">$item [3]</font>
+                                  }
+                                  $s}
+
+number:       /\d+/
+</pre>
+
+
+<hr>
+<a href = '15.html'>[Prev]</a>
+<a href = '17.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

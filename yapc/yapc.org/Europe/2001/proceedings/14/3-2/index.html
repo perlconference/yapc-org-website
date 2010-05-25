@@ -1,0 +1,57 @@
+<HTML>
+<HEAD><TITLE>Mail::Box, But what's Wrong?</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:04:28 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Mail::Box</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../2-2/index.html>Mail::Folder</A><BR>next: <A HREF=../4-0/index.html>Object-Orientation</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P><CODE>Mail::Folder</CODE> hasn't been maintained for many years.  It can
+happen, but we cannot be happy about it.  Next to that, there are so many
+different types of folders, and they develop over type.  The software needs
+to adapt to new possibilities.</P>
+
+<P>Correctness is a more serious complaint.  Many e-mail applications are
+doing a bad job in following the specification: they produce corrupt
+headers, wrong part-separators, and such.  Especially doing mbox folders
+right is a hard problem; mainly caused by the fact that also the body
+of a message might contain a line with <CODE>/^From /</CODE>, which is
+easy to be confused with the message separator.</P>
+
+<P>Writing more fault-tolerant mail-folder scanning algorithms in Perl
+would be too slow: the current, simple, algorithm is just acceptable in
+speed.  We could use the help of C, but more about that at the
+end of this talk.</P>
+
+<P>MH- and IMAP-like folders are slow by definition, as each message
+is in a separate file.  Reading a folder with 1000 messages means 1000
+times an <CODE>open</CODE> of a file, a disk-seek to the data.  Can
+you fight this?</P>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../2-2/index.html>Mail::Folder</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../4-0/index.html>Object-Orientation</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 July 2001
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

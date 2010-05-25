@@ -1,0 +1,58 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Special option: localize</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0026.htm">Including Perl</a>
+    &nbsp;&nbsp;Previous: <a href="slide0024.htm">Special option: smart</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Special option: localize">
+
+<H1>Special option: localize
+</H1>
+
+
+<P>
+Nested sources may declare variables of their own, possibly overwriting already assigned values. Option <B><CODE>localize</CODE></B> works like Perls <CODE>local()</CODE>: such changes will be reversed after the nested source will have been completely processed - so the original values will be restored. You can specify a comma separated list of variable names or the special string <CODE>__ALL__</CODE> which flags that the current settings shall be restored <I>completely</I>.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+ \INCLUDE{type=PP file=&quot;nested.pp&quot; <B>localize=<I>myVar</I></B>}
+
+ \INCLUDE{type=PP file=&quot;nested.pp&quot; <B>localize=<I>&quot;var1, var2, var3</I></B>&quot;}
+
+ \INCLUDE{type=PP file=&quot;nested.pp&quot; <B>localize=<I>__ALL__</I></B>}
+</FONT></PRE></TD></TR></TABLE>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0026.htm">Including Perl</a>
+    &nbsp;&nbsp;Previous: <a href="slide0024.htm">Special option: smart</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

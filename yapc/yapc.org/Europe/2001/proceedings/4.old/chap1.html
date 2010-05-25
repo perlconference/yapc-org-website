@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>How <code>use strict;</code> made me a perl5-porter</title>
+  </head>
+<body>
+<hr />
+
+<h3><a name="have">What do we have</a></h3>
+
+<ul>
+ <li>Data
+  <p>We do have a process that extracts all data from a database related to
+  one single person repeatedly and spits it out in an intermediate format
+  easy to parse by secondary processes like formatters.</p>
+  <p>This format looks like:</p>
+  <pre>
+    cc|eeee|data</pre>
+  <p>where <code><b>cc</b></code> stands for the category
+  <code><b>data</b></code> belongs to identified by element type (number)
+  <code><b>eeee</b></code>. Element codes can occur in multiple categories
+  (like a surname or a date of birth) and can occur more than once in a
+  single category (like free notes). It might look
+  <a href="data/14319.lpe">like</a>:</p>
+  <pre>
+    00|0010|Duckstad
+    01|0100|14319
+    01|0110|4896319807
+    01|0120|43645148
+    01|0210|Donald
+    01|0240|Duck
+    01|0310|19890201
+    01|0320|12
+    01|0321|Gansdorp
+    01|0410|M
+    01|0420|O
+    01|0510|1
+    01|0511|Nederlandse
+    01|1020|392
+    01|1021|Duckstad
+    01|1111|Cornelis Prulpark
+    01|1120|3
+    01|1160|2015EH
+    01|1310|Donald@Duck.nl
+    01|2010|51
+    :
+    99|9999|0</pre>
+  <p>A persons collection of data is ended with element 9999 in category
+  99.</p>
+  </li>
+ <li>Formatter
+  <p>We do have a formatter that came with the database
+  (<code>RPT</code>)</p>
+  </li>
+ </ul>
+<hr />
+<a href="chap0.html">Prev</a> <a href="chap2.html">Next</a>
+</body>
+</html>

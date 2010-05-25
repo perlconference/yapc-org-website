@@ -1,0 +1,57 @@
+/* LPE sort05_h____!O-ns10,18!	Leerlingenlijst met minimale gegevens
+/* Instelling printer: top + bodem = 2, links = 4, regel = 80 + diacs
+/*                     pagina = 64, cmd = lp -s -op10 -onolm
+
+    need 3
+
+    set e180011 to e180011 substr [1-35]
+    set e180025 to e180025 substr [1-25]
+    set e180212 to e180212 substr [1-29]
+    set incr_n  to gbadiaccnt (e180011)
+    set incr_v  to gbadiaccnt (e180025)
+
+    print e180011			col   1,
+	  e180025			col  37 + incr_n,
+	  e180041			col  64 + incr_n + incr_v,
+	  e180050			col  75 + incr_n + incr_v
+    print e180152			col   5,
+	  e180212			col  46
+
+    if e180261 ^= '' then
+	begin
+	if e180311 ^= '' then
+	    set e180263 to e180263 /+ ', ' + e180311
+
+	print e180142			col   5,
+	      e180263			col  12,
+	      e180270			col  64
+	end
+    end
+
+
+header
+    print   'GEMEENTE'			col   1,
+	    e100010			col  11,
+	    'Blad: '			col  63,
+	    pageno -1			col  69 using '#,##&'
+    print   'Leerlingen'		col   1,
+	    'Datum:'			col  49,
+	    D_sys			col  56,
+	    hour			col  69
+    print   75[=]			col   1
+    print   'Achternaam'		col   1,
+	    'Voornaam + initalen'	col  37,
+	    'Geb dat'			col  64,
+	    'Gesl'			col  72
+    print   'Adres'			col   5,
+	    'Postcode + Plaats'		col  46
+    print   'SrtOnd'			col   5,
+	    'School'			col  12,
+	    'Klas'			col  53
+    print   75[-]			col   1
+
+after report
+    print   75[-]			col   1
+    print   'Totaal aantal bladen :'	col   1,
+	    pageno - 1			col  24 using '#,##&'
+end

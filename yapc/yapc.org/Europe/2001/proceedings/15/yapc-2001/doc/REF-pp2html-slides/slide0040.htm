@@ -1,0 +1,198 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>IMAGE</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0041.htm">L</a>
+    &nbsp;&nbsp;Previous: <a href="slide0039.htm">I</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="IMAGE">
+
+<H1>IMAGE
+</H1>
+
+
+<P>
+<A name="index_40_12"></A> The <B>\IMAGE</B> tag includes an image.
+</P>
+
+
+<P>
+<B>Syntax</B>
+</P>
+
+
+<P>
+\IMAGE{options}
+</P>
+
+
+<P>
+<B>Options</B>
+</P>
+
+
+<P>
+This tag supports various options. Unless explicitly noted, all options are optional.
+</P>
+
+
+<P>
+<I>Basic options</I>
+</P>
+
+
+<P>
+These options are supported by all translators.
+</P>
+
+<DL>
+<DT>
+<B>src</B></DT>
+<DD>
+This is the most important and therefore <B>mandatory</B> option, setting up the pathname of the image file. The path can be <I>relative</I> or <I>absolute</I>. Relative pathes are relative to the document <I>containing the tag</I>. (This means if documents are nested and the nested source contains this tag, relative pathes will still be relative to the path of this nested source. This way it is possible to bundle partial documents with their images.) The image file is checked for existence when the tag is parsed. A missed file causes a semantic error.
+</DD>
+</DL>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  // an absolute image path
+  \IMAGE{src=&quot;<B>/images/</B>image.gif&quot;}
+
+  // relative image pathes
+  \IMAGE{src=&quot;image.gif&quot;}
+  \IMAGE{src=&quot;../image.gif&quot;}
+  \IMAGE{src=&quot;images/image.gif&quot;}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<I>Additional options</I>
+</P>
+
+
+<P>
+Several translators may extend the set of supported options. <B>pp2html</B> allows also the following options which are passed to the corresponding parameters of the HTML &lt;IMG&gt; tag:
+</P>
+
+<DL>
+<DT>
+<B>alt</B></DT>
+<DD>
+Specify a textual alternative for the image.
+</DD>
+<DT>
+<B>height</B></DT>
+<DD>
+Specify the height of the image
+</DD>
+<DT>
+<B>width</B></DT>
+<DD>
+Specify the width of the image
+</DD>
+<DT>
+<B>border</B></DT>
+<DD>
+Specify border width. A useful value is &quot;0&quot; to suppress the border.
+</DD>
+<DT>
+<B>align</B></DT>
+<DD>
+Specify justification.
+</DD>
+</DL>
+
+
+<P>
+<B>Body</B>
+</P>
+
+
+<P>
+No body is allowed. A used body will not be recognized as a body of this tag.
+</P>
+
+
+<P>
+<B>Notes</B>
+</P>
+
+
+<P>
+<B>\IMAGE</B> is part of the <I>basic tag set</I> supported by <I>all</I> PerlPoint translators.
+</P>
+
+
+<P>
+<B>Example</B>
+</P>
+
+
+<P>
+This simple example
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  Look at this \IMAGE{src=&quot;image.gif&quot;}.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+produces something like
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  Look at this <IMG SRC="../../images/image.gif" ALT="../../images/image.gif">.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B>See also</B>
+</P>
+
+
+<P>
+More basic set tags: <B>\B</B>, <B>\C</B>, <B>\I</B> and <B>\READY</B>.
+</P>
+
+
+<P>
+
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0041.htm">L</a>
+    &nbsp;&nbsp;Previous: <a href="slide0039.htm">I</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

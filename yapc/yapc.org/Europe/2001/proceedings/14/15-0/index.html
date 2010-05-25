@@ -1,0 +1,59 @@
+<HTML>
+<HEAD><TITLE>Mail::Box, Mail::Box Threads -2</TITLE></HEAD>
+<BODY BGCOLOR=#ffffff TEXT=#000000>
+<!-- Produced by Portable Presenter on Wed Jul 11 23:05:31 2001
+     PPresenter:  http://ppresenter.org
+  -->
+
+<TABLE WIDTH=100%>
+<TR><TD><IMG SRC=../yapc-small.png WIDTH=130 HEIGHT=58></TD>
+    <TD ALIGN=center><H1><FONT SIZE=-1>Mail::Box</FONT></H1></TD></TR>
+<TR><TD VALIGN=top>
+<A HREF=../index.html>Main</A><BR>
+back: <A HREF=../14-0/index.html>Mail::Box::Threads</A><BR>next: <A HREF=../16-1/index.html>Mail::Box Next Generation -1</A><BR>
+    </TD><TD VALIGN=top>
+<CENTER><IMG SRC="default.png" WIDTH=500 HEIGHT=357
+ BORDER=0 HSPACE=15 VSPACE=15 ALIGN=center><P>
+</CENTER>
+<P>The disadvantage of delay-loading is that not all information is
+studied when you do not need it.  Until now, I only discussed delay-loading
+of the body of a message which is common for Mbox-like folders.
+When you think about MH- and IMAP-folders, you will need delay-loading
+on the message-headers too!  Even more delayed.</P>
+
+<P>To find messages related in discussion-threads, you have to get the
+message-ids of the messages found in the folder.  If you need all
+message-ids of an MH folder, you need to parse all files.  This is
+unacceptable, and one of the reasons why many mail-user agents to not
+implement threaded-reading.</P>
+
+<P>The trick of <CODE>Mail::Box</CODE> is to collect all message-ids
+from parsed headers.  Then, when the thread of a certain message is
+requested, the folder is scanned from back to front (from most
+recent to the oldest), until
+<OL>
+<LI>all referred message-ids are found, or
+<LI>a certain threshold in time is reached (don't go further back
+    than two days), or
+<LI>a certain amount of messages is scanned.
+</OL>
+Everything is tunable (of course).</P>
+<BR>
+    </TD></TR>
+<TR><TD>&nbsp;</TD>
+    <TD VALIGN=top>
+<CENTER>
+<TABLE WIDTH=80% BORDER=0 CELLSPACING=5>
+<TR><TD ALIGN=left  VALIGN=top><A HREF=../14-0/index.html>Mail::Box::Threads</A></TD>
+    <TD ALIGN=right VALIGN=top><A HREF=../16-1/index.html>Mail::Box Next Generation -1</A></TD></TR>
+</TABLE>
+</CENTER>
+
+    <HR NOSHADE>
+Created by <A HREF=http://mark.overmeer.net>Mark Overmeer</A>
+with <A HREF="http://ppresenter.org">PPresenter</A> on 11 July 2001
+
+    </TD></TR>
+</TABLE>
+</HTML>
+

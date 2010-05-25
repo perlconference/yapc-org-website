@@ -1,0 +1,67 @@
+<html>
+<head>
+  <title>How <code>use strict;</code> made me a perl5-porter</title>
+  </head>
+<body>
+
+<hr />
+
+<h3><a name="found">Found it! What next?</a></h3>
+<p>OK, the problem is in toke.c on line 3175 where the detected closeing
+brace '}' also ends the current scope instead of just decrementing the
+in-brace count, ...
+</p>
+<p>The patch to correct this looked <a href="6340.patch">like</a>:</p>
+<pre>
+    --- toke.c.org  Tue May 29 16:04:29 2001
+    +++ toke.c      Tue May 29 16:04:29 2001
+    @@ -3172,7 +3172,7 @@
+                yyerror("Unmatched right curly bracket");
+            else
+                PL_expect = (expectation)PL_lex_brackstack[--PL_lex_brackets];
+    -       if (PL_lex_brackets < PL_lex_formbrack)
+    +       if (PL_lex_brackets < PL_lex_formbrack && PL_lex_state != LEX_INTERPNORMAL)
+                PL_lex_formbrack = 0;
+            if (PL_lex_state == LEX_INTERPNORMAL) {
+                if (PL_lex_brackets == 0) {
+    End of Patch.</pre>
+<p>But I still have to get this into the perl core, so I don't have to do
+this time after time again. I learned from the archives that a patch
+that's accompanied by a test case has a better chance to survive:</p>
+<pre>
+    --- perl/t/op/write.t.org   Tue May 29 16:04:29 2001
+    +++ perl/t/op/write.t       Tue May 29 16:04:29 2001
+    @@ -1,6 +1,6 @@
+     #!./perl
+     
+    -print "1..8\n";
+    +print "1..9\n";
+     
+     my $CAT = ($^O eq 'MSWin32') ? 'type' : 'cat';
+     
+    @@ -201,3 +201,19 @@
+         $that = 8;
+         write LEX;
+     }
+    +# LEX_INTERPNORMAL test
+    +my %e = ( a => 1 );
+    +format OUT4 =
+    +@<<<<<<
+    +"$e{a}"
+    +.
+    +open   OUT4, ">Op_write.tmp" or die "Can't create Op_write.tmp";
+    +write (OUT4);
+    +close  OUT4;
+    +if (`$CAT Op_write.tmp` eq "1\n") {
+    +    print "ok 9\n";
+    +    unlink "Op_write.tmp";
+    +    }
+    +else {
+    +    print "not ok 9\n";
+    +    }
+    End of Patch.</pre>
+
+<hr />
+<a href="chap9.html">Prev</a> <a href="chapb.html">Next</a>
+</body>
+</html>

@@ -1,0 +1,761 @@
+<html>
+<head>
+  <title>How <code>use strict;</code> made me a perl5-porter</title>
+  </head>
+<body>
+
+<h2>How <code><u>use strict;</u></code> made me a perl5-porter</h2>
+
+<h3>Content</a></h3>
+<ol>
+  <li><a href="#have">What do we have</a></li>
+  <li><a href="#want">What do we want</a></li>
+  <li><a href="#how">How did we achieve that</a></li>
+  <li><a href="#problem">And what's the problem</a></li>
+  <li><a href="#else">What else and why</a></li>
+  <li><a href="#strict"><code>use strict;</code></a></li>
+  <li><a href="#oops">Oops. @$@%#^</a></li>
+  <li><a href="#now">.... and now?</a></li>
+  <li><a href="#resc">Resources and Self-motivation</a></li>
+  <li><a href="#found">Found it! What next?</a></li>
+  <li><a href="#saga">The saga continues: the plane patch</a></li>
+  <li><a href="#next">The next temptation</a></li>
+  <li><a href="#p5p">Perl5-porters</a></li>
+  </ol>
+
+<h3><a name="have">What do we have</a></h3>
+
+<ul>
+ <li>Data
+  <p>We do have a process that extracts all data from a database related to
+  one single person repeatedly and spits it out in an intermediate format
+  easy to parse by secondary processes like formatters.</p>
+  <p>This format looks like:</p>
+  <pre>
+    cc|eeee|data</pre>
+  <p>where <code><b>cc</b></code> stands for the category
+  <code><b>data</b></code> belongs to identified by element type (number)
+  <code><b>eeee</b></code>. Element codes can occur in multiple categories
+  (like a surname or a date of birth) and can occur more than once in a
+  single category (like free notes). It might look
+  <a href="data/14319.lpe">like</a>:</p>
+  <pre>
+    00|0010|Duckstad
+    01|0100|14319
+    01|0110|4896319807
+    01|0120|43645148
+    01|0210|Donald
+    01|0240|Duck
+    01|0310|19890201
+    01|0320|12
+    01|0321|Gansdorp
+    01|0410|M
+    01|0420|O
+    01|0510|1
+    01|0511|Nederlandse
+    01|1020|392
+    01|1021|Duckstad
+    01|1111|Cornelis Prulpark
+    01|1120|3
+    01|1160|2015EH
+    01|1310|Donald@Duck.nl
+    01|2010|51
+    :
+    99|9999|0</pre>
+  <p>A persons collection of data is ended with element 9999 in category
+  99.</p>
+  </li>
+ <li>Formatter
+  <p>We do have a formatter that came with the database
+  (<code>RPT</code>)</p>
+  </li>
+ </ul>
+
+<h3><a name="want">What do we want</a></h3>
+
+<p>We want a human readable list of the relevant data, formatted something
+like:</p>
+<pre>
+    Gemeente Duckstad                                                 Blad:       1
+    Leerlingenlijst met NAW                               Datum: 3 jun 2001 , 12:25
+    ===============================================================================
+     12816 Duck, Kwik                                                  M 01-02-1989
+           Cornelis Prulpark 3                                          4775.08.118
+           2015 EH  Duckstad
+      3001 Duck, Kwek                                                  M 01-02-1989
+           Cornelis Prulpark 3                                          0436.45.148
+           2015 EH  Duckstad
+     30456 Duck, Kwak                                                  M 01-02-1989
+           Cornelis Prulpark 3                                          8256.01.987
+           2015 EH  Duckstad
+       816 Lizzy                                                       V 14-09-1993
+           Gansdorpboulevard 45 A                                       2938.91.886
+           2148 AW  Gansdorp</pre>
+
+<h3><a name="how">How did we achieve that</a></h3>
+<p>Since our RPT scripts outdated our knowledge of perl, we got a rather
+huge base of those scripts and, as you use what you know, it looked like
+<a href="rpt/lp_002.rpt">like</a>:</p>
+<pre>
+        print e180011                 col   1,
+              e180025                 col  37 + incr_n,
+              e180041                 col  64 + incr_n + incr_v,
+              e180050                 col  75 + incr_n + incr_v
+        print e180152                 col   5,
+              e180212                 col  46
+
+        if e180261 ^= '' then
+            begin
+            if e180311 ^= '' then
+                set e180263 to e180263 /+ ', ' + e180311
+
+            print e180142             col   5,
+                  e180263             col  12,
+                  e180270             col  64
+            end
+        end
+
+    header
+        print   'GEMEENTE'            col   1,
+                e100010               col  11,
+                'Blad: '              col  63,
+                pageno -1             col  69 using '#,##&'
+        print   'Leerlingen'          col   1,
+                'Datum:'              col  49,
+                D_sys                 col  56,
+                hour                  col  69
+        print   75[=]                 col   1
+        print   'Achternaam'          col   1,
+                'Voornaam + initalen' col  37,
+                'Geb dat'             col  64,
+                'Gesl'                col  72
+        print   'Adres'               col   5,
+                'Postcode + Plaats'   col  46
+        print   'SrtOnd'              col   5,
+                'School'              col  12,
+                'Klas'                col  53
+        print   75[-]                 col   1
+    end
+</pre>
+<p>But it needs some kind of <a href="rpt/sel_base.rpt">initialization</a>:</p>
+<pre>
+sorted input
+    cat [numeric 2], type [numeric 4], data [string 255]
+
+before report
+    set d_sys	to today
+    set d_sys_d to mdy (d_sys, 1)
+    set d_sys_m to mdy (d_sys, 0)
+    set d_sys_y to mdy (d_sys, 2)
+    set d_sys_ms to index (d_sys_m, ' ',
+				    'januari', 'februari', 'maart',
+				    'april',   'mei',	   'juni',
+				    'juli',    'augustus', 'september',
+				    'oktober', 'november', 'december')
+    set D_sys   to Sprintf ('%02d-%02d-%04d', d_sys_d, d_sys_m, d_sys_y)
+    set D_sys_s to Sprintf ('%02d %s %04d', d_sys_d, d_sys_ms, d_sys_y)
+
+    set lpseqno	to 1
+    set lp_new	to 1
+
+    if cat = 10 and type = 0010 then
+	set e100010 to data /+ ''
+    else
+	set e100010 to ''
+
+before cat
+    if lp_new = 1 then
+	begin
+	set lp_new	to 0
+
+	set c18		to 0
+	set c15		to 0
+	:
+	set c35		to 0
+
+	set i		to ar_close ('a18')
+	set e180000	to ' '
+	set e180010	to ' '
+	set e180011	to ' '
+	set e180020	to ' '
+	set e180021	to ' '
+	set e180030	to ' '
+	set e180031	to ' '
+	set e180040	to ' '
+	set e180041	to ' '
+	:
+	set e350092	to ' '
+	set e350093	to ' '
+	set e350094	to ' '
+	set e359999	to ' '
+
+	end
+
+    if cat = 99 then
+	set lp_new	to 1
+
+after data
+    set Data to data /+ ''
+
+    if cat = 18 then
+	begin
+	if c18 = 0 then
+	    begin
+		 if type = 0000 then set e180000 to Data
+	    else if type = 0010 then set e180010 to flip_str (Data, flip)
+	    else if type = 0011 then set e180011 to flip_str (Data, flip)
+	    else if type = 0020 then set e180020 to Data
+	    else if type = 0021 then set e180021 to Data
+	    else if type = 0030 then set e180030 to Data
+	    :
+	    [[ many many lines later ]]
+	    :
+	    else if type = 0070 then set i to ar_write ('a22', c22, n220070, Data)
+	    else if type = 9999 then set i to ar_write ('a22', c22, n229999, Data)
+	    end
+	if type = 9999 then
+	    set c22 to c22 + 1
+	end
+
+    if cat = 32 then
+	begin
+	if c32 = 0 then
+	    begin
+		 if type = 0010 then set e320010 to Data
+	    else if type = 7010 then set e327010 to flip_str (Data, flip)
+	    :
+	    [[ many lines later ]]
+	    :
+	    else if type = 0091 then set i to ar_write ('a35', c35, n350091, Data)
+		 if type = 0092 then set i to ar_write ('a35', c35, n350092, Data)
+	    else if type = 0093 then set i to ar_write ('a35', c35, n350093, Data)
+	    else if type = 0094 then set i to ar_write ('a35', c35, n350094, Data)
+	    else if type = 9999 then set i to ar_write ('a35', c35, n359999, Data)
+	    end
+	if type = 9999 then
+	    set c35 to c35 + 1
+	end
+
+after cat
+    if cat = 99 then
+	begin
+</pre>
+<p>Hmm, I hope you'll see the maintainability factor of such code is
+extremely low :-(</p>
+<p>But since this code is the same for all reports, it's stored in a seperate
+file, which is prepended to the format part on a "need-now" basis, which
+enables easy to maintain the different format scripts as such.</p>
+
+<h3><a name="problem">And what's the problem</a></h3>
+<p>It does what we want without flaws, so what's the problem?</p>
+<p>Maintainability! It's gotten out of hand. And we want <i>more</i>!
+More features, more speed, and - maybe most important - more
+maintainability.</p>
+
+<h3><a name="else">What else and why</a></h3>
+<p>By that time, perl5 just hit the street, and I played with perl4 for
+some time, also building a perl interface to our (so far unsupported)
+database into perl4.</p>
+<p>Reading the advantages of perl5 over perl4, the symbolic references hit
+me as extremely useful, because conversion would be easy as pie. The format
+part would become something <a href="symref/lp_002_pl">like</a>:</p>
+<pre>
+format STDOUT =
+@<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<< @<<<
+$e180010,                           $e180020,                 $e180030,$e180040
+    @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    $e180152,				     $e180212
+~   @<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<
+    $e180142,$e180263,                                          $e180270
+.
+format STDOUT_TOP =
+Gemeente @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             Blad: @>>>>>>
+	 $s_gem,							$%
+Leerlingen                                              Datum: @<<<<<<<<< @<<<<
+							       $D_sys,   $T_sys
+===============================================================================
+Achternaam                          Voornaam + initialen           Geb dat Gesl
+    Adres                                    Postcode + Plaats
+    SrtOnd School                                              Klas
+-------------------------------------------------------------------------------
+.</pre>
+<p>which makes it already quite a lot easier to see what the user expects as
+output, and all the variables are the same, except for that funny leading
+dollarsign in front.<br />
+The initialization part would become <i>real easy</i> <a href="symref/lpepl">
+(shortened):</a></p>
+<pre>
+    while (<>) {
+        chomp;
+        push @elp, $_;
+        m/^99/ || next;
+
+        # Convert the expanded LP-list to elements known in the format(s)
+        foreach $lp (@elp) {
+            ($cat, $type, $data) = split m/\|/, $lp, 3;
+            $data =~ s/\s+$//;
+            $ect  = "$cat$type";
+            $e    = "e$ect";
+            $$e   = $data;
+            }
+
+        # format this entity
+        write;
+
+        reset "e";
+        }</pre>
+<p>In fact, the first version of the perl equivalent of the 1350 line RPT
+script, were reduced to a mere 150 line of code!<p>
+
+<h3><a name="strict"><code>use strict;</code></a></h3>
+
+<p>As the symbolic reference solution looked like a good solution when I
+started, given the time saved by not having to go through all those report
+scripts doing more then just prefix all variables with a dollar sign (and
+keep the variables readable), I learned over time that <code><b>use
+strict;</b></code> was not a bad idea.</p>
+
+<p>So I started to use lexicals, and convert the data structure from
+<code>$e010110</code> to <code>$e[1]{110}</code>, something some of you,
+if not most of you, would have thought of when faced with the problem in
+the beginning.</p>
+
+<p>From the programmers eye, this is no problem, but more simple users
+have less problems recognizing $e010240 as being the surname of the person
+is much easier than recognizing $e[1]{240}, but - since most of my user
+base didn't change to formats anyway, I decided that to be a <i>minor</i>
+problem.</p>
+
+<p>Now the initialization becomes something like:</p>
+<pre>
+    while (<>) {
+        s/\s*$//;
+        push @elp, $_;
+        m/^99/ or next;
+
+        # Convert the expanded LP-list to elements known in the format(s)
+        foreach my $lp (@elp) {
+            my ($cat, $type, $data) = split m/\|/, $lp, 3;
+            $e[$cat]{$type} = $data;
+            }
+
+        # format this entity
+        write;
+
+        @e = ();
+        }</pre>
+<p>... much cleaner and loosing the <code>reset</code>, also less error-prone.
+The format script would become something <a href="strict/lp_002_pl">like:</a>
+</p>
+<pre>
+format TOP =
+Gemeente @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<             Blad: @>>>>>>
+	 $s_gem,							$%
+Leerlingen                                              Datum: @<<<<<<<<< @<<<<
+							       $D_sys,   $T_sys
+===============================================================================
+Achternaam                          Voornaam + initialen           Geb dat Gesl
+    Adres                                    Postcode + Plaats
+    SrtOnd School                                              Klas
+-------------------------------------------------------------------------------
+.
+format A01 =
+@<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<< @>>>>>>>>>>>>>>
+$e[1]{241},                        $e[1]{214},         "$e[1]{311}  $e[1]{411}"
+$line1
+    @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+    $e[1]{1100},			     $e[1]{1025}
+~   @<<<<< @<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< @<<<<<<<<<<<<<<
+    $e[1]{2021},$e[1]{2012},                                    $e[1]{2040}
+.</pre>
+
+<h3><a name="oops">Oops. @$@%#^</a></h3>
+
+<p>But, but, but .... the code just presented doesn't compile! It does not
+even spit out an appropriate error message or some useful diagnostics.
+WHY? What is happening here?</p>
+
+<p>Faced with this problem, I had to reduce the problem to a minimum,
+something I learned in the past. So I came up with a test case that I
+could post to perlbug@perl.org</p>
+<pre>
+    #!/usr/bin/perl -w
+
+    # use strict;
+    # use diagnostics;
+
+    my $e010101 = "Value 1";
+    my @e = (0, { 101 => $e010101 });
+
+    format OLD0 =
+    @<<<<<<<<<<
+    $e010101
+    .
+
+    format NEW0 =
+    @<<<<<<<<<<
+    $e[1]{101}
+    .
+
+    format NEW0 =
+    @<<<<<<<<<<
+    "$e[1]{101}"
+    .</pre>
+
+<p>No answers, no patches, no nothing. I was left on my own. What
+next?</p>
+
+<h3><a name="now">.... and now?</a></h3>
+
+<table width="90%" border="0" cellspacing="5" cellpadding="0">
+  <colgroup>
+    <col width="47%">
+    <col width="3%">
+    <col width="3%">
+    <col width="47%">
+  <tbody>
+  <tr>
+    <td colspan="4" align="center"><u><b>Back to symbolic references</b></u></td>
+    </tr>
+  <tr>
+    <td align="right">
+      Not <code>use strict;</code><br />
+      <b>Very</b> error prone
+      </td>
+    <td align="center" bgcolor="#e0e0e0"><b>-</b></td>
+    <td align="center" bgcolor="#e0e0e0"><b>+</b></td>
+    <td>
+      The easiest solution (it still works)<br />
+      End-user friendly
+      </td>
+    </tr>
+  <tr>
+    <td colspan="4" align="center"><u><b>Use simple scalars</b></u></td>
+    </tr>
+  <tr>
+    <td align="right">
+      Too much work<br />
+      Too vulnarable to maintainance
+      </td>
+    <td align="center" bgcolor="#e0e0e0"><b>-</b></td>
+    <td align="center" bgcolor="#e0e0e0"><b>+</b></td>
+    <td>
+      End-user friendly
+      </td>
+    </tr>
+  <tr>
+    <td colspan="4" align="center"><u><b>Use LoL (list of lists) instead of LoH (list of hashes)</b></u></td>
+    </tr>
+  <tr>
+    <td align="right">
+      Second level lists are filled too sparse<br />
+      Unable to add elements with letters
+      </td>
+    <td align="center" bgcolor="#e0e0e0"><b>-</b></td>
+    <td align="center" bgcolor="#e0e0e0"><b>+</b></td>
+    <td>
+      Easy to implement
+      </td>
+    </tr>
+  <tr>
+    <td colspan="4" align="center"><u><b>Solve the bug</b></u></td>
+    </tr>
+  <tr>
+    <td align="right">
+      Learning curve<br />
+      Time shift: will I regain the time spent?
+      </td>
+    <td align="center" bgcolor="#e0e0e0"><b>-</b></td>
+    <td align="center" bgcolor="#e0e0e0"><b>+</b></td>
+    <td>
+      Geared for the future
+      </td>
+    </tr>
+  </table>
+
+<h3><a name="resc">Resources and Self-motivation</a></h3>
+
+<p>After digging through the available resources:</p>
+<ul>
+  <li>Documentation</li>
+  <li>Mailing list (archives)</li>
+  <li>Change logs</li>
+  <li>Source code</li>
+  </ul>
+<p>I still found no suitable place to start, because there's not much
+reference material on formats</p>
+<p>There's a lot of discussions on perl5-porters varying from thread
+implementations to unicode handling and from string interpolation to
+regular expression irregularities, but <b>format</b>'s are not discussed,
+so the mailing list archives are not a good resource. So I had to do some
+research myself.</p>
+<p>Several mails to the mailing list asking for a place to start the
+research led to 2 pointers, both proved to be very wrong, because they
+assumed the flaw was in the formatting code.</p>
+<p>Digging. Learning how to use gdb, which - on a HP-UX platform - proved
+to be less than easy. And though perlguts turned out to be a nice manual
+for the parts that did not blow up in my face, I had to track down what
+was happining, and try to follow the flow that is used when parsing
+formats.</p>
+<p>After turning the formatting inside out and upside dow, not finding
+anything unusual happening, I just added <code>printf</code> statements
+haphazardly throughout the perl source code on points where I did expect
+the flow to pass by, and printed out some global variables. At this point
+intuition turns out to be more valuable than knowledge, cause I almost hit
+the right globals from the start.</p>
+<p>Realizing a not very well known fact that the variable declaration
+within a form definition can span multiple lines if the starting line of
+those variable <i>start with</i> a open brace, I was intuitively looking
+for places that dealt with that code.</p>
+<p>It turned out to be the closing brace <code>}</code> that caused a
+reset of a global brace counter when not aware of being inside a format
+parsing. I then did a decrement, instead of a reset, to check if I was
+right, and the format part now compiled, but other code parts did not.</p>
+<p>So the solution was at hand: the trouble spot was detected, but I had
+to find a way to <i>detect</i> (or rather <i>know</i>) that at that point
+I was inside a format and, if so, decrement, otherwise reset.</p>
+
+<h3><a name="found">Found it! What next?</a></h3>
+<p>OK, the problem is in toke.c on line 3175 where the detected closeing
+brace '}' also ends the current scope instead of just decrementing the
+in-brace count, ...
+</p>
+<p>The patch to correct this looked <a href="6340.patch">like</a>:</p>
+<pre>
+    --- toke.c.org  Tue May 29 16:04:29 2001
+    +++ toke.c      Tue May 29 16:04:29 2001
+    @@ -3172,7 +3172,7 @@
+                yyerror("Unmatched right curly bracket");
+            else
+                PL_expect = (expectation)PL_lex_brackstack[--PL_lex_brackets];
+    -       if (PL_lex_brackets < PL_lex_formbrack)
+    +       if (PL_lex_brackets < PL_lex_formbrack && PL_lex_state != LEX_INTERPNORMAL)
+                PL_lex_formbrack = 0;
+            if (PL_lex_state == LEX_INTERPNORMAL) {
+                if (PL_lex_brackets == 0) {
+    End of Patch.</pre>
+<p>But I still have to get this into the perl core, so I don't have to do
+this time after time again. I learned from the archives that a patch
+that's accompanied by a test case has a better chance to survive:</p>
+<pre>
+    --- perl/t/op/write.t.org   Tue May 29 16:04:29 2001
+    +++ perl/t/op/write.t       Tue May 29 16:04:29 2001
+    @@ -1,6 +1,6 @@
+     #!./perl
+     
+    -print "1..8\n";
+    +print "1..9\n";
+     
+     my $CAT = ($^O eq 'MSWin32') ? 'type' : 'cat';
+     
+    @@ -201,3 +201,19 @@
+         $that = 8;
+         write LEX;
+     }
+    +# LEX_INTERPNORMAL test
+    +my %e = ( a => 1 );
+    +format OUT4 =
+    +@<<<<<<
+    +"$e{a}"
+    +.
+    +open   OUT4, ">Op_write.tmp" or die "Can't create Op_write.tmp";
+    +write (OUT4);
+    +close  OUT4;
+    +if (`$CAT Op_write.tmp` eq "1\n") {
+    +    print "ok 9\n";
+    +    unlink "Op_write.tmp";
+    +    }
+    +else {
+    +    print "not ok 9\n";
+    +    }
+    End of Patch.</pre>
+
+<h3><a name="saga">The saga continues: the plane patch</a></h3>
+<p>Now that the bug is fixed, and the patch is accepted (as patch 6340), I
+wanted to extend the knowledge I picked up along the way. Realizing that
+at the moment it is not possible to detect <b><i>if</i></b> a format is
+defined at all, because globs cannot deal with it's FORMAT entry. Making
+glob's do what they should do for formats too, i.e. make *TOP{FORMAT} be
+as valid as *TOP{SCALAR}, *TOP{HASH} and all known other glob entries.</p>
+</p>
+<p>I was talking about this with Jan-Pieter Cornet on our way to TPC4, and
+we decided to give it a shot, and hacked towards it in the plane. We did
+the right patch, but made a wrong test for it, so we didn't trust
+ourselves in submitting it. Graham Barr helped us with the test</p>
+<pre>
+    --- perl/pp.c.org   Wed Jul 26 11:47:23 2000
+    +++ perl/pp.c       Wed Jul 26 11:47:23 2000
+    @@ -599,6 +599,9 @@
+         case 'F':
+            if (strEQ(elem, "FILEHANDLE")) /* XXX deprecate in 5.005 */
+                tmpRef = (SV*)GvIOp(gv);
+    +       else
+    +       if (strEQ(elem, "FORMAT"))
+    +           tmpRef = (SV*)GvFORM(gv);
+            break;
+         case 'G':
+            if (strEQ(elem, "GLOB"))
+
+    --- perl/sv.c.org   Wed Jul 26 11:47:23 2000
+    +++ perl/sv.c       Wed Jul 26 11:47:23 2000
+    @@ -2831,6 +2831,13 @@
+                            dref = (SV*)GvIOp(dstr);
+                        GvIOp(dstr) = (IO*)sref;
+                        break;
+    +               case SVt_PVFM:
+    +                   if (intro)
+    +                       SAVESPTR(GvFORM(dstr));
+    +                   else
+    +                       dref = (SV*)GvFORM(dstr);
+    +                   GvFORM(dstr) = (CV*)sref;
+    +                   break;
+                    default:
+                        if (intro)
+                            SAVESPTR(GvSV(dstr));
+    End of Patch.</pre>
+<p>Ahh, and let not forget that test, so the <a href="6445.patch">patch</a>
+might be accepted again:</p>
+<pre>
+    --- perl/t/op/gv.t.org  Wed Jul 26 11:47:23 2000
+    +++ perl/t/op/gv.t      Wed Jul 26 11:47:23 2000
+    @@ -11,7 +11,7 @@
+     
+     use warnings;
+     
+    -print "1..40\n";
+    +print "1..41\n";
+     
+     # type coersion on assignment
+     $foo = 'foo';
+    @@ -97,15 +97,19 @@
+     %x = ("ok 19" => "\n");
+     sub x { "ok 20\n" }
+     print ${*x{SCALAR}}, @{*x{ARRAY}}, %{*x{HASH}}, &{*x{CODE}};
+    +format x =
+    +ok 21
+    +.
+    +print ref *x{FORMAT} eq "FORMAT" ? "ok 21\n" : "not ok 21\n";
+     *x = *STDOUT;
+    -print *{*x{GLOB}} eq "*main::STDOUT" ? "ok 21\n" : "not ok 21\n";
+    -print {*x{IO}} "ok 22\n";
+    -print {*x{FILEHANDLE}} "ok 23\n";
+    +print *{*x{GLOB}} eq "*main::STDOUT" ? "ok 22\n" : "not ok 22\n";
+    +print {*x{IO}} "ok 23\n";
+    +print {*x{FILEHANDLE}} "ok 24\n";
+     
+     # test if defined() doesn't create any new symbols
+     
+     {
+    -    my $test = 23;
+    +    my $test = 24;
+     
+         my $a = "SYM000";
+         print "not " if defined *{$a};
+    @@ -131,7 +135,7 @@
+     # although it *should* if you're talking about magicals
+     
+     {
+    -    my $test = 29;
+    +    my $test = 30;
+     
+         my $a = "]";
+         print "not " unless defined ${$a};
+    @@ -173,4 +177,4 @@
+     }
+     
+     __END__
+    -ok 40
+    +ok 41
+    End of Patch.</pre>
+<p>This patch also made it through to the core, but was rejected by Gurusamy
+Sarathy for the 5.6.0 and 5.6.1 track. His motivations were not convincing
+for me, and some discussions with Gurusamy and Jarkko led to acceptation in
+the 5.7 development track (where it has always been) and eventually the patch
+is accepted also for the 5.8.0 release of Perl.</p>
+
+<h3><a name="next">The next temptation</a></h3>
+
+<p>By extending the test suite for the <code>write</code> functionality, in
+order to get the patches also accepted for 5.8.0, I hit a new
+<a href="format2_pl">problem</a> in a situation where I tried to <i>nest</i>
+(yes I know that's sick) formats:</p>
+<pre>
+#!/usr/bin/perl -w
+
+use strict;
+
+format HEADER =
+HEADER
+.
+sub HEADER ()
+{
+    local $~ = "HEADER";
+    my $HEADER;
+    open HEADER, ">", \$HEADER;
+    select HEADER;
+    write;
+    close HEADER;
+    select STDOUT;
+    $HEADER;
+    } # HEADER
+format STDOUT_TOP =
+TOP
+@<<<<<
+@{[HEADER]}
+.
+format STDOUT =
+STDOUT
+@<<<<
+$%
+.
+write;</pre>
+<p>which should produce:</p>
+<pre>
+TOP
+HEADER
+STDOUT
+1</pre>
+<p>but instead produces:</p>
+<pre>
+page overflow at format2_pl line 19.
+STDOUT
+0
+TOP
+HEADER</pre>
+<p>I did not have enough time to find out what exactly is going on, but I
+<i>did</i> find out that it needs some serious hacking</p>
+
+<h3><a name="p5p">Perl5-porters</a></h3>
+<p>Now that I got the hack of it, I seriously considered to put some more
+effort in the perl5-porters movement. I was not scared away by rumours of
+the list being very unfriendly and flame wars being more common than found
+on other lists.</p>
+<p>First thing to do is be a good listener. Don't join every discussion
+you see flying by, and only respond if you know what you're talking about.
+If you are sure, don't be afraid to be scared away, but always use funded
+arguments to explain what you mean. Don't be surprised if it turns out that
+the old members realy listen to you and see you as a serious participant in
+the development of Perl.</p>
+<p>I wanted to join perl5-porters to take over Ilya's position. Hmmmm. So
+much for aiming too high.</p>
+<p>There are several reasons why this did not happen.</p>
+<ul>
+  <li>I wasn't good enough</li>
+  <li>I didn't have enough time for it</li>
+  <li>Hugo already took that place</li>
+  <li>p5p wanted me for something else</li>
+  </ul>
+<p>What happened is that the list somehow noticed my knowledge of shell
+and awk programming (the ol' unix style commands) and that I wasn't scared
+of the complexity of Perl's configuration scheme (the Configure script).</p>
+<p>Eventually you'll be <i>asked</i> to help out in the (sub)field(s) where
+you've proven to have knowledge of or insight in.</p>
+<p>Now that Perl6 has taken a serious start, don't think perl5 doesn't need
+any more attention. We do still need enthousiastic people to make perl the
+language we all want, not scaring away people, but chasing away the bugs.
+Start being a list-lurker tomorrow and join perl5-porters next month!</p>
+<p>Look throught the TODO list to check if there is an unexplored field
+left alone so far that yearns for your attention.</p>
+
+</body>
+</html>

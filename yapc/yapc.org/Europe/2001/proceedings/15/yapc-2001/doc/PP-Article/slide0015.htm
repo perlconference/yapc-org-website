@@ -1,0 +1,105 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Parser Design</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0016.htm">Tags</a>
+    &nbsp;&nbsp;Previous: <a href="slide0014.htm">Parsing sources</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Parser Design">
+
+<H1>5.2.1 Parser Design
+</H1>
+
+
+<P>
+Scanning an input text requires structuring of the text according to certain patterns. Simple scanners do that by pure pattern recognition and with Perl's powerful pattern matching this should be easy. Indeed, we could try to recognize each paragraph looking at the starting character(s). Then only the tags must be extracted and the rest of the input text could be used &quot;as is&quot;. The implementation of this idea, however, leads to real difficulties:
+</P>
+
+<UL>
+<LI>You must handle conditions under which a new paragraph can start or not.</LI>
+<LI>When tags are opened and closed in different lines (see below) then internal book keeping becomes complex or you need very complex patterns for pattern matching. Readability of the code decreases and it becomes harder to maintain.</LI>
+<LI>Lists, enumerations and recursive structures (like arbitrarily combined tags) cannot be handled by pure pattern recognition.</LI>
+<LI>Syntactical errors in the input can easily be overlooked. They can only be handled by emperical rules or heuristics.</LI>
+<LI>While the language design is improved, it becomes more and more difficult to adapt the resulting code accordingly. At a certain point, it may become almost impossible.</LI>
+</UL>
+
+
+<P>
+That's why in my opinion simple pattern based scanners are only appropriate for simply structured inputs or to extract information from a bunch of otherwise non-interesting data.
+</P>
+
+
+<P>
+The best remedy for our problem is a <I>grammar</I>. A grammar describes the formal syntax of a language by providing a set of rules. These rules determine how correct <I>sentences</I> are produced from basic elements (<I>words</I>): Which type of word can be used under which conditions? Which punctuation has to be used where? How can complex sentences be constructed? The recursion mentioned above can be described easily by a grammar:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  <B>tag</B> : tag_name <I>tag_body</I>
+
+  <I>tag_body</I> : &quot;&lt;&quot; <I>words</I> &quot;&gt;&quot;
+
+  <I>words</I> : <I>word</I>
+        | words <I>word</I>
+
+  <I>word</I> : this
+       | that
+       | <B>tag</B>
+
+  (Interpretation: &quot;x : y | v z&quot; means:
+   &quot;x is comprised by one y or a sequence
+   of v and z&quot;)
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+This grammar format is only one of several possibilities, please refer to the many parsing intros around, e.g. at &quot;The man of Descent&quot; by Damian Conway, for further details. In short, grammars are a powerful tool. They have been thoroughly investigated and are widley used for building compilers. Efficient code generators are available, in the meantime even for Perl. <B><CODE>PerlPoint::Parser</CODE></B> uses <B><CODE>Parse::Yapp</CODE></B> which corresponds to the UNIX <B>yacc</B> utility for C.
+</P>
+
+
+<P>
+The PerlPoint parser architecture follows a common scheme: There is a <CODE>lexer</CODE> which parses the sequence of characters and detects &quot;words&quot; which are relevant to PerlPoint, so called <I>tokens</I>. Each time the lexer finds a token he informs the parser which checks if that token is allowed at that time and in the current context. This is done by using the grammar which is stored in a table format internally. If the token can be accepted, so called semantic actions are started which do some semantical checks, merge the input with stuff collected earlier or store the text for further use. The result of all semantical actions is the intermediate stream format.
+</P>
+
+
+<P>
+Different to common grammars, the PerlPoint grammar has to deal with special cases because the language is <I>much</I> less formal than, let's say, programming languages. Spaces are tokens, not token delimiters (which are usually ignored). Special characters can have a special meaning or not, depending on their contents: <CODE>&quot;&lt;&quot;</CODE>, for example, flags the start of a tag body, but only if a tag has been started. Everywhere else it is a plain string. Tags and backslashes are valid everywhere except of verbatim blocks and embedded parts. Very similar, special characters and constructions like <CODE>&lt;&lt;EOM</CODE> which can open a paragraph are special only when a new paragraph is expected but meaningless strings otherwise. Newlines are no real newlines but spaces if used in text, headlines or lists, but they complete comments and table headlines (occasionally) and must be streamed in verbatim blocks.
+</P>
+
+
+<P>
+To handle all this, <I>the parser controls the lexer</I> which simply means that the lexer recognizes tokens depending on the current grammar context. For example, all characters opening a paragraph are stored in a special hash when a new paragraph is expected. But once the parser knows about the type of a new paragraph it removes all entries of this hash by a special <CODE>stateManager()</CODE> function. The state manager as well controls how the lexer deals with <CODE>n</CODE>, spaces and line indentations - they can be ignored, reported as simple spaces or recognized as they are. With this implementation, the lexer/parser system can act very flexible even with a fix <CODE>yacc</CODE> like grammar. Of course this only works if the lexer can be controled by the parser as described, so the lexer is not generated but handcrafted.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0016.htm">Tags</a>
+    &nbsp;&nbsp;Previous: <a href="slide0014.htm">Parsing sources</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

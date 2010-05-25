@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+<html>
+<head>
+<title>Parsing: Parse Trees</title>
+</head>
+
+<body>
+<h1 align = "center">Parse Trees</h1>
+
+<pre>
+<font color = "red">&lt;autotree></font>
+start:        die  /^\Z/
+
+die:          'd' faces
+            | count 'd' faces
+
+count:        number
+faces:        number
+number:       /\d+/
+</pre>
+
+<hr>
+
+<pre>
+In [1] := 3d4
+Out [1] = $VAR1 = bless( {
+          2 => '',
+          'die' => bless( {
+                  'faces' => bless( {
+                          'number' => bless( {
+                                   '__VALUE__' => 4
+                                 }, 'number' ),
+                          '__RULE__' => 'faces'
+                        }, 'faces' ),
+                  2 => 'd',
+                  'count' => bless( {
+                          'number' => bless( {
+                                   '__VALUE__' => 3
+                                 }, 'number' ),
+                          '__RULE__' => 'count'
+                        }, 'count' ),
+                  '__RULE__' => 'die'
+                }, 'die' ),
+          '__RULE__' => 'start'
+        }, 'start' );
+</pre>
+
+<hr>
+<a href = '30.html'>[Prev]</a>
+<a href = '32.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

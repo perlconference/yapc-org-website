@@ -1,0 +1,44 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>The Best Ever: PostScript 0/2</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>No pstidy plug-in yet</h2>
+<p>No fancy colored PostScript for you, but I'll try to explain
+this one anyway...</p>
+<pre>
+/;{}def/#{def}def/$_={/Times-Bold exch selectfont}#/_{rmoveto}#/"{dup}#/*/!/$
+;/q{exch}#/x ; {/J q #}#/.{/T q #}#{stringwidth}#{}#{}# 14 string dup dup dup
+260 40 moveto 90 rotate ; <span class="c">%/}};$0='"\e[7m \e[0m"';@ARGV=split//,reverse </span>
+q(ThePerl). q(Journal) x 220 ; q ; 0 T putinterval exch 7 J putinterval ;
+ ; $_= q /m$ pop T($*!$"=!$ " )pop " * true<span class="c">% ? $ " $!" "  !!  !! % !" !"    !</span>
+! charpath {!"""}pop $ pop{""!}pop ! neg{!#}pop 220 ! neg _{!!}pop J false <span class="c">%T</span>
+charpath  clip " pop 0 " moveto 6{!!}pop $_= 105{!!}pop {$ ! $ " !  #! ##}
+pop{dup dup $ ! " pop pop q{"}pop 22{dup show}repeat {"}pop q 22 mul{$ "} pop
+neg{!#! $ "}pop ! 8 .65 mul{$ # # $}pop ! neg{"}pop  _ pop{"}pop } repeat pop
+" {  $ " ! ! ! $ " ! !" "#"  #"!"""""! #" " # "m/;@ARGV=(@ARGV[-14..-1])x50;q}
+ 0 "<span class="c">%};s/m[ou]|[-\dA-ln-z.\n_{}]|\$_=//gx;s/(.)(?{$*=''})/('$*.='.(++$#</span>
+<span class="c">%2?'':"$0;").'pop;')x(ord($1)-31).'$*'/gee;s/((.(\e\[.m)*|.){77})/$1\n/g;print</span>
+; sub showpage {}
+</pre>
+<ul>
+<li>Comments start with <tt>%</tt> (and are green-colored).</li>
+<li>PostScript works very much like Forth.
+Whitespace is the delimiter, and almost <b>any</b> token can be redefined,
+thanks to the <tt>def</tt> operator.</li>
+</ul>
+<p align="center"> <a href="bestever.html">Previous</a> | <a href="best_postscript_01.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

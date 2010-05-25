@@ -1,0 +1,107 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>How do I place an optionless and bodyless tag or macro before a capitalized character?</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0004.htm">Line indentation in tagged examples</a>
+    &nbsp;&nbsp;Previous: <a href="slide0002.htm">Misc</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="How do I place an optionless and bodyless tag or macro before a capitalized character?">
+
+<H1>How do I place an optionless and bodyless tag or macro before a capitalized character?
+</H1>
+
+
+<P>
+<B><U>Question:</U></B>
+</P>
+
+
+<P>
+Several tags and macros require neither options nor a body. This means, they do consist of only their name which is capitalized. If I want to place such a tag/macro before a capitalized character, PerlPoint treats the <I>combination</I> of the tag/macro name and following uppercased characters as a tag name as in
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  <B>\BR</B> before <B>I</B>: \BRI
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+How to separate tag name and subsequent characters?
+</P>
+
+
+<P>
+<B><U>Answer:</U></B>
+</P>
+
+
+<P>
+Use an empty variable:
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  $empty=
+
+  \BR<B>${empty}</B>I
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+<B><U>Discussion:</U></B>
+</P>
+
+
+<P>
+To make writing easy, PerlPoint makes numerous assumptions about several things. One is that all uppercased characters following a backslash are a tag or macro name if currently such a tag or macro is defined. Usually this causes no trouble because most of all tags need options or have bodies which automatically separate tag/macro name and subsequent strings. If neither option nor body part need to be present, the combination problem occurs.
+</P>
+
+
+<P>
+Using a separating <I>variable</I> first lets the parser recognize that the tag or macro name is complete when the variable begins. Using the variable the <I>symbolic</I> way separates it itself from the subsequent string (which would otherwise be treated as part of the variable name). Using an <I>empty</I> variable avoids variable traces in the result, the string (<CODE>&quot;I&quot;</CODE>) immediately follows the tag result.
+</P>
+
+
+<P>
+Please note that the variable <I>needs</I> to be set. An unset variable is <I>not</I> replaced by PerlPoint, so the result would significantly vary from what one expected.
+</P>
+
+
+<P>
+
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0004.htm">Line indentation in tagged examples</a>
+    &nbsp;&nbsp;Previous: <a href="slide0002.htm">Misc</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

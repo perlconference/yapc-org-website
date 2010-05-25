@@ -1,0 +1,50 @@
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+                 "http://www.w3.org/TR/html4/loose.dtd"> 
+<html>
+<head>
+<title>The other YAPC::Europe-2.0.01 T-shirt: 1/6</title>
+<link rel="stylesheet" type="text/css" href="yapc.css"> 
+<meta name="author" content="Philippe `BooK' Bruhat">
+<meta name="Generator" content="perl, vim, ttree, perltidy">
+</head>
+ 
+<body>
+<h2>The super-duper secure obfuscated thingy</h2>
+<p>Let's remove the strings and see what's left:
+</p><!-- filename: perltidy -->
+<PRE>
+<SPAN CLASS="c">#!/usr/bin/perl -wT</SPAN>
+<SPAN CLASS="k">use</SPAN> <SPAN CLASS="k">strict</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="k">use</SPAN> <SPAN CLASS="w">Safe</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="k">my</SPAN><SPAN CLASS="i">$s</SPAN>=<SPAN CLASS="w">new</SPAN> <SPAN CLASS="w">Safe</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="i">-&gt;permit</SPAN><SPAN CLASS="s">(</SPAN><SPAN CLASS="q">qw/rand sort entereval/</SPAN><SPAN CLASS="s">)</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">@_</SPAN><SPAN CLASS="s">{</SPAN><SPAN CLASS="w">s</SPAN><SPAN CLASS="cm">=&gt;</SPAN><SPAN CLASS="q">'t'</SPAN>
+<SPAN CLASS="s">}</SPAN>=<SPAN CLASS="s">(</SPAN><SPAN CLASS="h">&lt;&lt;Orange</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="q">&quot;smrfnexi--tjfillx ybvwvngwr ;-)\r&quot;</SPAN><SPAN CLASS="s">)</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">%_</SPAN>=<SPAN CLASS="s">(</SPAN><SPAN CLASS="i">%_</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="k">split</SPAN><SPAN CLASS="p">(</SPAN><SPAN CLASS="q">/(\n^.{24})/m</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="q">q[</SPAN>
+<SPAN CLASS="hh">... The big YAPC::Europe banner ...</SPAN>
+<SPAN CLASS="h">Orange</SPAN>
+<SPAN CLASS="q">... The version and the additional code ...</SPAN>
+<SPAN CLASS="q">]</SPAN><SPAN CLASS="p">)</SPAN><SPAN CLASS="cm">,</SPAN><SPAN CLASS="q">''</SPAN><SPAN CLASS="s">)</SPAN><SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">$|</SPAN>++<SPAN CLASS="sc">;</SPAN><SPAN CLASS="i">$s</SPAN><SPAN CLASS="i">-&gt;reval</SPAN><SPAN CLASS="s">(</SPAN><SPAN CLASS="i">$_</SPAN>=<SPAN CLASS="q">'eval join&quot;&quot;,sort+keys%_'</SPAN><SPAN CLASS="s">)</SPAN>
+</PRE>
+<ul>
+<li>We have chosen to walk the secure path: <tt>-w</tt>, <tt>-T</tt>,
+<tt>strict</tt>, <tt>Safe</tt>. And our <tt>Safe</tt> object is only
+allowed to <tt>rand</tt>, <tt>sort</tt> and <tt>eval</tt>
+(on top of the <tt>base_...</tt> stuff).</li>
+<li>At the end of the first line, we assign a few values to <tt>%_</tt>,
+thanks to a hash slice: <tt>$_{t}</tt> is a here-document starting on
+the following line.</li>
+<li>Other values are added to <tt>%_</tt>, inlucing the "version" string,
+that starts by the newline character at the end of line two, and continues
+after the <tt class="h">Orange</tt> line.</li>
+<li>This string is split so that the left side (24 characters and the
+preceding newline on each line) of the version block holds the values,
+and the right side holds the keys.</li>
+<li>The empty string at the end of the list is the value to key <tt>udy</tt>,
+while the empty string before the first separator is the first key of
+the block.</li>
+</ul>
+<p align="center"> <a href="tshirt_00.html">Previous</a> | <a href="tshirt_02.html">Next</a></p><hr noshade>
+<p align="right">
+<span class="legal">
+Copyright &copy; 2000-2001, Philippe "BooK" Bruhat.</span>
+</p>
+</body>
+</html>
+

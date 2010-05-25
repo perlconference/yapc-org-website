@@ -1,0 +1,116 @@
+<HTML>
+<!-- *** Created by pp2html, build 1.22 from PerlPoint-Converters 0.1001  -->
+<HEAD>
+<TITLE>Tag definition</TITLE>
+</HEAD>
+<!-- ************************************************************** -->
+<BODY bgcolor="#FFFFFF" text="#000000" link="#0000CC" vlink="#AAAAAA" alink="#FF0000">
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0007.htm">Finding tag names</a>
+    &nbsp;&nbsp;Previous: <a href="slide0005.htm">The whole picture</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+<a name="Tag definition">
+
+<H1>3 Tag definition
+</H1>
+
+
+<P>
+It's up to you to define your tag meanings. Tags are usually used to mark up text. This may be a logical markup (index entry, code sequence, ...) or a formatting one (bold, italics, ...), for example.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  <B>\B&lt;something&gt;</B> marks &quot;something&quot; to
+  be formatted bold.
+
+  The pp2html tag <B>\X</B> declares index entries
+  like <B>\X&lt;here</B>&gt;.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Note that the common (and recommended) way of markup is to expect the marked text part in the tags body. However, it is also possible to declare begin and end tags which enclose the marked parts, like the builtin <CODE>\TABLE</CODE> and <CODE>\END_TABLE</CODE> do. This allows to enclose even empty lines (and therefore several paragraphs).
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  \TABLE
+
+  Column   | Column
+  contents | contents
+
+  \END_TABLE
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+Note that a tag does note necessarily need to have a body part. <CODE>\END_TABLE</CODE>, for example, has not.
+</P>
+
+
+<P>
+Depending on the tag meaning (or &quot;semantics&quot;), a tag may need options. These are parameters passed to the tag, specifying how it shall be evaluated. Tag options can be optional or mandatory.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  The \IMAGE tag uses options to specify
+  what file should be loaded, as in
+
+  \IMAGE{src=&quot;image.png&quot;}
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+As a general rule, tag options control tag processing, while the tag body contains parts of the document. Keep in mind that your tags might be processed by <I>other</I> converters as well which do not handle them. In such a case, only the tag body will remain in the source.
+</P>
+
+
+<TABLE BORDER=2 CELLPADDING=5 WIDTH=80%><TR><TD bgcolor="#e5e5e5"><PRE>
+<FONT COLOR="#000000">
+  Theoretically, the image tag could use the
+  tags <I>body</I> as well to declare the image file:
+
+  \IMAGE<B>&lt;image.png&gt;</B>
+
+  But if a converter ignores \IMAGE, this
+  would result in the <I>text</I> &quot;image.png&quot; which
+  will usually make no sense to a reader.
+</FONT></PRE></TD></TR></TABLE>
+
+
+<P>
+So, when you design your tags, make sure that nothing of them remains visible in the result in case they will be ignored.
+</P>
+<!--
+  *** NAVIGATION BAR =================================================
+  $Revision: 1.1 $
+  $Date: 2001/06/14 12:00:56 $
+-->
+
+<TABLE> 
+<TR>
+  <TD colspan=3 >
+    Next: <a href="slide0007.htm">Finding tag names</a>
+    &nbsp;&nbsp;Previous: <a href="slide0005.htm">The whole picture</a>
+     &nbsp;&nbsp;Contents: <a href="slide0000.htm" target="Index">Contents</a>
+  </td>
+</TR>
+</TABLE>
+</BODY>
+</HTML>

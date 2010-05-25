@@ -1,0 +1,40 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0//EN"
+            "http://www.w3.org/TR/REC-html40/strict.dtd">
+
+
+<html>
+<head>
+<title>Parsing: Terminology</title>
+</head>
+
+<body>
+<h1 align = "center">Terminology of <tt>Parse::RecDescent</tt></h1>
+
+<ul>
+<li>Grammar consists of a set of rules.
+<li>Each rule starts with an identifier (which corresponds to a 
+    <em>non-terminal</em>), followed by a colon, followed by zero
+    or more <strong>productions</strong>, separated by vertical
+    bars.
+<li>If there is more than one production for a rule, they are alternatives,
+    and a similar effect can be reached by having several rules starting
+    with the same identifier.
+<li>Each production consists of zero or more <strong>items</strong>.
+<li>Items are: 
+    <ul><li><strong>Subrule</strong>:   another rule to be matched.
+        <li><strong>Token</strong>:     a literal or a regex to be matched.
+             This has to match at the beginning of the unparsed part
+             of the to be parsed string - skipping over any leading whitespace.
+             This corresponds to the so-called <em>terminals</em>.
+        <li><strong>Action</strong>:    a piece of Perl code to be executed.
+        <li><strong>Directive</strong>: a special instruction to the parser.
+        <li><strong>Comment</strong>:   a standard Perl comment.
+    </ul>
+</ul>
+
+
+<hr>
+<a href = '07.html'>[Prev]</a>
+<a href = '09.html'>[Next]</a>
+<a href = '02.html'>[Index]</a>
+</body>

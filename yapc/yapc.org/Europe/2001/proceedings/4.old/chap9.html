@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>How <code>use strict;</code> made me a perl5-porter</title>
+  </head>
+<body>
+
+<hr />
+
+<h3><a name="resc">Resources and Self-motivation</a></h3>
+
+<p>After digging through the available resources:</p>
+<ul>
+  <li>Documentation</li>
+  <li>Mailing list (archives)</li>
+  <li>Change logs</li>
+  <li>Source code</li>
+  </ul>
+<p>I still found no suitable place to start, because there's not much
+reference material on format's</p>
+<p>There's a lot of discussions on perl5-porters varying from thread
+implementations to unicode handling and from string interpolation to
+regular expression irregularities, but <b>format</b>'s are not discussed,
+so the mailing list archives are not a good resource. So I had to do some
+research myself.</p>
+<p>Several mails to the mailing list asking for a place to start the
+research led to 2 pointers, both proved to be very wrong, because they
+assumed the flaw was in the formatting code.</p>
+<p>Digging. Learning how to use gdb, which - on a HP-UX platform - proved
+to be less than easy. And though perlguts turned out to be a nice manual
+for the parts that did not blow up in my face, I had to track down what
+was happining, and try to follow the flow that is used when parsing
+format's.</p>
+<p>After turning the formatting inside out and upside dow, not finding
+anything unusual happening, I just added <code>printf</code> statements
+haphazardly throughout the perl source code on points where I did expect
+the flow to pass by, and printed out some global variables. At this point
+intuition turns out to be more valuable than knowledge, cause I almost hit
+the right globals from the start.</p>
+<p>Realizing a not very well known fact that the variable declaration
+within a form definition can span multiple lines if the starting line of
+those variable <i>start with</i> a open brace, I was intuitively looking
+for places that dealt with that code.</p>
+<p>It turned out to be the closing brace <code>}</code> that caused a
+reset of a global brace counter when not aware of being inside a format
+parsing. I then did a decrement, instead of a reset, to check if I was
+right, and the format part now compiled, but other code parts did not.</p>
+<p>So the solution was at hand: the trouble spot was detected, but I had
+to find a way to <i>detect</i> (or rather <i>know</i>) that at that point
+I was inside a format and, if so, decrement, otherwise reset.</p>
+
+<hr />
+<a href="chap8.html">Prev</a> <a href="chapa.html">Next</a>
+</body>
+</html>

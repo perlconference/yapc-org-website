@@ -1,0 +1,25 @@
+    BODY, TD {
+        background-color: White;
+        font-family : sans-serif ;
+	font-size : 20pt;
+    }
+ 
+    A {
+        color: #0000D9;
+        background-color : White;
+    }
+
+    A:Hover {
+        color: #D20000;
+        background-color : White;
+    }
+
+    H1, H2, H3, H4 { 
+        min-width: 600px;
+	width: 100%;
+        font-variant: small-caps;
+        background-color: #C32933;
+        color: white; 
+        padding: 4px;
+    }
+

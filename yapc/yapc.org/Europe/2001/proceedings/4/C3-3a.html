@@ -1,0 +1,75 @@
+  <html>
+<header>
+    <title>Patching time</title>
+    </header>
+<body>
+<h1>The development track</h1>
+<ul>
+  <li><h2>The plain patch (6340)</h2>
+    <h3>Plumbing the syntax hole</h3>
+    <pre>
+      --- perl/pp.c.org   Wed Jul 26 11:47:23 2000
+      +++ perl/pp.c       Wed Jul 26 11:47:23 2000
+      @@ -599,6 +599,9 @@
+	   case 'F':
+	      if (strEQ(elem, "FILEHANDLE")) /* XXX deprecate in 5.005 */
+		  tmpRef = (SV*)GvIOp(gv);
+      +       else
+      +       if (strEQ(elem, "FORMAT"))
+      +           tmpRef = (SV*)GvFORM(gv);
+	      break;
+	   case 'G':
+	      if (strEQ(elem, "GLOB"))
+
+      --- perl/sv.c.org   Wed Jul 26 11:47:23 2000
+      +++ perl/sv.c       Wed Jul 26 11:47:23 2000
+      @@ -2831,6 +2831,13 @@
+			      dref = (SV*)GvIOp(dstr);
+			  GvIOp(dstr) = (IO*)sref;
+			  break;
+      +               case SVt_PVFM:
+      +                   if (intro)
+      +                       SAVESPTR(GvFORM(dstr));
+      +                   else
+      +                       dref = (SV*)GvFORM(dstr);
+      +                   GvFORM(dstr) = (CV*)sref;
+      +                   break;
+		      default:
+			  if (intro)
+			      SAVESPTR(GvSV(dstr));
+      End of Patch.</pre>
+
+    <h3>The test case</h3>
+    <pre>
+      --- perl/t/op/gv.t.org  Wed Jul 26 11:47:23 2000
+      +++ perl/t/op/gv.t      Wed Jul 26 11:47:23 2000
+      @@ -11,7 +11,7 @@
+       
+       use warnings;
+       
+      -print "1..40\n";
+      +print "1..41\n";
+       
+       # type coersion on assignment
+       $foo = 'foo';
+      @@ -97,15 +97,19 @@
+       %x = ("ok 19" => "\n");
+       sub x { "ok 20\n" }
+       print ${*x{SCALAR}}, @{*x{ARRAY}}, %{*x{HASH}}, &{*x{CODE}};
+      +format x =
+      +ok 21
+      +.
+      +print ref *x{FORMAT} eq "FORMAT" ? "ok 21\n" : "not ok 21\n";
+       *x = *STDOUT;
+      :</pre>
+    <p>... and a lot of test index increments</p>
+    <pre>
+      :
+      End of Patch.</pre>
+
+    </li>
+  </ul>
+<hr />
+<a href="C3-3.html">Prev</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="C3-4.html">Next</a>
+</body>
+</html>
