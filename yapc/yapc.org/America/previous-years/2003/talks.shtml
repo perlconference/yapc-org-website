@@ -1,0 +1,156 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2003 is an inexpensive Perl conference on June 16-18, 2003, at FAU, Boca Raton, FL.">
+    <meta name="keywords"
+          content="Perl,Perl conference,FAU,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2003: Talks</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<!-- sep -->
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Talks"></td>
+  </tr>
+
+<!-- sep -->
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Talks</H2>
+      </div>
+
+      Remember the <a href="cfp.shtml">YAPC::NA 2003 -- Call for Participants</a>.
+
+
+<!-- sep -->
+      <a name="schedule"></a>
+      <!-- p><hr size=1 -->
+      <H3>Schedule</H3>
+
+Speakers were notified on April 7, 2003 of their acceptance. If any speaker can not attend, their slot will be filled by one of the remaining wonderful talks. These schedules may change.
+      <p>Current Schedule:
+    <ul>
+
+      <li>Day 1
+      <a HREF="sched/day1.pdf">(PDF)</a></li>
+
+      <li>Day 2
+      <a HREF="sched/day2.pdf">(PDF)</a></li>
+
+      <li>Day 3 
+      <a HREF="sched/day3.pdf">(PDF)</a></li>
+
+    </ul>
+
+<!-- sep -->
+      <a name="papers_and_links"></a>
+      <!-- p><hr size=1 -->
+      <H3>Papers and Links</H3>
+
+	<UL>
+		<LI><a href="sched/papers/xml_modules.pdf">Michel Rodriguez: XML Modules</a></LI>
+		<LI><a href="sched/papers/dwh.pdf">Peter Chines: Dying With Honor</a></LI>
+		<LI><a href="sched/papers/videomanip">Helen Cook: Video Manipulation</a></LI>
+		<LI><a href="http://www.platypiventures.com/perl/present/index.shtml">Geoffrey Avery: ModuleMaker</a></LI>
+		<LI><a href="http://2shortplanks.com/talks/yapce2002/ettt.pdf">Mark Fowler: Extending Template Toolkit</a></LI>
+		<LI><a href="http://perl.overmeer.net/yapc2002-mailbox/">Mark Overmeer: Mail::Box</a></LI>
+		<LI><a href="sched/papers/Bricolage.pdf">David Wheeler: Bricolage</a></LI>
+		<LI><a href="sched/papers/threadtut-yapc.pdf">Artur Bergman: Threads</a></LI>
+		<LI><a href="http://teachmeperl.com/YAPC.03/Shell::POSIX::Select">Tim Maher: Shell::POSIX::Select</a></LI>
+	</UL>
+<!--
+      The <i>italic links are PDF</i> files.
+
+      <ul>
+
+        <li>Proceedings <i><a href="proceedings/Abstracts.pdf">
+        Abstracts</a></i>.
+
+        <li><a name="lightning"></a>Mark-Jason Dominus hosted the 
+        <a href="http://perl.plover.com/lightning-talks.html">Lightning Talks</a>
+        and <a href="http://perl.plover.com/lt/yapc2001.html">here</a>
+        is what was presented.
+
+        <li>David Huggins-Daines <i><a href="proceedings/dhd.speech.pdf">
+        Building Speech Applications with Perl and Free Software</a></i>.
+        <br>David has his <a href="http://www.cepstral.com/~dhd/yapc19101/">
+        slides online</a>.
+
+        <li>Brian Ingerson <i><a href="proceedings/ingy.inline.pdf">
+        Pathologically Polluting Perl, with C, Java, and Other Rubbish</a></i>.
+
+        <li>Sam Horrocks <i><a href="proceedings/horrocks.speedycgi.pdf">
+        Introduction to SpeedyCGI</a></i>.
+
+        <li>Steve Jenkins <i><a href="proceedings/jenkins.genjscript.pdf">
+        Run-time Generation of JavaScript Code by Perl CGI Programs</a></i>.
+        <br>Here is Steve's <a href="http://www.nrc.ca/~jenkins/">work</a>
+        and home page.
+
+        <li>Uri Guttman <i><a href="proceedings/uri.stem.pdf">
+        How to Configure and Use Stem</a></i>.
+        <br>See also Uri's <a href="http://www.stemsystems.com/">Stem Systems</a> work.
+
+        <li>Jason Lee <i><a href="proceedings/lee.bind.pdf">
+        =~? (or:  How We Learned to Stop Worrying and Love the Binding Operator)</a></i>.
+
+        <li>Walt Mankowski <i><a href="proceedings/waltman.docpatch.pdf">
+        How to Submit a Documentation Patch</a></i>.
+
+        <li>Nathan Torkington <i><a href="proceedings/gnat.p2p.pdf">
+        What's the Big Deal About P2P and Web Services?</a></i>.
+        <br>More <a href="http://prometheus.frii.com/~gnat/yapc/">YAPC talks</a>
+        by Nathan.
+
+        <li>Gunnar Wolf <i><a href="proceedings/wolf.protowrap.pdf">
+        ProtoWrap: Using Wrappers to Protect Specific Network Services</a></i>.
+
+      </ul>
+
+// -->
+
+<!-- sep -->
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+<!-- sep -->
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+
+           <!--#echo var="LAST_MODIFIED"--> by
+      <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+      Copyrights on Papers and Links are retained by their respective authors.<br>
+      Other content is copyright &copy; 2002 Yet Another Society, Inc.</small>
+      </p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

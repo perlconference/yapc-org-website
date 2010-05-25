@@ -1,0 +1,265 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="generator" content="WordPress 1.5" /> <!-- leave this for stats -->
+        <link rel="stylesheet" href="http://www.yapc.org/America/previous-years/2006/wp-content/themes/yapc_wide/style.css" type="text/css" media="screen" />
+        <link rel="shortcut icon" type="image/png" href="http://www.yapc.org/America/previous-years/2006/wp-content/themes/yapc_wide/images/favicon.png" />
+
+  <title>
+
+  SoWhatsTheDeal -
+
+
+  Kwiki</title>
+      <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/theme/yapc_chicago/css/kwiki.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/toolbar.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/user_name.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/search.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/formatter.css" />
+        <script type="text/javascript" src="javascript/double_click_to_edit.js"></script>
+  </head>
+<body>
+<!-- END kwiki_begin -->
+<img id="logo_left" src="wp-content/themes/yapc_wide/images/logo_left.jpg" alt="YAPC::NA 2006" />
+<img id="logo_right" src="wp-content/themes/yapc_wide/images/logo_right.jpg" alt="YAPC::NA 2006" />
+<div id="nav">
+<!-- BEGIN toolbar_pane -->
+<div class="toolbar">
+<ul class="primary">
+<li><!-- BEGIN search_box -->
+<form method="post" action="index.cgi" enctype="application/x-www-form-urlencoded" style="display: inline">
+<input style="border:0px; background:#cccccc;" type="text" name="search_term" size="8" value="Search" onfocus="this.value=''" />
+<input type="hidden" name="action" value="search" />
+</form>
+<!-- END search_box -->
+</li>
+<li><!-- BEGIN home_button -->
+<a href="http://www.yapc.org/America/previous-years/2006/index0.htm" accesskey="h" title="Home Page">
+<!-- BEGIN home_button_icon -->
+Home
+<!-- END home_button_icon -->
+
+</a>
+<!-- END home_button -->
+</li>
+<li><!-- BEGIN recent_changes_button -->
+<a href="http://www.yapc.org/America/previous-years/2006/index43283.htm" accesskey="c" title="Recent Changes">
+<!-- BEGIN recent_changes_button_icon -->
+Changes
+<!-- END recent_changes_button_icon -->
+
+</a>
+<!-- END recent_changes_button -->
+</li>
+<li><!-- BEGIN user_preferences_button -->
+<a href="http://www.yapc.org/America/previous-years/2006/index44809.htm" accesskey="u" title="User Preferences">
+<!-- BEGIN user_preferences_button_icon -->
+Preferences
+<!-- END user_preferences_button_icon -->
+
+</a>
+<!-- END user_preferences_button -->
+</li>
+</ul>
+</div>
+<!-- END toolbar_pane -->
+
+
+
+
+</div>
+
+
+	<div id="content">
+<!-- BEGIN display_content -->
+<div class="wiki">
+<h2>What&#39;s the Deal With the Network?</h2>
+<p>
+Basically, it&#39;s a case of poor planning on IIT&#39;s part. They were told that we would be ~500 strong, however we were only assigned a Class C network.
+
+</p>
+<p>
+This left us with a little more than half of the IP&#39;s that we need. The network admin is out of town, and we were instructed to disble DHCP and NAT on our wireless access points.
+
+</p>
+<p>
+In order to fix this problem &#40;and subvert the system&#41;, we are bringing in our own DHCP servers and will have them in place Tuesday morning.
+
+</p>
+<p>
+Sorry for the first day inconvenience. Those of you that hard coded your IP&#39;s, please revert to DHCP Tuesday morning.
+
+</p>
+<p>
+it&#39;s tuesday and the network still sucks :&#40;
+
+</p>
+<p>
+i came back to SSV for the internet
+
+
+</p>
+<h2>What&#39;s the Deal With the Network?  &#40;a different viewpoint&#41;</h2>
+<p>
+No IP&#39;s were &#34;assigned,&#34; nor ever are, to a conference.  Normally, we provide our own wireless access points, but the network group was not even told that a conference was taking place this week &#40;at least through the network groups manager, which is the normal and proper channel for such communication&#41;.  Often we will even NAT the access so that the conference attendees do not have to deal with registering their MAC addresses with our network controls.  This is especially the case when we are expecting a large number of wireless users as the network in the conference building is not designed for ~500 users.
+
+</p>
+<p>
+Even if we did know about the conference, no one in the network group would have ever told anyone from the conference that we could provide ~500 IP addresses &#40;This is not an entirly true statement.  Emily at the conference center verified with the IT department before we ever decided on the venue and made sure that the center could handle 500 laptops connected to the center at the same time.  The IT department said that it wouldn&#39;t be a problem, so we took on the venue.  Wether or not this was a network rep, we do now know. &#8211;<a href="http://www.yapc.org/America/previous-years/2006/index24430.htm">JoshMcAdams</a>&#41;, nor would any of us have told someone bringing their own equipment to support that many users to disable DHCP and NAT.  If anything was asked of the network group, the details were either entirely left out or totally misrepresented.
+
+</p>
+<p>
+End result, the conference connected their equipment to our network, bridged the attendees onto our network, and the attendees started pulling addresses from the DHCP pool normally in place for the staff and facility in the building.  Naturally this pool was never intended for ~500 additional users so the IP space ran out quickly.
+
+</p>
+<p>
+As for the &#34;network admin&#34; being &#34;out of town,&#34; three of the four employees in the network group are at work this week.  If the people contacting the &#34;network admin&#34; had actually called the support desk as they should have initially, they would have gotten one of us rather than leaving voicemails for the &#34;network admin&#34; who was out of town.
+
+</p>
+<p>
+Resolution?  Well, when we first heard about this late in the day on Monday, we recommended enabling DHCP/NAT on the wireless access points as that would be the simplest solution and get them running without making changes/impacting the IIT network.  The conference folks said that would be no problem.  Tuesday afternoon we were then told that the equipment they had could not handle more than 40-50 clients with NAT enabled.  Within 90 minutes we had researched, made changes to the IIT network, and provided additional IP space to one of the access points so the conference attendees could connect.
+
+</p>
+<p>
+Was there a problem?  Yes.  Was there some sort of mix-up or screw-up somewhere?  Probably.  Is the person at fault from IIT or the conference?  I don&#39;t know.  Was there any problem with the IIT network?  Definitely not.
+
+</p>
+<h2>And now the view from our side...</h2>
+<p>
+Obviously there is a disconnect somewhere in the process.
+
+</p>
+<p>
+We brought two commercial grade access points and a number of SOHO access points with us to provide everyone with wireless access. The AP&#39;s were just that - access points. No DHCP/NAT. This was fine since we were told in an email from IIT to disable DHCP/NAT. Everything that we tried on Monday was done with the expressed rules of IIT in mind.
+
+</p>
+<p>
+When we first installed our access points, the only IIT staff that we could find didn&#39;t know anything about the network setup. Our only direction was &#34;I think it&#39;s the yellow hole.&#34;
+
+</p>
+<p>
+We were given the OK to bring in our own DHCP/NAT on Tuesday even though our contacts within IIT said that they could not reach IT.
+
+</p>
+<p>
+After purchasing Linksys &#40;ugh&#41; routers from <a href="http://www.yapc.org/America/previous-years/2006/index41734.htm" class="empty">RadioShack</a> &#40;again, ugh&#41;, we proceeded to set up one of our AP&#39;s with a private network. The SOHO grade hardware could not take the load and would crash after 30 connections.
+
+</p>
+<p>
+By this point, we had the direct number for the network admin. Once the middle person was cut out, things went very smoothly. David &#40;the admin&#41; was knowledgeable, courteous, and efficient. He responded quickly to our needs, and I thank him for that.
+
+</p>
+<p>
+We noticed that the DHCP leases were set to expire after 8 hours. As this was one source of network trouble, we had them reduce the leases to 2 minutes.
+
+</p>
+<p>
+In talking with David we found that not only were both of our access points on a single Class C network, but the pool of IP&#39;s available to DHCP was limited to 150 connections. David felt that our suggestion of putting us on a Class B was unreasonable and would require a major restructure of their network, so we looked for other options.
+
+</p>
+<p>
+Josh had suggested that we try to put each AP on a different network. After a few minutes of conferring with his team, he asked for the MAC addresses of our access points so that he could do this for us.
+
+</p>
+<p>
+About 20 minutes later, it was done. So as things stand right now, we have YAPCWAP1 and YAPCWAP2. YAPCWAP1 has a DHCP pool of 150 IP&#39;s shared among us and students on campus. It covers the Expo and some of the Auditorium. YAPCWAP2 has a larger pool and covers the Ballroom, Alumni and part of the Auditorium. Please connect to the appropriate AP based on where you are to ensure enough IP&#39;s for everyone.
+
+</p>
+<p>
+It&#39;s not a perfect solution, but it&#39;s all we can do for now. Since the access points are now on different networks, we can&#39;t give them the same SSID.
+
+</p>
+<h2>Lessons Learned</h2>
+<p>
+When scheduling an event of this size, make sure you get in direct contact with the IT staff of the venue. Discuss your needs with the people that have control of the network, not the people that you sign the contract with.
+
+</p>
+<p>
+Always set up and bring a DCHP server that can handle your load as a backup.
+
+</p>
+<p>
+While I do apologize to the network staff for the original statements above, I still think that there was some poor planning/communication somewhere in the conference organization. The initial comments above were made before we were able to reach IT directly.
+
+</p>
+<p>
+Thanks to David for helping us get this somewhat squared away. Thanks to Yaakov and Joey for persevering through this with me. Thanks to &#40;insert name here&#41; from ITA for giving up his windows box to configure the Linksys hardware &#40;Win32 only!&#41; And thanks to all that offered suggestions and brainstormed with us during the process.
+
+</p>
+<p>
+-<a href="http://www.yapc.org/America/previous-years/2006/index47977.htm" class="empty">EliLutfallah</a>
+
+</p>
+<hr />
+<p>
+Oh that note, I officially volunteer to be the network admin for yapc next year, wherever it&#39;s held. I do this stuff for a living, and promise to liase with the venue networking staff well in advance, provide a Linux server for DHCP/DNS/whatever, set up the wireless, provide tech support for attendees, work with the local PM group, and generally be the responsible party when things go down.
+
+</p>
+<p>
+Given the situation that we found ourselves in, I think we handled things pretty well. Eli: hats off, man. &#8211;<a href="http://www.yapc.org/America/previous-years/2006/index29707.htm">JoeyKelly</a>
+</p>
+</div>
+<!-- BEGIN display_changed_by -->
+
+<!-- END display_changed_by -->
+
+<!-- END display_content -->
+
+	</div>
+	
+	<div id="left_sidebar">
+
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.valueclick.com/index.html"><img src="www.yapcchicago.org/media/sponsors/valueclick/web.jpg" alt="ValueClick" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.livetext.com/index.html"><img src="wp-content/themes/yapc_wide/images/livetext.jpg" alt="LiveText" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.bignerdranch.com/index.html"><img src="wp-content/themes/yapc_wide/images/bnr.gif" alt="Big Nerd Ranch" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.google.com/index.html"><img src="wp-content/themes/yapc_wide/images/google.gif" alt="Google" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.itasoftware.com/index.html"><img src="wp-content/themes/yapc_wide/images/ita_software.gif" alt="ITA Software" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.performics.com/index.html"><img src="wp-content/themes/yapc_wide/images/performics.jpg" alt="Performics" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.stonehenge.com/index.html"><img src="wp-content/themes/yapc_wide/images/stonehenge.gif" alt="Stonehenge"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/damian.conway.org/index.html"><img src="www.yapcchicago.org/media/sponsors/thoughtstream/web.jpg" alt="Thoughtstream"  border="0"/></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.sxip.com/index.html"><img src="wp-content/themes/yapc_wide/images/sxip.gif" alt="Sxip" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.openmake.com/index.html"><img src="wp-content/themes/yapc_wide/images/om.gif" alt="Open Make" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.shopzilla.com/index.html"><img src="wp-content/themes/yapc_wide/images/shopzilla.gif" alt="Shopzilla" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.oreilly.com/index.html"><img src="wp-content/themes/yapc_wide/images/oreilly.gif" alt="O'Reilly" border="0" /></a></p>
+		<!--<br/><p><a href="http://www.yapc.org/America/previous-years/2006/http://www.socialtext.com"><img src="http://yapcchicago.org/wp-content/themes/yapc_wide/images/socialtext.gif" alt="Social Text" border="0" /></a></p>-->
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.apress.com/index.html"><img src="wp-content/themes/yapc_wide/images/apress.gif" alt="Apress"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.grantstreetgroup.com/index.html"><img src="wp-content/themes/yapc_wide/images/grant.gif" alt="Grant Street Group"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.acxiom.com/index.html"><img src="wp-content/themes/yapc_wide/images/acxiom.gif" alt="Acxiom"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.zoomshare.com/index.html"><img src="wp-content/themes/yapc_wide/images/zoomshare.gif" alt="Zoomshare"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.cheetahmail.com/index.html"><img src="media/sponsors/cheetahmail/web.png" alt="CheetahMail"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.flr.follett.com/index.html"><img src="www.yapcchicago.org/media/sponsors/follett/web.gif" alt="Follett Library Resources"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.manning.com/index.html"><img src="www.yapcchicago.org/media/sponsors/manning/web.gif" alt="Manning"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.nostarch.com/index.html"><img src="wp-content/themes/yapc_wide/images/nsp.gif" alt="No Starch Press"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.pragmaticprogrammer.com/index.html"><img src="wp-content/themes/yapc_wide/images/pragmatic.png" alt="Pragmatic Programmers"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.allantgroup.com/index.html"><img src="wp-content/themes/yapc_wide/images/allant.jpg" alt="Allant"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.rimmkaufman.com/index.html"><img src="www.yapcchicago.org/media/sponsors/rimmkaufman/web.jpg" alt="Rimm Kaufman"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.combinenet.com/index.html"><img src="wp-content/themes/yapc_wide/images/combinenet.jpg" alt="CombineNet"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.plainblack.com/index.html"><img src="wp-content/themes/yapc_wide/images/plainblack.png" alt="PlainBlack"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.activestate.com/index.html"><img src="wp-content/themes/yapc_wide/images/active_state.gif" alt="ActiveState"  border="0"/></a></p>
+
+		<br/>
+
+			<p>Promote YAPC::NA on your site!</p>
+		                	<p><img src="wp-content/themes/yapc_wide/images/yapcna_blue_gold.gif"  border="0" alt="YAPC::NA Badge"/></p>
+			                	<p><img src="wp-content/themes/yapc_wide/images/yapcna_purple_grey.gif"  border="0" alt="YAPC::NA Badge"/></p>
+			                	<p><img src="wp-content/themes/yapc_wide/images/yapcna_purple_white.gif"  border="0" alt="YAPC::NA Badge"/></p>
+			
+		<p><a href="http://www.yapc.org/America/previous-years/2006/yapc_poster.pdf">Poster</a></p>
+
+	</div>
+
+	<div id="right_sidebar">
+<!-- BEGIN widgets_pane -->
+<div class="widgets">
+
+</div>
+<!-- END widgets_pane -->
+
+	</div>
+
+</body>
+</html>
+
+

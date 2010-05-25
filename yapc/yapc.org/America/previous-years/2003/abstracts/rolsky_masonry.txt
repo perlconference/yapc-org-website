@@ -1,0 +1,13 @@
+Title:  Advanced Masonry                                                                                              
+Length: 85 minutes                                                                                                    
+                                                                                                                      
+In this presentation, we'll cover a variety of advanced Mason techniques,                                             
+focusing on code re-use, performance, and custom behavior.  Specific                                                  
+topics to be covered include going beyond typical autohandler and dhandler                                            
+usage to create complex dispatch systems, using component attributes and                                              
+methods, component calls with content, subrequest, caching, obscure                                                   
+configuration parameters, and subclassing Mason for ultimate flexibility.                                             
+                                                                                                                      
+This presentation will include discussion of Mason in a web environment,                                              
+as well as using Mason for things like configuration management and                                                   
+creating flexible development environments.      

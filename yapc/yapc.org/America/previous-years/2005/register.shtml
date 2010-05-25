@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta name="ICBM" content="26.36508,-80.10235">
+ <meta name="DC.title" content="YAPC 2004 at UB">
+    <meta name="description" 
+          content="YAPC 2004 is an inexpensive Perl conference on June 16-18, 2004, at the University at Buffalo in Buffalo, New York, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,University at Buffalo,Buffalo,New York,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2004: Yet Another Perl Conference</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Call for Participation"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Registration</H2>
+      </div>
+
+      <p class="moddate"><small><b>Potential Speakers: </b>
+      This page is for registration of attendees! If you are 
+      interested in giving a presentation, talk, seminar, discussion, happening, 
+      performance, or something along those lines, you'll want to see the 
+      <a href="cfp.shtml">Call for Participants</a> instead.</small>
+      
+      <p><hr size=1>
+      <H3>Basic Registration</H3>
+      
+      <p>The basic registration cost is <b>US$ 85</b>. To register for YAPC,
+      please head to our registration form at 
+<br><br>
+<div align="center">
+<b><a href="https://donate.perlfoundation.org/index.pl?node=registrant+info&conferen
+ce_id=407">http://donate.perlfoundation.org/</a></b>
+</div>
+
+<p>You can find details on the conference hotel in the <a href="accommodations.shtml">accommodations</a> section.
+
+      <H3>Sponsorship</H3>
+
+      <p>You or your company can support YAPC and the
+      Yet Another Society by becoming a sponsor -- contributing more
+      than the basic cost. <a href="sponsors.shtml">Sponsors</a> are
+      listed among the materials, and in the proceedings.
+
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by Jim Brandt<br>
+           All content copyright &copy; 2003 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

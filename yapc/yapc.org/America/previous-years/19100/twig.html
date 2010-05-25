@@ -1,0 +1,2187 @@
+<html>
+<head><title>Processing XML efficiently with Perl and XML::Twig</title></head>
+<body bgcolor="#FFFFFF"><h1>Processing XML efficiently with Perl and XML::Twig</h1>
+<hr>
+<h2>Table of Content</h2>
+<ul><li><a href="yapc_twig_s1.html">1. Introduction</a></li>
+<li><a href="yapc_twig_s2.html">2. Introduction to XML</a></li>
+<li><a href="yapc_twig_s3.html">3. Introduction to XML::Twig</a></li>
+<li><a href="yapc_twig_s4.html">4. First Examples</a></li>
+<li><a href="yapc_twig_s5.html">5. Data base integration</a></li>
+<li><a href="yapc_twig_s6.html">6. Other features</a></li>
+<li><a href="yapc_twig_s7.html">7. Advanced features</a></li>
+<li><a href="yapc_twig_s8.html">8. Under the hood</a></li>
+<li><a href="yapc_twig_s9.html">9. Reference</a></li>
+</ul>
+<h2>Code Examples</h2>
+<p><a href="ex1_1.pl">ex1_1.pl</a>: Reordering an XML file<br>
+<a href="ex1_2.pl">ex1_2.pl</a>: Creating a new element<br>
+<a href="ex1_3.pl">ex1_3.pl</a>: Using TwigHandlers<br>
+<a href="ex1_4.pl">ex1_4.pl</a>: Using the flush method<br>
+<a href="ex1_5.pl">ex1_5.pl</a>: Using the purge method<br>
+<a href="ex1_7.pl">ex1_7.pl</a>: Using the TwigPrintOutsideRoots option<br>
+<a href="ex1_9.pl">ex1_9.pl</a>: Using path instead of gis<br>
+<a href="ex2_1.pl">ex2_1.pl</a>: Including a relationnal table in an XML document<br>
+<a href="ex2_2.pl">ex2_2.pl</a>: Including values from a relationnal table in an XML document<br>
+<a href="ex2_3.pl">ex2_3.pl</a>: Including values from a relationnal table in an XML document (alt)<br>
+<a href="ex2_4.pl">ex2_4.pl</a>: Dumping an XML table into a data base table<br>
+<a href="ex3_1.pl">ex3_1.pl</a>: Using the finish method<br>
+<a href="ex3_2.pl">ex3_2.pl</a>: Using the finish_print method<br>
+<a href="ex3_3.pl">ex3_3.pl</a>: Using set_id<br>
+<a href="ex3_4.pl">ex3_4.pl</a>: using elt_id<br>
+<a href="ex3_5.pl">ex3_5.pl</a>: Using before and after<br>
+<a href="ex3_6.pl">ex3_6.pl</a>: Using next_elt<br>
+<a href="ex3_7.pl">ex3_7.pl</a>: Pretty printing a document<br>
+<a href="ex3_8.pl">ex3_8.pl</a>: Pretty printing a table<br>
+<a href="ex4_0.pl">ex4_0.pl</a>: Using StartTagHandlers<br>
+<a href="ex4_1.pl">ex4_1.pl</a>: Purging part of the tree<br>
+<a href="xml2html1.pl">xml2html1.pl</a>: A simple HTML+ converter<br>
+</p>
+</body></html><html><head><title>Processing XMl efficiently with XML::Twig - Section 1</title></head><body bgcolor="#FFFFFF"><table width="100%"><tr><td align="left" width="33%">&nbsp;</td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s2.html"><img alt="Next" border="0" src="next.gif"></img><br>2. Introduction to XML</a></td></tr></table><h2>1. Introduction</h2><p>XML::Twig is a Perl module used to process efficently XML documents</p><p>Twig offers a tree-oriented interface to a document while still allowing the processing of documents of any size. I think the current buzzword for it would be something like &quot;push-pull&quot; processing ;--)</p><p>When I was younger I wanted to grow up and write a tool that would allow people to process text the way they wanted, offering tons of
+feature, various ways to achieve the same result, not forcing them into any processing model but allowing them to use the one they felt the
+most comfortable with. Eventually I grew up and I realized a guy named Larry Wall had already written a language named Perl... Darn! So
+as I was quite involved in dealing with SGML, then XML documents, I decided to settle for the next best thing: writing a module that would
+allow people to process XML the way they wanted, offering them tons of feature, various ways... you get the point.</p><p>So I wrote XML::Twig. XML::Twig gives you a tree interface to XML documents... if you want. It also lets you dump parts of the tree, set
+callbacks during processing, both on tags and on subtrees, process only part of the tree... you name it. The only thing XML::Twig does not do is follow standards (except XML of course). Consider yourself warned!</p><p>This talk is aimed at programmers who want to process XML data with the
+XML::Twig module.</p><p>It will go from the basic functionnalities of the module to its most
+adanced use, offering numerous examples of code, from HTML conversion to
+database integration.</p><p>XML::Twig is a Perl module offering a push-pull processing model of XML
+data. In other words it lets you build a tree from an XML documents, while
+letting you output the results of your processing as its built. But more on
+that later...</p><p>The text of this talk is available in XML (<a href="yapc_xmltwig.xml">yapc_xmltwig.xml</a>), converted to html using the <a href="talk2html">talk2html</a> script (which uses XML::Twig).</p><p>It is based on the XML::Twig tutorial which can be found on the<a href="http://xmltwig.cx">XML::Twig page</a></p><h4>1.0.1 Knowledge</h4><p>Prior knowledge of Perl, especially its object-oriented aspects and regular
+expressions will probably help the reader. Familiarity with the DBI module
+wouldn't hurt either, but the examples are simple and detailed enough to offer
+a first introduction to data base processing using Perl.</p><p>Very little prior knowledge of XML is assumed, although a selection of
+related links is offered and would be of interest to the complete beginner.</p><h3>1.1 Alternatives to XML::Twig</h3><p>Of course other ways of processing XML documents exist, both using Perl and
+other languages, especially Java and Python.</p><p>For a review of Perl XML related modules see <a href="http://xmltwig.cx/perl_xml/perl_xml.html ">Perl &amp; XML - A review of Perl XML modules</a>, for a list of Python XML
+resources see <a href="http://www.python.org/topics/xml/">Python and XML Processing</a> and for a list of Java XML resources see <a href="http://java.sun.com/xml/">Java (TM) Technology and XML</a>.</p><table width="100%"><tr><td align="left" width="33%">&nbsp;</td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s2.html"><img alt="Next" border="0" src="next.gif"></img><br>2. Introduction to XML</a></td></tr></table></body></html><html><head><title>Processing XMl efficiently with XML::Twig - Section 2</title></head><body bgcolor="#FFFFFF"><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s1.html"><img alt="Previous" border="0" src="previous.gif"></img><br>1. Introduction</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s3.html"><img alt="Next" border="0" src="next.gif"></img><br>3. Introduction to XML::Twig</a></td></tr></table><h2>2. Introduction to XML</h2><h3>2.1 What is XML</h3><p>XML could be described as &quot;HTML on steroids&quot;. Or conversely as &quot;SGML on Prozac&quot;.</p><p>XML is a markup language, just like HTML, using the same basic syntax: 
+pointy brackets, attributes... just slightly more dictatrial than HTML: tags 
+MUST be closed, attributes MUST be enclosed in quotes, either single or double.</p><p>In fact it is just a little more than comma separated files, apart from the fact that fields are somewhat documented (by the element name and by attributes)
+and that they can be nested, thus defining a tree structure instead of a table.</p><p>What XMl brings is syntaxic coherence, allowing the same tools to be used to
+process all XML files, and a host of associated standards to do formatting, 
+transformation, linking...</p><p>XML complexity stems from 2 main facts:</p><ul><li>in order to &quot;unleash the power of XML&quot; you have to design the &quot;right&quot; 
+XML for your system, through DTD's (and soon schemas),</li><li>the associated standards, such as CSS, XSL, DOM, XSLT, XPath, XLink, 
+        XInclude: you often need them to do anything useful with XML, but their 
+        mere number is quite overwhelming.</li></ul><h3>2.2 XML example</h3><p>A simple example would be: <a desc="A simple XML document" href="simple_doc.xml">simple_doc.xml</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>&lt;?xml version="1.0" ?>
+&lt;doc>
+  &lt;title>A simple XML document&lt;/title>
+  &lt;section>
+    &lt;title>Section 1&lt;/title>
+    &lt;p>This is the first paragraph of section 1&lt;/p>
+    &lt;p>And this is the second paragraph of section 1 whith &lt;b>bold&lt;/b> text&lt;/p>
+    &lt;empty desc"empty tag"/>
+  &lt;/section>
+  &lt;section>
+    &lt;title>Section 2&lt;/title>
+    &lt;p>This is the first paragraph of section 2&lt;/p>
+    &lt;p>And this is the second paragraph of section 2&lt;/p>
+  &lt;/section>
+&lt;/doc>
+</pre></td></tr></table><h3>2.3 Resources</h3><p>The best resource on XML, and SGML by the way, is certainly Robin Cover's <a href="">SGML/XML Web Page</a>, which links to everything else anyway. <a href="http://xml.com">XML.com</a> and <a href="http://xmlhack.com">xmlhack</a> are 2 good sites respectively for detailed
+articles on XML and for the latest news on the topic.</p><h3>2.4 XML used in this tutorial</h3><p>Just a word on the XML I use in this tutorial.</p><p>XML is usually used for 2 purposes these days: either purely to store data,
+to be exchanged between 2 pieces of software, or to store documents, possibly
+including data, that are destined to be printed or displayed on the web.</p><h4>2.4.1 Data oriented XML</h4><p>Data-oriented XML should be tagged according to a DTD that represents
+faithfully the data, we will see examples of that in the section about data
+base integration.</p><h4>2.4.2 Document oriented XML</h4><p>For document-oriented XML, after using SGML then XML for nearly 8 years, in
+all sorts of flavors and according to all sorts of DTD's I have become a firm
+believer in what I'd call &quot;HTML++&quot;. By this I mean that a much as possible of
+the HTML DTD should be used for text. There is really no need to redefine
+paragraphs, lists, code, headers etc... Structuring elements can be added, such
+as sections, possibly typed ones, that's one +. Specific inline elements, for
+domain relevant data, such as part numbers and prices in a catalog, standard
+references in a standard, etc... constitue the second +. Links can either use
+the familiar &lt;a&gt; tag or use different tags, possibly typed.</p><p><a href="http://www.xmlnews.org">XMLnews</a> is a good example of such a DTD.</p><p>Starting from the <a href="http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">XHTML DTD</a>
+and adding the extra elements is definitely the easiest way to create that kind
+od DTD.</p><p>Although I did not use a DTD for this tutorial it would look like:</p><pre>  &lt;!ELEMENT tutorial (h1, section+)>
+  &lt;!ELEMENT section (html_stuff)>
+  html_stuff is just the usual html content, plus a couple of elements:
+  &lt;!-- a link to a resource, so they can be gathered -->
+  &lt;!ELEMENT resource EMPTY>
+  &lt;!ATTLIST resource refid REFID>
+  &lt;!-- a method from XML::Twig, so it can be linked to the doc -->
+  &lt;!ELEMENT method (#PCDATA)>
+  &lt;!ATTLIST method class #REQUIRED>
+  &lt;!-- a code example, contains the file name -->
+  &lt;!ELEMENT example (#PCDATA)>
+  &lt;!ATTLIST example desc #REQUIRED>
+  </pre><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s1.html"><img alt="Previous" border="0" src="previous.gif"></img><br>1. Introduction</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s3.html"><img alt="Next" border="0" src="next.gif"></img><br>3. Introduction to XML::Twig</a></td></tr></table></body></html><html><head><title>Processing XMl efficiently with XML::Twig - Section 3</title></head><body bgcolor="#FFFFFF"><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s2.html"><img alt="Previous" border="0" src="previous.gif"></img><br>2. Introduction to XML</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s4.html"><img alt="Next" border="0" src="next.gif"></img><br>4. First Examples</a></td></tr></table><h2>3. Introduction to XML::Twig</h2><h3>3.1 XML::Parser</h3><p>XML::Parser, first developped by Larry Wall and now
+supported by Clark Cooper, is the basis of most other XML modules. It includes
+a non-validating parser, Expat, written by James Clark, who amongst other feats
+also wrote the nsgmls parser for SGML.</p><p>XML::Parser allows calling software to set handlers on parsing events. Those
+events include start tags (and XML::Parser gives the name of the tag and the
+attributes), end tags, text, processing instructions etc... </p><h3>3.2 XML::Twig</h3><p>XML::Twig is a sub-class of XML::Parser that allows higher level processing
+of XML.  XML::Twig offers a tree interface to a document, both once the
+document has been completely parsed and durig the parsing by allowing handlers
+to be defined on elements. Additional methods help managing the resources
+needed by XML::Twig.</p><p>A whole bunch of methods can be used on elements in the twig, to navigate it,
+transform it, create new elements...</p><h3>3.3 Why use XML::Twig</h3><p>XML:Twig is only one of the dozen or so Perl modules that process XML.
+Other popular ones are XML::DOM, XML::Simple, XML::PYX, XML::Grove or just
+plain vanilla XML::Parser.</p><p>So why would you use XML::Twig?</p><ul><li>you need to process huge documents efficiently,</li><li>PYX is not quite powerful enough,</li><li>the XML data is too complex for XML::Simple to handle,</li><li>the processing is hard to write in XML::Parser,</li><li>the document is too big to load conveniently in XML::DOM,</li><li>XSLT is a pain to write.</li></ul><p>XML::Twig uses a tree-based processing model, you can control how much of
+the tree you want to load at once in memory and it is very perlish, up to
+TIMTOWTDI and DWIM.</p><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s2.html"><img alt="Previous" border="0" src="previous.gif"></img><br>2. Introduction to XML</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s4.html"><img alt="Next" border="0" src="next.gif"></img><br>4. First Examples</a></td></tr></table></body></html><html><head><title>Processing XMl efficiently with XML::Twig - Section 4</title></head><body bgcolor="#FFFFFF"><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s3.html"><img alt="Previous" border="0" src="previous.gif"></img><br>3. Introduction to XML::Twig</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s5.html"><img alt="Next" border="0" src="next.gif"></img><br>5. Data base integration</a></td></tr></table><h2>4. First Examples</h2><h3>4.1 Full-tree mode</h3><h4>4.1.1 Creating and navigating the twig</h4><p>Now let's see our first code example. The purpose of this one is to reorder
+a list of elements on the value of an attribute.</p><p>The DTD is quite simple: <a desc="The stats DTD" href="stats.dtd">stats.dtd</a></p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>&lt;!ELEMENT stats  (player+)>
+&lt;!ELEMENT player (name, ppg, rpg, apg, blk)>
+&lt;!ELEMENT name   (#PCDATA)>
+&lt;!ELEMENT ppg    (#PCDATA)>
+&lt;!ELEMENT rpg    (#PCDATA)>
+&lt;!ELEMENT apg    (#PCDATA)>
+&lt;!ELEMENT blk     (#PCDATA)>
+
+</pre></td></tr></table><p>And the data is: </p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>
+&lt;?xml version="1.0"?>
+&lt;!DOCTYPE stats SYSTEM "stats.dtd">
+&lt;stats>&lt;player>&lt;name>Houston, Allan&lt;/name>&lt;g>69&lt;/g>&lt;ppg>20.1&lt;/ppg>&lt;rpg>3.4&lt;/rpg>&lt;apg>2.8&lt;/apg>&lt;blk>14&lt;/blk>&lt;/player>
+&lt;player>&lt;name>Sprewell, Latrell&lt;/name>&lt;g>69&lt;/g>&lt;ppg>19.2&lt;/ppg>&lt;rpg>4.5&lt;/rpg>&lt;apg>4.0&lt;/apg>&lt;blk>15&lt;/blk>&lt;/player>
+&lt;player>&lt;name>Ewing, Patrick&lt;/name>&lt;g>49&lt;/g>&lt;ppg>14.6&lt;/ppg>&lt;rpg>10.0&lt;/rpg>&lt;apg>1.0&lt;/apg>&lt;blk>68&lt;/blk>&lt;/player>
+&lt;/stats>
+</pre></td></tr></table><p>The complete <a href="nba.xml">xml data</a>.</p><p>The script is <a href="ex1_1.pl">ex1_1.pl</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This first example shows how to create a twig, parse a file into it  #
+#  get the root of the document, its children, access a specific child  #
+#  and get the text of an element                                       #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $field= $ARGV[0] || 'ppg';
+my $twig= new XML::Twig;
+
+$twig->parsefile( "nba.xml");    # build the twig
+my $root= $twig->root;           # get the root of the twig (stats)
+my @players= $root->children;    # get the player list
+
+                                 # sort it on the text of the field
+my @sorted= sort {    $b->first_child( $field)->text 
+                  &lt;=> $a->first_child( $field)->text }
+            @players;
+                                 
+print '&lt;?xml version="1.0"?>';   # print the XML declaration
+print '&lt;!DOCTYPE stats SYSTEM "stats.dtd" []>';
+print '&lt;stats>';                 # then the root element start tag
+
+foreach my $player (@sorted)     # the sorted list 
+ { $player->print;               # print the xml content of the element 
+   print "\n"; 
+ }
+print "&lt;/stats>\n";              # close the document
+</pre></td></tr></table><p>Note how we get the root of the twig using the <tt><a href="twig_dev.html#twig_root">root</a></tt> method,  then use the <tt><a href="twig_dev.html#elt_children">children</a></tt> method to get the list of players.</p><p>The<tt><a href="twig_dev.html#elt_first_child">first_child</a></tt> method is used to navigate the twig,
+it accepts an optionnal parameter which is the gi we are interested in, if tha
+parameter is ommited the first child, whatever it's gi, is returned. Other
+navigation methods are <tt><a href="twig_dev.html#elt_last_child">last_child</a></tt>, <tt><a href="twig_dev.html#elt_prev_sibling">prev_sibling</a></tt>, <tt><a href="twig_dev.html#elt_next_sibling">next_sibling</a></tt> and<tt><a href="twig_dev.html#elt_parent">parent</a></tt>. They all return <tt>undef</tt> if no
+element is found.</p><p>The <tt><a href="twig_dev.html#elt_text">text</a></tt> returns the... text of the element,
+including all  elements included in it, without any tags. Other methods used to
+retrieve the content of an alement include <tt><a href="twig_dev.html#elt_print">print</a></tt>,
+which prints the element content, from its start tag to its end tag, included,
+and including the content (and tags) of all included elements, and <tt><a href="twig_dev.html#elt_sprint">sprint</a></tt>, which returns the string that <tt>print</tt>
+prints, and accepts an optionnal parameter which excludes the element tags when
+true.</p><h4>4.1.2 Modifying the twig</h4><p>Another example, in which we will create new elements: our statistics
+include the  total number of blocks for each player, but in order to find out
+the best blocker in our selection we want the number of blocks per game, and we
+want to store it in the document (conveniently the DTD allows for an optionnal<tt>blg</tt> element).</p><p>Here is the <a href="ex1_2.pl">ex1_2.pl</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to create, and paste elements                 #
+#  It creates a new element named blg, for each player                  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $twig= new XML::Twig;
+
+$twig->parsefile( "nba.xml");    # build the twig
+my $root= $twig->root;           # get the root of the twig (stats)
+my @players= $root->children;    # get the player list
+
+                                 
+foreach my $player (@players)     
+ { my $g  = $player->first_child( 'g')->text;    # get the text of g            
+   my $blk= $player->first_child( 'blk')->text;  # get the text of blk
+   my $blg= sprintf( "%2.3f", $blk/$g);          # compute blg
+   my $eblg= new XML::Twig::Elt( 'blg', $blg);   # create the element
+   $eblg->paste( 'last_child', $player);         # paste it in the document   
+ }
+
+$twig->print;                    # note that we loose the extra returns
+</pre></td></tr></table><p>The <tt><a href="twig_dev.html#elt_paste">paste</a></tt> method accepts 4 different position
+arguments:</p><ul compact="compact"><li><tt>first_child</tt>: pastes the element as the first child of the third
+argument</li><li><tt>last_child</tt>: pastes the element as the last child of the third
+argument</li><li><tt>before</tt>: pastes the element before the third argument</li><li><tt>after</tt>: pastes the element after the third argument</li></ul><p>You can ommit <tt>first_child</tt> and just write <tt>$elt-&gt;paste(
+$ref)</tt>. What you  can't do is paste an element that already belongs to a
+document, that will cause a fatal error.</p><p>Note that the output is now generated by the <tt><a href="twig_dev.html#twig_print">print</a></tt> method, instead of regular print statements, and
+that the extra line returns that we had inserted in the file have disapeared.
+We will see a little later how to keep them around.</p><h3>4.2 Twig handlers</h3><p>Another way to accomplish the same task, a more
+&quot;twig-ish&quot; way, would be to set a handler on the <tt>player</tt> element. A
+handler is attached to an element name through the TwigHandlers option when the
+twig is created. The subroutine that will be called everytime an element with
+that name has been completely parsed. It is then called with 2 parameters: the
+twig itself and the element.</p><p>Here is the <a href="ex1_3.pl">ex1_3.pl</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the TwigHandlers option                #
+#  It creates a new element named blg, for each player                  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $twig= new XML::Twig( 
+                TwigHandlers =>                  # player will be called
+                  { player => \&amp;player }         # when each player element
+                       );                        # has been parsed
+
+$twig->parsefile( "nba.xml");    # build the twig
+$twig->print;                    # print it
+
+sub player
+ { my( $twig, $player)= @_;                      # handlers params are always
+                                                 # the twig and the element
+
+   my $g  = $player->first_child( 'g')->text;    # get the text of g            
+   my $blk= $player->first_child( 'blk')->text;  # get the text of blk
+   my $blg= sprintf( "%2.3f", $blk/$g);          # compute blg
+   my $eblg= new XML::Twig::Elt( 'blg', $blg);   # create the element
+   $eblg->paste( 'last_child', $player);         # paste it in the document   
+ }
+
+</pre></td></tr></table><p>This is basically similar to the
+previous example, except the interesting code is in the handler instead of
+being in the loop. It gets more interesting in the next section though...</p><h3>4.3 The flush and purge methods</h3><h4>4.3.1 The flush method</h4><p>Now in the previous examples the whole document was being loaded, then
+printed. This is not very memory efficient, especially as once a player has
+been updated it is never used again.</p><p>Hence the use of the <tt><a href="twig_dev.html#twig_flush">flush</a></tt> method. The <tt><a href="twig_dev.html#twig_flush">flush</a></tt>
+method just dumps the twig that has been parsed so far. It takes care of
+printing the proper closing tags when needed and deleting the printed elements,
+thus allowing the memory to be reused for the rest of the processing. It does
+not delete the parents of the current element (but might delete most of their
+children), so they are still available when navigating the twig.</p><p>Here is the <a href="ex1_4.pl">ex1_4.pl</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the flush method                       #
+#  It creates a new element named blg, for each player                  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $twig= new XML::Twig( 
+                TwigHandlers =>                   # player will be called
+                  { player => \&amp;player }          # when each player element
+                       );                         # has been parsed
+
+$twig->parsefile( "nba.xml");                     # build the twig
+$twig->flush;                                     # flush the end of the twig  
+
+sub player
+  { my( $twig, $player)= @_;                      # handlers params are always
+                                                  # the twig and the element
+
+    my $g  = $player->first_child( 'g')->text;    # get the text of g
+    my $blk= $player->first_child( 'blk')->text;  # get the text of blk
+    my $blg= sprintf( "%2.3f", $blk/$g);          # compute blg
+    my $eblg= new XML::Twig::Elt( 'blg', $blg);   # create the element
+    $eblg->paste( 'last_child', $player);         # paste it in the document
+
+    $twig->flush;                                 # flush the twig so far   
+ }
+
+</pre></td></tr></table><p>Still very similar to the previous example, except that instead of printing
+the whole twig at the end of the processing the calls to <tt><a href="twig_dev.html#twig_flush">flush</a></tt> at the end of <tt>player</tt> ensure that each
+player element stays in memory for just as long as it is needed.</p><p><strong>IMPORTANT NOTE</strong>: do not forget that last call to<tt>flush</tt> in the main program, after the <tt><a href="twig_dev.html#twig_parsefile">parsefile</a></tt> instruction. Without it the end of the document
+(actually the <tt>&lt;/stats&gt;</tt> tag) would not be output.</p><h4>4.3.2 The purge method</h4><p>The <tt>flush</tt> method is usefull if you want to output the
+modified standard. But you might not always want that. Suppose you just want to
+output the leader in a category:</p><p>Here is the <a href="ex1_5.pl">ex1_5.pl</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the purge method                       #
+#  It outputs the name of the leader in a statistical category          #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $leader_name;
+my $leader_score=0;
+
+
+my $field= $ARGV[0] || 'ppg';
+                                              # create the twig
+my $twig= new XML::Twig( TwigHandlers => { player => \&amp;player } ); 
+
+$twig->parsefile( "nba.xml");                 # parse the twig
+                                              # print the result
+print "Leader in $field: $leader_name ($leader_score $field)\n";
+
+sub player
+  { my( $twig, $player)= @_;                      
+                                              # get the score
+    my $score= $player->first_child( $field)->text;    
+    if( $score > $leader_score)               # if it's the highest
+      { $leader_score= $score;                # store the information
+        $leader_name= $player->first_child( 'name')->text;
+      }
+    $twig->purge;                             # delete the twig so far   
+ }
+
+</pre></td></tr></table><p>Very simple, yet very memory
+efficient. You still get the advantage of local tree-processing, having access
+to the whole <tt>player</tt> sub-tree, while not having to pay the price of
+loading the whole document in memory.</p><p>But wait! There's more...</p><h3>4.4 The TwigRoots option</h3><p>Actually in the previous example we build the
+complete twig for each player element, even though we are really only
+interested in the name and one of the sub-elements. It's OK as the xml file we
+are working on is not to big, but it can be a problem, both in terms of speed
+and memory for bigger file. Hopefully XML::Twig offer a way to build the twig
+only for those elements we are interested in.</p><p>The TwigRoots option, set
+when the twig is created, gives a list (well, actually a hash) of elements for
+which the twig will be built. Other elements will be ignored. The result is a
+twig that includes the root of the document (we need a root for the tree in any
+case) and the TwigRoots elements as children of that root. For each element in
+the TwigRoots list the whole sub-tree is built.</p><p>Here is the <a desc="Using the TwigRoots option" href="ex1_6.pl">ex1_6.pl</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the TwigRoots option                   #
+#  It outputs the name of the leader in a statistical category          #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $leader_name;
+my $leader_score=0;
+
+
+my $field= $ARGV[0] || 'ppg';
+                                              # twig will be created only
+                                              # for name and $field elements
+my $twig= new XML::Twig( TwigRoots    => { 'name' => 1, $field => 1 },
+                                              # handler will be called for
+                                              # $field elements
+                         TwigHandlers => { $field => \&amp;field } ); 
+
+$twig->parsefile( "nba.xml");                 # parse the twig
+                                              # print the result
+print "Leader in $field: $leader_name ($leader_score $field)\n";
+
+sub field
+  { my( $twig, $field)= @_;                      
+                                              # get the score
+    my $score= $field->text;    
+    if( $score > $leader_score)               # if it's the highest
+      { $leader_score= $score;                # store the information
+        $leader_name= $field->prev_sibling( 'name')->text;
+      }
+    $twig->purge;                             # delete the twig so far   
+ }
+
+</pre></td></tr></table><p>The virtual twig
+build (looking for the leader in ppg) is <tt>&lt;stats&gt;&lt;name&gt;Houston,
+Allan&lt;/name&gt;&lt;ppg&gt;20.1&lt;/ppg&gt;&lt;name&gt;Sprewell,
+Latrell&lt;/name&gt;&lt;ppg&gt;19.2&lt;/ppg&gt;...&lt;/stats&gt;</tt>. The script doesn't
+spend memory storing useless information on other stats, nor time building the
+twig for those stats.</p><h3>4.5 The TwigPrintOutsideRoots option</h3><p>Now suppose all we want to do is remove a statistical category from the
+document. Ideally we would like to build as little of the twig as possible,
+using the TwigRoots option, but we also want want most of the document to be
+output as-is. TwigPrintOutsideRoots to the rescue! By setting that option when
+we create the twig anything outside of the TwigRoots elements will simply be
+print.</p><p>Here is the <a href="ex1_7.pl">ex1_7.pl</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the TwigPrintOutsideRoots option       #
+#  It deletes a statistical category from the document                  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $field= $ARGV[0] || 'ppg';
+                                              # twig will be created only
+                                              # for $field elements
+my $twig= new XML::Twig( TwigRoots    => { $field => 1 },
+                                              # print all other elements asis
+                         TwigPrintOutsideRoots => 1, 
+                         TwigHandlers => { $field => \&amp;field } ); 
+
+$twig->parsefile( "nba.xml");                 # parse the twig
+
+sub field
+  { my( $twig, $field)= @_;                      
+    $field->cut;    
+ }
+
+</pre></td></tr></table><p>Note the use of the <tt><a href="twig_dev.html#elt_cut">cut</a></tt> method, which just removes the element from the
+twig.</p><p>And of course, as There's More Than One Way To Do It, here is a
+real short script that does the same thing, just in a more lazy way (and
+actually a slightly faster but  more memory intensive one).</p><p>The <a desc="A lazy example" href="ex1_8.pl">ex1_8.pl</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+use strict;
+use XML::Twig;
+
+my $field= $ARGV[0] || 'ppg';
+my $twig= new XML::Twig( TwigRoots => { $field => 1 },
+                         TwigPrintOutsideRoots => 1); 
+
+$twig->parsefile( "nba.xml");                 # parse the twig
+
+</pre></td></tr></table><p>Figuring out how it works is
+left as an exercise for the reader (hint: TwigPrintOutsideRoots does just what
+it's name suggests, no more).</p><h3>4.6 A simple HTML+ converter</h3><p>Now with
+what we've learned so far we are just a couple of additional tricks away from
+building a simple &quot;HTML+&quot; converter. The <tt>+</tt> here means that we can
+include additional inline elements to an HTML document. Provided of course that
+HTML document is a valid XML instance (and I admit this can be hard to
+achieve).</p><p>So here is the <a href="xml2html1.pl">xml2html1.pl</a>. It runs on the <a href="html_plus.xml">html_plus.xml</a> file and includes itself in the
+output:<a href="html_plus.html">html_plus.html</a></p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example can be used as a framework to create others HTML+       #
+#  converters                                                           #
+#  It maps various specific elements to common html ones, takes care of #
+#  empty elements that would not be displayed in an old browser, and    #
+#  finally allows simple inclusion of outside files in the document     #
+#                                                                       #
+#########################################################################
+
+
+use strict;
+use XML::Twig;
+
+
+my $t= new XML::Twig
+         ( TwigRoots =>
+             { example     => \&amp;example,    # include a file 
+                                            # convert to an html tag
+               method      => \&amp;method,     # convert to tt and create
+                                            # link to doc
+               tag         => sub { make(@_, 'tt') },
+               code        => sub { make(@_, 'tt') },
+               package     => sub { make(@_, 'bold') },
+               option      => sub { make(@_, 'bold') },
+               br          => \&amp;empty,      # we need those for the html
+               hr          => \&amp;empty,      # to work in old browsers
+             },
+            TwigPrintOutsideRoots => 1,     # just print the rest
+          );
+
+if( $ARGV[0]) { $t->parsefile( $ARGV[0]); } # process the twig
+else          { $t->parse( \*STDIN);      }
+
+exit;
+
+sub empty                                   
+  { my( $t, $empty)= @_;                    
+    print "&lt;" . $empty->gi . ">";           # just print the tag html style
+  }
+
+sub make                                          
+  { my( $t, $elt, $new_gi)= @_;
+    $elt->set_gi( $new_gi);                 # change the tag gi
+    $elt->print;                            # don't forget to print it
+  }
+
+sub method
+  { my( $t, $method)= @_;
+    $method->set_gi( 'tt');
+    my $a= $method->insert( 'a');
+    my $class= $method->att( 'class');
+    my $item= lc $method->text;
+    $method->del_att( 'class');
+    $a->set_att( href => "$class\_$item");
+  }
+
+sub example                                 # generate a link and include the file
+  { my( $t, $example)= @_;
+
+    my $file= $example->text;               # first get the included file
+
+    $example->set_gi( 'p');                 # replace the example by a paragraph
+    my $a= $example->insert( 'a');          # insert an link in the paragraph
+    $a->set_att( href => $file);            # set the href attribute
+
+    $example->print;                        # print the paragraph
+
+    open( EXAMPLE, "&lt;$file")                # open the file
+      or die "cannot open file $file: $!"; 
+    local undef $/;                         # slurp all of it
+    my $text= &lt;EXAMPLE>;
+    close EXAMPLE;
+
+    $text=~ s/&amp;/&amp;amp;/g;                    # replace special characters (&amp; first)
+    $text=~ s/&lt;/&amp;lt;/g ;                    
+    $text=~ s/"/&amp;quot;/g;
+
+    print "&lt;pre>$text&lt;/pre>";               # print the example
+
+
+    
+  }
+
+
+</pre></td></tr></table><p>We use 3 new methods here:</p><ul><li><tt><a href="twig_dev.html#elt_set_gi">set_gi</a></tt>, predictably sets the gi
+(the name, gi means <em>generic identifier</em>, it comes from  sgml) of the
+element, the <tt><a href="twig_dev.html#elt_gi">gi</a></tt> method returns the gi of an
+element</li><li><tt><a href="twig_dev.html#elt_set_att">set_att</a></tt> sets (and creates if it
+does not exist already) an attribute to a value, the <tt><a href="twig_dev.html#elt_att">att</a></tt> method retrieves the value of an attribute,</li><li><tt><a href="twig_dev.html#elt_insert">insert</a></tt> creates an element which is inserted
+within an other element, the new element is the only child of the initial
+element and all children of the initial element become children of the new
+element. The method returns the new element.</li></ul><p>Also note the neat trick (thanks to Clark Cooper for this one) that consist in setting the handler as a sub that just adds an extra parameter to the usual ones: <tt>sub {
+make(@_, 'tt') }</tt>.</p><h3>4.7 Setting handlers for elements in context</h3><p>An additional option is to set handlers not for elements but for elements in a given context: instead of giving just the gi of the element you can use an XPath-like expression in the TwigHandlers (as well as in the TwigRoots) argument.</p><p>Valid path can be of the form <tt>/root/elt1/elt2</tt> for a complete path to the element, or <tt>elt1/elt2</tt> for a partial path.</p><p>Note that this path is given in the <b>original</b> document, not in the current twig.</p><p>So if we want to convert the simple document we saw in the XML examples we would write the conversion as in <a href="ex1_9.pl">ex1_9.pl</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+use strict;
+use XML::Twig;
+
+my $twig= new XML::Twig( TwigHandlers => 
+                { doc            => \&amp;doc,
+                 '/doc/title'    => \&amp;doc_title,     # full path
+                 'section/title' => \&amp;section_title, # partial path
+                  section        => \&amp;section,
+                }
+                       ); 
+
+$twig->parsefile( "simple_doc.xml");                  # parse the twig
+$twig->print;                                         # print the modified twig
+
+
+sub doc_title
+  { my( $t, $doc_title)= @_;
+    $doc_title->set_gi( 'h1');                        # just change the tag to h1
+  }
+
+sub section_title
+  { my( $t, $section_title)= @_;
+    $section_title->set_gi( 'h2');                    # just change the tag to h2
+  }
+
+sub section
+  { my( $t, $section)= @_;
+    $section->erase;                                  # erase just erases the tags
+  }
+
+sub doc
+  { my( $t, $doc)= @_;
+    $doc->set_gi( 'html');                            # set the gi to html
+    my $doc_title= $doc->first_child( 'h1')->text;    # the title is now a h1 element
+    $doc->insert( 'body');                            # create the body
+    my $header= new XML::Twig::Elt( 'header');        # create the header
+    $header->paste( $doc);                            # paste it 
+    my $title= $header->insert( 'title');             # insert the title
+    $title->set_text( $doc_title);                    # with the appropriate content
+  }
+
+
+
+</pre></td></tr></table><p>Note that when we process the <tt>doc</tt> element the title has already
+been processed, so we have to look for a <tt>h1</tt> child.</p><p>We also use two new methods here: <tt><a href="twig_dev.html#elt_erase">erase</a></tt> removes
+the element and pastes all of its children as children of the element parent.
+The effect on the output is that the tag has been erased from the document. <tt><a href="twig_dev.html#elt_set_text">set_text</a></tt> sets the textual content of the element.</p><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s3.html"><img alt="Previous" border="0" src="previous.gif"></img><br>3. Introduction to XML::Twig</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s5.html"><img alt="Next" border="0" src="next.gif"></img><br>5. Data base integration</a></td></tr></table></body></html><html><head><title>Processing XMl efficiently with XML::Twig - Section 5</title></head><body bgcolor="#FFFFFF"><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s4.html"><img alt="Previous" border="0" src="previous.gif"></img><br>4. First Examples</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s6.html"><img alt="Next" border="0" src="next.gif"></img><br>6. Other features</a></td></tr></table><h2>5. Data base integration</h2><p>We now have all the tools we need to build documents that include data 
+straight out of relationnal data bases. The only decision we have to make is how to design our documents, and our DTD's. Are we going to include entire tables or single values, and how.</p><p>Here are some simple examples of what can be done:</p><h3>5.1 Including a table</h3><p>For this first example we will include a whole table in the document.</p><p>The document we use is <a desc="An XML document including a relationnal table" href="books1.xml">books1.xml</a>, where the table is
+generated by the <tt>&lt;rel_table query=&quot;SELECT code, name, price FROM books&quot;/&gt; </tt> tag.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>&lt;?xml version="1.0"?>
+&lt;html>
+  &lt;head>&lt;title>XML::Twig Data Base Example (1)&lt;/title>&lt;/head>
+  &lt;body>
+    &lt;h1>XML::Twig Data Base Example&lt;/h1>
+    &lt;h2>Catalog&lt;/h2>
+    &lt;rel_table query="SELECT code, name, price FROM books"/>
+  &lt;/body>
+&lt;/html>
+</pre></td></tr></table><p>The code in <a href="ex2_1.pl">ex2_1.pl</a> mixes DBI and XML::Twig to build the table.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+use strict;
+
+use DBI;
+use XML::Twig;
+
+my $file= shift;
+
+my $dbh= connect_to_db();
+
+my $twig= new XML::Twig( TwigRoots => 
+                           { rel_table => \&amp;create_table },
+                         TwigPrintOutsideRoots => 1,
+                       );
+
+$twig->parsefile( $file);
+
+$dbh->disconnect();
+exit;
+
+
+
+# connect to the data base
+sub connect_to_db
+  { my $driver = "mysql";
+    my $dsn = "DBI:$driver:database=test;";
+    my $dbh = DBI->connect($dsn, 'test', '', {AutoCommit=>1});
+    my $drh = DBI->install_driver($driver);
+    return( $dbh);
+  }
+
+
+sub create_table
+  { my( $twig, $rel_table)= @_;
+    my $query= $rel_table->att( 'query');
+
+    # prepare the select
+    my $select= $query;
+    unless ($select=~ /;$/) { $select.= ";"; } # I always forget the ; 
+    my $sth= $dbh->prepare( $select);
+
+    print "&lt;table border=\"1\">\n";
+
+    $sth->execute();
+
+    # print column titles
+    print "&lt;tr>";
+    my $field= $sth->{NAME};
+    for( my $i=0; $i&lt;=$#{$field}; $i++)
+      { print "&lt;td>&lt;strong>" . ucfirst( $field->[$i]) . "&lt;/strong>&lt;/td>"; }
+    print "&lt;/tr>\n";
+
+    my $row;
+    while( $row= $sth->fetchrow_arrayref())
+      { # print each row
+        print "&lt;tr>";
+        for( my $i=0; $i&lt;=$#{$row}; $i++)
+          { my $value= $row->[$i];
+            # format prices
+            $value=~ s/^(\d*)(\d\d)$/\$$1.$2/ if( $field->[$i] eq 'price');
+            print "&lt;td>$value&lt;/td>";
+          }
+    print "&lt;/tr>\n";
+      }
+
+    print "&lt;/table>\n";
+  }
+    
+
+</pre></td></tr></table><p>This code can also be used to process slightly trickier queries, as in  <a desc="Another XML document including a relationnal table!" href="books2.xml">books2.xml</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>&lt;?xml version="1.0"?>
+&lt;html>
+  &lt;head>&lt;title>XML::Twig Data Base Example (2)&lt;/title>&lt;/head>
+  &lt;body>
+    &lt;h1>XML::Twig Data Base Example&lt;/h1>
+    &lt;h2>Catalog&lt;/h2>
+    &lt;rel_table query="SELECT books.code, books.name, books.price, ratings.rating FROM books, ratings where books.code=ratings.code"/>
+  &lt;/body>
+&lt;/html>
+</pre></td></tr></table><h3>5.2 Including values from a table</h3><p>Depending on how generic, and how convenient to write we want the queries to be, several options are possible. Here are a couple:</p><p>The first document is <a desc="A document including generic queries" href="books3.xml">books3.xml</a>, which includes very generic queries.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>&lt;?xml version="1.0"?>
+&lt;html>
+  &lt;head>&lt;title>XML::Twig Data Base Example (3)&lt;/title>&lt;/head>
+  &lt;body>
+    &lt;h1>XML::Twig Data Base Example (3)&lt;/h1>
+    &lt;p>I really liked &lt;include query='select name from books where code="P001"'/>, which, along with &lt;include query='select name from books where code="P002"'/> and &lt;include query='select name from books where code="P003"'/> (&lt;include query='select rating from ratings where code="P003"'/>)are the basis of a good Perl library.&lt;/p>
+  &lt;/body>
+&lt;/html>
+</pre></td></tr></table><p>It can be processed using the <a href="ex2_2.pl">ex2_2.pl</a> script.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+use strict;
+
+use DBI;
+use XML::Twig;
+
+my $file= shift;
+
+my $dbh= connect_to_db();
+
+my $twig= new XML::Twig( TwigRoots => 
+                           { include => \&amp;include },
+                         TwigPrintOutsideRoots => 1,
+                       );
+
+$twig->parsefile( $file);
+
+$dbh->disconnect();
+exit;
+
+
+
+# connect to the data base
+sub connect_to_db
+  { my $driver = "mysql";
+    my $dsn = "DBI:$driver:database=test;";
+    my $dbh = DBI->connect($dsn, 'test', '', {AutoCommit=>1});
+    my $drh = DBI->install_driver($driver);
+    return( $dbh);
+  }
+
+
+sub include
+  { my( $twig, $include)= @_;
+    my $query= $include->att( 'query');
+    $query=~ s/&amp;quot;/"/;                      # because of slight
+                                               # oversight in XML::Twig
+    # prepare the select
+    my $select= $query;
+    unless ($select=~ /;$/) { $select.= ";"; } # I always forget the ; 
+    my $sth= $dbh->prepare( $select);
+    $sth->execute();
+
+    my $row= $sth->fetchrow_arrayref();        # there will be only one row
+    print $row->[0];                           # and one field in the result
+  }
+    
+
+</pre></td></tr></table><p>A shorter but less generic way would be a document like <a desc="A document including generic queries" href="books3.xml">books3.xml</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>&lt;?xml version="1.0"?>
+&lt;html>
+  &lt;head>&lt;title>XML::Twig Data Base Example (3)&lt;/title>&lt;/head>
+  &lt;body>
+    &lt;h1>XML::Twig Data Base Example (3)&lt;/h1>
+    &lt;p>I really liked &lt;include query='select name from books where code="P001"'/>, which, along with &lt;include query='select name from books where code="P002"'/> and &lt;include query='select name from books where code="P003"'/> (&lt;include query='select rating from ratings where code="P003"'/>)are the basis of a good Perl library.&lt;/p>
+  &lt;/body>
+&lt;/html>
+</pre></td></tr></table><p>It can be processed using the <a href="ex2_3.pl">ex2_3.pl</a> script.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+use strict;
+
+use DBI;
+use XML::Twig;
+
+my $file= shift;
+
+my $dbh= connect_to_db();
+
+my $twig= new XML::Twig( TwigRoots => 
+                           { include => \&amp;include },
+                         TwigPrintOutsideRoots => 1,
+                       );
+
+$twig->parsefile( $file);
+
+$dbh->disconnect();
+exit;
+
+
+
+# connect to the data base
+sub connect_to_db
+  { my $driver = "mysql";
+    my $dsn = "DBI:$driver:database=test;";
+    my $dbh = DBI->connect($dsn, 'test', '', {AutoCommit=>1});
+    my $drh = DBI->install_driver($driver);
+    return( $dbh);
+  }
+
+
+sub include
+  { my( $twig, $include)= @_;
+    my $field= $include->att( 'field');
+    my $code= $include->text;
+
+    my $query= "select $field from books where code='$code'";; 
+
+    # prepare the select
+    unless ($query=~ /;$/) { $query.= ";"; } # I always forget the ; 
+    my $sth= $dbh->prepare( $query);
+    $sth->execute();
+
+    my $row= $sth->fetchrow_arrayref();      # there will be only one row
+    print $row->[0];                         # and one field in the row
+  }
+    
+
+</pre></td></tr></table><h3>5.3 Dumping an XML table into a data base table</h3><p>We are now going to fill a relationnal table from an XML file, which could come from another, incompatible, data base for example.</p><p>The XML file looks like this: <a desc="An XML file linking players with their team" href="teams_extract.xml">teams_extract.xml</a> (the whole file is in <a href="teams.xml">teams.xml</a>).</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>&lt;?xml version="1.0"?>
+&lt;teams>
+&lt;team name="New York">
+  &lt;name>Houston, Allan&lt;/name>
+  &lt;name>Sprewell, Latrell&lt;/name>
+&lt;/team>
+&lt;team name="San Antonio">
+  &lt;name>Duncan, Tim&lt;/name>
+&lt;/team>
+&lt;/teams>
+</pre></td></tr></table><p>The script to load the table: <a href="ex2_4.pl">ex2_4.pl</a> is pretty simple, the only notable features being the fact that we prepare the SQL statement once and then bind parameters to it, and that the <tt><a href="twig_dev.html#twig_purge">purge</a></tt> does not delete the parent element of a name.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+use strict;
+
+use DBI;
+use XML::Twig;
+
+my $file= shift;
+
+my $dbh= connect_to_db();
+# prepare the select just once, the actual values will replace the ? later
+my $insert= $dbh->prepare(  "INSERT INTO team (name, team) VALUES (?, ?);");
+
+my $twig= new XML::Twig( TwigHandlers => { name => \&amp;insert_row});
+
+$twig->parsefile( $file);
+
+$dbh->disconnect();
+exit;
+
+
+
+# connect to the data base
+sub connect_to_db
+  { my $driver = "mysql";
+    my $dsn = "DBI:$driver:database=test;";
+    my $dbh = DBI->connect($dsn, 'test', '', {AutoCommit=>1});
+    my $drh = DBI->install_driver($driver);
+    return( $dbh);
+  }
+
+
+sub insert_row
+  { my( $twig, $ename)= @_;
+    my $name= $ename->text;
+    my $team= $ename->parent->att( 'name');
+
+
+    # finalize the select
+    $insert->bind_param( 1, $name);          # refers to the first ? in the query
+    $insert->bind_param( 2, $team);          # refers to the second ? in the query
+
+    $insert->execute();                      # excute the SQL statement
+
+    $twig->purge;                            # will not delete the parent
+
+  }
+    
+
+</pre></td></tr></table><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s4.html"><img alt="Previous" border="0" src="previous.gif"></img><br>4. First Examples</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s6.html"><img alt="Next" border="0" src="next.gif"></img><br>6. Other features</a></td></tr></table></body></html><html><head><title>Processing XMl efficiently with XML::Twig - Section 6</title></head><body bgcolor="#FFFFFF"><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s5.html"><img alt="Previous" border="0" src="previous.gif"></img><br>5. Data base integration</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s7.html"><img alt="Next" border="0" src="next.gif"></img><br>7. Advanced features</a></td></tr></table><h2>6. Other features</h2><p>Now let see some other features of XML::Twig, beyond the basic examples.</p><h3>6.1 Using the finish and finish_print methods</h3><p>Sometimes all we need is to extract or update part of the document. In this case there is no reason to bother with building the twig for the rest of the
+document. We just want to be done with it and exit or go through the rest of the document and just output it.That's what the <tt><a href="twig_dev.html#twig_finish">finish</a></tt>
+and <tt><a href="twig_dev.html#twig_finish_print">finish_print</a></tt> methods provide.</p><p><tt><a href="twig_dev.html#twig_finish">finish</a></tt> calls Expat finish method. It unsets all handlers (including internal ones that set context), but expat continues parsing to the end of the document or until it finds an error. It should finish up a lot faster than with the handlers set.</p><p><tt><a href="twig_dev.html#twig_finish_print">finish_print</a></tt> stops the twig processing, flushes the twig and proceed to finish printing the document as fast as possible.</p><p>So here is <a href="ex3_1.pl">ex3_1.pl</a>, which just displays a stat for a player then finishes parsing. Note that the document is still checked for well-formedness,
+the script will exit with an error if the document is not well-formed XML.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example displays the information for a single player            #
+#  It uses the finish method                                            #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $name= shift;
+my $stat= shift;
+
+my $twig= new XML::Twig( TwigHandlers => 
+            { player => sub { player(@_, $name, $stat); } } # pass the additionnal args
+                       );                                   # just to be extra clean
+
+$twig->parsefile( "nba.xml");    # process the twig
+exit;
+
+sub player
+  { my( $twig, $player, $name, $stat)= @_;
+    my $player_name= $player->first_child( 'name')->text;
+    if( $player_name=~ /$name/i)
+      { my $stat_value= $player->first_child( $stat)->text;
+        print "$player_name: $stat_value $stat\n"; 
+        $twig->finish;
+      }
+    else
+      { $twig->purge; }                                      # keep a low profile
+  }
+</pre></td></tr></table><p>Probably more interesting is <a href="ex3_2.pl">ex3_2.pl</a> which updates the stats for a player.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example updates the information for a single player             #
+#  It uses the finish_print method                                      #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $name= shift;
+my $stat_name= shift;
+my $stat_value= shift;
+
+my $twig= new XML::Twig( TwigHandlers => { player => \&amp;player } );
+if( $ARGV[0]) { $twig->parsefile( $ARGV[0]); }        # parse a file
+else          { $twig->parse( \*STDIN);      }        # parse the standard input
+exit;
+
+sub player
+  { my( $twig, $player)= @_;
+    my $player_name= $player->first_child( 'name')->text;
+    if( $player_name=~ /$name/i)
+      { my $stat= $player->first_child( $stat_name);
+        $stat->set_text( $stat_value);
+        $twig->finish_print;                               # this is it 
+      }
+    else
+      { $twig->flush; }                                    # print players before the right one
+  }
+</pre></td></tr></table><h3>6.2 Using set_id and elt_id methods</h3><p>For some applications, especially when the whole document is loaded in memory, it can be very convenient to get direct access to elements through an
+ID attribute. XML::Twig provides such a feature. By default if an element has
+an attribute named <tt>id</tt> then a hash id =&gt; element is created. This
+hash can be accessed through the <tt><a href="twig_dev.html#elt_id">id</a></tt>, <tt><a href="twig_dev.html#elt_set_id">set_id</a></tt> and <tt><a href="twig_dev.html#elt_del_id">del_id</a></tt> methods on
+an element, and an element can be retrived from a twig using the <tt><a href="twig_dev.html#twig_elt_id">elt_id</a></tt> method on the twig.</p><p>The name of the ID attribute can be changed when the twig is created by using the <tt><a href="twig_dev.html#twig_id">Id</a></tt> option.</p><p>The id attribute can still be accessed through the <tt><a href="twig_dev.html#elt_att">att</a></tt>, <tt><a href="twig_dev.html#elt_set_att">set_att</a></tt> and <tt><a href="twig_dev.html#elt_del_att">del_att</a></tt> methods on the element but in this case the id
+hash will not be updated.</p><p><a href="ex3_3.pl">ex3_3.pl</a> is an example
+of the <tt><a href="twig_dev.html#elt_set_id">set_id</a></tt> method.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example adds an id to each player                               #
+#  It uses the set_id method, by default the id attribute will be 'id'  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $id="player001";
+
+my $twig= new XML::Twig( TwigHandlers => { player => \&amp;player } );
+$twig->parsefile( "nba.xml");    # process the twig
+$twig->flush;
+exit;
+
+  sub player
+    { my( $twig, $player)= @_;
+      $player->set_id( $id++);
+      $twig->flush;
+    }
+
+</pre></td></tr></table><p><a href="ex3_4.pl">ex3_4.pl</a> uses <tt><a href="twig_dev.html#twig_elt_id">elt_id</a></tt> on the updated XML document to display the name
+of a player with a given id. <tt>perl ex3_3.pl | perl ex3_4.pl 050</tt> will then display <b>player050: Stojakovic, Predrag</b>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example displays the name of a player whose id is given         #
+#  It uses the elt_id method, by default the id attribute will be 'id'  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $id= "player" . shift;
+
+my $twig= new XML::Twig();
+
+if( $ARGV[0]) { $twig->parsefile( $ARGV[0]); }        # parse a file
+else          { $twig->parse( \*STDIN);      }        # parse the standard input
+
+my $player= $twig->elt_id( $id);                      # this gets the element
+
+print "$id: " . $player->first_child( 'name')->text . "\n";
+</pre></td></tr></table><h3>6.3 Comparing the order of 2 elements</h3><p>XML::Twig also offers methods to compare the order of 2 elements in the document. <tt><a href="twig_dev.html#elt_before">before</a></tt> and <tt><a href="twig_dev.html#elt_after">after</a></tt> are based on the <tt><a href="twig_dev.html#elt_cmp">cmp</a></tt> method. An element is before
+an other one if its opening tag is before the opening tag of the other element.
+Otherwise it is after. The 2 elements are equal if they are... equal!</p><p><a href="ex3_5.pl">ex3_5.pl</a>
+shows how to use those methods. You can run it on an ordered and &quot;id'ed&quot;
+document this way: <tt>perl ex1_1.pl blk | perl ex3_3.pl | perl ex3_5.pl 001 015</tt>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example displays whether an element appears before another one  #
+#  in the document                                                      #
+#  It uses the elt_id method, by default the id attribute will be 'id'  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $id1= "player" . shift;
+my $id2= "player" . shift;
+
+my $twig= new XML::Twig();
+
+if( $ARGV[0]) { $twig->parsefile( $ARGV[0]); }        # parse a file
+else          { $twig->parse( \*STDIN);      }        # parse the standard input
+
+my $player1= $twig->elt_id( $id1);                    # get the players
+my $player2= $twig->elt_id( $id2);                     
+
+my $name1= $player1->first_child( 'name')->text;
+my $name2= $player2->first_child( 'name')->text;
+
+if( $player1->before( $player2) )
+  { printf "$name1 is before $name2\n" }
+elsif( $player1->after( $player2) )
+  { printf "$name1 is after $name2\n" }
+else
+  { printf "$name1 is equal to $name2\n" }
+
+</pre></td></tr></table><h3>6.4 The next_elt method</h3><p>Although the <tt>next_sibling</tt> and <tt>first_child</tt> methods are
+often the most convenient way to navigate there are some cases where another 
+method is easier to use: the <tt><a href="twig_dev.html#elt_next_elt">next_elt</a></tt> method makes 
+it easier to go through all the elements in a sub-tree.</p><p>The <tt>next_elt</tt> of an element is the first element opened after the
+open tag of the element. This is either the first child of the element, or its
+next sibling, or the next sibling of one of its ancestors. Note that as usual PCDATA is considered an element.</p><p>This method has 2 forms: </p><ul><li><tt>$elt-&gt;next_elt</tt> returns simply the next element,</li><li><tt>$elt-&gt;next_elt( $subtree_root</tt> returns the next element, or<tt>undef</tt> if the next element would be outside of the 
+            $subtree_root element.</li></ul><p><a href="ex3_6.pl">ex3_6.pl</a> shows how
+to use <tt>next_elt</tt> to list all the methods in the html_plus.xml document.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example displays the text of all method elements                #
+#  It uses the next_elt method                                          #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $twig= new XML::Twig();
+
+$twig->parsefile( "html_plus.xml");         # parse the file
+
+my $root= $twig->root;
+
+my $method= $root;                          # loop through the document
+while( $method= $method->next_elt( $root, 'method'))
+     { print "method: " . $method->text . "\n"; }
+
+</pre></td></tr></table><h3>6.5 Pretty printing</h3><p>By popular demand I have included a number of pretty printing options,
+both for documents and for data.</p><p>The usefull options to pretty print a document are:</p><ul><li><tt>none</tt>: the default, no \n is used,</li><li><tt>nsgmls</tt>: nsgmls style, with \n added within tags,</li><li><tt>nice</tt>: adds \n wherever possible (<b>NOT SAFE</b>),</li><li><tt>indented</tt>: same as nice plus indents elements (<b>NOT 
+        SAFE</b>).</li></ul><p>The NOT SAFE options can produce invalid XML (that would not conform 
+to the original DTD) in some cases. I have included them anyway because
+it rarely happens with simple DTDs and they look good!</p><p>The <a href="ex3_7.pl">ex3_7.pl</a> example shows the pretty printer.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example prints a document using various pretty print options    #
+#                                                                       #
+#########################################################################
+use strict;
+use XML::Twig;
+
+my $string=
+'&lt;doc>&lt;elt>&lt;subelt>text&lt;inline>text&lt;/inline>text&lt;/subelt>&lt;subelt>text&lt;inline>&lt;subinline/>&lt;/inline>&lt;/subelt>&lt;/elt>&lt;elt att="val">&lt;subelt>text&lt;subinline/>&lt;/subelt>&lt;subelt>&lt;/subelt>&lt;/elt>&lt;/doc>';
+
+my $t= new XML::Twig;
+$t->parse( $string);
+
+print "normal:\n";
+$t->set_pretty_print( 'none');     # this is the default
+$t->print;
+print "\n\n";
+
+print "nice:\n";
+$t->set_pretty_print( 'nice');     # \n before tags not part of mixed content
+$t->print;
+print "\n\n";
+
+print "indented:\n";               # nice + tags are indented
+$t->set_pretty_print( 'indented');
+$t->print;
+print "\n\n";
+                                   # alternate way to set the style
+my $t2= new XML::Twig( PrettyPrint => 'nsgmls');
+$t->parse( $string);
+print "nice:\n";
+$t->print;
+print "\n\n";
+
+</pre></td></tr></table><p>The output is <a desc="A pretty printed document" href="ex3_7.res">ex3_7.res</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>normal:
+&lt;doc>&lt;elt>&lt;subelt>text&lt;inline>text&lt;/inline>text&lt;/subelt>&lt;subelt>text&lt;inline>&lt;subinline/>&lt;/inline>&lt;/subelt>&lt;/elt>&lt;elt att="val">&lt;subelt>text&lt;subinline/>&lt;/subelt>&lt;subelt>&lt;/subelt>&lt;/elt>&lt;/doc>
+
+nice:
+
+&lt;doc>
+&lt;elt>
+&lt;subelt>text&lt;inline>text&lt;/inline>text&lt;/subelt>
+&lt;subelt>text&lt;inline>&lt;subinline/>&lt;/inline>&lt;/subelt>
+&lt;/elt>
+&lt;elt att="val">
+&lt;subelt>text&lt;subinline/>&lt;/subelt>
+&lt;subelt>
+&lt;/subelt>
+&lt;/elt>
+&lt;/doc>
+
+indented:
+
+&lt;doc>
+  &lt;elt>
+    &lt;subelt>text&lt;inline>text&lt;/inline>text&lt;/subelt>
+    &lt;subelt>text&lt;inline>&lt;subinline/>&lt;/inline>&lt;/subelt>
+  &lt;/elt>
+  &lt;elt att="val">
+    &lt;subelt>text&lt;subinline/>&lt;/subelt>
+    &lt;subelt>
+    &lt;/subelt>
+  &lt;/elt>
+&lt;/doc>
+
+nice:
+&lt;doc
+>&lt;elt
+>&lt;subelt
+>text&lt;inline
+>text&lt;
+/inline>text&lt;
+/subelt>&lt;subelt
+>text&lt;inline
+>&lt;subinline
+/>&lt;
+/inline>&lt;
+/subelt>&lt;
+/elt>&lt;elt
+att="val"
+>&lt;subelt
+>text&lt;subinline
+/>&lt;
+/subelt>&lt;subelt
+>&lt;
+/subelt>&lt;
+/elt>&lt;
+/doc>
+
+</pre></td></tr></table><p>To pretty print tables 2 options can be used (besides the faithful <tt>none</tt>):</p><ul><li><tt>record_c</tt>: compact, one record per line,</li><li><tt>record</tt>: one field per line.</li><li><tt>indented</tt>: same as nice plus indents elements (<b>NOT 
+        SAFE</b>).</li></ul><p>The <a href="ex3_8.pl">ex3_8.pl</a> example shows the pretty printer.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example prints a table using various pretty print options       #
+#                                                                       #
+#########################################################################
+use strict;
+use XML::Twig;
+
+my $string=
+'&lt;table>&lt;record>&lt;field1>value1&lt;/field1>&lt;field2>value2&lt;/field2>&lt;/record>&lt;record>&lt;field1>value1(2)&lt;/field1>&lt;field2>value2(2)&lt;/field2>&lt;/record>&lt;record>&lt;field1>value1(3)&lt;/field1>&lt;field2>value2(3)&lt;/field2>&lt;/record>&lt;/table>';
+
+my $t= new XML::Twig;
+$t->parse( $string);
+
+print "normal:\n";
+$t->set_pretty_print( 'none');       # this is the default
+$t->print;
+print "\n\n";
+
+print "record:\n";              
+$t->set_pretty_print( 'record');     # one field per line
+$t->print;
+print "\n\n";
+
+print "record_c:\n";               
+$t->set_pretty_print( 'record_c');   # one record per line
+$t->print;
+print "\n\n";
+
+print "record:\n";                   
+$t->print( PrettyPrint => 'record'); # alterate way to set the style
+print "\n\n";
+</pre></td></tr></table><p>The output is <a desc="A pretty printed table" href="ex3_8.res">ex3_8.res</a>.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>normal:
+&lt;table>&lt;record>&lt;field1>value1&lt;/field1>&lt;field2>value2&lt;/field2>&lt;/record>&lt;record>&lt;field1>value1(2)&lt;/field1>&lt;field2>value2(2)&lt;/field2>&lt;/record>&lt;record>&lt;field1>value1(3)&lt;/field1>&lt;field2>value2(3)&lt;/field2>&lt;/record>&lt;/table>
+
+record:
+
+&lt;table>
+  &lt;record>
+    &lt;field1>value1&lt;/field1>
+    &lt;field2>value2&lt;/field2>
+  &lt;/record>
+  &lt;record>
+    &lt;field1>value1(2)&lt;/field1>
+    &lt;field2>value2(2)&lt;/field2>
+  &lt;/record>
+  &lt;record>
+    &lt;field1>value1(3)&lt;/field1>
+    &lt;field2>value2(3)&lt;/field2>
+  &lt;/record>
+&lt;/table>
+
+record_c:
+
+&lt;table>
+  &lt;record>&lt;field1>value1&lt;/field1>&lt;field2>value2&lt;/field2>&lt;/record>
+  &lt;record>&lt;field1>value1(2)&lt;/field1>&lt;field2>value2(2)&lt;/field2>&lt;/record>
+  &lt;record>&lt;field1>value1(3)&lt;/field1>&lt;field2>value2(3)&lt;/field2>&lt;/record>
+&lt;/table>
+
+record:
+
+&lt;table>
+  &lt;record>
+    &lt;field1>value1&lt;/field1>
+    &lt;field2>value2&lt;/field2>
+  &lt;/record>
+  &lt;record>
+    &lt;field1>value1(2)&lt;/field1>
+    &lt;field2>value2(2)&lt;/field2>
+  &lt;/record>
+  &lt;record>
+    &lt;field1>value1(3)&lt;/field1>
+    &lt;field2>value2(3)&lt;/field2>
+  &lt;/record>
+&lt;/table>
+
+</pre></td></tr></table><p>These options can be set either when creating the twig, using the PrettyPrint
+option, by using the PrettyPrint option in the print method (on a twig or on an 
+element) or by using the <tt><a href="twig_dev.html#elt_set_pretty_print">set_pretty_print</a></tt>
+method either on a twig or on an element. Note that the setting is actually 
+global at the moment.</p><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s5.html"><img alt="Previous" border="0" src="previous.gif"></img><br>5. Data base integration</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s7.html"><img alt="Next" border="0" src="next.gif"></img><br>7. Advanced features</a></td></tr></table></body></html><html><head><title>Processing XMl efficiently with XML::Twig - Section 7</title></head><body bgcolor="#FFFFFF"><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s6.html"><img alt="Previous" border="0" src="previous.gif"></img><br>6. Other features</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s8.html"><img alt="Next" border="0" src="next.gif"></img><br>8. Under the hood</a></td></tr></table><h2>7. Advanced features</h2><p>or &quot;I hope you don't need those&quot;</p><h3>7.1 Using StartTagHandlers</h3><p>Sometimes you might want to just change a tag name, or store some attributes,
+BEFORE the whole tree for the element is built. This is often the case when you need to <tt><a href="twig_dev.html#twig_flush">flush</a></tt> the twig while in the element. Then changing the element name for example will only change the end tag, as the start tag will have been output by the time you try to change it.</p><p>In that case you can use the StartTagHandlers option when you create the twig, which will call a handler when the start tag of the element is found. 
+The arguments passed to the handler will be the twig and the element. The element will be empty at that point but the attributes will be there.</p><p><a href="ex4_0.pl">ex4_0.pl</a> demonstrates the use of StartTagHandlers to change the tags in an XML document.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the StartTagHandlers option            #
+#  It changes all tag names                                             #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+# the old_tag => new_tag table
+my %change=
+  ( stats => 'statistics',
+    g     => 'games',
+    ppg   => 'points_per_game',
+    rpg   => 'rebounds_per_games',
+    apg   => 'assists_per_games',
+    blk   => 'blocks',
+  );
+
+# let's build the StartTagHandlers
+my $handlers;
+while( my( $old_tag, $new_tag)= each( %change) )                    # each handler
+  { $handlers->{$old_tag}= sub { $_[1]->set_gi( $new_tag); }; }     # changes a tag
+
+
+my $twig= new XML::Twig( StartTagHandlers => $handlers,
+                         TwigHandlers     => 
+                             { '_all_' => sub { $_[0]->flush; } },  # flush all elements
+                       ); 
+
+$twig->parsefile( "nba.xml");    # process the twig
+
+</pre></td></tr></table><p>The other new feature used in this script is the <tt>_all_</tt> keyword in
+the TwigHandlers option. This calls the handler (which in this case just flushes the twig) for every single element in the document. Another keyword, <tt>_default_</tt> calls a handler for each element that does not have a handler. <tt>_all_</tt> and <tt>_default_</tt> can be used both with StartTagHandlers and with the TwigHandlers option.</p><h3>7.2 Purging part of the tree</h3><p>Sometimes, especially when converting an XML file to several HTML ones it
+is convenient to purge the twig only up to the next-to-last sibling, not
+up to the current one. Hence the <tt><a href="twig_dev.html#twig_purge_up_to">purge_up_to</a></tt>
+and <tt><a href="twig_dev.html#twig_flush_up_to">flush_up_to</a></tt> methods.</p><p>Here is an example of how to use them to list the difference in a given
+stat between 2 consecutive players. <a href="ex4_1.pl">ex4_1.pl</a> can receive the output from ex1_1.pl.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -w
+
+use strict;
+use XML::Twig;
+
+my $field= shift;
+
+my $twig= new XML::Twig( TwigHandlers => { player => \&amp;player } );
+
+if( $ARGV[0]) { $twig->parsefile( $ARGV[0]); }        # parse a file
+else          { $twig->parse( \*STDIN);      }        # parse the standard input
+
+sub player
+  { my( $t, $player)= @_;
+    my $prev_player= $player->prev_sibling || return; # no previous player
+    my $player_name= field( $player, 'name');         # get players info
+    my $prev_player_name= field( $prev_player, 'name');
+    my $player_ppg= field( $player, $field);
+    my $prev_player_ppg= field( $prev_player, $field);
+    my $diff= $prev_player_ppg - $player_ppg;         # compute the stat difference
+    print "$field difference $prev_player_name - $player_name: $diff\n";
+    $t->purge_up_to( $prev_player);                   # keep the current player
+  }
+
+sub field                                             # get a field for a player
+  { my( $player, $field)= @_;
+    return $player->first_child( $field)->text;
+  }
+    
+</pre></td></tr></table><h3>7.3 Fun with overloading</h3><p>I just thought I'd mention, because I think it's cool, that you can overload
+the comparison operators to use the <tt><a href="twig_dev.html#elt_cmp">cmp</a></tt> method to
+compare elements in a twig.</p><p>So just insert these lines in your script:</p><pre>package XML::Twig::Elt;
+
+use overload  cmp  => \&amp;cmp,
+             'lt'  => \&amp;lt,
+             'le'  => \&amp;le,
+             'gt'  => \&amp;gt,
+             'ge'  => \&amp;ge,
+             '+='  => \&amp;suffix,
+             '-='  => \&amp;prefix,
+             '>>'  => \&amp;suffix,
+             '&lt;&lt;'  => \&amp;prefix,
+             fallback => 1,
+;</pre><p>Then you will be able to write <code>if( $elt1 le $elt2) { print &quot;$elt1 is
+before $elt2\n&quot;; }</code>. As an added bonus you get 2 new ways to prefix or
+suffix an element: </p><pre>$elt += &quot;suffix&quot;;
+$elt -= &quot;prefix&quot;;
+$elt &lt;&lt; &quot;prefix&quot;;
+$elt &gt;&gt; &quot;suffix&quot;;</pre><p>This is just syntactic sugar, and IMHO pretty useless (hence it is not
+included in the module), plus it slows the module down by a good 30%. It's cute
+though, and if you don't care about speed and need to do a lot of comparisons
+of elements it can be handy.</p><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s6.html"><img alt="Previous" border="0" src="previous.gif"></img><br>6. Other features</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s8.html"><img alt="Next" border="0" src="next.gif"></img><br>8. Under the hood</a></td></tr></table></body></html><html><head><title>Processing XMl efficiently with XML::Twig - Section 8</title></head><body bgcolor="#FFFFFF"><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s7.html"><img alt="Previous" border="0" src="previous.gif"></img><br>7. Advanced features</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s9.html"><img alt="Next" border="0" src="next.gif"></img><br>9. Reference</a></td></tr></table><h2>8. Under the hood</h2><p>Now let's have a look under the hood at some of the things that go on in XML::Twig from a developer stand point.</p><h3>8.1 Speedup</h3><p>I think one of the most interesting feature of XML::Twig is the optimization step that takes place when the module is installed.</p><p>The module is written in pure OO style, whith accessors for every fields of objects, even inside the module. But as we all know method calls are expensive.
+So an optimization pass replaces method calls by hash accesses if possible.</p><p>For example <tt>$elt-&gt;parent</tt> is replaced by<tt> $elt-&gt;{parent}</tt> and <tt>$elt-&gt;set_parent( $parent)</tt> is replaced by <tt>$elt-&gt;{parent}= $parent</tt>.</p><p>The <a desc="The speedup tool" href="speedup">speedup</a> is pretty simple,
+just a bunch of substitutions, and certainly not foolproof (it would crash
+miserably if I were to use brackets in the argument list of a method). It
+works pretty well though, and if it fails then the non-regression tests will
+catch the problem. It could be improved by using 5.6 new regexp to fix this.</p><table bgcolor="#00FFFF" border="1" width="100%"><tr><td><pre>#!/bin/perl -p
+BEGIN { $FIELD="parent|first_child|last_child|prev_sibling|next_sibling|pcdata|cdata|flushed";
+}
+
+s/(\$[a-z_]+)->del_(twig_current|flushed)/delete $1\->{'$2'}/g;
+s/(\$[a-z_]+)->set_(twig_current|flushed)/$1\->{'$2'}=1/g;
+
+s/(\$[a-z_]+)->set_($FIELD)\(([^)]*)\)/$1\->\{'$2'\}= $3/g;
+s/(\$[a-z_]+)->($FIELD)/$1\->\{'$2'\}/g;
+
+s/(\$[a-z_]+)->set_atts\(([^)]*)\)/$1\->\{'att'\}= $2/g;
+s/(\$[a-z_]+)->(atts)\(([^)]*)\)/$1\->\{'att'\}/g;
+
+s/(\$[a-z_]+)->append_(pcdata|cdata)\(([^)]*)\)/$1\->\{$2\}.= $3/g;
+
+s/(\$[a-z_]+)->gi/\$XML::Twig::index2gi\[$1\->{'gi'}\]/g;
+
+s/(\$[a-z_]+)->id/$1\->{'att'}->{\$ID}/g;
+s/(\$[a-z_]+)->att\(\s*([^)]+)\)/$1\->{'att'}->\{$2\}/g;
+
+s/(\$[a-z_]+)->is_pcdata/(exists $1\->{'pcdata'})/g; 
+s/(\$[a-z_]+)->is_cdata/(exists $1\->{'cdata'})/g; 
+</pre></td></tr></table><p>The result is an improvement of about 30% of the speed of the module.</p><p>Speedup could also be used to... speedup a production script, with the caveat that as XML::Twig implementation changes it might be necessary to re-run the
+tool with new versions of the module.</p><h3>8.2 Element names &quot;compression&quot;</h3><p>A minor optimization in XML::Twig is that element names, which are stored as hash <i>values</i> are replaced by an index in an array holding all names.</p><h3>8.3 Failed optimizations</h3><p>Not all attempts at optimizing XML::Twig succeded, so I think it might be useful for me to share at least my biggest failure in this area...</p><p>Twig elements are stored in hashes, one element per hash. In order to reduce the potential overhead of all too much memory being allocated for each one of them I tried to store elements in global arrays, each array storing one field
+for all the elements: instead of the parent of an element being stored in 
+$elt-&gt;{parent} it was stored in $parent[$elt], $elt being a blessed scalar.</p><p>It did not work.</p><p>The twig was just as big and slower to access than the original version.</p><p>Oh well... there goes 2 days of work...</p><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s7.html"><img alt="Previous" border="0" src="previous.gif"></img><br>7. Advanced features</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%"><a href="yapc_twig_s9.html"><img alt="Next" border="0" src="next.gif"></img><br>9. Reference</a></td></tr></table></body></html><html><head><title>Processing XMl efficiently with XML::Twig - Section 9</title></head><body bgcolor="#FFFFFF"><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s8.html"><img alt="Previous" border="0" src="previous.gif"></img><br>8. Under the hood</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%">&nbsp;</td></tr></table><h2>9. Reference</h2><p>The <a href="twig_dev.html">XML::Twig documentation</a>.</p><table width="100%"><tr><td align="left" width="33%"><a href="yapc_twig_s8.html"><img alt="Previous" border="0" src="previous.gif"></img><br>8. Under the hood</a></td><td align="center" width="34%"><a href="index.html"><img src="home.gif" border="0" alt="Table of Content"><BR>Table of Content</a></td><td align="right" width="33%">&nbsp;</td></tr></table></body></html>#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This first example shows how to create a twig, parse a file into it  #
+#  get the root of the document, its children, access a specific child  #
+#  and get the text of an element                                       #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $field= $ARGV[0] || 'ppg';
+my $twig= new XML::Twig;
+
+$twig->parsefile( "nba.xml");    # build the twig
+my $root= $twig->root;           # get the root of the twig (stats)
+my @players= $root->children;    # get the player list
+
+                                 # sort it on the text of the field
+my @sorted= sort {    $b->first_child( $field)->text 
+                  <=> $a->first_child( $field)->text }
+            @players;
+                                 
+print '<?xml version="1.0"?>';   # print the XML declaration
+print '<!DOCTYPE stats SYSTEM "stats.dtd" []>';
+print '<stats>';                 # then the root element start tag
+
+foreach my $player (@sorted)     # the sorted list 
+ { $player->print;               # print the xml content of the element 
+   print "\n"; 
+ }
+print "</stats>\n";              # close the document
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to create, and paste elements                 #
+#  It creates a new element named blg, for each player                  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $twig= new XML::Twig;
+
+$twig->parsefile( "nba.xml");    # build the twig
+my $root= $twig->root;           # get the root of the twig (stats)
+my @players= $root->children;    # get the player list
+
+                                 
+foreach my $player (@players)     
+ { my $g  = $player->first_child( 'g')->text;    # get the text of g            
+   my $blk= $player->first_child( 'blk')->text;  # get the text of blk
+   my $blg= sprintf( "%2.3f", $blk/$g);          # compute blg
+   my $eblg= new XML::Twig::Elt( 'blg', $blg);   # create the element
+   $eblg->paste( 'last_child', $player);         # paste it in the document   
+ }
+
+$twig->print;                    # note that we loose the extra returns
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the TwigHandlers option                #
+#  It creates a new element named blg, for each player                  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $twig= new XML::Twig( 
+                TwigHandlers =>                  # player will be called
+                  { player => \&player }         # when each player element
+                       );                        # has been parsed
+
+$twig->parsefile( "nba.xml");    # build the twig
+$twig->print;                    # print it
+
+sub player
+ { my( $twig, $player)= @_;                      # handlers params are always
+                                                 # the twig and the element
+
+   my $g  = $player->first_child( 'g')->text;    # get the text of g            
+   my $blk= $player->first_child( 'blk')->text;  # get the text of blk
+   my $blg= sprintf( "%2.3f", $blk/$g);          # compute blg
+   my $eblg= new XML::Twig::Elt( 'blg', $blg);   # create the element
+   $eblg->paste( 'last_child', $player);         # paste it in the document   
+ }
+
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the flush method                       #
+#  It creates a new element named blg, for each player                  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $twig= new XML::Twig( 
+                TwigHandlers =>                   # player will be called
+                  { player => \&player }          # when each player element
+                       );                         # has been parsed
+
+$twig->parsefile( "nba.xml");                     # build the twig
+$twig->flush;                                     # flush the end of the twig  
+
+sub player
+  { my( $twig, $player)= @_;                      # handlers params are always
+                                                  # the twig and the element
+
+    my $g  = $player->first_child( 'g')->text;    # get the text of g
+    my $blk= $player->first_child( 'blk')->text;  # get the text of blk
+    my $blg= sprintf( "%2.3f", $blk/$g);          # compute blg
+    my $eblg= new XML::Twig::Elt( 'blg', $blg);   # create the element
+    $eblg->paste( 'last_child', $player);         # paste it in the document
+
+    $twig->flush;                                 # flush the twig so far   
+ }
+
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the purge method                       #
+#  It outputs the name of the leader in a statistical category          #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $leader_name;
+my $leader_score=0;
+
+
+my $field= $ARGV[0] || 'ppg';
+                                              # create the twig
+my $twig= new XML::Twig( TwigHandlers => { player => \&player } ); 
+
+$twig->parsefile( "nba.xml");                 # parse the twig
+                                              # print the result
+print "Leader in $field: $leader_name ($leader_score $field)\n";
+
+sub player
+  { my( $twig, $player)= @_;                      
+                                              # get the score
+    my $score= $player->first_child( $field)->text;    
+    if( $score > $leader_score)               # if it's the highest
+      { $leader_score= $score;                # store the information
+        $leader_name= $player->first_child( 'name')->text;
+      }
+    $twig->purge;                             # delete the twig so far   
+ }
+
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the TwigPrintOutsideRoots option       #
+#  It deletes a statistical category from the document                  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $field= $ARGV[0] || 'ppg';
+                                              # twig will be created only
+                                              # for $field elements
+my $twig= new XML::Twig( TwigRoots    => { $field => 1 },
+                                              # print all other elements asis
+                         TwigPrintOutsideRoots => 1, 
+                         TwigHandlers => { $field => \&field } ); 
+
+$twig->parsefile( "nba.xml");                 # parse the twig
+
+sub field
+  { my( $twig, $field)= @_;                      
+    $field->cut;    
+ }
+
+#!/bin/perl -w
+
+use strict;
+use XML::Twig;
+
+my $twig= new XML::Twig( TwigHandlers => 
+                { doc            => \&doc,
+                 '/doc/title'    => \&doc_title,     # full path
+                 'section/title' => \&section_title, # partial path
+                  section        => \&section,
+                }
+                       ); 
+
+$twig->parsefile( "simple_doc.xml");                  # parse the twig
+$twig->print;                                         # print the modified twig
+
+
+sub doc_title
+  { my( $t, $doc_title)= @_;
+    $doc_title->set_gi( 'h1');                        # just change the tag to h1
+  }
+
+sub section_title
+  { my( $t, $section_title)= @_;
+    $section_title->set_gi( 'h2');                    # just change the tag to h2
+  }
+
+sub section
+  { my( $t, $section)= @_;
+    $section->erase;                                  # erase just erases the tags
+  }
+
+sub doc
+  { my( $t, $doc)= @_;
+    $doc->set_gi( 'html');                            # set the gi to html
+    my $doc_title= $doc->first_child( 'h1')->text;    # the title is now a h1 element
+    $doc->insert( 'body');                            # create the body
+    my $header= new XML::Twig::Elt( 'header');        # create the header
+    $header->paste( $doc);                            # paste it 
+    my $title= $header->insert( 'title');             # insert the title
+    $title->set_text( $doc_title);                    # with the appropriate content
+  }
+
+
+
+#!/bin/perl -w
+
+use strict;
+
+use DBI;
+use XML::Twig;
+
+my $file= shift;
+
+my $dbh= connect_to_db();
+
+my $twig= new XML::Twig( TwigRoots => 
+                           { rel_table => \&create_table },
+                         TwigPrintOutsideRoots => 1,
+                       );
+
+$twig->parsefile( $file);
+
+$dbh->disconnect();
+exit;
+
+
+
+# connect to the data base
+sub connect_to_db
+  { my $driver = "mysql";
+    my $dsn = "DBI:$driver:database=test;";
+    my $dbh = DBI->connect($dsn, 'test', '', {AutoCommit=>1});
+    my $drh = DBI->install_driver($driver);
+    return( $dbh);
+  }
+
+
+sub create_table
+  { my( $twig, $rel_table)= @_;
+    my $query= $rel_table->att( 'query');
+
+    # prepare the select
+    my $select= $query;
+    unless ($select=~ /;$/) { $select.= ";"; } # I always forget the ; 
+    my $sth= $dbh->prepare( $select);
+
+    print "<table border=\"1\">\n";
+
+    $sth->execute();
+
+    # print column titles
+    print "<tr>";
+    my $field= $sth->{NAME};
+    for( my $i=0; $i<=$#{$field}; $i++)
+      { print "<td><strong>" . ucfirst( $field->[$i]) . "</strong></td>"; }
+    print "</tr>\n";
+
+    my $row;
+    while( $row= $sth->fetchrow_arrayref())
+      { # print each row
+        print "<tr>";
+        for( my $i=0; $i<=$#{$row}; $i++)
+          { my $value= $row->[$i];
+            # format prices
+            $value=~ s/^(\d*)(\d\d)$/\$$1.$2/ if( $field->[$i] eq 'price');
+            print "<td>$value</td>";
+          }
+    print "</tr>\n";
+      }
+
+    print "</table>\n";
+  }
+    
+
+#!/bin/perl -w
+
+use strict;
+
+use DBI;
+use XML::Twig;
+
+my $file= shift;
+
+my $dbh= connect_to_db();
+
+my $twig= new XML::Twig( TwigRoots => 
+                           { include => \&include },
+                         TwigPrintOutsideRoots => 1,
+                       );
+
+$twig->parsefile( $file);
+
+$dbh->disconnect();
+exit;
+
+
+
+# connect to the data base
+sub connect_to_db
+  { my $driver = "mysql";
+    my $dsn = "DBI:$driver:database=test;";
+    my $dbh = DBI->connect($dsn, 'test', '', {AutoCommit=>1});
+    my $drh = DBI->install_driver($driver);
+    return( $dbh);
+  }
+
+
+sub include
+  { my( $twig, $include)= @_;
+    my $query= $include->att( 'query');
+    $query=~ s/&quot;/"/;                      # because of slight
+                                               # oversight in XML::Twig
+    # prepare the select
+    my $select= $query;
+    unless ($select=~ /;$/) { $select.= ";"; } # I always forget the ; 
+    my $sth= $dbh->prepare( $select);
+    $sth->execute();
+
+    my $row= $sth->fetchrow_arrayref();        # there will be only one row
+    print $row->[0];                           # and one field in the result
+  }
+    
+
+#!/bin/perl -w
+
+use strict;
+
+use DBI;
+use XML::Twig;
+
+my $file= shift;
+
+my $dbh= connect_to_db();
+
+my $twig= new XML::Twig( TwigRoots => 
+                           { include => \&include },
+                         TwigPrintOutsideRoots => 1,
+                       );
+
+$twig->parsefile( $file);
+
+$dbh->disconnect();
+exit;
+
+
+
+# connect to the data base
+sub connect_to_db
+  { my $driver = "mysql";
+    my $dsn = "DBI:$driver:database=test;";
+    my $dbh = DBI->connect($dsn, 'test', '', {AutoCommit=>1});
+    my $drh = DBI->install_driver($driver);
+    return( $dbh);
+  }
+
+
+sub include
+  { my( $twig, $include)= @_;
+    my $field= $include->att( 'field');
+    my $code= $include->text;
+
+    my $query= "select $field from books where code='$code'";; 
+
+    # prepare the select
+    unless ($query=~ /;$/) { $query.= ";"; } # I always forget the ; 
+    my $sth= $dbh->prepare( $query);
+    $sth->execute();
+
+    my $row= $sth->fetchrow_arrayref();      # there will be only one row
+    print $row->[0];                         # and one field in the row
+  }
+    
+
+#!/bin/perl -w
+
+use strict;
+
+use DBI;
+use XML::Twig;
+
+my $file= shift;
+
+my $dbh= connect_to_db();
+# prepare the select just once, the actual values will replace the ? later
+my $insert= $dbh->prepare(  "INSERT INTO team (name, team) VALUES (?, ?);");
+
+my $twig= new XML::Twig( TwigHandlers => { name => \&insert_row});
+
+$twig->parsefile( $file);
+
+$dbh->disconnect();
+exit;
+
+
+
+# connect to the data base
+sub connect_to_db
+  { my $driver = "mysql";
+    my $dsn = "DBI:$driver:database=test;";
+    my $dbh = DBI->connect($dsn, 'test', '', {AutoCommit=>1});
+    my $drh = DBI->install_driver($driver);
+    return( $dbh);
+  }
+
+
+sub insert_row
+  { my( $twig, $ename)= @_;
+    my $name= $ename->text;
+    my $team= $ename->parent->att( 'name');
+
+
+    # finalize the select
+    $insert->bind_param( 1, $name);          # refers to the first ? in the query
+    $insert->bind_param( 2, $team);          # refers to the second ? in the query
+
+    $insert->execute();                      # excute the SQL statement
+
+    $twig->purge;                            # will not delete the parent
+
+  }
+    
+
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example displays the information for a single player            #
+#  It uses the finish method                                            #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $name= shift;
+my $stat= shift;
+
+my $twig= new XML::Twig( TwigHandlers => 
+            { player => sub { player(@_, $name, $stat); } } # pass the additionnal args
+                       );                                   # just to be extra clean
+
+$twig->parsefile( "nba.xml");    # process the twig
+exit;
+
+sub player
+  { my( $twig, $player, $name, $stat)= @_;
+    my $player_name= $player->first_child( 'name')->text;
+    if( $player_name=~ /$name/i)
+      { my $stat_value= $player->first_child( $stat)->text;
+        print "$player_name: $stat_value $stat\n"; 
+        $twig->finish;
+      }
+    else
+      { $twig->purge; }                                      # keep a low profile
+  }
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example updates the information for a single player             #
+#  It uses the finish_print method                                      #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $name= shift;
+my $stat_name= shift;
+my $stat_value= shift;
+
+my $twig= new XML::Twig( TwigHandlers => { player => \&player } );
+if( $ARGV[0]) { $twig->parsefile( $ARGV[0]); }        # parse a file
+else          { $twig->parse( \*STDIN);      }        # parse the standard input
+exit;
+
+sub player
+  { my( $twig, $player)= @_;
+    my $player_name= $player->first_child( 'name')->text;
+    if( $player_name=~ /$name/i)
+      { my $stat= $player->first_child( $stat_name);
+        $stat->set_text( $stat_value);
+        $twig->finish_print;                               # this is it 
+      }
+    else
+      { $twig->flush; }                                    # print players before the right one
+  }
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example adds an id to each player                               #
+#  It uses the set_id method, by default the id attribute will be 'id'  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $id="player001";
+
+my $twig= new XML::Twig( TwigHandlers => { player => \&player } );
+$twig->parsefile( "nba.xml");    # process the twig
+$twig->flush;
+exit;
+
+  sub player
+    { my( $twig, $player)= @_;
+      $player->set_id( $id++);
+      $twig->flush;
+    }
+
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example displays the name of a player whose id is given         #
+#  It uses the elt_id method, by default the id attribute will be 'id'  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $id= "player" . shift;
+
+my $twig= new XML::Twig();
+
+if( $ARGV[0]) { $twig->parsefile( $ARGV[0]); }        # parse a file
+else          { $twig->parse( \*STDIN);      }        # parse the standard input
+
+my $player= $twig->elt_id( $id);                      # this gets the element
+
+print "$id: " . $player->first_child( 'name')->text . "\n";
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example displays whether an element appears before another one  #
+#  in the document                                                      #
+#  It uses the elt_id method, by default the id attribute will be 'id'  #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $id1= "player" . shift;
+my $id2= "player" . shift;
+
+my $twig= new XML::Twig();
+
+if( $ARGV[0]) { $twig->parsefile( $ARGV[0]); }        # parse a file
+else          { $twig->parse( \*STDIN);      }        # parse the standard input
+
+my $player1= $twig->elt_id( $id1);                    # get the players
+my $player2= $twig->elt_id( $id2);                     
+
+my $name1= $player1->first_child( 'name')->text;
+my $name2= $player2->first_child( 'name')->text;
+
+if( $player1->before( $player2) )
+  { printf "$name1 is before $name2\n" }
+elsif( $player1->after( $player2) )
+  { printf "$name1 is after $name2\n" }
+else
+  { printf "$name1 is equal to $name2\n" }
+
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example displays the text of all method elements                #
+#  It uses the next_elt method                                          #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+my $twig= new XML::Twig();
+
+$twig->parsefile( "html_plus.xml");         # parse the file
+
+my $root= $twig->root;
+
+my $method= $root;                          # loop through the document
+while( $method= $method->next_elt( $root, 'method'))
+     { print "method: " . $method->text . "\n"; }
+
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example prints a document using various pretty print options    #
+#                                                                       #
+#########################################################################
+use strict;
+use XML::Twig;
+
+my $string=
+'<doc><elt><subelt>text<inline>text</inline>text</subelt><subelt>text<inline><subinline/></inline></subelt></elt><elt att="val"><subelt>text<subinline/></subelt><subelt></subelt></elt></doc>';
+
+my $t= new XML::Twig;
+$t->parse( $string);
+
+print "normal:\n";
+$t->set_pretty_print( 'none');     # this is the default
+$t->print;
+print "\n\n";
+
+print "nice:\n";
+$t->set_pretty_print( 'nice');     # \n before tags not part of mixed content
+$t->print;
+print "\n\n";
+
+print "indented:\n";               # nice + tags are indented
+$t->set_pretty_print( 'indented');
+$t->print;
+print "\n\n";
+                                   # alternate way to set the style
+my $t2= new XML::Twig( PrettyPrint => 'nsgmls');
+$t->parse( $string);
+print "nice:\n";
+$t->print;
+print "\n\n";
+
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example prints a table using various pretty print options       #
+#                                                                       #
+#########################################################################
+use strict;
+use XML::Twig;
+
+my $string=
+'<table><record><field1>value1</field1><field2>value2</field2></record><record><field1>value1(2)</field1><field2>value2(2)</field2></record><record><field1>value1(3)</field1><field2>value2(3)</field2></record></table>';
+
+my $t= new XML::Twig;
+$t->parse( $string);
+
+print "normal:\n";
+$t->set_pretty_print( 'none');       # this is the default
+$t->print;
+print "\n\n";
+
+print "record:\n";              
+$t->set_pretty_print( 'record');     # one field per line
+$t->print;
+print "\n\n";
+
+print "record_c:\n";               
+$t->set_pretty_print( 'record_c');   # one record per line
+$t->print;
+print "\n\n";
+
+print "record:\n";                   
+$t->print( PrettyPrint => 'record'); # alterate way to set the style
+print "\n\n";
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example shows how to use the StartTagHandlers option            #
+#  It changes all tag names                                             #
+#                                                                       #
+#########################################################################
+
+use strict;
+use XML::Twig;
+
+# the old_tag => new_tag table
+my %change=
+  ( stats => 'statistics',
+    g     => 'games',
+    ppg   => 'points_per_game',
+    rpg   => 'rebounds_per_games',
+    apg   => 'assists_per_games',
+    blk   => 'blocks',
+  );
+
+# let's build the StartTagHandlers
+my $handlers;
+while( my( $old_tag, $new_tag)= each( %change) )                    # each handler
+  { $handlers->{$old_tag}= sub { $_[1]->set_gi( $new_tag); }; }     # changes a tag
+
+
+my $twig= new XML::Twig( StartTagHandlers => $handlers,
+                         TwigHandlers     => 
+                             { '_all_' => sub { $_[0]->flush; } },  # flush all elements
+                       ); 
+
+$twig->parsefile( "nba.xml");    # process the twig
+
+#!/bin/perl -w
+
+use strict;
+use XML::Twig;
+
+my $field= shift;
+
+my $twig= new XML::Twig( TwigHandlers => { player => \&player } );
+
+if( $ARGV[0]) { $twig->parsefile( $ARGV[0]); }        # parse a file
+else          { $twig->parse( \*STDIN);      }        # parse the standard input
+
+sub player
+  { my( $t, $player)= @_;
+    my $prev_player= $player->prev_sibling || return; # no previous player
+    my $player_name= field( $player, 'name');         # get players info
+    my $prev_player_name= field( $prev_player, 'name');
+    my $player_ppg= field( $player, $field);
+    my $prev_player_ppg= field( $prev_player, $field);
+    my $diff= $prev_player_ppg - $player_ppg;         # compute the stat difference
+    print "$field difference $prev_player_name - $player_name: $diff\n";
+    $t->purge_up_to( $prev_player);                   # keep the current player
+  }
+
+sub field                                             # get a field for a player
+  { my( $player, $field)= @_;
+    return $player->first_child( $field)->text;
+  }
+    
+#!/bin/perl -w
+
+#########################################################################
+#                                                                       #
+#  This example can be used as a framework to create others HTML+       #
+#  converters                                                           #
+#  It maps various specific elements to common html ones, takes care of #
+#  empty elements that would not be displayed in an old browser, and    #
+#  finally allows simple inclusion of outside files in the document     #
+#                                                                       #
+#########################################################################
+
+
+use strict;
+use XML::Twig;
+
+
+my $t= new XML::Twig
+         ( TwigRoots =>
+             { example     => \&example,    # include a file 
+                                            # convert to an html tag
+               method      => \&method,     # convert to tt and create
+                                            # link to doc
+               tag         => sub { make(@_, 'tt') },
+               code        => sub { make(@_, 'tt') },
+               package     => sub { make(@_, 'bold') },
+               option      => sub { make(@_, 'bold') },
+               br          => \&empty,      # we need those for the html
+               hr          => \&empty,      # to work in old browsers
+             },
+            TwigPrintOutsideRoots => 1,     # just print the rest
+          );
+
+if( $ARGV[0]) { $t->parsefile( $ARGV[0]); } # process the twig
+else          { $t->parse( \*STDIN);      }
+
+exit;
+
+sub empty                                   
+  { my( $t, $empty)= @_;                    
+    print "<" . $empty->gi . ">";           # just print the tag html style
+  }
+
+sub make                                          
+  { my( $t, $elt, $new_gi)= @_;
+    $elt->set_gi( $new_gi);                 # change the tag gi
+    $elt->print;                            # don't forget to print it
+  }
+
+sub method
+  { my( $t, $method)= @_;
+    $method->set_gi( 'tt');
+    my $a= $method->insert( 'a');
+    my $class= $method->att( 'class');
+    my $item= lc $method->text;
+    $method->del_att( 'class');
+    $a->set_att( href => "$class\_$item");
+  }
+
+sub example                                 # generate a link and include the file
+  { my( $t, $example)= @_;
+
+    my $file= $example->text;               # first get the included file
+
+    $example->set_gi( 'p');                 # replace the example by a paragraph
+    my $a= $example->insert( 'a');          # insert an link in the paragraph
+    $a->set_att( href => $file);            # set the href attribute
+
+    $example->print;                        # print the paragraph
+
+    open( EXAMPLE, "<$file")                # open the file
+      or die "cannot open file $file: $!"; 
+    local undef $/;                         # slurp all of it
+    my $text= <EXAMPLE>;
+    close EXAMPLE;
+
+    $text=~ s/&/&amp;/g;                    # replace special characters (& first)
+    $text=~ s/</&lt;/g ;                    
+    $text=~ s/"/&quot;/g;
+
+    print "<pre>$text</pre>";               # print the example
+
+
+    
+  }
+
+

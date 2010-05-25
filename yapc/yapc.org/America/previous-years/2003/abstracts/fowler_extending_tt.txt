@@ -1,0 +1,22 @@
+Extending the Template Toolkit - 40 min talk                                                                          
+============================================                                                                          
+                                                                                                                      
+  "The Template Toolkit provides a mini language well suited to the                                                   
+   creation of web pages and other text output, being optimised to make                                               
+   doing things such as including other templates and variable                                                        
+   interpolation simple, straightforward as clear as possible;  However,                                              
+   it's deliberately not as powerful as Perl.                                                                         
+                                                                                                                      
+   This talk explains how to quickly write Perl extensions to the Template                                            
+   Toolkit that can be called directly from within templates.  It covers                                              
+   such things as:                                                                                                    
+                                                                                                                      
+      * Plugins                                                                                                       
+      * Filters                                                                                                       
+      * Views                                                                                                         
+      * Rendering XML                                                                                                 
+                                                                                                                      
+I gave this talk at YAPC::Europe last year.  The slides for the talk are                                              
+located here:                                                                                                         
+                                                                                                                      
+  http://2shortplanks.com/talks/yapce2002/ettt.pdf  

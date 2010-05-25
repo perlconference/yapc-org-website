@@ -1,0 +1,34 @@
+[% IF not_admin %]
+<form method="post" enctype="application/x-www-form-urlencoded" action="admin.cgi" 
+>
+<input type="submit" name="button-login" value="{{LOGIN}}">
+<input type="hidden" name="action" value="prefs">
+<b>{{(You must be a site administrator to login)}}</b>
+</form>
+<hr />
+[% END %]
+
+[% IF is_admin %]
+<form method="post" enctype="application/x-www-form-urlencoded" action="kwiki.cgi" 
+>
+<input type="submit" name="button-logout" value="{{LOGOUT}}">
+<input type="hidden" name="action" value="prefs">
+</form>
+<hr />
+[% END %]
+
+<form>
+<p>{{Your [KwikiUserName] will be used to indicate who changed a page. This can be viewed in [[% changes_page %]].}}
+</p>
+<span style="color:red">[% error_msg %]</span>
+{{UserName: &nbsp;}}
+<input type="text" name="user_name" value="[% user_name %]" size="20"> 
+<br /><br />
+[% checkbox(show_changed) %] {{Show changed message at bottom of display.}}<br />
+[% checkbox(select_diff) %] {{Show diff pulldown at bottom of display.}}<br />
+[% checkbox(show_diff) %] {{Show latest diff at bottom of display.}}<br />
+<br />
+<input type="submit" name="button-save" value="{{SAVE}}">
+<b>{{(Click the SAVE button after making changes)}}</b>
+<input type="hidden" name="action" value="prefs">
+</form>

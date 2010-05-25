@@ -1,0 +1,109 @@
+        Fourth North American YAPC: First Call for Participation
+
+                         Yet Another Society
+                  calls for your participation in
+
+                              YAPC 2002
+                      the Fourth North American
+                    Yet Another Perl Conference
+
+                      http://yapc.org/America/ 
+
+                          Washington University,
+                          Saint Louis, Missouri
+
+                       Wednesday through Friday
+                           June 26-28, 2002
+
+YAPC is a place for people to meet and talk about Perl -- where people
+who've done interesting things, people who are working on the language
+itself, people who are using it daily, and people who are looking to
+learn about it are all within arm's reach. Some of the great authors
+and coders in the field will be on hand to discuss their work, as well
+as the nature and direction of Perl itself.
+
+Please join us for three days of listening and talking about Perl in
+Saint Louis.
+
+* Conference registration will be available by Feb. 15, 2002 at 
+                http://donate.perl-foundation.org/ 
+
+* Dorm rooms are being researched at the local universities; when
+  availability is determined, the dorm request information will be on
+  the website and registration form.
+  Registration Cost: USD$85
+
+* We are looking for sponsors. Please contact Kevin Lenzo
+  (lenzo@yapc.org) for information about how you can help support the
+  Yet Another society and YAPC. Much of the necessary funding for YAPC
+  comes from the generous donations of our sponsors.
+
+* Submitted papers: 
+                    Submission Deadline: May 1, 2002 
+
+All topics are welcome. Here is a short list of subjects that might
+be presented:
+
+    Perl 6, Parrot, XML, CGI/Web, Interprocess Communication,
+    GUIs (GTk, Tk), Natural Language Processing, Interactive Perl,
+    Agents, Perl as Glue, Object-Oriented Perl, Scientific Applications,
+    Guts, Internals, JAPHs, Perl Poetry, System Administration, DBI/DBD,
+    Non-UNIX Perl, Security, Peer-to-Peer Communication, Your Favourite
+    Topic.
+
+Please submit your abstracts to <na-author@yapc.org>. See Lightning
+Talk submission instructions below.  For all other talks, authors
+are requested to limit their abstracts to 300 words.
+
+This year we will accept a number of types of talks: 
+
+  * Lightning: 5 minutes 
+
+    The lightning talks were instigated by Mark-Jason Dominus two
+    years ago in Pittsburgh, and were replicated with great success
+    at the European YAPC in London.
+
+    Participants speak for no more than five minutes, with the use 
+    of conventional transparencies. Any use of data projector, etc, 
+    is discouraged, but allowed as long as the five minute time limit 
+    is maintained (set-up will be done as the clock ticks). The talk 
+    ends at the five-minute mark, regardless of whether or not the 
+    speaker has finished.
+
+    Any topic is allowed, and some have been fantastically humourous. 
+    Lightning talks are an excellent forum for first-time speakers.
+
+    Please send your talk title, and an abstract of one to four
+    sentences, to:
+
+    mjd-yapc-lt-2002+@plover.com
+
+    The deadline for submissions is the end of Wednesday, June 5, 2002.
+    Submitters will be notified of acceptance by Sunday, June 15.
+    Visit http://perl.plover.com/lt/yapc2002.html for more details.
+
+  * Standard: 20 minutes 
+
+    A 'standard' talk is the preferred format. This is enough time 
+    to start a topic, introduce it with some pithy slides, and open 
+    up to later conversation.
+
+  * Long and Extra-Long: 45 minutes, 90 minutes 
+
+    Long talks are reserved for experienced speakers covering large
+    topics. If you have an in-depth topic you would like to present 
+    in some detail, perhaps with considerable discussion, a Long or
+    Extra-Long talk may be the format of choice.
+
+  * Tutorial: 3 hours + break (possibly in two sets) 
+
+    Half-day (or possibly full-day) tutorials. 
+
+Please submit your abstracts to <na-author@yapc.org>! 
+
+--
+
+Yet Another Society is a non-profit organization for the advancement
+of collaborative efforts in computer and information sciences.  YAS
+promotes symposia, teaching, and group projects. See
+http://yetanother.org for more information.

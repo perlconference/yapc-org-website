@@ -1,0 +1,184 @@
+
+                       fear and loathing at yapc
+                                   or
+       a savage journey into the heart of a swiss army chainsaw.
+
+this is a diary of my yapc experience. it is as true as the facts and my
+lawyers will allow and as false as you wish it. any resemblence between
+this and the reality of the trip is pure dumb luck. most of the names
+have been lost due to the bug the nsa put in my skull.
+
+how did i first hear of yapc? maybe it was over the back yard fence? or
+was it mentioned in the matt drudge report? or could it have been an
+email from matt wright? i don't know but what i do remember is what i
+felt when i heard about it. some cmu kid was going to try and get some
+perl hackers to hang out with him for a couple of days. i didn't know
+kevin lenzo from a script kiddie (just kidding :-). so i pretty much
+ignored the idea of going until i heard some of the names
+attending. larry (not rosler) was going to bestow his aura upon the
+festivities and randal was going to be drinking iron city and all sorts
+of other low lifes and perl mongers were going. i felt the tug of a
+critical mass of perl geeks drawing me to the convergence of two mighty
+rivers. i consulted my boss. she said, "uri, you want to go, so go and
+let me have some peace in the house for 4 days". i felt the love.
+
+so here i am in my hotel on wednesday afternoon wondering what i would
+do for the evening when i decided to call this kevin lenzo and see what
+was up. lo and behold he actually answers his phone and he tells me of a
+dinner gathering that night and that i could crash it. it was at a
+middle eastern place and about 25 hackers were there. i met kevin and he
+had a long pony tail. i just knew we would get along. the evening
+zig-zagged along in a "who are you?" and "what is your quest?" dance
+amongst the sets of new faces. kevin turned out to be a decent guy and
+not the posturing twit my evil imagination had predicted he might
+be. after randal showed up later we crawled across the street for a code
+review of the Monger::Suds module.
+
+the next morning i got there just in time to register and i caught the
+start of larry's speech. it seems he scrapped his scheduled talk and
+gave one about living in the x10 house from hell (larry, sorry for the
+bad word). it seems he has enslaved his family to worship his computer
+by pressing the correct sequence of buttons and switches so that the
+system will emit the chants and encantations that keep the life forces
+flowing through his household. or that is what i got out of it. i told
+my wife about the button to hit and you can hear if you have email and
+she wants one! she won't get it because larry praises laziness and i am
+just lazier than he is.
+
+i got a look at the building and conference rooms and i was impressed.
+cmu just built this center and we had a very large ball room which could
+be split in thirds. nothing like that at cambridge tech.
+
+the first session i attended was the sweetly named "ineffective perl
+programming or idiotic perl". i knew i could contribute some doozies i
+have seen. but the ones shown on the big screen were stupid enough for a
+barrelfull of newbies. matt wright's name was taken in vain a lot. the
+crowd seemed to was brought to a homicidal frenzy of cruel and inhuman
+abuse of the moronic code. i was in the right place.
+
+we then were given box lunch and i thought that my value so far was
+equal to what i got from the o'reilly conference which cost an order of
+magnitude more.
+
+my next session was an unscheduled one given by gnat on perl lies. with
+the kind of logical reasoning he was expounding, he should have
+testified at randal's trial! seems we perl advocates have something to
+learn from (abe) lincoln.
+
+during the lulls between interesting sessions, i was able to hang out
+with various others also playing hookie. we truants would have
+interactive conversations in real time with 3d effects. K001. i had a
+private tutorial in the ways of perl/gtk. i think i will switch from
+perl/tk which never clicked (sic) with me. another time i met with
+someone i was introduced to over thl senses" and was
+given by a cute perl girl. it appears that perl can see and hear (via
+read and listen), but it can't smell (though its detractors say it
+smells), taste or touch (it can touch on unix or on POB with the
+pptools). she did a marvelous job and PBS is picking up her option for a
+series of 10 hourly episodes.
+
+skipping most of a reception (except for some of kevin's mom's homemade
+treats), i tossed a frisbee around (with a pig and a coin) on some
+campus lawn. this was after first doing it in the hallway outside the
+ballroom with a mildy interested audience.
+
+then we had a buffet dinner. o'reilly never gave us dinner. somehow
+kevin scammed the computer science dept. into paying for it all. the man
+is a regular milo minderbinder! i bet he sold into indetured servitude
+to some catering company some of those cmu CS undergraduates. sounds
+like a win for yapc.
+
+after chowing down, the collective fractal brain came up with a plan for
+the evening. first let's find the least comfortable room in town in
+which to drink beer and then we will perform live on stage, our own
+version of MST3K. we ended up in a funky cinema which sold beer and had
+a theater with many beat up lounge chairs and tables mixed with their
+regular seats. we took over the place with about 50 of us (1/5 of the
+whole conference) and made it one of the memorable nights of my geek
+life. the few poor souls who actually wanted to see the matrix in all
+its insipid glory had lousy luck in picking their show time. a pair of
+them sat in front of randal and kept shhhing him. we should hire them to
+hand around with him more often. the best audience line was when the bad
+guys were viciously interrogating our intrepid (and stiff acting) hero,
+and a monger bellowed "you didn't use strict!!!".
+
+friday began with another free breakfast and hookie time. other than
+ziggy's perl mongoloids session (or was it some other portuguese word?)
+i stayed out of the ballrooms. lunch was hanging at the pm table and
+scarfing pizza. and they had root beer and not just coke and its
+poisonous isotopes. again better than o'reilly. this was turning out to
+be a great deal.
+
+after lunch was more perl/gtk and hookie until jon orwant addressed the
+post-apocolyptic survivors (and i don't mean yapc attendees :-).
+
+the best line of the show: a 13 year old perl hacker said, "i loaded
+linux onto our pc and my mom got pissed!" he may be a kiddie, but the
+script prefix doesn't apply to him.
+
+then there was the town meeting where we got to give back to kevin what
+he deserved. first i had to win another prize for the glory of boston
+pm. i was able to scarf an EPP for knowing how to print "hello world!"
+or was it something much harder? i was also given a whole bag of perl
+stuff from the masters of pm and i have since sold them for an
+outrageous profit to python lusers.
+
+towards the end of the meeting we all decided to act out a scene from a
+favorite movie. it seems that kevin can't add numbers too well and was
+over budget (use Big::Int!!). with kevin as george bailey, abigail as
+mary, myself as uncle billy, a perl bag was passed around and jacksons
+kept flying through the air until over $1K was amassed. kevin
+practically pissed in his pants or maybe he actually did (we should call
+hime "old yellowstain"). with value this show provided any unexpected
+fees just were converted a well earned tip from all the working hackers.
+
+that evening was a study in chinese fire drill organization and a bunch
+managed to be in the same restaurant in the same temporal plane. it was
+goodbye for many of us. the word was passed to meet at noon the next
+day. many were staying over saturday to save on airfares.
+
+on saturday a fair number (25 or so) crossed paths in the courtyard
+outside the conference center. we caravanned to the darkest cave we could
+find and proceeded to swill gallons of fine beer and scarfed moby sized
+burritos and bushels of chips and salsa. afterwards we had a major civil
+war about deciding the next destination. my faction decided to keep the
+geekness of our experience alive while the rest weenied out and went to
+some artsy fartsy place. our gang of four hightailed it to pittsburgh's
+geek palace after a long and unintentional self-guided tour of iron city's
+highways and byways. don't attempt this at home.
+
+when we finally got to the andrew's temple of geekdom, we were able to
+finagle our way in by using my boy scout perl hacking merit badge. i
+claimed the other 3 hackers as my long lost children and i was told to
+lose them again. we also glommed discount tix to various visual
+experiences. showing off our juggling skills and playing with the large
+metal brain-teaser toys kept us out of trouble for a long while. i got
+to crunch a marshmallow after it had a liquid nitrogen bath. crunchy and
+chewy at the same time!  finally we entered the maxi-flick theater and
+were subjected to visual motion sensory overload and TMI on how
+multimedia thrill rides are created. the second feature was more real
+with omar sharif playing a doubled grand slam inside the great pyramid
+of egypt. my children were pooped so i reaped them and tucked them into
+their vehicle whereupon i proceeded solo to my third visual overload in
+a row. do not do this at home. it was the spherical wall of floyd and
+well worth the neck sprain and retinal burns from the lasers. no one
+told me not to look at them directly. i dragged myself to the lobby and
+was able to get a cab to convey me back to my boudoir. i actually caught
+my 7:30 flight the next morning and was welcomed back to my fortress of
+marriage.
+
+my one yapc regret is not trying an "Original" hot dog. it seems we
+passed a place (near the beehive theater) which is a famous hotdog
+place. one ex-cmu type mentioned it. but it was showcased in the recent
+pbs show on great hotdogs around the country. and i could have eaten
+there! next year we must schedule a visit there and we will consume mass
+quantities. their fries look awesome and their servings are bigger than
+your car.
+
+so all in all, i had a helluva time as did most of the cobol coders who
+attended. best geek value i have ever seen. lenzo is one cool bot. cmu
+sucks compared to cambridge tech but it has a nicer conference
+center. perl rulez!
+
+uri guttman, uri@sysarch.com
+

@@ -1,0 +1,189 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+<style>
+<!--
+td.boxed {background-color:#dddddd; text-align:center}
+td.break {background-color:#ffff88; text-align:center}
+th {vertical-align:top}
+-->
+</style>
+    <meta name="description" 
+          content="YAPC 2002 is an inexpensive Perl conference on June 26-28, 2002, at Washington University in Saint Louis, Missouri, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,Washington University,Saint Louis,USA,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2002: Friday June 28th Schedule</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Schedule"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Friday June 28th Schedule</H2>
+      </div>
+
+
+<table cellspacing="5" cellpadding="5" border="0" width="100%">
+
+ <tr>
+  <td width="10%">&nbsp;</td>
+  <th width="22.5%">Brown 100</th>
+  <th width="22.5%">Brown 118</th>
+  <th width="22.5%">McDonnell 162</th>
+  <th width="22.5%">Busch 100</th>
+ </tr>
+
+ <tr>
+  <th>9:00</th>
+  <td class="boxed" rowspan="4">Mark-Jason Dominus:<br>
+  Perl Program Repair Shop and Red Flags</td>
+  <td class="boxed" rowspan="4">Michael G. Schwern<br>
+  Test::Tutorial</td>
+  <td class="boxed" rowspan="4">Brian Ingerson:<br>
+  Writing CPAN Modules with Inline::C</td>
+  <td class="boxed" rowspan="1">Adam Turoff:<br>
+  Antipatterns in Perl</td>
+ </tr>
+
+ <tr>
+  <th>9:25</th>
+  <td class="boxed" rowspan="1">Casey West:<br>
+  Data Caching Made Easy</td>
+ </tr>
+
+  <tr>
+  <th>9:45</th>
+  <td class="boxed" rowspan="1">Walt Mankowski<br>
+  A case study in when not to memoize</td>
+ </tr>
+ 
+  <tr>
+  <th>10:10</th>
+  <td class="boxed" rowspan="1">Casey West:<br>
+  Don't Reinvent the Big Wheels</td>
+ </tr>
+ 
+ 
+ <tr>
+  <th>10:30</th>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+ </tr>
+
+  <tr>
+  <th>11:00</th>
+  <td class="boxed" rowspan="2">Chris Nandor:<br>
+  Mac::Perl</td>
+  <td class="boxed" rowspan="4">Michael G. Schwern:<br>
+   How to be Lazy Without Really Trying</td>
+  <td class="boxed" rowspan="4">(cont'd)</td>
+  <td class="boxed" rowspan="2">Shane Mason:<br>
+   perlbox: a desktop for unix</td>
+ </tr>
+
+ <tr><td></td></tr> 
+
+<tr>
+  <th>11:45</th>
+  <td class="boxed" rowspan="2">Abigail:<br>
+  Two alternative ways of doing OO</td>
+  <td class="boxed" rowspan="1">Simon Cozens:<br>
+   The .NET You Need To Know</td>
+ </tr>
+
+<tr>
+  <th>12:10</th>
+  <td class="boxed" rowspan="1">David Nicol:<br>
+  dotGNU AIS Authenticated Identity Service...</td>
+ </tr>
+
+ <tr> 
+  <th>12:30</th>
+  <td class="break">Lunch</td>
+  <td class="break">Lunch</td>
+  <td class="break">Lunch</td>
+  <td class="break">Lunch</td>
+ </tr>
+
+ <tr>
+ <th>2:00</th>
+  <td class="boxed" rowspan="4">Damian Conway:<br>
+  Time::Space::Continuum</td>
+ </tr>
+
+<tr><td></td></tr>
+<tr><td></td></tr>
+<tr><td></td></tr>
+ 
+ <tr>
+  <th>4:00</th>
+  <td class="break">Break</td>
+ </tr>
+
+ <tr>
+ <th>4:30</th>
+  <td class="boxed" rowspan="3">Kevin Lenzo:<br>
+  Town Hall</td>
+ </tr>
+
+<tr><td></td></tr>
+<tr><td></td></tr>
+
+<tr>
+  <th>6:30</th>
+  <td colspan="4"></td>
+ </tr>
+</table>
+
+
+    <table width="100%" border="0" cellpadding="10"><tr><td>
+<ul>
+        <li><a href="day1.shtml">Day 1 Schedule</a></li>
+        <li><a href="day2.shtml">Day 2 Schedule</a></li>
+        <li>Day 3 Schedule</li>
+</ul>
+</td></tr></table>
+
+      <!-- FILLME ENDS HERE -->
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2002 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

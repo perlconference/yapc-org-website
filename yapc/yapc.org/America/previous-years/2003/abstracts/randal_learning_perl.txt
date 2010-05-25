@@ -1,0 +1,26 @@
+Title: Teaching 'Learning Perl'                                                                                       
+                                                                                                                      
+Duration: 30 to 60 minutes                                                                                            
+                                                                                                                      
+Audience Level: Experienced                                                                                           
+                                                                                                                      
+Audience Type: Experienced Perl programmers who are tasked with                                                       
+teaching or sharing Perl knowledge inside their organization                                                          
+                                                                                                                      
+Description:                                                                                                          
+                                                                                                                      
+    Determining what can be covered                                                                                   
+    What we do that works                                                                                             
+    What we've found that doesn't                                                                                     
+    Other advice to the new instructor                                                                                
+    Where to steal materials                                                                                          
+    Q-and-A                                                                                                           
+                                                                                                                      
+Description Short:                                                                                                    
+                                                                                                                      
+    Whether you simply help some of your co-workers get a little better at                                            
+    Perl, or give organized training session to groups within your                                                    
+    organization, there's always more to know about how to teach                                                      
+    Perl. Learn from veteran instructors about what works and what                                                    
+    doesn't, including some humorous road stories about teaching the                                                  
+    wildly popular "Learning Perl" course.    

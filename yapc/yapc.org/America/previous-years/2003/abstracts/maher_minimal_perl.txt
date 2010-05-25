@@ -1,0 +1,31 @@
+      TITLE:                                                                                                         
+                Minimal Perl for Shell Users and Programmers                                                          
+                                                                                                                      
+        TIME:   3 hours                                                                                               
+                                                                                                                      
+                          SPEAKER: Dr. Tim Maher                                                                      
+                           tim@teachmeperl.com                                                                        
+                                                                                                                      
+                         Head Software Instructor                                                                     
+                  CONSULTIX, POB 70563, Seattle WA 98107                                                              
+                        http://www.teachmeperl.com                                                                    
+                              (866) DOC-PERL                                                                          
+                                                                                                                      
+                                                                                                                      
+                                 ABSTRACT                                                                             
+                                                                                                                      
+Most Perl training is designed to have the maximum appeal to the                                                      
+broadest audience, which leads to Windows and UNIX programmers                                                        
+learning from the same OS-agnostic curriculum.                                                                        
+                                                                                                                      
+In contrast, this tutorial capitalizes on the existing UNIX and                                                       
+POSIX-shell knowledge of its attendees, rather than ignoring it.                                                      
+This approach helps them to write effective Perl more rapidly,                                                        
+with fewer blunders, and with greater satisfaction.                                                                   
+                                                                                                                      
+The first part is geared to "Shell Users", and features simple Perl                                                   
+commands that offer improvements over sed, grep, sort, and awk.                                                       
+The second part is dedicated to "Shell Programmers", and emphasizes                                                   
+similarities and differences between language features.  For example,                                                 
+attendees will not only learn how to emulate the shell's "while" loop     
+in Perl, but also why Perl's "do/while" is not as cool as it seems. 

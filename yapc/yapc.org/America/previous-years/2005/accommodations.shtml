@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta name="ICBM" content="26.36508,-80.10235">
+ <meta name="DC.title" content="YAPC 2005 at UofT">
+    <meta name="description" content="YAPC 2005 is an inexpensive Perl conference on June 22-24, 2005, at the University of Toronto in Toronto, Ontario, Canada.">
+    <meta name="keywords" content="Perl,Perl conference,University of Toronto,Toronto,Ontario,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science"><title>YAPC 2005: Yet Another Perl Conference</title>
+    
+ 
+    <link rel="stylesheet" type="text/css" href="yapcna.css" title="yapcna"><base href="http://yapc.org/America/sponsorship.shtml"></head>
+
+  <body topmargin="0" leftmargin="0" bgcolor="#ffffff" link="#000099" marginheight="0" marginwidth="0" text="#000000">
+
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td class="side" bgcolor="#cccccc" width="120">
+      <table align="center" border="1" cellpadding="6" cellspacing="0">
+        <tbody><tr>
+          <td class="venue" align="center" bgcolor="#ffffff">
+
+ <!--#include virtual="include/venuebox.html" -->
+
+          </td>
+        </tr>
+       </tbody></table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" alt="YAPC Call for Participation" border="0" height="86" width="270"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" valign="top" width="120">
+       
+<!--#include virtual="include/menu.html" -->
+
+</td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <h1>yapc: Yet Another Perl Conference</h1>
+        <h2>Accommodations</h2>
+        <p></p><hr size="1">
+      </div>
+
+<center><a href="#hotel">Hotel</a> | <a href="#dorms">Dorms</a></center>
+<a name="hotel"></a>
+<h3>Hotel</h3>
+
+<p>
+
+An official hotel has not been selected at this time. An announcement
+will be made as soon as one is chosen.  owever, there are an unlimited
+(~ 25,000) number of hotel rooms of all prices (USD$40-USD$200/night)
+within easy walking distance. A "recommended" hotel nearby the
+conference will be identified and negotiated with for group rates
+closer to the date of the conference with some already in mind.
+
+</p>
+
+<a name="dorms"></a>
+<h3>Dorms</h3>
+
+<p>
+Excellent dorm facilities are available from many different colleges
+within the University of Toronto.  We are currently negotiating with
+several to find the best one for YAPC use.  Any dorm location that is
+chosen will be of good quality, very inexpensive (approximately
+US$40/night/person) and very nearby the on-campus site of the
+conference.
+</p>
+
+<!--<p>You can make your reservation and payment at the <a href="https://donate.perlfoundation.org/index.pl?node=dorm+info">perl foundation site</a>.-->
+
+<p>Rates:
+<ul><li>To be detailed at a later date.</li></ul>
+</p>
+
+<!--<table cellpadding="5">
+<tbody><tr><td>Single Room</td><td> </td><td>Double Room</td></tr>
+<tr><td>1 night $28.00</td><td> </td><td>1 night $24.00</td></tr>
+<tr><td>2 nights $56.00</td><td> </td><td>2 nights $48.00</td></tr>
+<tr><td>3 nights $84.00</td><td> </td><td>3 nights $72.00</td></tr>
+<tr><td>4 nights $112.00</td><td> </td><td>4 nights $96.00</td></tr>
+</tbody></table>
+</p><p></p>-->
+<hr size="1">
+
+<p>Yet Another Society is a non-profit organization for the
+advancement of collaborative efforts in computer and information
+sciences. YAS promotes symposia, teaching, and group projects.  See <a href="http://yetanother.org">http://yetanother.org</a> for more
+information.
+    </p></td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width="120">
+      <br><br><br> 
+    </td> 
+    <td valign="baseline">
+      <br>
+      <p class="moddate"><small>Last modified at 
+           10:20 PM on October 7, 2004 by Kevin C. Krinke<br>
+           All content copyright © 2003 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</tbody></table>
+</body></html>

@@ -1,0 +1,227 @@
+
+[Une version française suit / A French version follows.]
+
+*** Third North American YAPC: First Call for Participation ***
+
+                    Yet Another Society
+              calls for your participation in
+
+                         YAPC 2001
+                 the Third North American 
+               Yet Another Perl Conference
+
+                 http://yapc.org/America/
+
+                     McGill University,
+                      Montreal, Quebec 
+
+                  Wednesday through Friday 
+                      June 13-15, 2001
+
+YAPC is a place for people to meet and talk about Perl -- where
+people who've done interesting things, people who are working
+on the language itself, people who are using it daily,
+and people who are looking to learn about it are all within
+arm's reach.  Some of the great authors and coders in the field
+will be on hand to discuss their work, as well as the nature
+and direction of Perl itself.
+
+Please join us for three days of listening and talking about 
+Perl in Montreal.  
+
+** Conference registration will be available by Feb. 1, 2001 at 
+
+           http://na-register.yapc.org/
+
+   Dorm rooms will be available at the University (rates TBA); the dorm
+   request information will be on the website and registration
+   form. 
+
+           Registration Cost: CAD$125 (about USD$85)
+
+** We are looking for sponsors. Please contact Kevin Lenzo 
+   (lenzo@yapc.org) for information about how you can help 
+   support the Yet Another society and YAPC.  Much of the 
+   necessary funding for YAPC comes from the generous donations 
+   of our sponsors.
+
+** Submitted papers:             Submission Deadline: May 1, 2001
+
+   All topics are welcome.  Here is a short list of subjects that 
+   might be presented: 
+
+     XML, CGI/Web, Interprocess Communication, GUIs (GTk, Tk), 
+     Natural Language Processing, Interactive Perl,  Agents,
+     Perl as Glue, Object-Oriented Perl, Scientific Applications,
+     Guts, Internals, JAPHs, Perl Poetry, System Administration,
+     DBI/DBD, Non-UNIX Perl, Security, Peer-to-Peer Communication,
+     Your Favourite Topic.
+
+   Please submit your abstracts to <na-author@yapc.org>. Authors 
+   are requested to limit their abstracts to one or two paragraphs
+   for Lightning Talks, and to 300 words for other talks.
+
+   This year we will accept a number of types of talks:
+
+     * Lightning:  5 minutes
+
+       The lightning talks were instigated by Mark-Jason Dominus
+       last year in Pittsburgh, and were replicated with great 
+       success at the European YAPC in London.
+
+       Participants speak for no more than five minutes, with the use
+       of conventional transparencies.  Any use of data projector,
+       etc, is discouraged, but allowed as long as the five minute
+       time limit is maintained (set-up will be done as the clock
+       ticks). The talk ends at the five-minute mark, regardless of
+       whether or not the speaker has finished.
+
+       Any topic is allowed, and some have been fantastically 
+       humourous.  Lightning talks are an excellent forum for 
+       first-time speakers.
+
+     * Standard:      20 minutes
+
+       A 'standard' talk is the preferred format.  This is enough 
+       time to start a topic, introduce it with some pithy slides, 
+       and open up to later conversation. 
+
+     * Long and Extra-Long:   45 minutes, 90 minutes
+
+       Long talks are reserved for experienced speakers covering
+       large topics.  If you have an in-depth topic you would like
+       to present in some detail, perhaps with considerable 
+       discussion, a Long or Extra-Long talk may be the format of 
+       choice.
+
+     * Tutorial:   3 hours + break (possibly in two sets)
+
+       Half-day (or possibly full-day) tutorials.
+
+   ** Please submit your abstracts to <na-author@yapc.org>! **
+
+Thank you; we hope you will participate. If you have any questions,
+please mail <na-help@yapc.org>.
+
+---
+
+Yet Another Society is a non-profit organization for the 
+advancement of collaborative efforts in computer and information 
+sciences. YAS promotes symposia, teaching, and group projects.  
+See http://yetanother.org for more information.
+
+*** Third North American YAPC: First Call for Participation ***
+
+---------------------------------------------------------------------------
+
+*** Troisième YAPC Amérique du Nord: premier appel à la participation ***
+
+                    Yet Another Society
+                vous invite à participer à
+
+                         YAPC 2001
+                        La troisième
+                 Yet Another Perl Conference
+                     en Amérique du Nord
+
+                 http://yapc.org/America/
+
+                     Université McGill,
+                      Montréal, Québec 
+
+                  Du mercredi au vendredi
+                    13 au 15 juin, 2001
+
+YAPC est un endroit où des gens se rencontrent et parlent de Perl; où
+des gens qui ont fait des choses intéressantes, des gens qui
+travaillent sur le langage lui-même, des gens qui l'utilisent tous les
+jours et des gens qui veulent en apprendre plus sont tous à portée de
+la main.  Quelques uns des meilleurs auteurs et codeurs dans le
+domaine seront présents pour discuter de leur travail, ainsi que de la
+nature et de l'avenir de Perl lui-même.
+
+Joignez-vous donc à nous à Montréal pendant trois jours pour écouter
+et parler de Perl.
+
+** Vous pourrez vous inscrire à la conférence à compter du 1er février:
+
+           http://na-register.yapc.org/
+
+   Des résidences étudiantes seront disponibles pour les participants,
+   sur le campus de l'université (les tarifs seront annoncés plus
+   tard); le formulaire d'inscription en indiquera les modalités et
+   les coûts.
+
+        Frais d'inscription 125$CDN (environ 85$US).
+
+** Nous sommes à la recherche de commanditaires. Veuillez contacter
+   Kevin Lenzo (lenzo@yapc.org) pour savoir comment vous pouvez
+   encourager la Yet Another Society et YAPC.  Une grande partie des
+   fonds nécessaires à YAPC proviennent des généreuses contributions
+   de nos commanditaires.
+
+** Date de tombée pour la soumission des communiqués: 1er mai 2001
+
+   Tous les sujets sont bienvenus.  Voici une courte liste de sujets
+   possibles:
+
+     XML, CGI/web, communication inter-processus, GUIs (Gtk, Tk),
+     traitement du langage naturel, Perl interactif, agents, Perl
+     comme colle, Perl orienté-objet, applications scientifiques,
+     entrailles, JAPHs, poésie Perl, administration de systèmes,
+     DBI/DBD, Perl non-Unix, sécurité, communication 'peer-to-peer',
+     votre sujet préféré.
+
+     Veuillez soumettre vos résumés à <na-author@yapc.org>. Les
+     auteurs sont priés de limiter leurs résumés à un ou deux
+     paragraphes pour les communications éclair, et à 300 mots pour
+     les autres communications.
+
+   Cette année, nous accepterons plusieurs sortes de communications:
+
+     * Communication éclair:  5 minutes
+
+       Les communications éclair ont été inaugurées l'été dernier à
+       Pittsburgh par Mark-Jason Dominus et ont été reprises avec
+       beaucoup de succès au YAPC européen à Londres.
+
+       Les participants disposent d'un maximum de cinq minutes pour
+       présenter leur communication, habituellement avec l'aide seule
+       d'un rétro-projecteur.  Tout autre mécanisme de présentation
+       est déconseillé, mais permis dans la mesure où la limite de
+       cinq minutes est respectée (l'installation se fera pendant que
+       le temps s'écoule). La communication se termine au bout de cinq
+       minutes, que le présentateur ait terminé ou non.
+
+       Tout sujet est permis, et cela a donné lieu à des
+       communications hautement humoristiques.  Les communications
+       éclair constituent un excellent forum pour des gens qui en sont
+       à leurs premières présentations.
+
+     * Standard:      20 minutes
+
+       La communication standard constitue le format préféré. Il y a
+       suffisamment de temps pour introduire le sujet, présenter
+       quelques acétates bien choisies et permettre la discussion.
+
+     * Longue et extra-longue:   45 minutes, 90 minutes
+
+       Les communications longues sont réservées aux présentateurs
+       expérimentés qui couvrent des sujets plus vastes.  Si vous
+       désirez présenter un sujet en détail, avec beaucoup de
+       discussion, ce format pourrait être approprié.
+
+     * Tutoriel:   3 heures + une pause
+
+       Tutoriels d'une durée de une demi-journée, ou peut-être même
+       une journée complète.
+
+   ** Veuillez sounmettre vos résumés à <na-author@yapc.org>! **
+
+Nous vous remercions et nous espérons que vous participerez en grand
+nombre.  Si vous avez des questions, communiquez avec
+<na-help@yapc.org>.
+
+*** Troisième YAPC Amérique du Nord: premier appel à la participation ***
+
+

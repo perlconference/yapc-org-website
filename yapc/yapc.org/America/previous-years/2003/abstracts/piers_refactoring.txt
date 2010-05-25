@@ -1,0 +1,10 @@
+Standard Talk: Towards a Perl Refactoring Tool                                                                        
+                                                                                                                      
+The Smalltalk Refactoring Browser is the inspiration for PREFACE, a                                                   
+personal research project into writing Refactoring tools for                                                          
+Perl. This talk discusses the techniques I used to cross the                                                          
+'Refactoring Rubicon' by implementing a pure Perl 'Extract Method'                                                    
+refactoring.                                                                                                          
+                                                                                                                      
+Level: Definitely Scary, by its very nature, PREFACE gets pretty cosy                                                 
+with Perl's internal structure. It's all stuff worth knowing though.     

@@ -1,0 +1,4 @@
+No formal abstract given. But, Damian says:
+
+"It's a real departure for me: practical                                                    
+Perl and Unix stuff that people can use every day."

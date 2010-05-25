@@ -1,0 +1,95 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2001 is an inexpensive Perl conference on June 13-15, 2001, at McGill University in Montreal, Quebec, Canada.">
+    <meta name="keywords"
+          content="Perl,Perl conference,McGill University,Montreal,Quebec,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2001: Reports</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Talks"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>Reports from YAPC::NA 2001</H1>
+      </div>
+
+      <p>YAPC 2001 is now over and was a success! Around 320 people made
+      their way to Montreal to see nearly 60 talks by over 40 speakers in
+      three days, and after recovering from <i>that</i>, have prepared
+      the following photo galleries, audio archives, and written reports,
+      presented in no particular order.
+
+      <p>If your gallery, archive, report, or other YAPC-related stuff
+      isn't linked from here and you'd like it to be, 
+      <a href="mailto:rich@yapc.org">drop us a line</a>.
+      <p><hr size=1>
+      <H3>Photo Galleries</H3>
+      <ul>
+      <li><a href="http://www.openinteract.org/yapc2001/">Nathaniel Haas</a>
+      <li><a href="http://buglet.rcbowen.com/photos/yapc_2001/">Rich Bowen</a>
+      <li><a href="http://gozer.people.hbesoftware.com/Perl/Yapc/">Gozer</a>
+      <li><a href="http://www.lafferty.ca/photos/yapc2001/">Rich Lafferty</a>
+      <li><a href="http://vorpal.jabberwock.org/~wendigo/yapc2001">wendigo</a>
+      <li><a href="http://ttul.org/~ingy/YAPC2001pics/">Brian Ingerson</a>
+      <li><a href="http://www.maquina.com/gk/yapc2001/">gk</a>
+      <li><a href="http://aquacade.net/yapc2001/">aquacade</a>
+      </ul>
+      <p><hr size=1>
+      <H3>Audio Archives</H3>
+
+      <p>Nat Torkington has made available a bunch of
+      <a href="http://prometheus.frii.com/~gnat/yapc/mp3/">MP3
+      recordings</a> of talks and lightning talks.
+
+      <p><hr size=1>
+      <h3>Writeups</h3>
+      <ul>
+      <li><a href="http://www.perl.com/pub/2001/06/21/yapcreport.html">Schuyler Erle's perl.com article</a>
+      <li><a href="http://use.perl.org/journal.pl?op=display&uid=1124">unimatrix's Use Perl diary</a>
+      <li><a href="http://use.perl.org/journal.pl?op=display&uid=29">Nat Torkington's Use Perl diary</a>
+      <li><a href="http://use.perl.org/journal.pl?op=display&uid=189">Leon Brocard's Use Perl diary</a>
+      <li><a href="http://use.perl.org/journal.pl?op=display&uid=1658">hdp's Use Perl diary</a> (I think I see a pattern here.)
+      </ul>
+  
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2001 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

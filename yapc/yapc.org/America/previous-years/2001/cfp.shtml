@@ -1,0 +1,210 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2001 is an inexpensive Perl conference on June 13-15, 2001, at McGill University in Montreal, Quebec, Canada.">
+    <meta name="keywords"
+          content="Perl,Perl conference,McGill University,Montreal,Quebec,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2001: Call for Participation</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Call for Participation"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Call for Participation</H2>
+      </div>
+
+      <div align="center">
+      <p><hr size=1>   
+      <H3>Third North American YAPC: Second Call for Participation</H3>
+
+      <p>           Yet Another Society<br>
+              calls for your participation in<br>
+
+      <p>                <b>YAPC 2001</b><br>
+                 the Third North American<br>
+               Yet Another Perl Conference<br>
+
+      <p>  <b><a href="http://yapc.org/America/">http://yapc.org/America/</a></b>
+
+      <p>            McGill University,<br>
+                      Montreal, Quebec 
+
+      <p>         Wednesday through Friday<br>
+                      June 13-15, 2001
+      </div>
+
+<p>YAPC is a place for people to meet and talk about Perl -- where
+people who've done interesting things, people who are working
+on the language itself, people who are using it daily,
+and people who are looking to learn about it are all within
+arm's reach.  Some of the great authors and coders in the field
+will be on hand to discuss their work, as well as the nature
+and direction of Perl itself.
+
+<p>Please join us for three days of listening and talking about 
+Perl in Montreal.  
+
+<ul>
+<li><b>Conference registration is NOW OPEN!</b>
+</ul>
+
+   <div align="center">
+   <b><a href="http://na-register.yapc.org/">http://na-register.yapc.org/</a></b>
+   <br><br>
+   <b>Conference registration cost: USD $85 (about CAD $125).</b>
+   </div>
+
+<ul>
+<li>Dorm rooms will be available at the University (rates TBA); specific
+   arrangements are still being made with McGill, but we expect dorm
+   accommodations to cost under USD $25 per night for a single room.
+   request information will be on the website and registration
+   form. 
+   <br><br>
+<li>YAPC is looking for sponsors. Please contact Kevin Lenzo (<a
+   href="mailto:lenzo@yapc.org">lenzo@yapc.org</a>) for information
+   about how you can help support the Yet Another Society and YAPC.
+   Much of the necessary funding for YAPC comes from the generous
+   donations of our sponsors.
+   <br><br>
+<li>Submitted papers: 
+</ul>
+
+   <div align="center">
+   <b>Submission Deadline: May 1, 2001</b>
+   </div>   
+
+<ul>
+   <p>All topics are welcome.  Here is a short list of subjects that 
+   might be presented: 
+   <p>
+   <blockquote>
+     XML, CGI/Web, Interprocess Communication, GUIs (GTk, Tk), 
+     Natural Language Processing, Interactive Perl,  Agents,
+     Perl as Glue, Object-Oriented Perl, Scientific Applications,
+     Guts, Internals, JAPHs, Perl Poetry, System Administration,
+     DBI/DBD, Non-UNIX Perl, Security, Peer-to-Peer Communication,
+     Your Favourite Topic.
+   </blockquote>
+   <p>Please submit your abstracts to &lt;<a
+   href="mailto:na-author@yapc.org">na-author@yapc.org</a>&gt;. Authors
+   are requested to limit their abstracts to four sentences for
+   Lightning Talks, and to 300 words for other talks.
+   <br><br>
+
+  <li>This year we will accept a number of types of talks:
+   <br><br>
+   <ul>
+     <li><b>Lightning:</b> <i>5 minutes</i>
+
+       <p>The lightning talks were instigated by Mark-Jason Dominus
+       last year in Pittsburgh, and were replicated with great 
+       success at the European YAPC in London.
+
+       <p>Participants speak for no more than five minutes, with the use
+       of conventional transparencies.  Any use of data projector,
+       etc, is discouraged, but allowed as long as the five minute
+       time limit is maintained (set-up will be done as the clock
+       ticks). 
+
+       <p>Any topic is allowed, and some have been fantastically 
+       humourous.  Lightning talks are an excellent forum for 
+       first-time speakers.
+
+       <p>To propose a lightning talk, please send an abstract of no
+       more than four sentences to:
+ 
+      <p><div align="center">
+      <b><a href="mailto:mjd-yapc-lightning+@plover.com">mjd-yapc-lightning+@plover.com</a></b>
+      </div>
+
+       <p>by the end of May 31, 2001.  If your talk is selected for
+       <p>presentation, you will be notified by June 6.
+
+       For more complete information about Lightning Talks, please
+       visit
+ 
+       <p><div align="center">
+       <b><a href="http://perl.plover.com/lightning-talks.html">http://perl.plover.com/lightning-talks.html</a></b>
+       </div>
+       <br><br>
+
+     <li><b>Standard:</b> <i>20 minutes</i>
+
+       <p>A standard talk is the preferred format.  This is enough 
+       time to start a topic, introduce it with some pithy slides, 
+       and open up to later conversation. 
+       <br><br>
+
+     <li><b>Long and Extra-Long:</b> <i>45 minutes, 90 minutes</i>
+
+       <p>Long talks are reserved for experienced speakers covering
+       large topics.  If you have an in-depth topic you would like
+       to present in some detail, perhaps with considerable 
+       discussion, a Long or Extra-Long talk may be the format of 
+       choice.
+       <br><br>
+
+     <li><b>Tutorial:</b>  <i>3 hours + break (possibly in two sets)</i>
+
+       <p>Half-day (or possibly full-day) tutorials.
+     </ul>
+   </ul>
+
+   <div align="center">
+   <p><b>Please submit your abstracts to 
+   &lt;<a href="mailto:na-author@yapc.org">na-author@yapc.org</a>&gt;!</b>
+   </div>
+
+<p>Thank you; we hope you will participate. If you have any questions,
+please mail &lt;<a href="mailto:na-help@yapc.org">na-help@yapc.org</a>&gt;.
+
+<p><hr size=1>
+
+<p>Yet Another Society is a non-profit organization for the
+advancement of collaborative efforts in computer and information
+sciences. YAS promotes symposia, teaching, and group projects.  See <a
+href="http://yetanother.org">http://yetanother.org</a> for more
+information.
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2001 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

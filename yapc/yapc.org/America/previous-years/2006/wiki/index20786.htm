@@ -1,0 +1,359 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="generator" content="WordPress 1.5" /> <!-- leave this for stats -->
+        <link rel="stylesheet" href="http://www.yapc.org/America/previous-years/2006/wp-content/themes/yapc_wide/style.css" type="text/css" media="screen" />
+        <link rel="shortcut icon" type="image/png" href="http://www.yapc.org/America/previous-years/2006/wp-content/themes/yapc_wide/images/favicon.png" />
+
+  <title>
+
+  HigherOrderPerl -
+
+
+  Kwiki</title>
+      <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/theme/yapc_chicago/css/kwiki.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/toolbar.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/user_name.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/search.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/formatter.css" />
+        <script type="text/javascript" src="javascript/double_click_to_edit.js"></script>
+  </head>
+<body>
+<!-- END kwiki_begin -->
+<img id="logo_left" src="wp-content/themes/yapc_wide/images/logo_left.jpg" alt="YAPC::NA 2006" />
+<img id="logo_right" src="wp-content/themes/yapc_wide/images/logo_right.jpg" alt="YAPC::NA 2006" />
+<div id="nav">
+<!-- BEGIN toolbar_pane -->
+<div class="toolbar">
+<ul class="primary">
+<li><!-- BEGIN search_box -->
+<form method="post" action="index.cgi" enctype="application/x-www-form-urlencoded" style="display: inline">
+<input style="border:0px; background:#cccccc;" type="text" name="search_term" size="8" value="Search" onfocus="this.value=''" />
+<input type="hidden" name="action" value="search" />
+</form>
+<!-- END search_box -->
+</li>
+<li><!-- BEGIN home_button -->
+<a href="http://www.yapc.org/America/previous-years/2006/index0.htm" accesskey="h" title="Home Page">
+<!-- BEGIN home_button_icon -->
+Home
+<!-- END home_button_icon -->
+
+</a>
+<!-- END home_button -->
+</li>
+<li><!-- BEGIN recent_changes_button -->
+<a href="http://www.yapc.org/America/previous-years/2006/index43283.htm" accesskey="c" title="Recent Changes">
+<!-- BEGIN recent_changes_button_icon -->
+Changes
+<!-- END recent_changes_button_icon -->
+
+</a>
+<!-- END recent_changes_button -->
+</li>
+<li><!-- BEGIN user_preferences_button -->
+<a href="http://www.yapc.org/America/previous-years/2006/index44809.htm" accesskey="u" title="User Preferences">
+<!-- BEGIN user_preferences_button_icon -->
+Preferences
+<!-- END user_preferences_button_icon -->
+
+</a>
+<!-- END user_preferences_button -->
+</li>
+</ul>
+</div>
+<!-- END toolbar_pane -->
+
+
+
+
+</div>
+
+
+	<div id="content">
+<!-- BEGIN display_content -->
+<div class="wiki">
+<h1><em>Higher-Order Perl</em></h1>
+<p>
+<img src="hop.perl.plover.com/cover-med.jpg" />
+
+</p>
+<p>
+<a href="http://www.yapc.org/America/previous-years/2006/hop.perl.plover.com/index.html">Book web site</a>
+
+</p>
+<h2>Slides</h2>
+<p>
+<a href="http://www.yapc.org/America/previous-years/2006/hop.perl.plover.com/yapc/index.html">http://hop.perl.plover.com/yapc/</a>
+
+
+</p>
+<h2>Reminder</h2>
+<p>
+I am posting the slides here as a gift to the YAPC attendees.
+Please do not distribute the slides to anyone else.  
+
+</p>
+<p>
+Because I can make a living teaching classes, I can also come give the class at YAPC and to go speak to Perl Mongers groups.   I pay for this out of my own pocket.
+
+</p>
+<p>
+If you distribute the slides elsewhere, you might impede me from making a living giving classes.
+Then I wouldn&#39;t be able to afford to come back to YAPC next year to give more classes for free.
+
+</p>
+<p>
+So please enjoy them, but don&#39;t distribute them.
+
+</p>
+<p>
+Thanks.
+
+</p>
+<h2>Class outline</h2>
+<ul>
+<li><em><strong>Higher-Order Perl</strong></em></li>
+<li>The Big Idea</li>
+
+<ul>
+<li>Littler ideas</li>
+</ul>
+<li>Caching</li>
+
+<ul>
+<li>Caching Example</li>
+<li>Caching</li>
+<li>Adding Caching Code is Too Much Work</li>
+<li>Memoization</li>
+<li><strong>Closures</strong></li>
+<li>What is my book about?</li>
+<li>Closures</li>
+<li><tt>Memoize</tt></li>
+<li>Memoization</li>
+<li>Memoization Caveats</li>
+<li>More Memoization Delights</li>
+<li>Profiling</li>
+</ul>
+<li>Iterators</li>
+
+<ul>
+<li><tt>File::Find</tt></li>
+<li>Case Study: <tt>File::Find</tt></li>
+<li>Toy example: <tt>upto</tt></li>
+<li><tt>upto</tt>: OOP Formulation</li>
+<li><tt>upto</tt>: Closure Formulation</li>
+<li><tt>upto</tt></li>
+<li><tt>upto</tt>: OOP Again</li>
+<li>Basic Iterator Recipes</li>
+<li><tt>walk_tree</tt></li>
+<li>Depth-First Order</li>
+<li>Breadth-First Order</li>
+<li>Other Orders</li>
+<li><tt>wanted</tt></li>
+<li>More Applications of Iterators</li>
+<li>Relaxful Slide</li>
+</ul>
+<li>Infinite Lists</li>
+
+<ul>
+<li>Streams</li>
+<li>Stream Implementation</li>
+<li>Promises</li>
+<li><tt>tail</tt> Function</li>
+<li>Simple Example</li>
+<li>Iterators as streams</li>
+<li>Peeking</li>
+</ul>
+<li>Parsing</li>
+
+<ul>
+<li>Every program parses</li>
+<li>Open vs. closed sytems</li>
+<li>Example: graphing program</li>
+<li>Grammars</li>
+<li>Lexing</li>
+<li>Recursive-descent parsing</li>
+<li>Basic parsers</li>
+<li>Token parsers</li>
+<li>Concatenation</li>
+<li>Alternation</li>
+<li>Parsers</li>
+<li>Optional items</li>
+<li>repeat</li>
+<li>Lists</li>
+<li>Labeled blocks</li>
+<li>Operators</li>
+<li>New tools</li>
+<li>Open systems again</li>
+</ul>
+<li>What is my book about?</li>
+
+<ul>
+<li>Shameful confession</li>
+<li><em>Higher-Order Perl</em></li>
+<li>Thank You!</li>
+</ul></ul>
+<hr />
+<ul>
+<li>Bonus Slides &#40;stuff I wrote that I won&#39;t be covering&#41;</li>
+
+<ul>
+<li>Caching Fixes Recursion</li>
+
+<ul>
+<li>Treasure Division</li>
+<li>Caching Fixes Recursion</li>
+</ul>
+<li>Does the Algorithm Really Work?</li>
+<li>Pattern: Callback</li>
+<li>Pattern: User Parameter</li>
+<li>Pattern: Recursion</li>
+<li>Generic Profiler</li>
+<li>Iterator Problem Solution</li>
+
+<ul>
+<li>Premature Termination of Functions with Callbacks</li>
+<li>Limitations of Callback Functions as Iterators</li>
+</ul>
+<li>Dispatch Tables</li>
+
+<ul>
+<li>State Machines</li>
+<li>Implementing State Machines in Perl</li>
+<li>State Machines For NNTP</li>
+<li>State Machines Are Very Easy to Read!</li>
+</ul>
+<li>Objects</li>
+
+<ul>
+<li>Anonymous Subroutines as Objects</li>
+<li>The Usual Syntax</li>
+<li>Anonymous Subroutines as Objects</li>
+</ul>
+<li>Newton&#39;s Method</li>
+
+<ul>
+<li>Numerical Computation</li>
+<li>Newton&#39;s Method</li>
+<li>Square Roots with Newton&#39;s Method</li>
+<li>Numeric Computation With Iterators</li>
+</ul>
+<li>Currying</li>
+
+<ul>
+<li>Pattern: Currying</li>
+</ul>
+<li>Self-Modifying Streams</li>
+<li>Higher-Order Functions</li>
+
+<ul>
+<li>Fundamental <a href="http://www.yapc.org/America/previous-years/2006/index13149.htm" class="empty">HOFs</a></li>
+<li>Generic <a href="http://www.yapc.org/America/previous-years/2006/index13149.htm" class="empty">HOFs</a></li>
+<li><tt>fold</tt></li>
+<li>List Functions</li>
+<li>More Complicated Data Structures</li>
+</ul>
+<li>Return to <tt>walk_tree</tt></li>
+
+<ul>
+<li>build_dir Output</li>
+<li>Trees</li>
+<li>Generic Tree HOF</li>
+<li>Generic Tree HOF Examples</li>
+<li>Important Strategy</li>
+</ul>
+<li>Caching Fixes Recursion</li>
+<li>Iterator Example</li>
+
+<ul>
+<li>Iterator Operations</li>
+<li><tt>upto</tt>: Closure Formulation</li>
+<li><tt>upto</tt>: Closures</li>
+</ul>
+<li>Caching for Benchmarking</li>
+<li>Memoization Caveats</li>
+<li>Unreading</li>
+
+<ul>
+<li>Peeking</li>
+</ul>
+<li>Syntax</li>
+
+<ul>
+<li>More Generic Iterators</li>
+</ul>
+<li><tt>map</tt> and <tt>grep</tt></li>
+<li>Why Use an Infinite List?</li>
+
+<ul>
+<li>Merge Factory</li>
+</ul>
+<li>Minimum</li>
+<li><tt>eval</tt></li>
+</ul></ul>
+</div>
+<!-- BEGIN display_changed_by -->
+
+<!-- END display_changed_by -->
+
+<!-- END display_content -->
+
+	</div>
+	
+	<div id="left_sidebar">
+
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.valueclick.com/index.html"><img src="www.yapcchicago.org/media/sponsors/valueclick/web.jpg" alt="ValueClick" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.livetext.com/index.html"><img src="wp-content/themes/yapc_wide/images/livetext.jpg" alt="LiveText" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.bignerdranch.com/index.html"><img src="wp-content/themes/yapc_wide/images/bnr.gif" alt="Big Nerd Ranch" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.google.com/index.html"><img src="wp-content/themes/yapc_wide/images/google.gif" alt="Google" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.itasoftware.com/index.html"><img src="wp-content/themes/yapc_wide/images/ita_software.gif" alt="ITA Software" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.performics.com/index.html"><img src="wp-content/themes/yapc_wide/images/performics.jpg" alt="Performics" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.stonehenge.com/index.html"><img src="wp-content/themes/yapc_wide/images/stonehenge.gif" alt="Stonehenge"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/damian.conway.org/index.html"><img src="www.yapcchicago.org/media/sponsors/thoughtstream/web.jpg" alt="Thoughtstream"  border="0"/></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.sxip.com/index.html"><img src="wp-content/themes/yapc_wide/images/sxip.gif" alt="Sxip" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.openmake.com/index.html"><img src="wp-content/themes/yapc_wide/images/om.gif" alt="Open Make" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.shopzilla.com/index.html"><img src="wp-content/themes/yapc_wide/images/shopzilla.gif" alt="Shopzilla" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.oreilly.com/index.html"><img src="wp-content/themes/yapc_wide/images/oreilly.gif" alt="O'Reilly" border="0" /></a></p>
+		<!--<br/><p><a href="http://www.yapc.org/America/previous-years/2006/http://www.socialtext.com"><img src="http://yapcchicago.org/wp-content/themes/yapc_wide/images/socialtext.gif" alt="Social Text" border="0" /></a></p>-->
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.apress.com/index.html"><img src="wp-content/themes/yapc_wide/images/apress.gif" alt="Apress"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.grantstreetgroup.com/index.html"><img src="wp-content/themes/yapc_wide/images/grant.gif" alt="Grant Street Group"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.acxiom.com/index.html"><img src="wp-content/themes/yapc_wide/images/acxiom.gif" alt="Acxiom"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.zoomshare.com/index.html"><img src="wp-content/themes/yapc_wide/images/zoomshare.gif" alt="Zoomshare"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.cheetahmail.com/index.html"><img src="media/sponsors/cheetahmail/web.png" alt="CheetahMail"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.flr.follett.com/index.html"><img src="www.yapcchicago.org/media/sponsors/follett/web.gif" alt="Follett Library Resources"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.manning.com/index.html"><img src="www.yapcchicago.org/media/sponsors/manning/web.gif" alt="Manning"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.nostarch.com/index.html"><img src="wp-content/themes/yapc_wide/images/nsp.gif" alt="No Starch Press"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.pragmaticprogrammer.com/index.html"><img src="wp-content/themes/yapc_wide/images/pragmatic.png" alt="Pragmatic Programmers"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.allantgroup.com/index.html"><img src="wp-content/themes/yapc_wide/images/allant.jpg" alt="Allant"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.rimmkaufman.com/index.html"><img src="www.yapcchicago.org/media/sponsors/rimmkaufman/web.jpg" alt="Rimm Kaufman"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.combinenet.com/index.html"><img src="wp-content/themes/yapc_wide/images/combinenet.jpg" alt="CombineNet"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.plainblack.com/index.html"><img src="wp-content/themes/yapc_wide/images/plainblack.png" alt="PlainBlack"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.activestate.com/index.html"><img src="wp-content/themes/yapc_wide/images/active_state.gif" alt="ActiveState"  border="0"/></a></p>
+
+		<br/>
+
+			<p>Promote YAPC::NA on your site!</p>
+		                	<p><img src="wp-content/themes/yapc_wide/images/yapcna_blue_gold.gif"  border="0" alt="YAPC::NA Badge"/></p>
+			                	<p><img src="wp-content/themes/yapc_wide/images/yapcna_purple_grey.gif"  border="0" alt="YAPC::NA Badge"/></p>
+			                	<p><img src="wp-content/themes/yapc_wide/images/yapcna_purple_white.gif"  border="0" alt="YAPC::NA Badge"/></p>
+			
+		<p><a href="http://www.yapc.org/America/previous-years/2006/yapc_poster.pdf">Poster</a></p>
+
+	</div>
+
+	<div id="right_sidebar">
+<!-- BEGIN widgets_pane -->
+<div class="widgets">
+
+</div>
+<!-- END widgets_pane -->
+
+	</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,199 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2003 is an inexpensive Perl conference on June 16-18, 2003 at Florida State University in Boca Raton, Florida, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,Florida Atlantic University,,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2003: Lodgings</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC America::North">
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top"> 
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Accommodations</H2>
+        <p><hr size=0>
+      </div>
+
+<center><a href="#hotel">Hotel</a> | <a href="#dorms">Dorms</a></center>
+<a name="hotel"></a>
+<p><b>DoubleTree Guest Suites</b></p>
+<p>
+The <a href="http://www.doubletree.com/en/dt/hotels/index.jhtml?moreDesc=true&ctyhocn=BCTYCDT" target="_new">DoubleTree Guest Suites</a> of Boca Raton have agreed to give a special room rate for YAPC attendees. 
+<p>
+<cite>
+Hotel provides the ideal location. Conveniently located between Ft. Lauderdale and Palm Beach International Airports in the Arvida Corporate Park. Minutes to Boca Raton's finest beaches, world class shopping, dining, golf and tennis. Tropical Courtyard Setting with lushly landscaped oversized pool area. All suites include private living room and bedroom, microwave, refrigerator and coffee maker and our famous chocolate chip cookies upon arrival. Now offering wireless high speed internet access.
+</cite>
+<p>
+The room rate is $59USD (plus tax) for up to 4 people in a suite. All rooms are suites! There is a complimentary breakfast (in case you want to eat before the breakfast at YAPC), free shuttle service to places within 5 miles (including the FAU campus), beer & wine Happy Hour Monday to Friday from 5:30-7:00pm, free parking, complimentary pass to Bally's Fitness, heated pool, whirlpool, wireless access (may be a charge), on-site restaurant and bar, and they are a part of the Hilton Honors program. It is within a few miles of the FAU campus, and 25 minutes from both Palm Beach Internation and Fort Lauderdal airports.
+<p> 
+The address is:
+<br>
+<address>
+701 NW 53rd Street
+Boca Raton, FL 33487
+</address>
+<p>
+It is right off of Yamato Rd. near I-95. Their phone number is:
+<p>
+1-561-997-9500
+<p>
+Or, you can call any DoubleTree reservation line. Mention you are going to the "YAPC Perl Conference" to make sure you get the special rate. If you plan on arriving Saturday, or earlier, you may want to call directly to see if they will give you a super-special rate! But, these are great rates for a suite, especially if you double, triple or quad the occupancy.
+
+<a name="dorms"></a>
+<p><b>Dorms</b></p>
+<p>
+Dorm rooms will cost $28 for a single, and $20 for a double. Reservations will be taken, and payment will go directly to YAS. 
+<br>
+You can reserve a dorm room <a href="http://donate.perl-foundation.org/index.pl?node=dorm+info">here</a>!
+
+<!--
+<p><b>What is up with dorms?</b></p>
+
+<p><B>Dorm rooms are available!!!</B>  They are $USD25 per person for a double room and $50 for a single.  Rooms are air conditioned and will have net access.  The dorm rooms are not on the <A HREF="http://www.wustl.edu/">Washington University</A> campus but on the <A HREF="http://www.slu.edu/">Saint Louis University</A> campus which is in Midtown and approximately 4 miles to the east of WU. Shuttles will be running between the campuses as well as public transportation [ WU is near a metrolink station and SLU has a station on campus ].  Online dorm registration is not yet available, but you can email <A HREF="mailto:sarah+yapcdorms@pound.perl.org">sarah+yapcdorms@pound.perl.org</A> with the dates you are interested in, your roommate, or if you would like for us to pair you with a roommate.  An email will go out later to inform you of online dorm registration and billing.</p>
+
+
+<p><b>Why aren't the dorms at Washington University?</b></p>
+
+<p>Washington University, the hosting campus, is unable to provide dorms for the conference due to construction projects scheduled over the summer for campus housing.</p>
+
+<p><b>What about youth hostels?</b></p>
+
+<p>There -is- a youth hostel in Saint Louis.  And it is inexpensive.  The downside
+is that it's practically downtown.  On the upside, bring your bicycle and you can
+bike it.  Or, if you're less industrious, we have a light rail system called Metrolink
+that you can pick up downtown and ride to near campus.  Campus has shuttles running
+to and from the Metrolink station.  More details on this later!
+
+<p><a href="http://63.70.211.212/cfdocs/hostels.cfm?CITY=St.%20Louis">Huck Finn Youth Hostel</a>
+<br>Distance from campus: 8.1mi
+<br>On Conference Shuttle Route: No
+<br>Cost range: $15USD per night
+</p>
+
+
+</p>
+<p><b>What about hotels?</b></p>
+
+<p>Luckily, Saint Louis does have those... and generally reasonably priced at that.
+Below please find our list of recommended accommodations.  There are also included
+a few links to hotels in the area for thoroughness.  All lodgings listed are in
+reasonable proximity to the campus</p>
+
+<p><b>What is the closest lodging?</b></p>
+
+<p><a href="http://www.cheshirelodge.com/">The Cheshire Lodge</a>
+<br>Distance from campus: 1.2mi
+<br>On Conference Shuttle Route: Yes
+<br>Cost range: $110-$250USD per night
+<br>Special features: theme rooms, two onsite nice pubs with decent Scotch.
+</p>
+
+<p><b>What are the cheapest lodgings?</b></p>
+
+<p><a href="http://www.redroof.com/reservations/inn_details.asp?innNumber=135">Red Roof Inn</a>
+<br>Distance from campus: 3.3mi
+<br>On Conference Shuttle Route: Yes
+<br>Cost range: $55-$103USD per night
+</p>
+
+<p><a href="http://www.sixcontinentshotels.com/holiday-inn?_franchisee=STLFP">Holiday Inn</a>
+<br>Distance from campus: 3.3mi
+<br>On Conference Shuttle Route: Yes
+<br>Cost range: $69-130USD per night
+</p>
+
+<p><b>What are the lodgings in pedestrian friendly neighborhoods?</b></p>
+
+<p><a href="http://www.travelweb.com/booker/AppLogic+booker.hotel.info.Start?GXHC_gx_session_id_booker=cecc2a6865bda354&brand=BW&pid=26137&iid=BW">Best Western At The Park</a>
+<br>Distance from campus: 2.1mi
+<br>On Conference Shuttle Route: Yes
+<br>Cost range: $69-$150USD per night
+<br>Special features: In the <a href="http://www.slfp.com/CentralWestEnd.html">Central West End</a>
+</p>
+
+<p><a href="http://explorestlouis.worldres.com/script/gen_prop.asp?hotel_id=39267&NI=7&PG=0&SOO=1&">Chase Park Plaza</a>
+<br>Distance from campus: 2mi
+<br>On Conference Shuttle Route: Yes
+<br>Cost range: $149-$249USD per night
+</p>
+
+<p><b>What are the lodging with the coolest bars?</b></p>
+
+<p><a href="http://www.cheshirelodge.com/">The Cheshire Lodge</a>
+<br>Distance from campus: 1.2mi
+<br>On Conference Shuttle Route: Yes
+<br>Cost range: $110-$250USD per night
+<br>Special features: theme rooms, two onsite nice pubs with decent Scotch.
+</p>
+
+<p><a href="http://explorestlouis.worldres.com/script/gen_prop.asp?hotel_id=39267&NI=7&PG=0&SOO=1&">Chase Park Plaza</a>
+<br>Distance from campus: 2mi
+<br>On Conference Shuttle Route: Yes
+<br>Cost range: $149-$249USD per night
+</p>
+
+<p><b>What are the swankest luxury lodgings?</b></p>
+
+<p><a href="http://explorestlouis.worldres.com/script/gen_prop.asp?hotel_id=39267&NI=7&PG=0&SOO=1&">Chase Park Plaza</a>
+<br>Distance from campus: 2mi
+<br>On Conference Shuttle Route: Yes
+<br>Cost range: $149-$249USD per night
+</p>
+
+
+<p><a href="http://www.ritz-carlton.com/html_prop/city.asp?Property_ID=19&PageNo=9">Ritz Carlton Clayton</a>
+<br>Distance from campus: 2.2mi
+<br>On Conference Shuttle Route: No
+<br>Cost range: $190-$1500USD per night
+</p>
+
+<p><b>Where can I look for other hotels in the area?</b></p>
+
+<p>Here are some online hotel guides to start looking:
+<br><a href="http://www.hotels-stl.com/CBFP.htm">http://www.hotels-stl.com/CBFP.htm</a>
+<br><a href="http://saint.louis.hotelguide.net/hl1sl.htm">http://saint.louis.hotelguide.net/hl1sl.htm</a>
+</p>
+// -->
+
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2001 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

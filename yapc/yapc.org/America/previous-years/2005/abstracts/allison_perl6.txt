@@ -1,0 +1,14 @@
+Perl 6 Design Philosophy                                                                                              
+by Allison Randal                                                                                                     
+40 minutes                                                                                                            
+                                                                                                                      
+If you want to understand the choices language designers make, you have                                               
+to understand what's behind the choices. What makes one feature more                                                  
+desirable than another? What makes it Perlish? What makes it DWIM? How                                                
+on earth does Larry decide? No, it's not a cosmic game of pin the tail                                                
+on the donkey. Come take a guided tour through the rocks and rapids of                                                
+language design. Leave with a better understanding of Larry, the changes                                              
+in Perl 6, and the fundamental nature of Perl itself.                                                                 
+                                                                                                                      
+Note: 15 minutes of cognitive calisthenics are the recommended warmup                                                 
+exercise for this talk. Feel that mental stretch!   

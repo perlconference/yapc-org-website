@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html>
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=us-ascii"></meta>
+  <meta name="ICBM" content="26.36508,-80.10235"></meta>
+  <meta name="DC.title" content="YAPC 2004 at UB"></meta>
+  <meta name="description" content="YAPC 2003 is an inexpensive Perl conference on June 16-18, 2004, at the University at Buffalo in Buffalo, New York, USA."></meta>
+  <meta name="keywords" content="Perl,Perl conference,University at Buffalo,Buffalo,New York,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science"></meta>
+  <title>YAPC 2004: Yet Another Perl Conference</title>
+
+  <link rel="stylesheet" type="text/css" href="yapc_xhtml.css" title="yapcna"></link>
+  <style type="text/css">
+  </style>
+</head>
+
+<body>
+<div id="sidebar">
+  <p class="venue">
+  <!--#include virtual="include/venue.html" -->
+  </p>
+  <!--#include virtual="include/menu_new.html" -->
+</div>
+
+<div id="container">
+  <div id="header">
+    <img src="YAPC_files/yapcAN.jpg" width="270" height="86" border="0" alt="YAPC America::North" />
+    <h1>yapc: Yet Another Perl Conference</h1>
+    <h2>North America 2004</h2>
+    <p>
+    June 16-18<br />
+    University at Buffalo, Buffalo, New York, U.S.A.
+    </p>
+    <hr />
+  </div>
+  <div id="main-section">
+    <a name="news"></a>
+    <h3>Breaking News</h3>
+    <ul>
+      <li>May 6, 2004: <a href="http://www.yapc.org/America/accommodations.shtml#dorms">Dorm info</a> is now available, so you can make reservations.</li>
+      <li>April 16, 2004: The <a href="http://yapc.kwiki.org/">YAPC kwiki</a> is up in the same place as last year.</li>
+      <li>April 16, 2004: The schedule is now available for <a href="http://www.yapc.org/America/day1.shtml">day 1</a>, <a href="http://www.yapc.org/America/day2.shtml">day 2</a>, and <a href="http://www.yapc.org/America/day3.shtml">day 3</a>.</li>
+      <li>April 14, 2004: <a href="http://justanotherperlhacker.org/lightning/index.shtml">Lightning Talks</a> now open. Follow the link to submit a lightning talk proposal.</li>
+      <li>April 11, 2004: Call for participation over. Schedule will be released soon.</li>
+      <li>February 24, 2004: Registration open. Details available on the <a href="http://www.yapc.org/America/register.shtml">registration page</a>.</li>
+      <li>January 12, 2004: <a href="http://use.perl.org/article.pl?sid=04/01/12/1447249&amp;mode=thread">Call for Participation</a> announced. Details available on the <a href="http://www.yapc.org/America/cfp.shtml">participation page</a>.</li>
+      <li>October 21, 2003: Dates set.</li>
+      <li>August 22, 2003: YAPC::NA::2004 <a href="http://use.perl.org/article.pl?sid=03/08/22/1457214&amp;mode=nested&amp;tid=25">Venue Chosen</a></li>
+    </ul>
+    <hr />
+    <a name="about"></a>
+    <h3>What is YAPC?</h3>
+    <p>YAPC is "yet another Perl conference", with apologies to 
+    <img src="YAPC_files/yapcbg.jpg" alt="YAPC logo" width="114" height="125" align="right" />
+    <a href="http://conference.perl.com/">The Perl Conference</a>.
+    This is an inexpensive (US$ 85 for 3 days) conference with its roots in the 
+    <a href="http://www.pm.org/">Perl Mongers</a> Perl users groups.
+    </p>
+    <p>While The Perl Conference plays an important role in the Perl community, there
+    are some things that fall through the cracks at such a large, relatively 
+    corporate conference. Attendance fees of $1,000 or more are prohibitive,
+    especially to students (though there are deep student discounts); furthermore,
+    the conference is on the West Coast, incurring travel expenses for those in the
+    east, on top of the conference expense. YAPC is driven from the bottom
+    up, organized by and for Perl users -- a grassroots conference.
+    </p>
+    <p>YAPC began as a smaller, regional version of <a href="http://conferences.oreillynet.com/">TPC</a> in the Eastern USA, hosted 
+    by <a href="http://www.cmu.edu/">Carnegie Mellon University</a>, and has become
+    a <a href="http://www.yapc.org/">series of conferences</a> held in multiple
+    areas of the globe, all aimed at bringing together the Perl community in an
+    accessible manner. 
+    </p>
+    <p>This year, YAPC will be held at the
+    <a href="http://www.buffalo.edu/">University at Buffalo</a> in Buffalo, New York, USA,
+    hosted by the <a href="http://buffalo.pm.org/">Buffalo Perl Mongers</a>.
+    </p>
+  </div>
+  <div id="footer">
+    <p>Last modified at 07:05 AM on May  6, 2004 by Jim Brandt.
+    <br />
+    All content copyright &copy; 2003 Yet Another Society, Inc.
+    </p>
+  </div>
+</div>
+</body>
+</html>

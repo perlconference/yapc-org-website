@@ -1,0 +1,226 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2002 is an inexpensive Perl conference on June 26-28, 2002, at Washington University in Saint Louis, Missouri, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,Washington University,Saint Louis,USA,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2002: Wednesday June 26 Schedule</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+ <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Schedule"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Wednesday June 26th Schedule</H2>
+      </div>
+
+<style>
+<!--
+td.boxed {background-color:#dddddd; text-align:center}
+td.break {background-color:#ffff88; text-align:center}
+th {vertical-align:top}
+-->
+</style>
+</head>
+
+<table cellspacing="5" cellpadding="5" border="0" width="100%">
+
+ <tr>
+  <td width="10%">&nbsp;</td>
+  <th width="22.5%">Brown 100</th>
+  <th width="22.5%">Brown 118</th>
+  <th width="22.5%">McDonnell 162</th>
+  <th width="22.5%">Busch 100</th>
+ </tr>
+
+ <tr>
+  <th>9:00</th>
+  <td class="boxed">Welcome</td>
+  <td colspan="3"></td>
+ </tr>
+
+ <tr>
+  <th rowspan="5">9:15</th>
+  <td class="boxed" rowspan="5">Larry Wall</td>
+  <td colspan="3">&nbsp;</td>
+ </tr>
+
+ <tr><td colspan="3"></td></tr>
+ <tr><td colspan="3"></td></tr>
+ <tr><td colspan="3"></td></tr>
+ <tr><td colspan="3"></td></tr>
+
+ <tr>
+  <th>10:30</th>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+ </tr>
+
+ <tr>
+  <th rowspan="1">11:00</th>
+  <td class="boxed" rowspan="2">Dan Sugalksi:<br>
+   The Parrot Flies</td>
+  <td class="boxed" rowspan="5">Jesse Vincent:<br>
+  Tracking Issues with RT</td>
+  <td class="boxed" rowspan="5">Jos Boumans:<br>
+  Introduction to POE 
+  </td>
+  <td class="boxed" rowspan="5">Dave Rolsky and Brent Michalski:<br>
+  Introduction to Mason</td>
+ </tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+ <tr>
+  <th rowspan="2">11:25</th>
+  <td class="boxed" rowspan="2">Dan Sugalksi:<br>
+   Parrot in a Nutshell</td>
+ </tr>
+
+<tr>
+<td></td>
+<td></td>
+</tr>
+
+ <tr>
+  <th rowspan="1">12:10</th>
+  <td class="boxed" rowspan="1">Simon Cozens:<br>
+   Parroting On - Lessons from the coal face </td>
+ </tr>
+
+ <tr> 
+  <th>12:30</th>
+  <td class="break">Lunch</td>
+  <td class="break">Lunch</td>
+  <td class="break">Lunch</td>
+  <td class="break">Lunch</td>
+ </tr>
+
+ <tr>
+  <th>2:00</th>
+  <td class="boxed" rowspan="4">Damian Conway:<br>
+   Programming in Perl 6</td>
+  <td class="boxed" rowspan="4">Simon Cozens:<br>
+   Perl For System Administrators</td>
+  <td class="boxed" rowspan="4">Mark-Jason Dominus:<br>
+   Stolen Secrets of the Wizards of the Ivory Tower</td>
+  <td class="boxed" rowspan="4">Tim Maher:<br>
+   Minimal Perl for the Impatient</td>
+ </tr>
+
+ <tr><td></td></tr>
+ <tr>
+  <th>2:45</th>
+ </tr>
+ <tr><td></td></tr>
+
+ <tr>
+  <th>3:30</th>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+ </tr>
+
+ <tr>
+  <th>4:00</th>
+  <td class="boxed" rowspan="4">(cont'd)</td>
+  <td class="boxed" rowspan="4">(cont'd)</td>
+  <td class="boxed" rowspan="4">(cont'd)</td>
+  <td class="boxed" rowspan="4">(cont'd)</td>
+ </tr>
+
+ <tr><td></td></tr>
+ <tr><td></td></tr>
+ <tr><td></td></tr>
+
+ <tr>
+  <th>5:00</th>
+  <td class="break" rowspan="4">Dinner</td>
+  <td class="break" rowspan="4">Dinner</td>
+  <td class="break" rowspan="4">Dinner</td>
+  <td class="break" rowspan="4">Dinner</td>
+ </tr>
+
+ <tr><td></td></tr>
+ <tr><td></td></tr>
+ <tr><td></td></tr>
+
+ <tr>
+  <th>7:00</th>
+  <td class="boxed" rowspan="4">Perl 6 BOF</td>
+  <td class="boxed" rowspan="4">Joe Johnston<br>
+  Template::Toolkit BOF</td>
+  <td class="boxed" rowspan="4">Neil Watkiss<br>
+  ActiveState BOF</td>
+  <td class="boxed" rowspan="4">TBD</td>
+ </tr>
+
+ <tr><td></td></tr>
+ <tr><td></td></tr>
+ <tr><td></td></tr>
+
+ <tr>
+  <th>9:00</th>
+  <td colspan="4"></td>
+ </tr>
+
+ 
+</table>
+
+
+    <table width="100%" border="0" cellpadding="10"><tr><td>
+<ul>
+        <li>Day 1 Schedule</li>
+        <li><a href="day2.shtml">Day 2 Schedule</a></li>
+        <li><a href="day3.shtml">Day 3 Schedule</a></li>
+</ul>
+</td></tr></table>
+
+      <!-- FILLME ENDS HERE -->
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2002 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

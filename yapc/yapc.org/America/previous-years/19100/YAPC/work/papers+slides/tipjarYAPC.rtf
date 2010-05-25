@@ -1,0 +1,112 @@
+{\rtf1\ansi\ansicpg1252\uc1 \deff6\deflang1033\deflangfe1033{\fonttbl{\f0\froman\fcharset0\fprq2{\*\panose 02020603050405020304}Times New Roman;}{\f3\froman\fcharset2\fprq2{\*\panose 05050102010706020507}Symbol;}
+{\f6\fmodern\fcharset0\fprq1{\*\panose 00000000000000000000}Courier;}{\f14\fnil\fcharset2\fprq2{\*\panose 05000000000000000000}Wingdings;}{\f17\froman\fcharset238\fprq2 Times New Roman CE;}{\f18\froman\fcharset204\fprq2 Times New Roman Cyr;}
+{\f20\froman\fcharset161\fprq2 Times New Roman Greek;}{\f21\froman\fcharset162\fprq2 Times New Roman Tur;}{\f22\froman\fcharset186\fprq2 Times New Roman Baltic;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;
+\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;
+\red128\green128\blue128;\red192\green192\blue192;}{\stylesheet{\nowidctlpar\adjustright \f6 \snext0 Normal;}{\*\cs10 \additive Default Paragraph Font;}{\*\cs15 \additive footnote reference;}{\s16\fi-720\li720\nowidctlpar\adjustright \f6 
+\sbasedon0 \snext16 _;}{\s17\fi-720\li720\nowidctlpar\adjustright \f6 \sbasedon0 \snext17 _1;}}{\*\listtable{\list\listtemplateid-1\listsimple{\listlevel\levelnfc0\leveljc0\levelfollow0\levelstartat0\levelspace0\levelindent0{\leveltext
+\'01*;}{\levelnumbers;}}{\listname ;}\listid-2}}{\*\listoverridetable{\listoverride\listid-2\listoverridecount1{\lfolevel\listoverrideformat{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat0\levelold\levelspace0\levelindent720{\leveltext
+\'01\u-3913 ?;}{\levelnumbers;}\f3\fbias0 \fi-720\li720 }}\ls1}{\listoverride\listid-2\listoverridecount1{\lfolevel\listoverrideformat{\listlevel\levelnfc23\leveljc0\levelfollow0\levelstartat0\levelold\levelspace0\levelindent2160{\leveltext
+\'01\u-3880 ?;}{\levelnumbers;}\f14\fbias0 \fi-2160\li2160 }}\ls2}}{\info{\title The TipJar Transaction Service occured to me in 1994 while reading usenet news, and while being the treasurer of the UMKC Student ACM chapter}{\author msiegler}
+{\operator msiegler}{\creatim\yr1999\mo6\dy18\min35}{\revtim\yr1999\mo6\dy18\min35}{\version2}{\edmins0}{\nofpages3}{\nofwords1012}{\nofchars5774}{\*\company CMU}{\nofcharsws7090}{\vern89}}\margl1440\margr1440 
+\widowctrl\ftnbj\aenddoc\aftnnar\notabind\wraptrsp\transmf\truncatefontheight\subfontbysize\sprsbsp\wpjst\lytprtmet\hyphcaps0\viewkind4\viewscale100 \fet0\sectd \linex0\headery1440\footery1440\sectdefaultcl {\*\pnseclvl1\pnucrm\pnstart1\pnindent720\pnhang
+{\pntxta .}}{\*\pnseclvl2\pnucltr\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl3\pndec\pnstart1\pnindent720\pnhang{\pntxta .}}{\*\pnseclvl4\pnlcltr\pnstart1\pnindent720\pnhang{\pntxta )}}{\*\pnseclvl5\pndec\pnstart1\pnindent720\pnhang{\pntxtb (}
+{\pntxta )}}{\*\pnseclvl6\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl7\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl8\pnlcltr\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}{\*\pnseclvl9
+\pnlcrm\pnstart1\pnindent720\pnhang{\pntxtb (}{\pntxta )}}\pard\plain \nowidctlpar\adjustright \f6 {
+The TipJar Transaction Service occured to me in 1994 while reading usenet news, and while being the treasurer of the UMKC Student ACM chapter. Originally the was simply to automate the treasurer's duties of collecting membership dues. I realized that dues
+ collection is a general problem that I would have to solve in order to implement dues collection services for the club, so I went ahead and solved the problem generally.
+\par 
+\par The tipjar software is at this time written entirely in Perl.
+\par 
+\par Like perl, symbols which have not been seen before "spring into existence" with sensible defaults. This means that there is no registration required to "get a tipjar account." By using e-mail address for primary database key, you can tip any e-mail addres
+s regardless of if the owner has registered themselves with tipjar already, unlike e-commerce schemes which require the users to pre-register with the service before being able to receive money.
+\par 
+\par 
+\par The TipJar database contains several types of objects:  Accounts, Transactions, Currencies, Verifications, Liaisons, Aliases.
+\par 
+\par 
+\par {\pntext\pard\plain\s16 \f3 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard\plain \s16\fi-720\li720\nowidctlpar\tx-1440{\*\pn \pnlvlblt\ilvl0\ls1\pnrnot0\pnf3\pnindent720\pnhang{\pntxtb \'b7}}\ls1\adjustright \f6 {
+Accounts have a unique key code internal to the tipjar database, and consist of a list of preferences and their values and a list of currencies and their values.
+\par }\pard\plain \nowidctlpar{\*\pn \pnlvlcont\ilvl0\ls0\pnrnot0\pndec }\adjustright \f6 {
+\par {\pntext\pard\plain\s16 \f3 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard\plain \s16\fi-720\li720\nowidctlpar\tx-1440{\*\pn \pnlvlblt\ilvl0\ls1\pnrnot0\pnf3\pnindent720\pnhang{\pntxtb \'b7}}\ls1\adjustright \f6 {Transactions contai
+n information about the source account, the recipient account, the amount, the currency the transaction is in, the message accompanying the transaction, and the state the transaction is in. Transactions are created as soon as a verification code pertainin
+g
+ to the transaction is returned, although I may implement a password scheme to allow the verification step to be skipped at some point. If the source account has enough funds of the currency to complete the transaction, the funds are moved into the recipi
+ent account immediately and the transaction is advanced to "completed" state. After both the source account and recipient accounts have cleared the transaction from their report lists, the transaction may be permanently moved into the archive.
+\par }\pard\plain \nowidctlpar{\*\pn \pnlvlcont\ilvl0\ls0\pnrnot0\pndec }\adjustright \f6 {
+\par 
+\par {\pntext\pard\plain\s16 \f3 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard\plain \s16\fi-720\li720\nowidctlpar\tx-1440{\*\pn \pnlvlblt\ilvl0\ls1\pnrnot0\pnf3\pnindent720\pnhang{\pntxtb \'b7}}\ls1\adjustright \f6 {Currenci
+es: Becuase TipJar treats "currency" as a general term, rather than simply working with one particular kind of currency (like most other internet transaction services), tipjar can be used not only for "real money" but also can be used as a resource in pla
+y-by-e-mail games, by defining a currency and a contact person for that person. New currency definition is not automated at this time but may become automated in the future.
+\par }\pard\plain \nowidctlpar{\*\pn \pnlvlcont\ilvl0\ls0\pnrnot0\pndec }\adjustright \f6 {
+\par \sect }\sectd \sbknone\linex0\headery1440\footery1440\sectdefaultcl {\pntext\pard\plain\s16 \f3 \loch\af3\dbch\af0\hich\f3 \'b7\tab}\pard\plain \s16\fi-720\li720\nowidctlpar\tx-1440{\*\pn \pnlvlblt\ilvl0\ls1\pnrnot0\pnf3\pnindent720\pnhang{\pntxtb \'b7}}
+\ls1\adjustright \f6 {Verifications: actions that have been requested are stored as verification objects until the verification codes authenticating that the originators really meant to do the actions are returned to the tipjar server.
+\par }\pard\plain \nowidctlpar{\*\pn \pnlvlcont\ilvl0\ls0\pnrnot0\pndec }\adjustright \f6 {
+\par {\pntext\pard\plain\s16 \f3 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard\plain \s16\fi-720\li720\nowidctlpar\tx-1440{\*\pn \pnlvlblt\ilvl0\ls1\pnrnot0\pnf3\pnindent720\pnhang{\pntxtb \'b7}}\ls1\adjustright \f6 {
+Liaisons: Liaisons are sources for currency to originate. The only individuals who can ever have a nega
+tive balance of a currency are those who are defined as the liaison for that currency. This means that, were Vess cola, for instance, to define some kind of exchangable boodle, and you would like to be the clearinghouse for "Vessbucks" or whatever, you co
+u
+ld become the liaison for the VBB currency, and all tipjar transactions in VBB would be deposited and withdrawn through you, for which you could charge your service charge or merely bask in the glory of being the known multiverse's single point of contact
+ 
+for electronic banking in Vessbucks.  Of course Liaisons would need to be defined for non-US national currencies as well (UKP, Euro, RBM.) I serve as the liaison for the u.s. dollar, the default currency; at this time tipjar is accepting applications for 
+l
+iaison positions for other currencies, in the form of e-mail messages explaining which currency you would like to be the liaison for and why, include arguments as to why anyone would want to trust you with their money. From the point of view of the tipjar
+ software, national currencies and play money for games are treated exactly the same, is that not amusing?
+\par }\pard\plain \nowidctlpar{\*\pn \pnlvlcont\ilvl0\ls0\pnrnot0\pndec }\adjustright \f6 {
+\par {\pntext\pard\plain\s16 \f3 \loch\af3\dbch\af0\hich\f3 \'b7\tab}}\pard\plain \s16\fi-720\li720\nowidctlpar\tx-1440{\*\pn \pnlvlblt\ilvl0\ls1\pnrnot0\pnf3\pnindent720\pnhang{\pntxtb \'b7}}\ls1\adjustright \f6 {
+Aliases: To enable one account to be referred to with nicknames and multiple e-mail addresses, an "alias" is used, which stores a mapping to an in
+ternal tipjar account number and possible additional preferences associated with one alias, which, if in effect, override the preferences stored in the account object
+\par }\pard\plain \nowidctlpar{\*\pn \pnlvlcont\ilvl0\ls0\pnrnot0\pndec }\adjustright \f6 {
+\par 
+\par 
+\par The tipjar database is kept entirely on a 
+server which is not connected to the internet all the time. It dials in to a local ISP, downloads the latest messages, including new action requests and verification codes, updates the databases, and generates outgoing e-mail, including reports and verifi
+c
+ation codes, periodically. It currently is running every six hours. I may move the verification step on to the tipjar.com web server instead of the off-line vault server, except for accounts which have a preference set so that their verifications are hand
+led by the off-line server.
+\par 
+\par \sect }\sectd \sbknone\linex0\headery1440\footery1440\sectdefaultcl \pard\plain \nowidctlpar{\*\pn \pnlvlcont\ilvl0\ls0\pnrnot0\pndec }\adjustright \f6 {
+This partitioning is required due to the virtual nature of the www.tipjar.com server. We do not need to trust the maintainers of the virtual server hosting service to not use their root privs to alter tipjar data,
+ as no secure data is held there. Outgoing email is sent via encrypted tunnel to a relay where it is transformed into normal e-mail and sent on via SMTP. Accounts with a PGP key set in their preferences may have all messages to them encrypted before being
+ sent, to guard against hijacking of verification codes. An account with a PGP key will have their message encrypted for their receipt only at the vault server.
+\par 
+\par Interaction with the tipjar system via hupertext:
+\par 
+\par Transactions are entered into the tipjar system by submitting data to the CGI script which handles 
+\par 
+\par http://www.tipjar.com/cgi/dogive
+\par 
+\par dogive recognize these CGI variables:
+\par 
+\par {\pntext\pard\plain\s17 \f14 \loch\af14\dbch\af0\hich\f14 \'d8\tab}}\pard\plain \s17\fi-2160\li2160\nowidctlpar\tx-1440{\*\pn \pnlvlblt\ilvl0\ls2\pnrnot0\pnf14\pnindent2160\pnhang{\pntxtb \'d8}}\ls2\adjustright \f6 {from\tab \tab 
+the e-mail or nickname of who the tip is from
+\par {\pntext\pard\plain\s17 \f14 \loch\af14\dbch\af0\hich\f14 \'d8\tab}recipient\tab the e-mail or nickname of who the tip is for
+\par {\pntext\pard\plain\s17 \f14 \loch\af14\dbch\af0\hich\f14 \'d8\tab}currency\tab the currency code, defaults to 'USD'
+\par {\pntext\pard\plain\s17 \f14 \loch\af14\dbch\af0\hich\f14 \'d8\tab}amount\tab the amount of the transaction
+\par {\pntext\pard\plain\s17 \f14 \loch\af14\dbch\af0\hich\f14 \'d8\tab}message\tab the message associated with the transaction
+\par {\pntext\pard\plain\s17 \f14 \loch\af14\dbch\af0\hich\f14 \'d8\tab}user*\tab any other fields may be passed along with the message.
+\par }\pard\plain \nowidctlpar\adjustright \f6 {
+\par The variable names are not case sensitive and only the first three characters are significant, so for instance for Bill Gates to give five dollars to Kevin Lenzo the URI
+\par }{\fs20 
+\par }{\fs18 http://tipjar.com/bin/dogive?fro=billg@microsoft.com&rec=lenzo@cs.cmu.edu&amo=5}{
+\par 
+\par could be invoked. Please don't do that unless you are Bill Gates, as it will generate a verification code and send it to him. So
+\par that people don't need to create a whole HTML form with input fields and everything on their own web pages, to use the tipjar service, another script, "give" takes the same variables as
+\par "dogive" and presents them in a HTML form.
+\par 
+\par The registration for the 1999 YAPC could have been handled via tipjar by referring people to this link:
+\par 
+\par }{\fs18 <a href="http://www.tipjar.com/bin/give?rec=lenzo@cs.cmu.edu&amo=60"><img
+\par src="http://www.tipjar.com/images/tipjar.jpg" width=40 height=40
+\par alt="Register for the 1999 YAPC"></a>
+\par 
+\par }{
+\par TipJar is a resource for the independent programmers of the world to use, I am open to suggestions for improving it in sensible ways.
+\par 
+\par David Nicol
+\par 
+\par 
+\par 
+\par 
+\par 
+\par 
+\par }}

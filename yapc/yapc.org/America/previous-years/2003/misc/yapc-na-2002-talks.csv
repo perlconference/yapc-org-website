@@ -1,0 +1,61 @@
+Time	Room	Duration	Name	Title	Authors
+1 09:00	1	90	Wall, Larry	Keynote	Larry Wall
+1 11:00	1	20	Sugalski, Dan	The Parrot Flies	Dan Sugalksi
+1 11:00	2	90	Vincent, Jesse	Tracking Issues with RT	Jesse Vincent
+1 11:00	3	90	Boumans, Jos	Introduction to POE	Jos Boumans
+1 11:00	4	90	Rolsky, Dave	Introduction to Mason	Dave Rolsky and Brent Michalski
+1 11:25	1	45	Sugalski, Dan	Parrot in a nutshell	Dan Sugalksi
+1 12:10	1	20	Cozens, Simon	Parroting On - Lessons from the coal face	Simon Cozens
+1 14:00	1	180	Conway, Damian	Programming in Perl 6	Damian Conway
+1 14:00	2	180	Cozens, Simon	Perl For Systems Administrators	Simon Cozens
+1 14:00	3	180	Dominus, Mark-Jason	Stolen Secrets of the Wizards of the Ivory Tower	Mark-Jason Dominus
+1 14:00	4	180	Maher, Tim	Minimal Perl for the Impatient	Tim Maher
+2 09:00	1	45	Quinlan, Sean	Introduction to Perl for Bioinformatics	Sean Quinlan
+2 09:00	2	20	Turoff, Adam	Open Source Presentation Tools	Adam Turoff
+2 09:00	3	180	Young, Geoffrey	mod_perl	Geoffrey Young
+2 09:00	4	20	Landrum, Shane	Shared Calendaring in Perl	Shane Landrum, Jesse Vincent, Rich Bowen, Kirrily ""Skud"" Robert
+2 09:25	2	20	West, Casey	Server Side Form Validation with Imager	Casey West
+2 09:25	4	20	Avery, R. Geoffrey	ModuleMaker	R. Geoffrey Avery
+2 09:45	1	20	Cozens, Simon	10 Modules I Wouldn't Go Anywhere Without	Simon Cozens
+2 09:45	1	45	Saylor, John	Software music: Composing with perl	John Saylor
+2 09:45	2	20	Jenkins, Stephen B.	A Configuration File Editor for a Wind Tunnel Data System	Stephen B. Jenkins
+2 09:45	4	45	Rolsky, Dave	Alzabo: Less SQL, More (Data-Modelling and OO) Fun	Dave Rolsky
+2 10:10	1	20	Dominus, Mark-Jason	Mailing List Judo, or, How to Get Your Patches Accepted with a Minimum of Fuss	Mark-Jason Dominus
+2 10:10	2	20	Clamp, Richard	Sub::Parameters and other animals	Richard Clamp
+2 11:00	1	45	Randal, Allison	On Topic	Allison Randal
+2 11:00	2	45	Dominus, Mark-Jason	Tie::File	Mark-Jason Dominus
+2 11:00	4	45	McClennen, Michael	Web Forms Unbound (and Interactive)	Michael McClennen
+2 11:45	1	45	Turner, Dave	TRIZ	Dave Turner
+2 11:45	2	45	Torkington, Nathan	Something Something	Nathan Torkington
+2 11:45	4	45	Pierce, Clinton A.	Ad Hoc reporting with XML data	Clinton A. Pierce
+2 14:00	1	90	Ingerson, Brian	YAML - A New Language for Data	Brian Ingerson
+2 14:00	2	20	Cozens, Simon	optimizer.pm - Speeding up Perl the Hard Way	Simon Cozens
+2 14:00	3	20	Lawrence, Phil	SQL::Snippet	Phil Lawrence
+2 14:00	4	20	Boumans, Jos	CPANPLUS	Jos Boumans
+2 14:25	2	20	Brooks, Chris	An Introduction to Embedding C in Perl	Chris Brooks
+2 14:25	3	20	Lawrence, Jay	Building Custom Record Indexes with Perl	Jay Lawrence
+2 14:25	4	20	Nicol, David	TERN is not perl: bold heresy in the face of the ""perl 6 process""	David Nichol
+2 14:45	2	20	Crow, Phil	A Simple Assembly Simulator	Phil Crow
+2 14:45	3	20	Falcone, Kevin	Mod_Parrot: embedding and extending the parrot virtual machine	Kevin Falcone
+2 14:45	4	20	Turoff, Adam	SOAP, XML-RPC and the REST	Adam Turoff
+2 15:10	2	20	Spier, Robert	Kida - A Next Generation Build System	Robert Spier
+2 15:10	4	20	Lonstein, Ross	(ab)Using a HTTP Proxy with Perl, A tourist's guide to socket programming	Ross Lonstein
+2 16:00	1	90	Dominus, Mark-Jason	Lightning Talks	Mark-Jason Dominus
+2 BOF	3	0		YAML	Brian Ingerson
+2 BOF	4	0		BOF: CPANPLUS	Jos Boumans
+3 09:00	1	90	Dominus, Mark-Jason	Perl Program Repair Shop and Red Flags	Mark-Jason Dominus
+3 09:00	2	90	Schwern, Michael G.	Test::Tutorial	Michael G. Schwern
+3 09:00	3	180	Ingerson, Brian	Writing CPAN Modules with Inline::C	Brian Ingerson
+3 09:00	4	20	Turoff, Adam	Antipatterns in Perl	Adam Turoff
+3 09:25	4	20	West, Casey	Data Caching made Easy	Casey West
+3 09:45	4	20	Mankowski, Walt	A case study in when not to memoize	Walt Mankowski
+3 10:10	4	20	West, Casey	Don't Reinvent the Big Wheels	Casey West
+3 11:00	1	45	Nandor, Chris	Mac::Perl	Chris Nandor
+3 11:00	2	90	Schwern, Michael G.	How To Be Lazy Without Really Trying, Redux	Michael G. Schwern
+3 11:00	4	45	Mason, Shane	perlbox: a desktop for unix	Shane Mason
+3 11:45	1	45	Abigail	Two alternative ways of doing OO	Abigail
+3 11:45	4	20	Cozens, Simon	The .NET You Need To Know	Simon Cozens
+3 12:10	4	20	Nicol, David	dotGNU AIS Authenticated Identity Service: a single-sign-on infrastructure	David Nichol
+3 14:00	1	120	Conway, Damian	Time::Space::Continuum	Damian Conway
+3 15:10	2	20	Dominus, Mark-Jason	Conference Presentation Judo	Mark-Jason Dominus
+3 16:00	1	60	Lenzo, Kevin	Town Hall	Kevin Lenzo

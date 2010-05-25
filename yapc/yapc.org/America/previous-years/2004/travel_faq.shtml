@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta name="ICBM" content="26.36508,-80.10235">
+ <meta name="DC.title" content="YAPC 2004 at UB">
+    <meta name="description" 
+          content="YAPC 2004 is an inexpensive Perl conference on June 16-18, 2004, at the University at Buffalo in Buffalo, New York, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,University at Buffalo,Buffalo,New York,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2004: Yet Another Perl Conference</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Call for Participation"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Travel FAQ</H2>
+      </div>
+
+<h3>How do I get to the University at Buffalo?</h3>
+<p>UB's north campus is located in Amherst, NY, about 15 miles Northeast of downtown Buffalo. UB's web site can help <a href="http://www.buffalo.edu/directions">plan a trip to campus</a>. UB can also be found in <a href="http://www.mapquest.com/maps/map.adp?email=1&mapdata=GMCh6ITzs94NN8wbicMW27ajUk59vXwJ7h1Z%252f4LyuBge4D7VJsKOI5y%252fvNOO%252bjm0EK%252btLIFa4OT0stYj1ujx8ZLRSCRX3iPG8gLPtJM3bwkNPFJq28LVvvlrzu2Ws7vwsX8kGjRLjN8nHyTG4F3BwMSZnWJn50LXmVqsJH8NlrlSLTkrBmwBdLsFSpZeAL0W5r5Uy3CDvO86cBOlSdD%252bVBcyQJNQOMZwqesd6ChjY3oH885V6JEx4Tl2Hs8E9Mx6BgchRQ264mg%253d">MapQuest</a>.</p>
+<h3>How do I get to the University Inn?</h3>
+<p>The University Inn has <a href="http://www.universityinn.com/location.html">location information</a> on their website. The University Inn also provides a shuttle to and from the Buffalo airport.</p>
+
+<h3>Where on UB's campus is the conference being held?</h3>
+YAPC events will be held in <a href="http://www.buffalo.edu/buildings/building?id=nsc">UB's Natural Sciences Complex</a>.
+
+<h3>How do I get from the University Inn to UB's Natural Sciences Complex</h3>
+<p>The University Inn is approximately one mile Northeast of UB's Natural Sciences Complex. You can drive, walk, or use the complimentary shuttle service.</p>
+
+<h3>Where do I go/park on campus?</h3>
+<p>We have arranged to have two lots on campus reserved during the conference: Governors Lots D and E. If you park in these lots, you will not require a parking tag and should not be ticketed. However, if you park elsewhere on campus, you will require a visitors parking tag and you will be ticketed, so be careful!</p>
+
+<h3>How do I get around Buffalo?</h3>
+<ul>
+<li>The University Inn's shuttle can take you to/from the airport and the conference.</li>
+<li><a href="http://www.buffalocvb.org/visitor_information_8.html">Buffalo Transportation</a></li>
+<li><a href="http://www.nfta.com/metro/">Metro Rail/Bus</a></li>
+</ul>
+
+<h3>How far away is Buffalo?</h3>
+<ul>
+<li>Albany, NY - 295 miles</li>
+<li>Baltimore, MD - 385 miles</li>
+<li>Boston, MA - 446 miles</li>
+<li>Charlotte, NC - 661 miles</li>
+<li>Chicago, IL - 522 miles</li>
+<li>Cincinnati, OH - 431 miles</li>
+<li>Cleveland, OH- 191 miles</li>
+<li>Detroit, MI - 253 miles</li>
+<li>Erie, PA - 75 miles</li>
+<li>Hamilton, ON, Canada - 60 miles</li>
+<li>Harrisburg, PA - 276 miles</li>
+<li>Hartford, CT - 400 miles</li>
+<li>Indianapolis, IN - 511 miles</li>
+<li>London, ON, Canada - 149 miles</li></li>
+<li>Montreal, Canada - 383 miles</li>
+<li>New York, NY - 403 miles</li></li>
+<li>Philadelphia, PA - 353 miles</li>
+<li>Pittsburgh, PA - 216 miles</li>
+<li>Providence, RI - 452 miles</li>
+<li>Richmond, VA - 568 miles</li>
+<li>St. Louis, MO - 761 miles</li>
+<li>Syracuse, NY - 156 miles</li>
+<li>Toronto, ON - 103 miles</li>
+<li>Washington, DC - 356 miles</li>
+</ul>
+
+<h3>Where is there to eat?</h3>
+<ul>
+<li>The University Inn will provide a continental breakfast each morning.</li>
+<li>Breakfast items will be available at the conference site each morning.</li>
+<li>There are several places to get lunch right on campus each day.</li>
+<li>There will be a YAPC dinner banquet and auction one night.</li>
+<li><a href="http://www.student-affairs.buffalo.edu/fsa/ds/ds_ovr.shtml">Dining on Campus</a></li>
+<li><a href="http://www.cse.buffalo.edu/pub/WWW/restaurant.guide/">Bill Rapaport's Buffalo Restaurant Guide</a></li>
+</ul>
+
+<h3>What's the weather like?</h3>
+<ul>
+<li>In June, it's usually about 70&deg;F during the day and cooler in the evening.</li>
+<li><a href="http://www.weather.com/outlook/recreation/local/14260">Current Conditions for Buffalo, NY</a></li>
+</ul>
+
+<h3>What else is there to do in the region?</h3>
+<ul>
+<li><a href="http://www.google.com/search?q=Niagara+Falls">Niagara Falls</a> is about 20 minutes to the Northwest.</li>
+<li><a href="http://www.buffalocvb.org/">Buffalo Niagara Convention &amp; Visitors Bureau</a></li>
+</ul>
+
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by Jim Brandt<br>
+           All content copyright &copy; 2003 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

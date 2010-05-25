@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2001 is an inexpensive Perl conference on June 13-15, 2001, at McGill University in Montreal, Quebec, Canada.">
+    <meta name="keywords"
+          content="Perl,Perl conference,McGill University,Montreal,Quebec,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2002: Last-Minute Details</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Call for Participation"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Last-Minute Details</H2>
+      </div>
+
+      <p><hr size=1>
+<pre>
+
+Hello, YAPC-goer!
+
+Here is some last-minute information for your trip to YAPC 2001
+in Montreal this year.
+
+* Registration opens early: Tuesday 4pm - 8pm in Leacock lobby. 
+  Avoid the rush!  Get in early!  However, if you show up and the
+  talks are starting, just go in, and register later.
+
+* Announcements on Thursday and Friday will begin at 8:45,
+  before everything gets started at 9:00.  Schedule changes, etc.,
+  will be announced at these short sessions.
+
+* The revised schedule is on the web site (www.yapc.org/America)
+  and the abstracts are available at 
+
+        http://lucs.dyndns.org/yapcq.html
+
+  Please take a look to find what you'll be missing in the three
+  tracks you can't make it to while you're only in one place :)
+
+* Authors: Bring your laptops or find someone with one when you
+  show up!  We have overhead projectors, but we have had some 
+  difficulty getting dedicated podium machines.  We hope to have
+  that solved by the time you need it, if by volunteer laptop.
+
+* Breakfast starts at 8:00 in the Leacock lobby.  Show up and 
+  get your coffee and snacky things in time for the big event.
+  Breakfast is served all three days at 8 am.  There is no
+  lunch provided, but there are lots of places downtown (just
+  past the main entrance).  Many are in the malls -- there
+  are four underground food courts in there. 
+
+* Bring wireless gear.  In particular, your 802.11 pcmcia cards
+  for your laptops, and if it's convenient for you, bring a base
+  station too!
+
+* Bring a spare CAT-5 cable if you want to try to hook your 
+  laptop up to the net without a wireless card.
+
+* Finding Leacock Hall:  From the main McGill entrance on Sherbrooke,
+  go straight until you dead-end into Arts building and turn left.
+  You will run into Leacock if you keep going there.
+
+* Dorms: You need to sign in in Bishop Mountain Hall at the 
+  service desk.  They'll take it from there.  Bishop Mountain
+  Hall is at the top of University Street, past the Montreal
+  Neuro institute, and is a round building along the road to 
+  the right.
+
+* Parking: Dorm attendees (and others!) can find inexpensive
+  parking right at the dorms. Follow the directions above to
+  reach the dorms and stop at the parking booth at the entrance
+  to the stadium.
+
+Best wishes on an uneventful trip to the conference, eh.  We look 
+forward to seeing you there, eh!
+
+The  Y Eh! P C  Team
+
+</pre>
+
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2002 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

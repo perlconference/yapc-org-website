@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta name="ICBM" content="26.36508,-80.10235">
+ <meta name="DC.title" content="YAPC 2004 at UB">
+    <meta name="description" 
+          content="YAPC 2003 is an inexpensive Perl conference on June 16-18, 2004, at the University at Buffalo in Buffalo, New York, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,University at Buffalo,Buffalo,New York,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2004: Yet Another Perl Conference</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC America::North">
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top"> 
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>North America 2004</H2>
+        <p>
+	<!-- Wednesday, June 16, 2004 - Friday, June 18, 2004<br> -->
+	 June 16-18<br>
+	University at Buffalo, Buffalo, New York, U.S.A.
+        <p><hr size=0>
+      </div>
+      
+      <a name="news"></a>
+      <H3>Breaking News</H3>
+
+	<UL>
+                <LI>October 21, 2003: Dates set.</LI>
+		<LI>August 22, 2003: YAPC::NA::2004 <a href='http://use.perl.org/article.pl?sid=03/08/22/1457214&mode=nested&tid=25'>Venue Chosen</a></LI>
+	</UL>
+
+      <br>
+      <p><hr size=0 align="center">
+
+      <a name="about"></a>
+      <H3>What is YAPC?</H3>
+
+      <p>YAPC is "yet another Perl conference", with apologies to 
+      <img src="images/yapcbg.jpg" alt="YAPC logo" width=114 height=125 align="right">
+      <a href="http://conference.perl.com/">The Perl Conference</a>.
+      This is an inexpensive (US$ 85 for 3 days) conference with its roots in the 
+      <a href="http://www.pm.org/">Perl Mongers</a> Perl users groups.
+
+      <p>While The Perl Conference plays an important role in the Perl community, there
+      are some things that fall through the cracks at such a large, relatively 
+      corporate conference. Attendance fees of $1,000 or more are prohibitive,
+      especially to students (though there are deep student discounts); furthermore,
+      the conference is on the West Coast, incurring travel expenses for those in the
+      east, on top of the conference expense. YAPC is driven from the bottom
+      up, organized by and for Perl users -- a grassroots conference.
+
+      <p>YAPC began as a smaller, regional version of <a href="http://conferences.oreillynet.com/">TPC</a> in the Eastern USA, hosted 
+      by <a href="http://www.cmu.edu/">Carnegie Mellon University</a>, and has become
+      a <a href="http://www.yapc.org/">series of conferences</a> held in multiple
+      areas of the globe, all aimed at bringing together the Perl community in an
+      accessible manner. 
+      
+      <p>
+      This year, YAPC will be held at the
+      <a href="http://www.buffalo.edu/">University at Buffalo</a> in Buffalo, New York, USA,
+      hosted by the <a href="http://buffalo.pm.org/">Buffalo Perl Mongers</a>.
+
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by Jim Brandt.<br>
+           All content copyright &copy; 2003 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

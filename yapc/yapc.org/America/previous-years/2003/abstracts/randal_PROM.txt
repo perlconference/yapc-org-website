@@ -1,0 +1,31 @@
+Title: Learning Perl's Objects, References, and Modules                                                               
+                                                                                                                      
+Type/Duration: one day                                                                                                
+                                                                                                                      
+Audience Level: Experienced                                                                                           
+                                                                                                                      
+Audience Type: Perl programmers working in teams or with more than                                                    
+1000 lines of code in a single application.  Items covered in                                                         
+"Learning Perl" are presumed.                                                                                         
+                                                                                                                      
+Description:                                                                                                          
+                                                                                                                      
+This course covers: using do and require, adjusting @INC, using                                                       
+packages, using references, nested data structures, references and                                                    
+scoping, reference counting, marshalling data with Storable and                                                       
+Data::Dumper, references to subroutines, anonymous subroutines,                                                       
+closures, the Schwartzian Transform, building and displaying recursive                                                
+data, objects, inheritance, overriding, indirect object notation, weak                                                
+references, module interfaces, writing a module, writing a                                                            
+distribution, writing tests with Test::Simple and Test::More,                                                         
+submitting your module to the CPAN.                                                                                   
+                                                                                                                      
+Material is derived from O'Reilly's new "Learning Perl Objects,                                                       
+References, and Modules", the sequel in form and spirit to the classic                                                
+"Learning Perl" by the same authors.                                                                                  
+                                                                                                                      
+Description Short:                                                                                                    
+                                                                                                                      
+Perl's references, objects, and modules enable programmers to write                                                   
+large programs with relative ease, including working in teams.  This
+lecture draws from the new O'Reilly title of the same name.  

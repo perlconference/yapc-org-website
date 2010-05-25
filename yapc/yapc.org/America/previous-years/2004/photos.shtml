@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2002 is an inexpensive Perl conference on June 26-28, 2002, at Washington University in Saint Louis, Missouri, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,Washington University,Saint Louis,Missouri,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2002: Photo Page</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+ <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Photos"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Photos!</H2>
+      </div>
+
+      These are links to other sites that contain photos for
+      YAPC America::North.
+      If you find that any of these links don't work, send email
+      <A HREF=mailto:bbenedetto@yapc.org>here</A> at YAPC and we'll
+      try to fix it.
+
+      <p>
+      <p><hr size=1>
+      <H3>Photo Galleries - YAPC America::North 2002</H3>
+      <ul>
+      <li><a href="http://buglet.rcbowen.com/photos/2002/yapc/">Rich Bowen</a>
+      </ul>
+
+      <p>
+      <p><hr size=1>
+      <H3>Photo Galleries - YAPC America::North 2001</H3>
+      <ul>
+      <li><a href="http://www.openinteract.org/yapc2001/">Nathaniel Haas</a>
+      <li><a href="http://buglet.rcbowen.com/photos/yapc_2001/">Rich Bowen</a>
+      <li><a href="http://www.lafferty.ca/photos/2001/YAPC/">Rich Lafferty</a>
+      <li><a href="http://vorpal.jabberwock.org/~wendigo/yapc2001">wendigo</a>
+      <li><a href="http://ttul.org/~ingy/YAPC2001pics/">Brian Ingerson</a>
+      <li><a href="http://www.maquina.com/gk/yapc2001/">gk</a>
+      </ul>
+      <p>
+
+      <p>
+      <p><hr size=1>
+      <H3>Photo Galleries - YAPC America::North 19100</H3>
+      <ul>
+      <li><A HREF="http://www.merceds.com/photos/fs-2000-yapc19100.shtml">      Merced</A>
+      <li><A HREF="http://www.stonehenge.com/merlyn/Pictures/Trips/2000/00-06-YAPC/">Randal L. Schwartz</A>
+      </ul>
+      <p>
+
+      <p>
+      <p><hr size=1>
+      <H3>Photo Galleries - YAPC America::North 1999</H3>
+      <ul>
+      <li><A HREF="http://www.stonehenge.com/merlyn/Pictures/Trips/1999/99-06-YAPC/">Randal L. Schwartz</A>
+      <li><A HREF="http://slinky.scrye.com/~tkil/pics/yapc-1999/index.html">Tkil</A>
+      </ul>
+      <p><hr size=1>
+
+      <!-- FILLME ENDS HERE -->
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+    </td> 
+    <td valign="baseline">
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2002 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+
+</BODY>
+</HTML>

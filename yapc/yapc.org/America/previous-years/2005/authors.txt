@@ -1,0 +1,83 @@
+Name   Title
+Spier, Robert   Optimize Your Perl
+Schwern, Michael G.   Sufficiently Advanced Magic
+Turoff, Adam   Programming with Iterators
+Schwern, Michael G.   A Refactoring Tale: Remaking MakeMaker and Other Horrors
+Vincent, Jesse   Getting students laid with perl
+Turoff, Adam   Maintainable Database apps with Perl
+Rolsky, Dave   Installers for Perl-Based Applications
+Penrose, Scott   myinternet: 4800 domains, 1 million users all on Perl
+Boumans, Jos   Introduction to OO Programming
+Spier, Robert   Panel: What's cool in perl5 today?
+Abigail   Compiling historic versions of Perl or Why is my 4 Gb /opt/perl partition running out of space?
+West, Casey   Writing useful IRC robots in POE
+Abigail   Regex tutorial
+Dominus, Mark-Jason   Regular Expression Mastery
+Dominus, Mark-Jason   Rx: A regular expression debugger
+Spier, Robert   Request Tracker
+Schwern, Michael G.   Advanced Testing
+Schwern, Michael G.   Writing A Test Library
+West, Casey   Template This, or That, or That Other Thing
+Cozens, Simon   Bacman - A Distributed Backup System
+Cozens, Simon   Mail::Miner - Finding stuff in that mass of mail
+McMahon, Joe   GraphVis - the next level
+McClennen, Michael   Interactive Web Sites with Mason
+Odom, Bill   Perl at the Helm: Automated Migration and Management for Directory and Exchange 2000
+Dominus, Mark-Jason   Stolen Secrets of the Wizards of the Ivory Tower
+Dominus, Mark-Jason   Perl Program Repair Shop and Red Flags
+Penrose, Scott   Practical implementation of I18N in perl
+Schwern, Michael G.   How To Be Lazy Without Really Trying, Redux
+Turner, Dave   TRIZ
+Mankowski, Walt   A case study in when not to memoize
+Turoff, Adam   Antipatterns in Perl
+West, Casey   Data Caching made Easy
+West, Casey   Don't Reinvent the Big Wheels
+Saylor, John   Software music: Composing with perl
+Quinlan, Sean   Introduction to Perl for Bioinformatics
+Conway, Damian   Time::Space::Continuum
+Ingerson, Brian   YAML - A New Language for Data
+Rolsky, Dave   Alzabo: Less SQL, More (Data-Modelling and OO) Fun
+Lawrence, Jay   Building Custom Record Indexes with Perl
+Lawrence, Phil   SQL::Snippet
+Cozens, Simon   The .NET You Need To Know
+Nicol, David   dotGNU AIS Authenticated Identity Service: a single-sign-on infrastructure
+Dominus, Mark-Jason   Lightning Talks
+Rolsky, Dave   Introduction to Mason
+Dominus, Mark-Jason   Mailing List Judo, or, How to Get Your Patches Accepted with a Minimum of Fuss
+Young, Geoffrey   mod_perl
+Lonstein, Ross   (ab)Using a HTTP Proxy with Perl, A tourist's guide to socket programming
+Turoff, Adam   SOAP, XML-RPC and the REST
+Abigail   Two alternative ways of doing OO
+Ingerson, Brian   Writing CPAN Modules with Inline::C
+Brooks, Chris   An Introduction to Embedding C in Perl
+Cozens, Simon   optimizer.pm - Speeding up Perl the Hard Way
+Crow, Phil   A Simple Assembly Simulator
+Spier, Robert   Kida - A Next Generation Build System
+Sugalski, Dan   Parrot in a nutshell
+Cozens, Simon   Parroting On - Lessons from the coal face
+Falcone, Kevin   Mod_Parrot: embedding and extending the parrot virtual machine
+Sugalski, Dan   The Parrot Flies
+Conway, Damian   Programming in Perl 6
+Cozens, Simon   Perl For Systems Administrators
+Maher, Tim   Minimal Perl for the Impatient
+Wall, Larry   Keynote
+Nandor, Chris   Mac::Perl
+Randal, Allison   On Topic
+Nicol, David   TERN is not perl: bold heresy in the face of the ""perl 6 process""
+Boumans, Jos   Introduction to POE
+Vincent, Jesse   rt.cpan.org
+Schwern, Michael G.   Test::Tutorial
+Penrose, Scott   STS: The trials and tribulations of a test suite in perl
+Lenzo, Kevin   Town Hall
+Dominus, Mark-Jason   Tie::File
+Mason, Shane   perlbox: a desktop for unix
+Avery, R. Geoffrey   ModuleMaker
+Boumans, Jos   CPANPLUS
+Clamp, Richard   Sub::Parameters and other animals
+Cozens, Simon   10 Modules I Wouldn't Go Anywhere Without
+Landrum, Shane   Shared Calendaring in Perl
+Turoff, Adam   Open Source Presentation Tools
+West, Casey   Server Side Form Validation with Imager
+McClennen, Michael   Web Forms Unbound (and Interactive)
+Pierce, Clinton A.   Ad Hoc reporting with XML data
+Jenkins, Stephen B.   A Configuration File Editor for a Wind Tunnel Data System

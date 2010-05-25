@@ -1,0 +1,22 @@
+Title:          Dying with Honor                                                                                      
+Presenter:      Peter Chines                                                                                          
+Suggested Type: Standard (20min)                                                                                      
+                                                                                                                      
+There are many ways of exiting a Perl program.  The ability to set traps to                                           
+customize warn and die signals, plus the variety of methods available in                                              
+the Carp module give Perl programmers a lot of flexibility in dealing                                                 
+with abnormal situations.  This talk will discuss how to use this wealth                                              
+of options to best advantage and offers examples of when to use each                                                  
+method of terminating a program.  Make sure your programs die honorably,                                              
+providing the all of information needed to trace and correct the                                                      
+problem, and avoid unnecessary clutter.                                                                               
+                                                                                                                      
+Examples:                                                                                                             
+    open fails: die with $! and trailing "\n"                                                                         
+    invalid input data: die or warn without trailing "\n"                                                             
+    invalid method parameters: croak                                                                                  
+    assertion fails: confess                                                                                          
+    use of deprecated method: carp                                                                                    
+    logging: use signal handlers to log warn and die messages                                                         
+    terminate with a particular return value: exit                                                                    
+    throwing/catching exceptions: die with trailing "\n"/eval block 

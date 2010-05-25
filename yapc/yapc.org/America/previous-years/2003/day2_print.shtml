@@ -1,0 +1,239 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+<style>
+<!--
+td.boxed {background-color:#dddddd; text-align:center}
+td.break {background-color:#ffff88; text-align:center}
+th {vertical-align:top}
+-->
+</style>
+    <meta name="description" 
+          content="YAPC 2002 is an inexpensive Perl conference on June 26-28, 2002, at Washington University in Saint Louis, Missouri, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,Washington University,Saint Louis,USA,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2002: Thursday June 27th Schedule</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Thursday June 27th Schedule</H2>
+      </div>
+
+
+<table cellspacing="5" cellpadding="5" border="0" width="100%">
+
+ <tr>
+  <td width="10%">&nbsp;</td>
+  <th width="22.5%">Brown 100</th>
+  <th width="22.5%">Brown 118</th>
+  <th width="22.5%">McDonnell 162</th>
+  <th width="22.5%">Busch 100</th>
+ </tr>
+
+ <tr>
+  <th>9:00</th>
+  <td class="boxed" rowspan="2">Sean Quinlan:<br>
+  Introduction to Perl for Bioinformatics</td>
+  <td class="boxed" rowspan="1">Adam Turoff:<br>
+  Open Source Presentation Tools</td>
+  <td class="boxed" rowspan="2">Geoffrey Young:<br>
+  mod_perl: do more</td>
+  <td class="boxed" rowspan="1">Shane Landrum, et. al.:<br>
+  Shared Calendaring in Perl</td>
+ </tr>
+
+ <tr>
+  <th>9:25</th>
+  <td class="boxed" rowspan="1">Casey West:<br>
+  Server Side Form Validation with Imager</td>
+  <td class="boxed" rowspan="1">R. Geoffrey Avery:<br>
+   ModuleMaker</td>
+ </tr>
+
+  <tr>
+  <th>9:45</th>
+  <td class="boxed" rowspan="1">Simon Cozens:<br>
+  10 Modules I wouldn't Go Anywhere Without</td>
+  <td class="boxed" rowspan="1">Stephen B. Jenkins:<br>
+   A Configuration File Editor for a Wind Tunnel Data System</td>
+  <td class="boxed" rowspan="2">Geoffrey Young<br>
+   Object Oriented mod_perl</td>
+  <td class="boxed" rowspan="2">Dave Rolsky<br>
+   Alzabo: Less SQL, More (Data-Modelling and OO) Fun</td>
+ </tr>
+ 
+  <tr>
+  <th>10:10</th>
+  <td class="boxed" rowspan="1">Mark-Jason Dominus:<br>
+  Mailing List Judo...</td>
+  <td class="boxed" rowspan="1">Richard Clamp<br>
+   Sub::Parameters and other animals</td>
+ </tr>
+ 
+ 
+ <tr>
+  <th>10:30</th>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+  <td class="break">Break</td>
+ </tr>
+
+  <th>11:00</th>
+  <td class="boxed" rowspan="2">Allison Randal:<br>
+  On Topic</td>
+  <td class="boxed" rowspan="2">Mark-Jason Dominus:<br>
+   Tie::File</td>
+  <td class="boxed" rowspan="2">OO mod_perl<br>cont'd</td>
+  <td class="boxed" rowspan="2">Michael McClennen:<br>
+   Web Forms Unbound (and Interactive)</td>
+ </tr>
+
+ <tr><td></td></tr> 
+
+  <th>11:45</th>
+  <td class="boxed" rowspan="2">Dave Turner:<br>
+  TRIZ</td>
+  <td class="boxed" rowspan="2">Nathan Torkington<br>
+   Something, Something</td>
+  <td class="boxed" rowspan="2">Geoffrey Young<br>
+   Directive Handlers with mod_perl</td>
+  <td class="boxed" rowspan="2">Clinton A. Pierce:<br>
+   Ad Hoc Reporting with XML Data</td>
+ </tr>
+
+ <tr><td></td></tr> 
+ 
+ <tr> 
+  <th>12:30</th>
+  <td class="break">Lunch</td>
+  <td class="break">Lunch</td>
+  <td class="break">Lunch</td>
+  <td class="break">Lunch</td>
+ </tr>
+
+ <tr>
+ <th>2:00</th>
+  <td class="boxed" rowspan="4">Brian Ingerson:<br>
+  YAML - A New Language for Data</td>
+  <td class="boxed" rowspan="1">Simon Cozens:<br>
+   optimizer.pm - Speeding up Perl the Hard Way</td>
+  <td class="boxed" rowspan="1">Phil Lawrence:<br>
+   SQL::Snippet</td>
+  <td class="boxed" rowspan="1">Jos Boumans:<br>
+   CPANPLUS</td>
+ </tr>
+
+<tr>
+ <th>2:25</th>
+  <td class="boxed" rowspan="1">Chris Brooks:<br>
+  An Introduction to Embedding C in Perl</td>
+  <td class="boxed" rowspan="1">Jay Lawrence:<br>
+   Building Custom Record Indexes With Perl</td>
+  <td class="boxed" rowspan="1">David Nicol:<br>
+   TERN is not perl...</td>
+ </tr>
+
+<tr>
+ <th>2:45</th>
+  <td class="boxed" rowspan="1">Phil Crowe:<br>
+  A Simple Assembly Simulator</td>
+  <td class="boxed" rowspan="1">Kevin Falcone:<br>
+   Mod_Parrot...</td>
+  <td class="boxed" rowspan="1">Adam Turoff:<br>
+   SOAP</td>
+ </tr>
+
+<tr>
+ <th>3:10</th>
+  <td class="boxed" rowspan="1">Robert Spier:<br>
+  Kida - A Next Generation Build System</td>
+  <td class="boxed" rowspan="1">Mark-Jason Dominus:<br>
+    Conference Presentation Judo</td>
+  <td class="boxed" rowspan="1">Ross Lonstein:<br>
+   (ab)Using a HTTP Proxy with Perl</td>
+ </tr>
+
+<tr> 
+  <th>3:30</th>
+  <td class="break">Break</td>
+</tr>
+
+ 
+<tr>  
+ <th>4:00</th>
+  <td class="boxed" rowspan="4">Mark-Jason Dominus:<br>
+  Lightning Talks</td>
+  <td></td>
+  <td></td>
+  <td></td>
+ </tr>
+
+ <tr><td></td></tr>
+ <tr><td></td></tr>
+ <tr><td></td></tr>
+
+ <tr>
+  <th>6:00</th>
+  <td class="break" rowspan="2">Dinner</td>
+  <td class="break" rowspan="2">Dinner</td>
+  <td class="break" rowspan="2">Dinner</td>
+  <td class="break" rowspan="2">Dinner</td>
+ </tr>
+
+ <tr><td></td></tr>
+
+ <tr>
+  <th>7:00</th>
+  <td class="boxed" rowspan="4">Perl 6 BOF</td>
+  <td class="boxed" rowspan="4">TBD</td>
+  <td class="boxed" rowspan="4">Brian Ingerson:<br>
+  YAML BOF</td>
+  <td class="boxed" rowspan="4">Jos Boumans<br>
+  CPANPLUS BOF</td>
+ </tr>
+
+ <tr><td></td></tr>
+ <tr><td></td></tr>
+ <tr><td></td></tr>
+
+ <tr>
+  <th>9:00</th>
+  <td colspan="4"></td>
+ </tr>
+
+</table>
+
+    <table width="100%" border="0" cellpadding="10"><tr><td>
+<ul>
+        <li><a href="day1.shtml">Day 1 Schedule</a></li>
+        <li>Day 2 Schedule</li>
+        <li><a href="day3.shtml">Day 3 Schedule</a></li>
+</ul>
+</td></tr></table>
+
+      <!-- FILLME ENDS HERE -->
+    </td>
+  </tr>
+   <tr>
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2002 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

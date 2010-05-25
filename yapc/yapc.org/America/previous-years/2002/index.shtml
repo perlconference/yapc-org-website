@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2002 is an inexpensive Perl conference on June 26-28, 2002, at Washington University in Saint Louis, Missouri, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,Washington University,Saint Louis,Missouri,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2002: Yet Another Perl Conference</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC America::North">
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top"> 
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>North America 2002</H2>
+        <p>Wednesday, June 26, 2002 -- Friday, June 28, 2002<br>
+        Washington University, Saint Louis, Missouri, United States
+        <p><hr size=0>
+      </div>
+      
+      <a name="news"></a>
+      <H3>Breaking News</H3>
+      <p><i>Sept. 21</i> -- Audio, photos and movies from YAPC::America::2002 are now available <a href="http://www.perl.org/yapc/2002/">online</a>! 
+      <p><i>June 17</i> -- Dorm Registration Closed, if you emailed sarah or
+                           registered only you should be fine.<br>
+      <p><i>June 10</i> -- Register Online for Dorms!<br>
+      <p><i>June 7</i> -- <a href="day1.shtml">The Schedule</a>!<br>
+      <p><i>April 29</i> -- <a href="http://www.yapc-stl.org/archives/000376.html">Comment</a> on your wireless needs.<br>
+      <p><i>April 25</i> -- <a href="http://www.yapc-stl.org/">YAPC blog</a>!
+      <p><i>April 17</i> -- Looking for <a href="lodgings.shtml">Accommodations</a>?
+      <p><i>February 15</i> -- <a href="http://donate.perl-foundation.org">Registration</a> has opened.
+      <p><i>January 31</i> -- <a href="cfp.shtml">
+      Call for Participation</a> released.
+
+      <br>
+      <p><hr size=0 align="center">
+      
+      <a name="about"></a>
+      <H3>What is YAPC?</H3>
+
+      <p>YAPC is "yet another Perl conference", with apologies to 
+      <img src="images/yapcbg.jpg" alt="YAPC logo" width=114 height=125 align="right">
+      <a href="http://conference.perl.com/">The Perl Conference</a>.
+      This is an inexpensive (US$ 85 for 3 days) conference with its roots in the 
+      <a href="http://www.pm.org/">Perl Mongers</a> Perl users groups.
+
+      <p>While The Perl Conference plays an important role in the Perl community, there
+      are some things that fall through the cracks at such a large, relatively 
+      corporate conference. Attendance fees of $1,000 or more are prohibitive,
+      especially to students (though there are deep student discounts); furthermore,
+      the conference is on the West Coast, incurring travel expenses for those in the
+      east, on top of the conference expense. YAPC is driven from the bottom
+      up, organized by and for Perl users -- a grassroots conference.
+
+      <p>YAPC began as a smaller, regional version of TPC in the Eastern USA, hosted 
+      by <a href="http://www.cmu.edu/">Carnegie Mellon University</a>, and has become
+      a <a href="http://www.yapc.org/">series of conferences</a> held in multiple
+      areas of the globe, all aimed at bringing together the Perl community in an
+      accessible manner. 
+      
+      <p>
+      This year, YAPC will be held at
+      <a href="http://www.wustl.edu/">Washington University</a> in Saint Louis, Missouri, USA,
+      hosted by the <a href="http://stlouis.pm.org/">Saint Louis Perl Mongers</a>.
+
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2002 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

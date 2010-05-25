@@ -1,0 +1,411 @@
+
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta name="ICBM" content="26.36508,-80.10235">
+ <meta name="DC.title" content="YAPC 2004 at UB">
+    <meta name="description" 
+          content="YAPC 2004 is an inexpensive Perl conference on June 16-18, 2004, at the University at Buffalo in Buffalo, New York, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,University at Buffalo,Buffalo,New York,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2004: Yet Another Perl Conference</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC America::North">
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top"> 
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>North America 2004</H2>
+        <p> Friday, June 18, 2004
+
+        <p><hr size=0>
+      </div>
+
+<table cellspacing='1' cellpadding='2'>
+
+<tr class='header'>
+<td width='10%'>&nbsp;</td>
+<td width='22.5%'>Room NSC 225</td>
+<td width='22.5%'>Room NSC 220</td>
+<td width='22.5%'>Room NSC 201</td>
+<td width='22.5%'>Room NSC 215</td>
+</tr>
+
+
+
+
+  <tr>
+   
+   
+     <td> 9-9:40 </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td> Josh Rabinowitz<br><a href='talk_desc.shtml#26'>Indexing and Retrieving Data with Perl and SWISH-E</a><br>Length: 85min </td>
+   
+   
+   
+     <td> Jim Keenan<br><a href='talk_desc.shtml#3'>List-Compare</a><br>Length: 20min<p>Robert Rothenberg<br><a href='talk_desc.shtml#33'>Skip lists: an alternative to trees</a><br>Length: 20min<p> </td>
+   
+   
+   
+     <td> Geoffrey Young<br><a href='talk_desc.shtml#22'>Writing Tests with Apache-Test</a><br>Length: 40min </td>
+   
+   
+  </tr>
+
+  
+    <tr><td colspan='5'><hr></td></tr>
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  <tr>
+   
+   
+     <td> 9:50-10:30 </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td> (Continued) </td>
+   
+   
+   
+     <td> Uri Guttman<br><a href='talk_desc.shtml#17'>Sort::Maker</a><br>Length: 40min </td>
+   
+   
+   
+     <td>--Just Added!--<br>Ian Langworth<br><a href='talk_desc.shtml#7'>The New Kwiki</a><br>Length: 20min<p>Kevin Falcone<br><a href='talk_desc.shtml#9'>Mod_Parrot: Extending and Embedding parrot</a><br>Length: 20min<p> </td>
+   
+   
+  </tr>
+
+  
+
+  
+    <tr class='header'><td colspan='5' background_color='#6666ff'>Break</td></tr>
+  
+
+  
+
+  
+
+
+  
+
+  <tr>
+   
+   
+     <td> 11-11:40 </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td> Abigail<br><a href='talk_desc.shtml#29'>Parsing delimited and balanced strings</a><br>Length: 85min </td>
+   
+   
+   
+     <td> Jeff Horwitz<br><a href='talk_desc.shtml#27'>Extproc_perl 2.0: Oracle Stored Procedures in Perl</a><br>Length: 85min </td>
+   
+   
+   
+     <td> Tom Legrady<br><a href='talk_desc.shtml#19'>Does Pair Programming Benefit Perl Programmers?</a><br>Length: 20min<p>Tim Maher<br><a href='talk_desc.shtml#6'>Magicpoint-EZ: A Pre-processor for Magicpoint Presentations</a><br>Length: 20min<p> </td>
+   
+   
+  </tr>
+
+  
+    <tr><td colspan='5'><hr></td></tr>
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  <tr>
+   
+   
+     <td> 11:50-12:30 </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td> (Continued) </td>
+   
+   
+   
+     <td> (Continued) </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+  </tr>
+
+  
+
+  
+
+  
+    <tr class='header'><td colspan='5' background_color='#6666ff'>Lunch (On your own)</td></tr>
+  
+
+  
+
+
+  
+
+  <tr>
+   
+   
+     <td> 2-2:40 </td>
+   
+   
+   
+     <td> Damian Conway<br><a href='talk_desc.shtml#38'>Sufficiently Advanced Technologies</a><br>Length: 85min </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+  </tr>
+
+  
+    <tr><td colspan='5'><hr></td></tr>
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  <tr>
+   
+   
+     <td> 2:50-3:30 </td>
+   
+   
+   
+     <td> (Continued) </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+  </tr>
+
+  
+
+  
+    <tr class='header'><td colspan='5' background_color='#6666ff'>Break</td></tr>
+  
+
+  
+
+  
+
+
+  
+
+  <tr>
+   
+   
+     <td> 4-4:40 </td>
+   
+   
+   
+     <td> Everyone<br><a href='talk_desc.shtml#39'>Town Hall</a><br>Length: 85min </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+  </tr>
+
+  
+    <tr><td colspan='5'><hr></td></tr>
+  
+
+  
+
+  
+
+  
+
+
+  
+
+  <tr>
+   
+   
+     <td> 4:50-5:30 </td>
+   
+   
+   
+     <td> (Continued) </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+   
+     <td>  </td>
+   
+   
+  </tr>
+
+  
+
+  
+
+  
+
+  
+    <tr class='header'><td colspan='5' background_color='#6666ff'>End of Day</td></tr>
+    <tr><td>Evening Activities</td><td colspan='4'></td></tr>
+  
+
+
+  
+
+  <tr>
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+   
+  </tr>
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+
+
+<tr><td colspan='5'><hr></td></tr>
+</table>
+
+
+<ul>
+     <li><a href='day1.shtml'>Day 1 Schedule</a></li>
+     <li><a href='day2.shtml'>Day 2 Schedule</a></li>
+     <li>Day 3 Schedule</li>
+</ul>
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by Jim Brandt.<br>
+           All content copyright &copy; 2003 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

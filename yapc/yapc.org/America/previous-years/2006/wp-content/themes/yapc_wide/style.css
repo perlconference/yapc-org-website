@@ -1,0 +1,123 @@
+/*  
+Theme Name: YAPC Wide Screen Theme
+Theme URI: http://yapcchicago.org
+Description: A theme based on Geoff's theme
+Version: 0.1
+Author: Josh McAdams
+Author URI: http://perlcast.com
+
+*/
+
+body {
+	font-size: 62.5%; /* Resets 1em to 10px */
+	font-family: Verdana, Arial, Helvetica, Sans-Serif;
+	line-height: 15px;
+	background-color: #FFFFFF;
+	color: #000000;
+	text-align: center;
+	padding: 0; 
+  background: #FFFFFF url("images/logo_middle.jpg") repeat-x top;
+	margin: auto;
+	}
+
+#content {
+  margin-top:130px;
+  position: absolute;
+  text-align:left;
+  padding: 1px 5px 5px 5px;
+  width:60%;
+  left:20%;
+}
+
+#right_sidebar {
+  margin-top:130px;
+  right:0;
+  position: absolute;
+  text-align:left;
+  padding: 5px 5px 5px 5px;
+  width:18%;
+}
+
+#left_sidebar {
+  margin-top:130px;
+  left:0;
+  position: absolute;
+  text-align:center;
+  padding: 5px 5px 5px 5px;
+  width:18%;
+}
+
+#logo_left {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 99;
+}
+
+#logo_right {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+}
+
+
+a.heading {
+  color:black;
+  text-decoration:none;
+  font-size:14pt;
+}
+
+#nav {
+        height: 30px;
+        background-color: #999999;
+        background-image: url("images/navBG.jpg");
+        background-repeat: repeat-x;
+        background-position: left;
+        margin: 0px 0px 0px 0px;
+        padding: 0px;
+        position: relative;
+        top: 125px;
+        left: 0px;
+}
+
+#nav ul.primary {
+	margin: 0px 0px 0px 0px;
+	padding: 8px 5px 5px 5px;
+	list-style: none;
+}
+
+#nav ul.primary li {
+	margin: 0px;
+	padding: 3px 3% 3px 3%;
+	display: inline;
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	font-weight: bold;
+	color: #555;
+	border-left: 1px solid #777;
+}
+
+#nav ul.primary a:link {
+        color: #555;
+        text-decoration: none;
+}
+#nav ul.primary a:visited {
+        color: #555;
+        text-decoration: none;
+}
+#nav ul.primary a:hover {
+        color: #C60;
+        text-decoration: none;
+}
+#nav ul.primary a:active {
+        color: #555;
+        text-decoration: none;
+}
+
+ul.nav {
+  list-style-type: none;
+	text-indent: -30px;
+	text-transform: none;
+}
+
+#yapc_badge {  position: absolute;  top: 0;  right: 0; z-index:1000;}

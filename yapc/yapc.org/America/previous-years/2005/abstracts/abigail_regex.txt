@@ -1,0 +1,10 @@
+Title:    "A Regex tutorial"                                                                                          
+Time:      3 hours.                                                                                                   
+Abstract:  In this tutorial, we will introduce regular expressions.                                                   
+           Starting from the absolute basics, we will gradually                                                       
+           work our way up, and build more complex regular expressions.                                               
+           We will discuss common regex constructs, advanced regex                                                    
+           constructs, regex modifiers, return values, side effects                                                   
+           and more. We'll end with regular expressions that test                                                     
+           primality, solve Diophantine equations and solve the                                                       
+           queens-8 problem. 

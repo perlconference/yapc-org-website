@@ -1,0 +1,11 @@
+Authentication with LDAP - mod_perl and Apache                                                                        
+                                                                                                                      
+If LDAP host authentication is in place in an organization, it can be                                                 
+useful to extend this authentication to your mod_perl based                                                           
+applications and Apache's basic authentication.  Apache::AuthenLDAP                                                   
+can be leveraged to handle basic authentication for Apache.  This talk                                                
+will consider a mod_per module developed to replace the functionality                                                 
+of our in-house mod_nis module.  This allows user authentication via                                                  
+unix usernames and passwords while limiting access to applications                                                    
+based on unix groups.  However, unlike mod_nis it is not limited to                                                   
+unix groups for application access.    

@@ -1,0 +1,10 @@
+Talk proposal: Little Languages in Parrot                                                                             
+                                                                                                                      
+Parrot is a virtual machine used to efficiently execute bytecode for                                                  
+interpreted languages. While Parrot is being developed, it is a                                                       
+particularly good target for little languages - small, task-specific                                                  
+languages. In particular, esoteric languages have been popular. This                                                  
+talk will cover the little languages that currently run in Parrot,                                                    
+along with implementation issues.                                                                                     
+                                   
+40 Min.

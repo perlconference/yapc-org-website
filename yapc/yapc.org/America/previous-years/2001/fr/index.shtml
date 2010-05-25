@@ -1,0 +1,102 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+    <meta name="description" 
+          content="YAPC 2001 est une conférence Perl peu coûteuse tenue du 13 au 15 juin 2001, à l'Université McGill à Montréal, Québec, Canada">
+    <meta name="keywords"
+          content="Perl,conférence Perl,université McGill,Montréal,Québec,Larry Wall,langage,ordinateur,convention,yapc,Perl mongers,informatique">
+
+    <title>YAPC 2001: Yet Another Perl Conference</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="../yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="../images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC America::North">
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top"> 
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Am&eacute;rique du nord 2001</H2>
+        <p>Du mercredi au vendredi 13 au 15 juin 2001<br>
+        Universit&eacute; McGill, Montr&eacute;al, Qu&eacute;bec, Canada
+        <p><hr size=1>
+      </div>
+      
+      <a name="news"></a>
+      <H3>Nouvelles</H3>
+      <p><i>16 mai</i> -- L'<a href="dorms.shtml">horaire</a> a &eacute;t&eacute; &eacute;tabli.
+      <p><i>2 mai</i> -- Vous pouvez maintenant réserver une chambre aux
+          <a href="dorms.shtml">dortoirs</a>.
+      <br>
+      <p><hr size=1 align="center">
+      
+      <a name="about"></a>
+      <H3>Qu'est-ce que YAPC?</H3>
+
+      <p>YAPC signifie "yet another Perl conference" (clin d'oeil &agrave;  
+      <img src="../images/yapcbg.jpg" alt="YAPC logo" width=114 height=125 align="right">
+      <a href="http://conference.perl.com/">The Perl Conference</a>).
+      Cette conf&eacute;rence peu co&ucirc;teuse (85$US pour trois jours) provient des efforts des groupes d'utilisateurs
+      <a href="http://www.pm.org/">Perl Mongers</a>.
+
+      <p>Bien que The Perl Conference (TPC) joue un r&ocirc;le important pour la communaut&eacute; Perl,
+      sa taille et son aspect plut&ocirc;t corporatif comportent certains d&eacute;savantages.
+      Des frais d'inscription de 1000$ et plus peuvent &ecirc;tre prohibitifs, surtout
+      pour les &eacute;tudiants (malgr&eacute; les rabais importants qui leur sont consentis);
+      de plus, la conf&eacute;rence se tient sur la c&ocirc;te ouest, de sorte que les gens de l'est
+      doivent encourir des frais de transport &eacute;lev&eacute;s en plus des frais d'inscription.
+      YAPC est quant &agrave; elle organis&eacute;e par la base, par et pour les utilisateurs de Perl.
+
+      <p>YAPC &eacute;tait &agrave; l'origine une version r&eacute;duite et r&eacute;gionale de TPC se tenant
+      dans l'est des &Eacute;tats-Unis, avec l'appui de la <a href="http://www.cmu.edu/">
+      Carnegie Mellon University</a>. Elle devint par la suite une 
+      <a href="http://www.yapc.org/">s&eacute;rie de conf&eacute;rences</a>
+      ayant lieu &agrave; diff&eacute;rents endroits du globe, chacune visant &agrave; &ecirc;tre accessible
+      &agrave; une plus grande partie de la communaut&eacute; Perl.
+      
+      <p>C'est la premi&egrave;re fois que YAPC Am&eacute;rique du Nord se tient ailleurs qu'&agrave;
+      Pittsburgh, Pennsylvanie. Quoi de mieux pour initier cette expansion que de
+      traverser la plus large fronti&egrave;re non-prot&eacute;g&eacute;e au monde: cette ann&eacute;e, YAPC se
+      tiendra &agrave; l'<a href="http://www.mcgill.ca/">Universit&eacute; McGill</a> &agrave; Montr&eacute;al,
+      Qu&eacute;bec, Canada, avec l'appui des <a href="http://montreal.pm.org/">Missionaires
+      Perl de Montr&eacute;al</a>.
+
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2001 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

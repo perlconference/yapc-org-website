@@ -1,0 +1,18 @@
+Video Manipulation With Perl                                                                                          
+                                                                                                                      
+Perl has historically been used for text processing and manipulation.                                                 
+My talk will describe a system which I built in Perl while working at                                                 
+mgrok (www.mgrok.com) that extends some of these features to video.                                                   
+                                                                                                                      
+The system allows a user to manually input events, or to plug in modules                                              
+that automate the process of finding events in a video stream.  The user                                              
+need not input both the start and end time of the event, but can enter                                                
+an approximate time and define a time envelope which will include a                                                   
+sufficient window to capture the whole event.                                                                         
+                                                                                                                      
+Once the events are found, the system builds a data structure which                                                   
+allows searching and editing of the video.                                                                            
+                                                                                                                      
+I will concentrate on how I put the system together, making extensive                                                 
+use of existing modules, and will devote sufficient attention to                                                      
+explaining the details so that my talk is technical and interesting.  

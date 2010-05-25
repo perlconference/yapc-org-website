@@ -1,0 +1,72 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2001 is an inexpensive Perl conference on June 13-15, 2001, at McGill University in Montreal, Quebec, Canada.">
+    <meta name="keywords"
+          content="Perl,Perl conference,McGill University,Montreal,Quebec,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2002: News Archive</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC News Archive">
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top"> 
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>News Archive</H2>
+      </div>
+ 
+      <p class="moddate"><small>Need to find something on the site but can't remember where it was? 
+      All of the items that have appeared as <b>Breaking News</b> on the YAPC::NA main 
+      page are listed below, by month of appearance.</small>
+      <div align="center">
+        <!-- <p class="moddate"><small><a href="#jan">January</a> | February | <a href="#mar">March</a> | April | <a href="#may">May</a> | <a href="#june">June</a></small> -->
+      </div>
+      <p><hr size=1>
+
+      <a name="jan"></a>
+      <H3>January 2002</H3>
+      <p><i>January 31</i> -- <a href="cfp.shtml">Call for Participants</a> issued.  
+      <p><i>January 31</i> -- We have a venue!  YAPC North America 2002 will be held
+         at Washington University, Saint Louis, Missouri, USA
+      <p><hr size=1>
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2002 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

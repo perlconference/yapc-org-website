@@ -1,0 +1,63 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en] (X11; U; Linux 2.3.99-pre6 i686) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+&nbsp;
+<center>
+<p><img SRC="yapc_na_00_bw.jpg" height=56 width=173></center>
+
+<h2>
+
+<hr WIDTH="100%"></h2>
+
+<h2>
+A Perl-based Software System for Testing Database Software: Application
+to Testing Quality of Care Software.</h2>
+
+<h3>
+James Deich, Ph.D., Katharine Iskrant, MPH, and Alison South</h3>
+Acumetrics, LLC<i></i>
+<p><i>Friday, 1:30 in Rangos II.</i>
+<p>Hundreds of managed care organizations (MCOs) generate yearly reports
+on standardized quality of care measures.&nbsp; These measures are specified
+by and audited under the supervision of the National Committee for Quality
+Assurance (NCQA).&nbsp;&nbsp; Auditing the measures has included reading
+the code used to process data.&nbsp; Acumetrics developed a software-testing
+tool that is being adopted by NCQA as a more rigorous way to audit software
+used to report such measures. We used Perl as the underlying support for
+a language appropriate for formalizing the NCQA measures and to generate
+test files and scoring protocols.&nbsp; This language is based on a control-flow
+approach (Beizer, 1995).
+<p>The statement:
+<p><font face="Courier New,Courier">path[member.enroll &lt; &amp;last(member.enroll
++ 45)] : do &amp;makerec(enroll) --> node 20;</font>
+<p>will instantiate the current enrollment to a date that meets the criterion
+of being less than 45 days after the previous enrollment, and make a simulated
+database record. The language (SAL) aided in two ways:&nbsp; First, most
+of our coding for the NCQA measures themselves has been done by programmers
+with much NCQA quality measure auditing experience, but limited programming
+experience.&nbsp; Second, the rigorous examination of the NCQA standards
+has
+<br>lead NCQA to further enhance&nbsp; the specifications for the majority
+of the measures.
+<p>Perl's features made it a fine development language for SAL.&nbsp; Regular
+expressions speed the development of a parser for SAL.&nbsp; Support for
+references and complex structures was essential.&nbsp; Perl does searches
+within complex networks to generate a varied set of individual test cases,
+and varies these cases further by choosing different values for fields
+along the same path.&nbsp; Perl's 'eval' function was also essential.&nbsp;&nbsp;
+Here we review the SAL language as applied in this testing situation, and
+report on the structure of the Perl parsing and test case generating system.
+<br>&nbsp;
+<p>
+<a href="dubois.html">Next</a> |
+<a href="conway_QS.html">Previous</a> |
+<a href="/America/schedule/author">Author list</a> |
+<a href="/America/schedule/">Schedule</a> |
+<a href="/America">YAPC 19100</a>
+</p>
+</body>
+</html>

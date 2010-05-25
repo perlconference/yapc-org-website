@@ -1,0 +1,83 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2001 is an inexpensive Perl conference on June 13-15, 2001, at McGill University in Montreal, Quebec, Canada.">
+    <meta name="keywords"
+          content="Perl,Perl conference,McGill University,Montreal,Quebec,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2001: News Archive</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="../images/yapcAN.jpg" width=270 height=86 border=0 alt="Archive de nouvelles">
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top"> 
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Archive de nouvelles</H2>
+      </div>
+ 
+      <p class="moddate"><small>Toutes les nouvelles parues &agrave; la page <b>Nouvelles</b> sont reproduites ici, par mois de parution.</small>
+      <div align="center">
+        <p class="moddate"><small><a href="#jan">Janvier</a> | F&eacute;vrier | <a href="#mar">Mars</a> | Avril | <a href="#mai">Mai</a> | Juin</small>
+      </div>
+      <p><hr size=1>
+      <a name="mai"></a>
+      <H3>Mai 2001</H3>
+      <p><i>16 mai</i> -- L'<a href="dorms.shtml">horaire</a> a &eacute;t&eacute; &eacute;tabli.
+      <p><i>2 mai</i> -- Vous pouvez maintenant réserver une chambre aux
+          <a href="dorms.shtml">dortoirs</a>.
+      <p><hr size=1>
+      <a name="mar"></a>
+      <H3>Mars 2001</H3>
+      <p><i>21 Mars</i> -- Les <b><a href="register.shtml">inscriptions</a></b> sont maintenant ouvertes!
+      <p><i>13 Mars</i> -- <b>Larry Wall</b> confirme sa pr&eacute;sence et parlera au YAPC:NA 2001!
+      <p><hr size=1>
+
+      <a name="jan"></a>
+      <H3>Janvier 2001</H3>
+      <p><i>15 janvier</i> -- <b>Mark-Jason Dominus</b> sera de nouveau l'hôte des <b>communications éclair</b> en 2001. Voir le <a href="cfp.shtml">CFP mis à niveau</a> pour les détails.
+      <p><i>9 janvier</i> -- <a href="cfp.shtml">Appel &agrave; la participation</a>.
+      <p><i>3 janvier</i> -- Nous avons un <a href="venue.shtml">site</a>!
+  YAPC Am&eacute;rique du Nord 2001 se tiendra &agrave; l'universit&eacute;
+  McGill, Montr&eacute;al, Qu&eacute;bec, Canada.
+       <p><hr size=0>
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2001 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

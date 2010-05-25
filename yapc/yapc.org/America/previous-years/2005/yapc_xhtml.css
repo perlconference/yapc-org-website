@@ -1,0 +1,55 @@
+/* 
+ * YAPC::NA 2002 style
+ * rich@yapc.org
+ * 
+ * 2001/01/02 rich -- first revision
+ * 2002/02/06 sarah -- second revision
+ * 2004/05/17 Denny -- third revision
+ */
+
+body {
+      font-family: Geneva, Arial, Helvetica, sans-serif;
+	  font-size: .9em;
+	  font-weight: normal;
+      margin: 0;
+      background-color: #ffffff;
+      color: #000000;
+	  }
+
+h1 {font-size:1.50em; font-weight:bold; text-align:center;}
+h2 {font-size:1.20em; font-weight:bold; text-align:center;}
+h3 {font-size:1.20em; font-weight:bold;}
+h4 {font-size:1.10em; font-weight:bold;}
+
+hr {height:3px; text-align:center; width:98%;}
+
+#sidebar   {width:10em; background-color:#333399; font-size:1em;
+            float:left;}
+#sidebar p {margin-left:.25em; margin-right:.25em; line-height:1.15em;}
+
+#sidebar a         {color: #ffffff; text-decoration: none; font-size:.9em; display: block;}
+#sidebar a:visited {color: #ccccff; text-decoration: none;}
+#sidebar a:hover   {background-color: #fff; color: #339; text-decoration: none; }
+#sidebar .main-link         {font-size:1em; font-weight:bold; text-decoration:underline;}
+/*
+#sidebar .main-link:visited {text-decoration: underline; font-weight: bold;}
+#sidebar .main-link:hover   {text-decoration: underline; font-weight: bold;}
+*/
+p.venue {
+         background-color:#ffffff;
+         font-size:.9em;
+         font-weight:bold;
+         text-align:center;
+         margin:.5em 1em 1em 0;
+		 padding-bottom:.5em;
+		 padding-top:.5em;
+		 border: 2px solid black;
+		 }   /* venue announcement in sidebar*/
+
+#container {border-left:10em; border-left-style:solid; border-left-color:#333399;}
+
+#header {text-align:center; padding-top:1em; font-size:1.20em; padding-left:.5em;}
+
+#main-section {font-size:1.20em; padding-left:.5em;}
+
+#footer {font-size:.75em; padding-top:4em; padding-left:.5em; padding-bottom:1px;}

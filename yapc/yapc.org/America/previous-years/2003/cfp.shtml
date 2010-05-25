@@ -1,0 +1,211 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2003 is an inexpensive Perl conference on June 16-18, 2003, at Florida Atlantic University in Boca Raton, Florida, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,Florida Atlantic University,Boca Raton,USA,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2003: Call for Participation</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Call for Participation"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Call for Participation</H2>
+      </div>
+
+      <div align="center">
+      <p><hr size=1>   
+      <H3>Fourth North American YAPC: First Call for Participation</H3>
+
+      <p>           Yet Another Society<br>
+              calls for your participation in<br>
+
+      <p>                <b>YAPC 2003</b><br>
+                 the Fifth North American<br>
+               Yet Another Perl Conference<br>
+
+      <p>  <b><a href="http://yapc.org/America/">http://yapc.org/America/</a></b>
+
+      <p>            Florida Atlantic University,<br>
+                      Boca Raton, Florida 
+
+      <p>         Monday through Wednesday<br>
+                      June 2003 <br>
+		June 16-18
+      </div>
+
+<p>YAPC is a place for people to meet and talk about Perl -- where
+people who've done interesting things, people who are working
+on the language itself, people who are using it daily,
+and people who are looking to learn about it are all within
+arm's reach.  Some of the great authors and coders in the field
+will be on hand to discuss their work, as well as the nature
+and direction of Perl itself.
+
+<p>Please join us for three days of listening, talking and learning about 
+Perl in lovely Boca Raton.  
+
+<ul>
+<li><b>Conference pre-registration will be available by Feb. 1, 2003 and end June 9.</b>
+</ul>
+
+   <div align="center">
+   <b><a href="http://donate.perl-foundation.org/">http://donate.perl-foundation.org/</a></b>
+   <br><br>
+   <b>Conference registration cost: USD $85.</b>
+   </div>
+
+<ul>
+<li>Dorm rooms will be available at the University. When 
+    availability is determined, the dorm request information will be on
+    the website and registration form.
+   <br><br>
+<li>We are looking for sponsors. Please contact Kevin Lenzo
+  (<a href="mailto:lenzo@yapc.org">lenzo@yapc.org</a>) for information
+  about how you can help support the Yet Another Society and YAPC.
+  Much of the necessary funding for YAPC comes from the generous
+  donations of our sponsors.
+
+   <br><br>
+<li>Submitted papers: 
+</ul>
+
+   <div align="center">
+   <b>Abstract Submission Deadline: March 25, 2003</b>
+   </div>   
+
+<ul>
+   <p>All topics are welcome.  Here is a short list of subjects that 
+   might be presented: 
+   <p>
+   <blockquote>
+    Perl 6, Parrot, XML, CGI/Web, Interprocess Communication (IPC),
+    GUIs (GTk, Tk, Carbon, Cocoa), Natural Language Processing, Interactive Perl,
+    Agents, Perl as Glue, Object-Oriented Perl, Scientific Applications,
+    Guts, Internals, JAPHs, Perl Poetry, System Administration, DBI/DBD,
+    Non-UNIX Perl, Security, Peer-to-Peer Communication, Perl and Bioinformatics, 
+    Apache/mod_perl, Unicode and Perl, i18n/l10n/g11n, Optimizing and Debugging, Extending Perl, Embedding Perl, Your Favorite Topic.
+   </blockquote>
+   <p>Please submit your abstracts to &lt;<a
+   href="mailto:na-author@yapc.org">na-author@yapc.org</a>&gt;. See Lightning
+   Talk submission instructions below.  For all other talks, authors
+   are requested to limit their abstracts to 300 words. 
+
+   <p>Authors will be notified by April 14 if their abstract is accepted or rejected.
+
+   <p>Speakers have their registration fee waved. If you feel that your paper will be accepted, you do not need to register at this time. If you do register, you will get a refund for your registration at a later date.
+   <br><br>
+
+  <li>This year we will accept a number of types of talks:
+   <br><br>
+   <ul>
+     <li><b>Lightning:</b> <i>5 minutes</i>
+
+       <p>Lightning talks are brief (5-minute) talks that focus on a                                                    
+        single example, idea, project, or technique.  Lightning talks                                                 
+        do not attempt to cover all aspects of their subject matter,                                                  
+        but rather to present one facet of the idea clearly and                                                       
+        succinctly.
+
+
+	<p>To submit a proposal for a lightning talk, please send your                                                
+        proposed title and an abstract of up to four sentences to:
+
+      <p><div align="center">
+      <b><a href="mailto:mjd-yapc-lt-2003+@plover.com">mjd-yapc-lt-2003+@plover.com</a></b>
+      </div>
+
+      <p>Submissions are due by May 28 midnight (EDT).  Submitters will                                                
+        be notified by end-of-day Sunday, June 8 as to whether their                                                  
+        talks were accepted.  If your proposal is accepted, you will                                                  
+        be expected to confirm within 24 hours that you will give the                                                 
+        talk; otherwise, your slot may be given to someone else.
+
+        <p><div align="center">
+        <b><a href="http://perl.plover.com/lt/yapc2003.html">http://perl.plover.com/lt/yapc2003.html</a></b>
+        </div>
+
+       <p>Lightning talks are an excellent forum for first-time speakers.
+
+       <br><br>
+
+     <li><b>Standard:</b> <i>20 minutes</i>
+
+       <p>A standard talk is the preferred format.  This is enough 
+       time to start a topic, introduce it with some pithy slides, 
+       and open up to later conversation. 
+       <br><br>
+
+     <li><b>Long and Extra-Long:</b> <i>40 minutes, 85 minutes</i>
+
+       <p>Long talks are reserved for experienced speakers covering
+       large topics.  If you have an in-depth topic you would like
+       to present in some detail, perhaps with considerable 
+       discussion, a Long or Extra-Long talk may be the format of 
+       choice.
+       <br><br>
+
+     <li><b>Tutorial:</b>  <i>3 hours + break (possibly in two sets)</i>
+
+       <p>Half-day (or possibly full-day) tutorials. These tutorials tend to cover a wide range to material for a certain aspect of Perl programming. For example, an XML tutorial could cover XML basics, to writing XML, to parsing XML, to practical uses of XML.
+     </ul>
+   </ul>
+
+Conference origanizers reserve the right to change the length assigned to a talk, if deemed neccessary. If you want to speak on multiple topics, please submit a seperate proposal for each one.
+   <div align="center">
+   <p><b>Please submit your abstracts to 
+   &lt;<a href="mailto:na-author@yapc.org">na-author@yapc.org</a>&gt;!</b>
+   </div>
+
+<p>Thank you; we hope you will participate. If you have any questions,
+please mail &lt;<a href="mailto:na-help@yapc.org">na-help@yapc.org</a>&gt;.
+
+<p><hr size=1>
+
+<p>Yet Another Society is a non-profit organization for the
+advancement of collaborative efforts in computer and information
+sciences. YAS promotes symposia, teaching, and group projects.  See <a
+href="http://yetanother.org">http://yetanother.org</a> for more
+information.
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:kevin@yetanother.org">kevinm (at) yetanother.org</a>.<br>
+           All content copyright &copy; 2003 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

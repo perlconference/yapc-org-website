@@ -1,0 +1,17 @@
+Title:  Dates and Times in Perl                                                                                       
+Length: 85 minutes                                                                                                    
+                                                                                                                      
+Date and time manipulation is deceptively complicated.  There's UTC, TAI,                                             
+time zones, leap seconds, epochs in many flavors, date math, Daylight                                                 
+Saving Time, and more.  First, we'll cover what those terms (and more) all                                            
+mean.                                                                                                                 
+                                                                                                                      
+Then we'll take about what you might want to do with dates and times as a                                             
+programmer.  There's parsing, formatting, date math, date sets, and                                                   
+dealing with different calendars.                                                                                     
+                                                                                                                      
+There are too many date and time modules for Perl, plus Perl's built-ins,                                             
+so we'll take a look at a whole bunch of them, with a focus on a few big                                              
+players, including Date::Calc, Date::Manip, Graham Barr's TimeDate                                                    
+modules, and finally my project, the Perl DateTime module suite.`                                                     
+                                                                     

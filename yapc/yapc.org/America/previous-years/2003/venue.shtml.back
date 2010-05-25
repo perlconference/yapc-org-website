@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2003 is an inexpensive Perl conference on June 26-28, 2002, at Florida Atlantic University in Boca Raton, Florida, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,Florida Atlantic University,Boca Raton,Florida,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2003: Location</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Location"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+<!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Location</H2>
+        <p class="moddate"><small>
+          <a href="#getting">Getting There</a> |
+          <a href="#campus">On Campus</a> |
+          <a href="#accomm">Accommodations</a> |
+          <a href="#stlouis">Seeing Boca Raton</a>
+        </small>
+      </div>
+
+      <p><!-- <img align=right src="images/arch-trails.jpg" border=1 alt="Gateway to the West">  --> 
+      YAPC::NA 2003 will be held on the campus of <a href="http://www.fau.edu">Florida Atlantic
+      University</a>, located in of 
+      <a href="http://www.pbcgov.com/">Boca Raton</a>,
+      <a href="http://www.state.fl.us/">Florida</a>, United States. 
+ 
+
+
+      <p><b>Currency:</b> US Dollar. Visitors from outside the US will need to exchange currency to the dollar. 
+      <ul>
+        <li><a href="http://www.xe.net/ucc/">Currency convertor</a>
+      </ul>
+
+      <p><b>Climate:</b> In June, Boca Raton will be warm/hot and humid. Bring cool clothing. It would not be unusual to expect temperatures to be 90F/30C with 85%+ humidity. </p>
+      <ul>
+        <li><a href="http://www.wunderground.org/cgi-bin/findweather/getForecast?query=Boca+Raton">Boca Raton weather forecast</a>
+      </ul>
+
+
+      <a name="getting"></a>
+      <p><hr size=1>
+      <H3>Getting There</H3>      
+
+      <p>
+      Boca Raton is in the Southern tip of the US and is easy to get to via planes, trains and automobiles.</p>
+  
+      <p><b>By air:</b> 
+
+	<blockquote>
+	<b>Palm Beach International Airport</b><br>
+	Located between Southern Blvd. and Belvedere Rd. just off of I-95. Here is an <a href="http://www.pbia.org/location.htm">map</a>. It is roughly 20-30 minutes drive to FAU. There is a <a href="http://www.pbia.org/airlines.htm">directory online</a> airlines. They include Delta, American, Continental, Southwest, and others.
+	<p>
+
+	<b>Ft. Lauderdale Airport (FLL)</b><br>
+	<a href="http://www.broward.org/fll.htm">FLL airport</a> is located in Ft. Lauderdale. It is located about 25 miles south of FAU (20-30 minute drive). The drive time is roughly the same as Palm Beach International, and it is also close to I595 and I95 for driving, and has Tri Rail shuttle service to use Tri Rail. You can also see a <a href="http://www.broward.org/avi01900.htm">list of airlines serving FLL online</a>.
+	<p>
+	<b>Tri Rail</b><br>
+	The <a href="http://www.tri-rail.com">Tri Rail</a> system is a train which travels between Palm Beach and Miami for commuters. It can provide quick access between cities or the airport. There is a Tri Rail shuttle bus which will pick up and drop off from the airport (Palm Beach, FLL, and MIA airports). Info is on the <a href="http://www.tri-rail.com">website</a>.
+	<p>
+	Palm Beach County and Broward County have extensive bus systems, if needed.
+	</blockquote>
+
+      <p><b>By train:</b> 
+
+	<blockquote>
+	South Florida is served by <A HREF="http://www.amtrak.com/">Amtrak</A>. The <a href="http://www.amtrak.com/trains/silverservice.html">Silver Service</a> makes multiple stops here in South Florida.
+	</blockquote>
+
+      <p><b>By car:</b> 
+	<blockquote>
+	<A HREF="http://www.fau.edu/parking/">Parking</A> will be available on-campus at $1 USD per day.</p>
+
+      <p>Those roadtripping from home should use <A HREF="http://www.mapblast.com/myblast/index.mb">MapBlast</A> to get general driving directions. Check back here for local maps.
+
+	</blockquote>
+
+      <p><b>By bus:</b>
+
+	<blockquote>
+	<A HREF="http://www.greyhound.com/">Greyhound Bus</A> does service South Florida and Palm Beach.
+	</blockquote>
+
+      <a name="campus"></a>
+      <p><hr size=1>
+      <H3>On Campus</H3>
+
+	<p>Check back for more campus info, or visit the <a href="http://www.fau.edu">FAU Website</a></p>
+
+	<hr size=1>
+	<h3>Networking</h3>
+
+	Information on wireless networking will be coming.
+	<p>
+	The primary channel for FRS communications at YAPC is 5/13.  If for some reason that doesn't work,
+           switch to 6/16.  If you're new to the FRS/GMRS world, freeside recommends the Garmin Rino 120 or the
+           Motorola Talkabout 6250.
+
+<!--
+      <p><img align=right src="images/brookings.jpg" border=0 alt="Brookings Hall"><a href="http://www.wustl.edu">Washington University</a> is a distinguished university established in 1853 and named for George Washington since the charter was passed on Washington's Birthday. It is a leading institution in scholarship and research, including being a pioneer of the early internet with <A HREF="http://wuarchive.wustl.edu">WuArchive</A> and WUFTPd.</p>
+      
+      <p>Food that will be provided are: Morning buffet outside of Brown 100, morning coffee break, box lunches in Holmes Lounge, afternoon coffee/soda + snacks.
+
+      <p><b>To drive to WU or the Dorms at SLU</b>, follow the <a
+      href="http://www.slu.edu/pr/directions.html">SLU</a> or <A HREF="http://www.library.wustl.edu/units/spec/directions.html">WU</A> directions to campus. WU has an <A HREF="http://wupa.wustl.edu/guide/map/hilltop.html">Campus Map [ shockwave required ]</A> and there is no shortage of signage once on campus. SLU also has a <A HREF="http://www.slu.edu/campusmap/reinert.html">Map of Reinert Hall</A> where the dormitory rooms will be available. 
+      
+      <p><b>By <A HREF="http://www.bi-state.org/lightmp.htm">Metrolink</A></b>, take the line to <A HREF="images/delmar_metro.jpg">Delmar Station for WU</A> or to <A HREF="images/grand_metro.jpg">Grand Station for SLU</A>.
+
+      <p>Rich Lafferty has a 
+      <a href="http://alcor.concordia.ca/~rich/yapc/photo/">separate
+      photo gallery</a> of some of the conference facilities.
+
+// -->
+
+      <a name="accomm"></a>
+      <p><hr size=1>
+      <H3>Accommodations</H3>
+
+      <H4>FAU Residence Halls</H4>
+
+	Information on the residence halls is coming soon.
+<!--
+      <p>You can <a href="https://donate.perl-foundation.org/index.pl?node=Dorm+Info">book</a> a room in <a
+      href="http://www.slu.edu/services/residence/reinert_hall.html">Reinert Hall</a> at SLU.</P>
+// -->
+
+
+      <H4>Hotels, Hostels, etc.</H4>
+
+   There are several hotels and a hostel near FAU to suit nearly any budget. Check back soon for a listing.
+
+      <a name="boca"></a>
+      <p><hr size=1>
+      <H3>Seeing Boca Raton and South Florida</H3>
+
+<!-- <img align="right" width=135 height=80 src="images/t-skyline.jpg" border=0 alt="Montreal skyline"> -->
+    
+      <p>
+	<blockquote>
+	There are many many things to do in the area. You can find a list of some things on the <a href="http://www.pbcgov.com/PubInf/Tourism/index.htm">Palm Beach Gov't website</a>. Of course, there is the beaches for swimming, snorkeling, boating, parasailing, fishing, people watching, SCUBA diving and tanning. There are also fun places like the <a href="http://www.morikami.org/">Morikami Museum & Japanese Gardens</a> and the <a href="http://www.palmbeachzoo.org">Palm Beach Zoo</a>. There is surely an activity, museum, restaurant and place for nightlife for everyone of every age. I highly recommend one of my favorite (and my daughters) places, <a href="http://www.lioncountrysafari.com/">Lion Country Safari</a> (maybe a group trip could be done?).
+        <p>
+	Between the things to do in <a href="http://www.broward.org/">Broward County</a> and <a href="http://www.pbcgov.com/">Palm Beach County</a>, everyone in the family will keep busy! Also, Disney is only 3.5-4 hours away, Key Largo is about 2 hours away, and the Everglades are minutes away. The Bahamas are a short cruise away, there are night cruises to nowhere (a.k.a. gambling cruises) from FLL and Palm Beach (<a href="http://www.pbcasino.com/">Palm Beach Princess</a>).
+
+	</blockquote>
+	</p>
+
+</table>
+</BODY>
+</HTML>

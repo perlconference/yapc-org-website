@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2001 is an inexpensive Perl conference on June 13-15, 2001, at McGill University in Montreal, Quebec, Canada.">
+    <meta name="keywords"
+          content="Perl,Perl conference,McGill University,Montreal,Quebec,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2001: Sponsors</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Sponsors"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top" align=left>
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Sponsors</H2>
+      </div>
+      
+The people and companeis that contribute to YAS and YAPC keep
+evertyhing going.  We can't thank the following sponsors
+enough for their contributions -- in monetary donations, in materials,
+in tutorials and speakers.  Thank You, from All of us!
+
+<p>
+<UL>
+<LI> <a href="http://www.oreilly.com">O'Reilly and Associates</a>
+<p>
+<LI> <a href="http://www.awl.com">Addison-Wesley</a>
+<p>
+<LI> <a href="http://www.activestate.com">ActiveState Tool Corp.</a>
+<p>
+<LI> <a href="http://www.stonehenge.com">Stonehenge Consulting</a>
+<p>
+<LI> <a href="http://www.manning.com">Manning Publications</a>
+</UL>
+      <p><hr size=1>
+
+
+      <H3>Please Contribute!</H3>
+
+      <p>You or your company can choose to sponsor the YAPC and the
+      Yet Another Society by becoming a sponsor -- contributing more
+      than the basic cost. And contributions are tax deductible, as
+      YAS is a non-profit, 501(3)(c) corporation.
+
+      <p>Sponsors are listed among the materials, and in the
+      proceedings; the proceedings and the material are however
+      already printed out; they help us keep the costs down for most
+      people's registration through patronage.
+
+      <p>If you or your company would like to sponsor YAPC::NA 2001, or
+      to find out more, please contact Kevin Lenzo at 
+      <a href="mailto:lenzo@yapc.org">lenzo@yapc.org</a>.
+
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2001 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,133 @@
+<html>
+<head>
+	<title>YAPC::NA 2005 Timetable - Day 3 (Wednesday June 29, 2005)</title>
+	<style type="text/css">
+		a {text-decoration:none; color:black}
+	</style>
+</head>
+<body>
+
+<table border="0" width="100%">
+	<tr>
+		<td valign=center width="100%">
+			<font size="+3"><b>yapc: Yet Another Perl Conference</b></font><br/>
+			<font size="+2"><b>North America 2005 - June 27-29</b></font><br/>
+
+<a href=http://yapc.org/America/>
+<u><font size="+2" color="blue"><b>Return to YAPC::NA home page
+</b></font></u></a><br/>
+
+		</td>
+		<td rowspan="2"><a href="http://www.yapc.org/America/"><img src="register_camoose.png" border=0 alt="YAPC America::North"></a></td>
+	</tr>
+	<tr>
+		<td valign=center>
+			<table border=0 cellpadding=3 cellspacing=0 width=100%>
+			<tr>
+				<th align=center><a href="day1.html">Day 1<br/>Monday</a></th>
+				<th align=center><a href="day2.html">Day 2<br/>Tuesday</a></th>
+				<th align=center><h2>Day 3: Wednesday, June 29</h2></th>
+			</tr>
+			<tr>
+			</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<table border=1 cellpadding=3 cellspacing=0 width=100% bgcolor="#c0c0c0">
+	<tr>
+		<th bgcolor="#f0f0f0"><font size="+1">Time</font></th>
+		<th bgcolor="#f0ffff"><font size="+1">Grand Ballroom (East)</font></th>
+		<th bgcolor="#fff0ff"><font size="+1">Grand Ballroom (Centre)</font></th>
+		<th bgcolor="#f0f0ff"><font size="+1">Giovanni Room</font></th>
+	</tr>
+	<tr>
+		<td colspan=4></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>9:00</td>
+		<td bgcolor="#f0ffff" valign=top align=center rowspan=4><a href="summary.html#48"><b>Project estimation and<br/>tracking that works</b><br/>Andy Lester</a></td>
+		<td bgcolor="#fff0ff" valign=top align=center rowspan=2><a href="summary.html#49"><b>MVC Web Development with Perl</b><br/>Perrin Harkins</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center><a href="summary.html#50"><b>Where did my memory go?</b><br/>Dan Sugalski</a><br/>&nbsp;<br/></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>9:20</td>
+		<td bgcolor="#f0f0ff" valign=top align=center><a href="summary.html#51"><b>Lazy test development</b><br/>Joe McMahon</a><br/>&nbsp;<br/></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>9:40</td>
+		<td bgcolor="#fff0ff" valign=top align=center rowspan=2><a href="summary.html#52"><b>Introduction to Mason</b><br/>David Rolsky</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center><a href="summary.html#53"><b>Safe Sex in the 70s</b><br/>Yuval Kogman</a><br/>&nbsp;<br/></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>10:00</td>
+		<td bgcolor="#f0f0ff" valign=top align=center><a href="summary.html#54"><b>Five Development Tools I<br/>Can't Live Without</b><br/>Casey West</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#aaaaff" valign=center align=right nowrap>10:30</td>
+		<td bgcolor="#aaaaff" valign=top align=center colspan=3>Break (15 minutes) - snack provided</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>10:45</td>
+		<td bgcolor="#f0ffff" valign=top align=center><a href="summary.html#55"><b>Portable Perl - how to write code that will work everywhere</b><br/>Ivor Williams</a></td>
+		<td bgcolor="#fff0ff" valign=top align=center><a href="summary.html#56"><b>Introduction to CGI::Application</b><br/>Michael Peters</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center rowspan=2><a href="summary.html#57"><b>FreePAN - A Mirrored Repository<br/>for Perl 6 and Beyond</b><br/>Brian Ingerson</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>11:05</td>
+		<td bgcolor="#f0ffff" valign=top align=center rowspan=2><a href="summary.html#58"><b>Perl Blue Magic -<br/>Creating Perl Modules and Using the CPAN</b><br/>José Castro</a></td>
+		<td bgcolor="#fff0ff" valign=top align=center rowspan=2><a href="summary.html#59"><b>Pluggable Web Apps with CGI::Application and Perl</b><br/>Michael Peters</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>11:25</td>
+		<td bgcolor="#f0f0ff" valign=top align=center rowspan=2><a href="summary.html#60"><b>Perldoc - New Tools for Perl Documentation</b><br/>Brian Ingerson</a></td>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>11:45</td>
+		<td bgcolor="#f0ffff" valign=top align=center><a href="summary.html#61"><b>Preparing for CPAN</b><br/>Barbie</a><br/>&nbsp;<br/></td>
+		<td bgcolor="#fff0ff" valign=top align=center rowspan=1><a href="summary.html#61a"><b>CGI::Application::Framework</b><br/>Michael Graham</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#aaaaff" valign=center align=right nowrap>12:15</td>
+		<td bgcolor="#aaaaff" valign=top align=center colspan=3>Lunch (1hr 15 min) - find on your own, suggestions provided</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>1:30</td>
+		<td bgcolor="#ffffd0" valign=top align=center colspan=2 rowspan=4><a href="summary.html#62"><b>Lightning Talks</b><br/>R. Geoffrey Avery</a></td>
+		<td align=left valign=top rowspan=4 bgcolor=#a0a0a0>&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>1:50</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>2:10</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>2:30</td>
+	<tr>
+		<td bgcolor="#aaaaff" valign=center align=right nowrap>3:00</td>
+		<td bgcolor="#aaaaff" valign=top align=center colspan=3>Break (15 minutes) - snack provided</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>3:15</td>
+		<td bgcolor="#ffd0d0" valign=top align=center colspan=2 rowspan=2><a href="summary.html#63"><b>Closing Keynote</b></a></td>
+		<td align=left valign=top rowspan=4 bgcolor=#a0a0a0>&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>3:35</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>3:55</td>
+		<td bgcolor="#d0ffd0" valign=top align=center colspan=2 rowspan=2><a href="summary.html#64"><b>Town Hall Meeting</b></a><br/>&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>4:15</td>
+	</tr>
+	<tr>
+		<td bgcolor="#aaaaff" valign=center align=right nowrap>4:45</td>
+		<td bgcolor="#aaaaff" valign=top align=center colspan=3>End of Day, End of Conference</td>
+	</tr>
+</table>
+<center>(Click on titles to view abstracts)</center>
+
+</body>
+</html>

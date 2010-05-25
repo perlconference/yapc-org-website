@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2001 is an inexpensive Perl conference on June 13-15, 2001, at McGill University in Montreal, Quebec, Canada.">
+    <meta name="keywords"
+          content="Perl,Perl conference,McGill University,Montreal,Quebec,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2001: Dorms</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="../images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC America::North">
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top"> 
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Dorms</H2>
+        <p><hr size=0>
+      </div>
+
+
+
+
+
+<p><b>What is the cost of a room per day?</b></p>
+
+<p>The cost is CAD $40.26 per room per day (approximately USD $26),
+including taxes.</p>
+
+<p><b>Can I share the room with another person?</b></p>
+
+<p>Sorry, but McGill only offers single rooms (anyways, the bed in the
+room is <i>not</i> large enough to sleep two).</p>
+
+<p><b>What is the deadline to book a room?</b></p>
+
+<p>Room availability and the $40 rate are guaranteed only up to May
+28.  Some rooms <i>might</i> still be available after the deadline, but the
+price may be slightly higher.  So book the room now!</p>
+
+<p><b>How do I book a room?</b></p>
+
+<p>Call 514-398-6367 between 9AM and 5PM EDT, from Monday to Friday,
+and tell them you want to book a room for YAPC (the number
+514-398-5200 will also work, starting around May 7).  Have a Visa
+or Master Card number and expiration date on hand.  Note that the card
+will be debited only when you actually use the room.</p>
+
+<p><b>Can I pay by cheque or by cash?</b></p>
+
+
+<p>McGill requires 30 days to clear a cheque, so you're better off
+paying with a credit card (see previous question).  Unfortunately,
+they cannot take cash payment.</p>
+
+
+<p><b>Can I include payment for the room with my conference registration fee?</b></p>
+
+<p>Nope, sorry.  The two are handled by different people.</p>
+
+<p><b>For which dates can I book a room?</b></p>
+
+<p>You can book a room for earlier than the start of the conference,
+but call as soon as possible, as the availability is not guaranteed.
+If you want to spend a few days in Montreal after the conference,
+there should be no problem is keeping the room for a little longer.</p>
+
+<p><b>Where/when do I show up to get my room?</b></p>
+
+<p>Show up at <a
+href=http://garuda.wcg.mcgill.ca/maps/action.lasso?-Database=A.Bdg&-Table=W&-Response=r.html&ID=134&-Search>
+Bishop Mountain Hall</a> between 7AM and 10PM on the day for which
+you booked the room.</p>
+
+<p><b>What facilities do the rooms offer?</b></p>
+
+<p>Linens and towels are included; each floor shares a bathroom/shower
+facility. There will be a shared kitchenette available as well.</p>
+
+<p><b>If I cancel my YAPC registration, does my room get automatically
+cancelled?</b></p>
+
+<p>No.  You will have to call McGill to cancel your dorm room
+reservation separately.</p>
+
+<p><b>How do I cancel a reservation that has already been made?</b></p>
+
+
+<p>Call the same number you did when booking the room, and tell them
+you're cancelling.  If you cancel less than 30 days before the date
+you booked for, you will be charged for a single day.  If you cancel
+more than 30 days before the booking, it will cost you nothing.</p>
+
+
+<p><b>Do you offer group discounts?</b></p>
+
+<p>The $40 rate is already a kind of group discount, the group being
+the YAPC attendees.  It was the best we could get.</p>
+
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2001 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

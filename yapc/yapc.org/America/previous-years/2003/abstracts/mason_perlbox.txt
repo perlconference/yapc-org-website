@@ -1,0 +1,18 @@
+Title:                                                                                                                
+Creating Voice Enabled Applications with the Perlbox Voice Application                                                
+Framework                                                                                                             
+                                                                                                                      
+Author:                                                                                                               
+Shane C. Mason                                                                                                        
+                                                                                                                      
+Adbstract:                                                                                                            
+I will hold a discussion on the rapid creation of voice enabled                                                       
+applications using Perlbox Voice Application Framework to interface with                                              
+Sphinx2 and Festival speech systems. Perlbox Voice Application Framework                                              
+allows applications to utilize voice recognition and speech synthesis                                                 
+through a single transparent interface. This single interface                                                         
+provides the ability to dynamically create new language models in a                                                   
+sensible manner as well as access to many of the important features                                                   
+offered by Festival and Sphinx. Beyond the specific discussion on Perlbox,                                            
+I intend to include a discussion on general methods for adding voice                                                  
+support to any perl application. 

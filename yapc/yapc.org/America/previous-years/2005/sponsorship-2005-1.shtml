@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+  <meta name="ICBM" content="26.36508,-80.10235">
+ <meta name="DC.title" content="YAPC 2005 at UofT">
+    <meta name="description" content="YAPC 2005 is an inexpensive Perl conference on June 22-24, 2005, at the University of Toronto in Toronto, Ontario, Canada.">
+    <meta name="keywords" content="Perl,Perl conference,University of Toronto,Toronto,Ontario,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science"><title>YAPC 2005: Yet Another Perl Conference</title>
+    
+ 
+    <link rel="stylesheet" type="text/css" href="yapcna.css" title="yapcna"><base href="http://yapc.org/America/sponsorship.shtml"></head>
+
+  <body topmargin="0" leftmargin="0" bgcolor="#ffffff" link="#000099" marginheight="0" marginwidth="0" text="#000000">
+
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td class="side" bgcolor="#cccccc" width="120">
+      <table align="center" border="1" cellpadding="6" cellspacing="0">
+        <tbody><tr>
+          <td class="venue" align="center" bgcolor="#ffffff">
+
+ <!--#include virtual="include/venuebox.html" -->
+
+          </td>
+        </tr>
+       </tbody></table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" alt="YAPC Call for Participation" border="0" height="86" width="270"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" valign="top" width="120">
+
+<!--#include virtual="include/menu.html" -->
+
+</td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <h1>yapc: Yet Another Perl Conference</h1>
+        <h2>Sponsorship and Support</h2>
+      </div>
+
+<p>Yet Another Perl Conference is a grassroots effort, run by
+volunteers. We are dedicated to keeping the event affordable, and to do
+this, we rely on the amazing generosity of members of the Perl
+community.
+</p><div align="center">
+<h3>What do we need?</h3>
+</div>
+
+<p>Sponsorship can take many forms, such as:
+
+</p><ul>
+<li>Direct financial donations;
+</li><li>Sponsorship of a meal at the conference (lunch or dinner);
+</li><li>Donation of products or services for our auction;
+</li><li>Help with a conference expense (we have many, so contact us for details);
+</li></ul>
+
+<div align="center">
+<h3>What can we offer to sponsors?</h3>
+</div>
+
+<ul>
+   <li> We display your logo with a few words about your company 
+          on <a href="/America/sponsors.shtml">the conference web site</a>.</li>
+     <li> We will reproduce the same logo and text in printed conference materials.</li>
+     <li> We will mention all sponsors at the opening session and the final assembly.</li>
+     <li> Sponsors may provide something to be inserted in the conference bag.</li>
+     <li> We'll mention sponsors in email communications with attendees.</li>
+     <li>
+The main hallway of the conference building is large, so we can provide
+space to set up tables. If you would like to send representatives to
+talk to attendees, please contact us to discuss arrangements. (Contact
+Richard Dice: <a href=mailto:na-sponsor@yapc.org>na-sponsor@yapc.org</a>
+</li></ul>
+
+<div align="center">
+<h3>Questions and Answers</h3>
+</div>
+
+<ul>
+<li><b>Where does the money go?</b>
+<p>All money donated through YAPC goes to the <a href="http://www.perlfoundation.org">The Perl Foundation</a>, which is a unit of the <a href="http://yetanother.org" class="aLink">Yet Another Society</a>(YAS).
+
+</p></li><li><b>Is the contribution tax deductable?</b>
+<p>Yes! <a href="http://yetanother.org" class="aLink">Yet Another Society</a> (YAS) is a non-profit, 501(3)(c) corporation. Please contact us if you need specific information.
+
+</p></li><li><b>I'm sold, how do I donate?</b>
+<p>To donate directly, you can go to <a href="http://donate.perlfoundation.org/">the perl foundation donation site</a>.
+Click on the link to "Donate" and select "YAPC Donations" from the Fund
+Drive list. If you have questions or want to contribute in a different
+way, please contact me (Richard Dice) at rdice{at}pobox{dot}com.
+</p></li><li><b>More information:</b>
+<p>You can find more information in the <a href="http://donate.perlfoundation.org/index.pl?node=Contribution%20FAQ">Contribution FAQ</a> on the Perl Foundation site.</p></li>
+<li><b>Tax Receipt Note:</b>
+<p>At this time we are in the process of looking for a friendly
+Canadian non-profit organization to partner with who can provide tax
+receipts for Candian companies.</p></li>
+</ul>
+<p></p><hr size="1">
+
+<p>Yet Another Society is a non-profit organization for the
+advancement of collaborative efforts in computer and information
+sciences. YAS promotes symposia, teaching, and group projects.  See <a href="http://yetanother.org">http://yetanother.org</a> for more
+information.
+    </p></td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width="120">
+      <br><br><br> 
+    </td> 
+    <td valign="baseline">
+      <br>
+      <p class="moddate"><small>
+Last modified on November 5, 2004 by Richard Dice<br>
+All content copyright © 2003 Yet Another Society, Inc.
+</small></p>
+    </td>
+  </tr>
+</tbody></table>
+</body></html>

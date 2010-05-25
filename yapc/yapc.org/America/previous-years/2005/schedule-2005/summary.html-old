@@ -1,0 +1,956 @@
+<html>
+<head>
+	<title>YAPC::NA 2005 - Abstracts</title>
+</head>
+<body>
+
+<table border="0" width="100%">
+	<tr>
+		<td valign=center width="100%">
+			<font size="+3"><b>yapc: Yet Another Perl Conference</b></font><br/>
+			<font size="+2"><b>North America 2005 - June 27-29</b></font><p/>
+
+<a href=http://yapc.org/America/>
+<u><font size="+2" color="blue"><b>Return to YAPC::NA home page
+</b></font></u></a><br/>
+
+
+
+		</td>
+		<td valign=center align=center>
+			<font size="+3">Abstracts</font>
+		</td>
+		<td rowspan="2"><a href="http://www.yapc.org/America/"><img src="register_camoose.png" border=0 alt="YAPC America::North"></a></td>
+	</tr>
+</table>
+
+<ul>
+<li><a href="day1.html">Day 1</a></li>
+<li><a href="day2.html">Day 2</a></li>
+<li><a href="day3.html">Day 3</a></li>
+</ul>
+
+<a name="1"></a>
+<h3>Opening Ceremonies</h3>
+<ol>
+Room: Grand Ballroom<br>
+Time: 9:00 - 9:30<br>
+</ol>
+<ol>
+The obligatory welcome speech.
+</ol>
+
+<a name="2"></a>
+<h3>Opening Keynote: Larry Wall</h3>
+<ol>
+Room: Grand Ballroom<br>
+Time: 9:30 - 10:00<br>
+</ol>
+<ol>
+Larry will be speaking... about something.
+</ol>
+
+<a name="3"></a>
+<h3>Allison Randal: State of the Carrot 2004 - 2005</h3>
+<ol>
+Room: Grand Ballroom<br>
+Time: 10:00 - 10:30<br>
+</ol>
+<ol>
+A whirlwind tour of the past 12 months of Perl. New and improved, and
+100% carrot joke free!
+</ol>
+
+<a name="4"></a>
+<h3>Pete Krawczyk: The Tester's Toolkit - Start Testing Your Projects Today</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 10:45 - 12:15<br>
+</ol>
+<ol>
+With deadlines, budget pressures and scope uncertainty, testing can be
+one of the first things many software developers leave out of their
+schedule. Testing is often forgotten until a project is nearing
+completion at which point the perceived cost of testing is too high to
+justify expense. You can still test to your heart's content without
+having to have management approval.  Testing works even if it's just
+you doing it, even if you're the only person on the project.  Life
+doesn't have to be this way. Automated testing carries benefits that
+are loved by those who use it, and often misunderstood by those who
+haven't tried it.
+</ol>
+
+<a name="5"></a>
+<h3>Matt Rice: The Linux Professional Institute and Perl</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 10:45 - 11:25<br>
+</ol>
+<ol>
+A discussion regarding the not-for-profit Linux Professional Institute,
+its experiences with forging a Linux certification out of a
+community-driven process, and a chance to dialog with the Perl 
+community regarding a larger LAMP certification.
+</ol>
+
+<a name="6"></a>
+<h3>Peter Scott: Taming Legacy Perl</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 11:25 - 12:15<br>
+</ol>
+<ol>
+Perl is easy to start using. But sometimes being easy can get you into
+trouble. The many ways to program in Perl mean that Perl code can
+often be cryptic, obscure, or muddled. Just because a program runs
+doesn't mean it's maintainable. Hordes of programmers have acquired
+just enough Perl knowlege to get a program to run, and then one day,
+you find yourself tasked with maintaining or improving that program,
+and the horror begins. This session is designed to help you deal with
+that horror. You'll learn:
+<ul>
+<li> How to reformat and edit bad code
+<li> How to write tests for legacy code
+<li> Wrapping warnings and "use strict" around legacy code
+<li> How to debug troublesome applications
+<li> Analyzing legacy programs
+</ul>
+</ol>
+
+<a name="7"></a>
+<h3>Jim Brandt: Enterprise Workflow and Procurement Integration with Perl</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 10:45 - 11:25<br>
+</ol>
+<ol>
+The University at Buffalo is a large campus with extensive purchasing
+needs.  People at the university purchase everything from highlighters
+and pens to radioactive material for experiments. As a public
+institution we have strict rules for where, how, and by whom things
+can be purchased. In the past, the system works nearly all on paper. A
+project was initiated to make the process paperless and the solution
+combined a Perl web application with a commercial workflow product
+called Ultimus.
+</ol>
+
+<a name="8"></a>
+<h3>Keith Grennan: Sxip Homesites and Membersites - Perl-Powered Identity Web Services</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 11:25 - 12:15<br>
+</ol>
+<ol>
+The Sxip Network is a simple, secure and open digital identity
+network. This talk will explore technologies that power Sxip Network
+Homesites and Membersites. On the Sxip Network, the Homesite is the
+user's trusted identity repository, a Web service that employs many
+modern Web and security-related technologies to provide a simple,
+secure user experience.  The Homesite is powered by Class::DBI,
+Template Toolkit, and Yet Another Web Dispatcher.  The Perl Membersite
+Dev Kit (MDK) is a downloadable kit containing APIs and sample code
+for integrating SXIP functionality into a website in order to deploy
+it as a Membersite.  We will discuss the architecture in detail and
+how a web service can be developed quickly in Perl.
+</ol>
+
+<a name="9"></a>
+<h3>chromatic: Solutions To Common Testing Problems</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 1:30 - 3:00<br>
+</ol>
+<ol>
+This talk presents excerpts from the book by myself and Ian Langworth
+on test modules you should know, test techniques you'll otherwise have
+to discover on your own, and hard-won knowledge from people who've
+solved the testing problems you're likely to face.  In particular,
+we'll concentrate on techniques for testing websites, database testing
+tricks, and writing testing libraries and custom testing harnesses.
+</ol>
+
+<a name="12"></a>
+<h3>Geoffrey Young: Writing Tests with Apache-Test, Part II</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 1:30 - 2:15<br>
+</ol>
+<ol>
+At last year's YAPC, between the beer and buffalo wings, you got to
+know the basics of Apache-Test. Now, it's time to get familiar with
+what really makes it a really valuable testing platform.  Apache-Test
+allows you to run tests directly within the mod_perl runtime
+environment, providing the ability to exercise server-side APIs in a
+way no other testing framework can. If mod_perl is your thing, you
+absolutely need to check this out.
+</ol>
+
+<a name="10"></a>
+<h3>Michael Schout: mod_perl Authentication With Apache::AuthCookie</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 2:15 - 2:30<br>
+</ol>
+<ol>
+If you have written more than a few mod_perl applications, you have
+almost certainly needed to add authentication to at least some of
+these applications. But what do you do when basic HTTP authentication
+is not sufficient for your needs? This presentation introduces
+developers to cookie based authentication frameworks using
+Apache::AuthCookie and Apache::AuthTicket.
+</ol>
+
+<a name="11"></a>
+<h3>Dorian Taylor: Abstracting the Apache Configuration API</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 2:30 - 3:00<br>
+</ol>
+<ol>
+The Apache configuration customization API, although made available
+for exploitation by mod_perl developers, still closely mimics the 'C'
+API and has still yet to take true advantage of Perl's more abstract
+features. I intend to demonstrate a suite of modules and samples that
+will extend and abstract the mod_perl configuration API. This will
+allow for more concise and understandable code that lends itself to
+the style of programming more familiar to Perl developers, to produce
+a result familiar to system administrators.
+</ol>
+
+<a name="13"></a>
+<a name="16"></a>
+<h3>Tim Maher: Minimal Perl, for UNIX & Linux People</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 1:30 - 4:45<br>
+</ol>
+<ol>
+Prerequisites are the familiarity with command-line use of the
+UNIX/Linux grep command, and preferably a little sed and awk as
+well. This course is intended for all users of UNIX/Linux shells,
+ranging from managers whose only claim to technical prowess is
+occasional use of grep, through system administrators and software
+developers possessing more advanced skills. What you will learn will
+be a carefully selected minimal subset of Perl that gives immediate
+access to many of its powerful capabilities, and serves as a solid
+foundation for additional learning. Upon completion of this tutorial,
+attendees will have the necessary skills to perform many common tasks,
+such as converting files, validating data, and generating simple
+reports.
+</ol>
+
+<a name="14"></a>
+<h3>Jim Keenan: Phalanx from the Trenches: A Local Perl Users Group's Experiences</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 3:15 - 3:55<br>
+</ol>
+<ol>
+How we as members of a local Perl users' group organized ourselves to
+participate in the Phalanx project, what we accomplished, and what
+obstacles we had to overcome.
+</ol>
+
+<a name="15"></a>
+<h3>Geoffrey Young: A Few Cool Things About mod_perl 2.0</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 3:15 - 3:55<br>
+</ol>
+<ol>
+mod_perl 2.0 is certainly a lot to digest. But hidden deep in the
+recesses of this new release are lots of features that you won't find
+at the forefront of the typical "why mod_perl 2.0" discussion but
+which are super cool. Oh, and they are important to your migration
+strategy too. This talk will outline a few of the important but lesser
+known features of mod_perl 2.0 that will get you thinking in new
+directions as you migrate away from mod_perl 1.0.
+</ol>
+
+<a name="17"></a>
+<h3>Stig Brautaset: Testing C projects with Perl</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 3:55 - 4:15<br>
+</ol>
+<ol>
+Demonstrate how using Perl, Test::Harness and libtap can take the pain
+out of testing in 'C'.  The whole process from writing tests (in 'C',
+using libtap, and in Perl, using Test::More) to running the tests
+under Test::Harness via Automake will be covered.  (libtap is a 'C'
+implementation of the Test Anything Protocol (TAP), the protocol used
+by Perl's Test::Harness.)
+</ol>
+
+<a name="18"></a>
+<h3>José Castro: Perl Black Magic - directors cut - Obfuscation and Golfing</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 3:55 - 4:45<br>
+</ol>
+<ol>
+Everything you always wanted to know about Obfuscation and Golfing,
+some strange techniques and odd operators many are not aware of, the
+three rules of Obfuscation and many more.
+</ol>
+
+<a name="19"></a>
+<h3>Daniel Wright: AnyData - A Case Study</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 4:15 - 4:45<br>
+</ol>
+<ol>
+Projects always start out small and then end up growing bigger. Sooner
+or later you will find yourself trying to migrate your data store from
+one file format to another.  'AnyData' is a wonderful tool that will
+help you manage your data store regardless of what format it is in and
+allows you to change your storage format without changing much code.
+</ol>
+
+<hr>
+<a name="20"></a>
+<h3>Brian Ingerson: Writing Kwiki Plugins</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 9:00 - 10:10<br>
+</ol>
+<ol>
+You will learn the ins and outs of writing Kwiki plug-in modules and
+the generic Spiffy and Spoon object oriented framework that Kwiki is
+built on top of.  Kwiki is perhaps the most extensible wiki software
+available. Kwiki's architectural goal is simple: "When you combine a
+given set of Kwiki plug-ins, everything will Just Work."  By writing
+Kwiki plug-ins you can manipulate the core software into almost
+anything you want.
+</ol>
+
+<a name="21"></a>
+<a name="26"></a>
+<h3>Autrijus Tang: Apocalypse Now - Perl6 is Here Today</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 9:00 - 12:15<br>
+</ol>
+<ol>
+This talk covers the current state of Pugs project, a working Perl 6
+implementation, and how to join its development.  Just when it seemed
+like Perl6 was taking a wee bit longer than expected, Pugs is a
+working Perl6 interpreter created in a few short weeks based on
+Larry's latest Synopses series. This talk will present the state of
+the Pugs project, as well as how to start hacking it.
+</ol>
+
+<a name="22"></a>
+<h3>Abigail: Lexical::Attributes</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 9:00 - 10:30<br>
+</ol>
+<ol>
+I discuss my 10 year relationship with Perl objects and will show the
+problems that traditional, hash-based Perl objects have. Over the
+years various techniques have been developed to solve the problems,
+eventually leading to inside-out objects (recommended in Damian's new
+book "Perl Best Practises"), and the module Lexical::Attributes which
+hides the implementation of inside-out objects behind syntax borrowed
+from Perl6.
+</ol>
+
+<a name="23"></a>
+<a name="28"></a>
+<a name="36"></a>
+<a name="45"></a>
+<h3>brian d foy: Learning Perl</h3>
+<ol>
+Room: "brian d foyer"<br>
+Time: 9:00 - 4:45<br>
+</ol>
+<ol>
+This is a brief introduction to Learning Perl, intended for the people at
+the conference who are not currently fully proficient Perl programmers.
+It is presented by brian d foy, one of the professional Perl instructors
+of Stonehenge Consulting Services, as the Stonehenge sponsorship of YAPC::NA.
+</ol>
+
+<a name="24"></a>
+<h3>Stephen Jenkins: Offline Programmatic Generation of Web Pages</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 10:10 - 10:30<br>
+</ol>
+<ol>
+As programmers, when we need to provide web-accessible information,
+two methods usually come to mind: a static one - creating web pages in
+an editor or web development tool; and a dynamic one - creating CGI
+programs to generate HTML. There is however a third, often overlooked
+option: offline programmatic generation of web pages (OPG).  OPG
+describes writing programs to generate HTML documents at the time and
+location of your choosing, as opposed to CGI programs where the pages
+are generated at access time, on the computer hosting the web
+server. In this presentation we will spend time discussing the pros
+and cons of OPG and some of the things it is best used for.
+</ol>
+
+<a name="25"></a>
+<h3>David Rolsky: Perl Modules for Exceptions, Logging, and Parameter Validation</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 10:45 - 11:25<br>
+</ol>
+<ol>
+It's often better to give up in a controlled manner than to forge
+ahead and generate garbage output. With good parameter validation,
+error handling and logging, you can make sure that your programs fail
+predictably and deal with those failures in a useful way. This talk
+covers a few different programming practices that can improve the
+quality of your code focusing on available CPAN modules for these
+practices.  First we cover parameter validation, assertions, and
+design by contract programming.  Next we talk about error handling,
+specifically return codes and exceptions.  Finally we examine
+logging. The goal of this presentation is to help you expand your
+toolkit for writing reliable code in a defensive programming style.
+</ol>
+
+<a name="27"></a>
+<h3>Mark Fowler: Using utf-8 in Perl</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 10:45 - 11:25<br>
+</ol>
+<ol>
+Perl and utf-8 isn't hard, it's just tricky. This talk covers the
+basic tricks you need to know to get started with character encodings
+and Perl.
+</ol>
+
+<a name="29"></a>
+<h3>Kevin Scaldeferri: How to Serve a Billion Requests a Day with Perl</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 11:25 - 11:45<br>
+</ol>
+<ol>
+This session will discuss the challenges of building complex services
+that can handle very high query rates with low latency and high
+availability. At Yahoo! Search Marketing, formerly Overture, we have
+developed a number of systems that have successfully scaled over
+several orders of magnitude in both data volume and query rate, and I
+will discuss the ideas behind some of these.
+</ol>
+
+<a name="30"></a>
+<h3>Luke Palmer: A Language For Games</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 11:25 - 11:45<br>
+</ol>
+<ol>
+Introduces and discusses the Glop (Game Language of Perl) library, a
+collection of modules designed to make game programming as easy as
+Perl makes text processing.
+</ol>
+
+<a name="31"></a>
+<h3>Walt Mankowski: Using Graph Theory to Detect Security Policy Violators</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 11:45 - 12:15<br>
+</ol>
+<ol>
+This talk describes the preliminary results in using Perl and graph
+theory to find possible abusers of Drexel's email system. We began
+with a simple assumption -- that legitimate users of the system will
+tend to exchange emails with each other. We built a graph of a year's
+worth of email traffic, and found the connected components of the
+graph. The vast majority of users fell into one large strong
+set. Those who were outliers merited closer scrutiny.
+</ol>
+
+<a name="32"></a>
+<h3>john saylor: 'vexations in perl' or 'control loops for serious immobility'</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 11:45 - 12:15<br>
+</ol>
+<ol>
+Erik Satie, an obscure and deceased french composer scribbled a few
+musical fragments with some performance instructions and called it
+'vexations'. This is about how I took his instructions, added a few
+wrinkles of my own, and wrote a perl script to generate a MIDI file.
+</ol>
+
+<a name="33"></a>
+<h3>Shawn Sorichetti: Making the switch: DBI to Class::DBI</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 1:30 - 1:50<br>
+</ol>
+<ol>
+Trying to figure out a procedure in Class::DBI that you know how to do
+with DBI?  This talk takes a number of common place DBI/SQL idioms and
+shows how they're done in Class::DBI.
+</ol>
+
+<a name="34"></a>
+<h3>Patrick Michaud: Status of the Perl 6 compiler</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 1:30 - 1:50<br>
+</ol>
+<ol>
+Near the end of 2004, the Perl 6 specifications finally reached
+sufficient maturity to begin implementation of a Perl 6 compiler that
+targets the Parrot runtime environment.  This presentation will
+provide attendees with the current status of the implementation of the
+Perl 6 compiler including milestones reached, items to be completed
+next, and a brief history of the compiler's development.
+</ol>
+
+<a name="35"></a>
+<h3>Steve Purkis: International Address Parsing with Perl</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 1:30 - 1:50<br>
+</ol>
+<ol>
+Introduce the difficulties of parsing international addresses, and
+examine ways of tackling address parsing with Perl.  Address parsing,
+or breaking addresses up into elements that can be used for geocoding
+or formatting is hard.  It's a very small subset of natural language
+processing (which is even harder!), and while addresses tend to be
+quite structured, the structures themselves vary from country to
+country and language to language. What's more, the way an address is
+written down depends largely on the person writing it.
+</ol>
+
+<a name="37"></a>
+<h3>Marina Greenstein: Perl Programing with DB2</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 1:50 - 2:30<br>
+</ol>
+<ol>
+This presentation demonstrates how to connect to DB2 database, how to
+update data in that database and how to retrieve those data.
+</ol>
+
+<a name="38"></a>
+<h3>Chip Salzenberg & Dan Sugalski: Parrot: Present and Future</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 1:50 - 3:00<br>
+</ol>
+<ol>
+What is Parrot's architecture? What will it be by the time it's
+released as 1.0?  Nobody knows, but the best guesses in the world will
+come from Chip and Dan.
+</ol>
+
+<a name="39"></a>
+<h3>Daniel Yacob: Regular Expressions for Syllabaries</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 1:50 - 2:30<br>
+</ol>
+<ol>
+Imagine how regular expressions might be different had they originated
+by users of a non-Roman writing system? The presentation explores
+regular expressions developed around the requirements of syllabaries
+which are two and even three-dimensional writing systems. Practical
+examples are presented by applying the capabilities of the
+Regexp::Ethiopic module.
+</ol>
+
+<a name="40"></a>
+<h3>Steve Purkis: High-Availability & DBI</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 2:30 - 3:00<br>
+</ol>
+<ol>
+Implementing high-availability MySQL database connections with the DBI
+in a production environment.
+</ol>
+
+<a name="41"></a>
+<h3>Barbie: "Wyt ti'n medru siarad Saesneg?" and why need a phrasebook</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 2:30 - 3:00<br>
+</ol>
+<ol>
+Phrasebooks are a part of life. When travelling from country to
+country, a handy phrasebook can be a lifesaver in getting yourself
+understood. The same is true of computing. Having a phrasebook to
+translate error codes to meaningful descriptions or websites text into
+specific languages can save a lot of time and effort for the
+programmer and user.
+</ol>
+
+<a name="42"></a>
+<h3>Casey West: Beyond the Basics of Class::DBI</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 3:15 - 3:55<br>
+</ol>
+<ol>
+Class::DBI is an excellent example of software that brings you to the
+infamous 80/20 rule.  When you need just a little more functionality
+out of your object relational mapper Class::DBI usually has a solution
+for that.  In this talk we'll explore many of the incredible, complex
+features and plug-ins available for the CDBI platform to take you the
+rest of the way, and learn how to create our own plug-ins for release
+on the CPAN.
+</ol>
+
+<a name="43"></a>
+<h3>Patrick Michaud: PGE - The Perl/Parrot Grammar Engine</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 3:15 - 4:45<br>
+</ol>
+<ol>
+One of the key features of Perl 5 was its built-in support for regular
+expressions; indeed, Perl 5's regular expressions were so popular that
+they have become standard in a wide variety of other systems and
+languages. Perl 6 has redesigned Perl 5 regular expressions and turned
+them into "Perl 6 rules" complete with grammars.  At the heart of
+implementing Perl 6 rules will be the "Perl/Parrot Grammar Engine", or
+PGE.  PGE has been designed and implemented as a Parrot compiler so
+that any Parrot-based language can compile and make use of
+pattern-matching rules using the Perl 6 rules syntax.  This
+presentation provides a complete and detailed overview of PGE--its
+design, implementation, the latest version of the Perl 6 rules syntax,
+and its internal construction.  The presentation will briefly review
+the Perl 6 rules syntax, demonstrate how PGE interfaces with Parrot
+and other languages, examine the code generated by PGE, and describe
+how it forms the basis of the Perl 6 to Parrot compiler.
+</ol>
+
+<a name="44"></a>
+<h3>David Rolsky: Perl DateTime Project</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 3:15 - 3:55<br>
+</ol>
+<ol>
+The Perl DateTime project was started at the beginning of 2003 to
+create a set of interoperable modules covering all aspects of
+date/time programming. Since the beginning of the project, several
+dozen modules have been created including a core date/time object,
+time zone modules, modules for numerous non-Gregorian calendars,
+formatting and parsing, and much more. This presentation will show you
+how to solve date/time programming problems using modules from
+DateTime project. Some of the areas covered will include how to handle
+data in for date/times in multiple time zones, date/time math,
+localization, formatting and parsing, set math with date/times, and
+more.
+</ol>
+
+<a name="46"></a>
+<h3>Dan Friedman: Getting your data from there to here: Class::DBI::DataMigration</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 3:55 - 4:45<br>
+</ol>
+<ol>
+Redesigning a database is often a challenging but refreshing chance to
+clean up and reorganize your data. However you are often left with a
+bunch of data in the legacy database that needs to be migrated from
+the old schema to the new one. Having solved this problem a few times,
+and realizing I was going to have to solve it on an ongoing basis, I
+got lazy and wrote a framework.
+</ol>
+
+<a name="47"></a>
+<h3>Casey West: Managing Email with Perl</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 3:55 - 4:45<br>
+</ol>
+<ol>
+This talk covers the Perl Email project in great detail. It outlines
+the current capabilities of the project, and its future directions. I
+will talk you through a handfull of interesting use cases. You will
+learn everything from sending email to stripping attachments.
+</ol>
+
+<hr>
+
+<a name="48"></a>
+<h3>Andy Lester: Project estimation and tracking that works</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 9:00 - 10:30<br>
+</ol>
+<ol>
+Embarrassing bugs, late-night phone calls and impossible schedules are
+all crises no one wants, but are all too common. Don't accept them as
+inevitable, prevent them!  Learn how to change from scapegoat to rock
+star, and bring back the joy of development.
+</ol>
+
+<a name="49"></a>
+<h3>Perrin Harkins: MVC Web Development with Perl</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 9:00 - 9:40<br>
+</ol>
+<ol>
+There are many frameworks for applying the model-view-controller (MVC)
+approach to web development and Perl has no shortage of them. This
+talk will look at some of the most popular options available and
+compare a sample application in each of them, in order to help
+developers make an informed choice.
+</ol>
+
+<a name="50"></a>
+<h3>Dan Sugalski: Where did my memory go?</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 9:00 - 9:20<br>
+</ol>
+<ol>
+Figuring out how much memory Perl is using and where it's using it can
+be a tricky thing.  By the end of this presentation we hope we'll have
+turned the subject from a black art to at least a middle-grey one
+covering the following topics: figuring out where Perl uses memory,
+techniques to reduce memory usage, places where Perl uses memory you
+might not expect, and quantifying Perl's memory usage.
+</ol>
+
+<a name="51"></a>
+<h3>Joe McMahon: Lazy test development</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 9:20 - 9:40<br>
+</ol>
+<ol>
+It's a pain to switch from debugging a program to writing tests, so
+why not make this easier?  Devel::TestEmbed makes it possible to use
+the debugger to help you write tests while you're debugging ... inside
+the debugger itself!
+<p>
+Traditionally, writing tests and debuging have been disjoint
+activities.  You either were debugging, or you were writing tests.  We
+look at using some of the debugger's documented interfaces in slightly
+nonstandard ways to allow us to integrate Test::More into the debugger
+and how to use these interfaces to add new behavior to the debugger to
+save tests done during a debugger session.
+</ol>
+
+<a name="52"></a>
+<h3>David Rolsky: Introduction to Mason</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 9:40 - 10:30<br>
+</ol>
+<ol>
+An introduction to Mason that will cover many of Mason's features,
+including its templating syntax, code re-use oriented features like
+autohandlers and dhandlers, and caching.  It will also cover Mason's
+integration with mod_perl and plain CGI.  Finally, we'll take a look
+at Mason subrequests, Mason's "OO" attributes and methods, component
+calls with content, using Mason outside of the web, and implementing
+an MVC architecture with Mason.
+</ol>
+
+<a name="53"></a>
+<h3>Yuval Kogman: Safe Sex in the 70s</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 9:40 - 10:00<br>
+</ol>
+<ol>
+Safe sex in the 70s Post-mortum conclusions about robustness, KISS and
+the waterbed theory in program design and implementation. The talk
+goes through some real examples, each trying to solve a hairy problem,
+where incorrect results or behavior are a serious problem and should
+be designed out of the system.
+</ol>
+
+<a name="54"></a>
+<h3>Casey West: Five Development Tools I Can't Live Without</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 10:00 - 10:30<br>
+</ol>
+<ol>
+There are some tools you can't live without and Perl has some very
+nice gems.  You need to have easy access to documentation, easy ways
+to test and measure success, and utilities to help you port your code.
+The CPAN has a handful of indispensable projects you need to know
+about.
+</ol>
+
+<a name="55"></a>
+<h3>Ivor Williams: Portable Perl - how to write code that will work everywhere</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 10:45 - 11:05<br>
+</ol>
+<ol>
+CPAN modules should be usable by everybody, not just for a single
+platform.  Despite the fact that people have gone to great lengths
+making Perl portable, there are many issues that can cause code to
+break when run on a different platform from the one on which it was
+developed. But if you follow the rules set out in perlport, you should
+be able to write code that will work everywhere.
+</ol>
+
+<a name="56"></a>
+<h3>Michael Peters: Introduction to CGI::Application</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 10:45 - 11:05<br>
+</ol>
+<ol>
+With so many MVC frameworks currently being developed for Perl,
+sometimes it's hard to reach the level of abstraction you want and
+still be completely in control.  CGI::Application has been a mainstay
+in object oriented web development since it was first introduced to
+the Perl community in 2000 (and PHP in 2004). Now it is even easier to
+build a custom, reusable framework taking advantage of community best
+practices by using plug-ins.
+</ol>
+
+<a name="57"></a>
+<h3>Brian Ingerson: FreePAN - A Mirrored Repository for Perl 6 and Beyond</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 10:45 - 11:25<br>
+</ol>
+<ol>
+CPAN is about mirroring released Perl code.  FreePAN is the current
+home of Perl 6 module development.  FreePAN extends that idea by
+mirroring Subversion repositories for Perl code and other languages
+too and offers features beyond CPAN.  In this talk will concentrate on
+explaining the FreePAN architecture and how to use FreePAN for Perl6
+development, and what is different about Perl 6 module
+development/distribution compared to Perl 5.
+</ol>
+
+<a name="58"></a>
+<h3>José Castro: Perl Blue Magic - Creating Perl Modules and Using the CPAN</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 11:05 - 11:45<br>
+</ol>
+<ol>
+The talk will follow the creation of module since the very first idea,
+up to it being in a mature state on CPAN, being maintained. All the
+usual stages will be followed chronologically, and will include:
+naming the module, design decisions (exporting, OOP or not, etc),
+testing, version numbers, files in the distribution, best practices to
+follow, common mistakes, etc.
+</ol>
+
+<a name="59"></a>
+<h3>Michael Peters: Pluggable Web Apps with CGI::Application and Perl</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 11:05 - 11:45<br>
+</ol>
+<ol>
+This presentation will look at recent developments in CGI::Application
+that allow greater resuability of structure with a specific focus on
+plug-in-based features.  These plug-ins allow the developer to
+concentrate on application specific business logic while incorporating
+community best practices for needs like templating, form validation,
+session handling, logging and configuration.  We'll step through the
+creation of a project base class using plug-ins and end up with a
+reusable base for almost any web application.  We'll also look at what
+resources are available for plug-in developers and how you can turn
+your favorite module into a plug-in for CGI::Application.
+</ol>
+
+<a name="60"></a>
+<h3>Brian Ingerson: Perldoc - New Tools for Perl Documentation</h3>
+<ol>
+Room: Giovanni Room<br>
+Time: 11:25 - 12:15<br>
+</ol>
+<ol>
+Perldoc is a new suite of tools that moves Perl documentation beyond
+Pod while remaining 100% backwards compatible with Pod.  In this talk
+you will learn about Perldoc.pm and friends, a set of tools that gives
+you much more power, flexibility and ease of use in your Perl
+documentation.  It will cover Perldoc syntax dialects such as Pod and
+Kwid, talk about the Perldoc Object Model and streaming vs DOM
+operations. It will also show new ways to layout your doc such that
+sections can be reordered. and finally the ideas in Perldoc that have
+been proposed to become standard in Perl 6.
+</ol>
+
+<a name="61"></a> <h3>Barbie: Preparing for CPAN</h3>
+<ol>
+Room: Grand Ballroom (East)<br>
+Time: 11:45 - 12:15<br>
+</ol>
+<ol>
+When creating distributions for CPAN, it is very easy to catch obvious
+mistakes or popular misunderstandings if you know about them. A
+sizable proportion of failure reports from cpan-testers could be
+avoided, if there were a common set of known issues. This talk aims to
+list a few, and provide some answers.
+</ol>
+
+<a name="61a"></a> <h3>Michael Graham: CGI::Application::Framework</h3>
+<ol>
+Room: Grand Ballroom (Centre)<br>
+Time: 11:45 - 12:15<br>
+</ol>
+<ol>
+CGI::Application::Framework is a ready-to-use web development framework
+that integrates a lot of powerful CPAN modules.  It makes it easy to
+write web applications using templates, sessioning, login forms, form
+validation and more.
+</ol>
+
+<a name="62"></a>
+<h3>R Geoffrey Avery: Lightning Talks</h3>
+<ol>
+Room: Grand Ballroom<br>
+Time: 1:30 - 3:00<br>
+</ol>
+<ol>
+What are Lightning Talks? Lightning Talks are sixteen five-minute talks in a
+ninety-minute time slot. They have become popular at the Perl conferences in
+the last few years.
+<p>
+Why would you want to do a Lightning Talk? Maybe you've never given a
+talk before, and you'd like to start small. You don't need to make
+slides, and if you do decide to make slides, you only need to make
+three. Maybe you're nervous and you're afraid you'll mess up. It's a
+lot easier to plan and deliver a five minute talk than it is to
+deliver a long talk. And if you do mess up, at least the painful part
+will be over quickly. Maybe you don't have much to say. Maybe you just
+want to ask a question, or invite people to help you with your
+project, or boast about something you did, or tell a short cautionary
+story. These things are all interesting and worth talking about.
+</ol>
+
+<a name="63"></a>
+<h3>Closing Keynote</h3>
+<ol>
+Room: Grand Ballroom<br>
+Time: 3:15 - 3:55<br>
+</ol>
+<ol>
+Some things are best left unsaid.  This is one of them.  Good Perl and good
+times are assured.
+</ol>
+
+<a name="64"></a>
+<h3>Town Hall Meeting</h3>
+<ol>
+Room: Grand Ballroom<br>
+Time: 3:55 - 4:45<br>
+</ol>
+<ol>
+A general free-for-all discussing what needs to be discussed.
+</ol>
+
+</body>
+</html>

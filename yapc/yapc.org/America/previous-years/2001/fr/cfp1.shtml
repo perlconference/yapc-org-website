@@ -1,0 +1,225 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2001 is an inexpensive Perl conference on June 13-15, 2001, at McGill University in Montreal, Quebec, Canada.">
+    <meta name="keywords"
+          content="Perl,Perl conference,McGill University,Montreal,Quebec,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2001: Premier appel a la participation</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+
+    <td class="header" align="center">
+      <img src="../images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Premier appel a la participation"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1>
+        <H2>Appel &agrave; la participation</H2>
+      </div>
+
+      <div align="center">
+      <p><hr size=1>
+      <H3>Troisi&egrave;me YAPC Am&eacute;rique du Nord:
+          premier appel &agrave; la participation</h3>
+
+
+      <p>            Yet Another Society<br>
+                vous invite &agrave; participer &agrave;
+
+      <p>                 <b>YAPC 2001</b><br>
+                        La troisi&egrave;me<br>
+                 Yet Another Perl Conference<br>
+                     en Am&eacute;rique du Nord<br>
+
+      <p>  <b><a href="http://yapc.org/America/">http://yapc.org/America/</a></b>
+
+      <p>          Universit&eacute; McGill,<br>
+                  Montr&eacute;al, Qu&eacute;bec
+
+      <p>         Du mercredi au vendredi<br>
+                    13 au 15 juin, 2001<br>
+</div>
+
+<p>YAPC est un endroit o&ugrave; se rencontrer et parler de
+Perl; o&ugrave; sont r&eacute;unis des gens qui ont fait des choses int&eacute;ressantes,
+qui travaillent sur le langage lui-m&ecirc;me, qui
+utilisent ce langage tous les jours et qui veulent en apprendre plus.  Quelques uns des
+meilleurs auteurs et codeurs dans le domaine seront pr&eacute;sents
+pour discuter de leur travail, ainsi que de la nature et de l'avenir
+du langage Perl lui-m&ecirc;me.
+
+<p>Joignez-vous donc &agrave; nous &agrave; Montr&eacute;al pendant
+trois jours pour parler et entendre parler de Perl.
+
+<ul>
+<li>Inscrivez-vous &agrave; la conf&eacute;rence d&egrave;s le 1er f&eacute;vrier:
+</ul>
+   <div align="center">
+   <b><a href="http://na-register.yapc.org/">http://na-register.yapc.org/</a></b>
+   </div>
+
+<ul>
+<li>Des r&eacute;sidences &eacute;tudiantes pour les participants seront disponibles
+   sur le campus de l'universit&eacute; (les tarifs
+   seront annonc&eacute;s plus tard); le formulaire d'inscription donnera 
+   toutes les informations n&eacute;cessaires &agrave; ce sujet.
+</ul>
+
+   <div align="center">
+   <b>Frais d'inscription &agrave; la conf&eacute;rence: 85$US (environ 125$CDN).</b>
+   </div>
+
+<ul>
+<li>Nous sommes &agrave; la recherche de commanditaires. Veuillez
+   contacter Kevin Lenzo (<a href="mailto:lenzo@yapc.org">lenzo@yapc.org</a>) 
+   pour savoir comment vous pouvez encourager la Yet Another Society
+   et YAPC.  Une grande partie des fonds n&eacute;cessaires &agrave;
+   YAPC proviennent en effet des g&eacute;n&eacute;reuses contributions de nos
+   commanditaires.
+   <br><br>
+<li><b>Date de tomb&eacute;e pour la soumission des communications: 1er mai 2001</b>
+   
+   <p>Tous les sujets sont bienvenus.  Voici une liste non-exhaustive de
+   sujets possibles:
+
+   <p><blockquote> XML, CGI/web, communication inter-processus, GUIs
+     (Gtk, Tk), traitement du langage naturel, Perl interactif,
+     agents, Perl comme langage-"colle", Perl orient&eacute;-objet, applications
+     scientifiques, entrailles, JAPHs, po&eacute;sie Perl,
+     administration de syst&egrave;mes, DBI/DBD, Perl non-Unix,
+     s&eacute;curit&eacute;, communication 'peer-to-peer', ...
+   </blockquote>
+
+   <p>Veuillez soumettre vos r&eacute;sum&eacute;s &agrave; &lt;<a
+   href="mailto:na-author@yapc.org">na-author@yapc.org</a>&gt;. Les auteurs
+   sont pri&eacute;s de limiter leurs r&eacute;sum&eacute;s &agrave;
+   un ou deux paragraphes pour les communications &eacute;clair, et
+   &agrave; 300 mots pour les autres communications.
+   <br><br>
+
+   <li>Cette ann&eacute;e, nous acceptons plusieurs sortes de communications:
+     <br><br>
+     <ul>
+       <li><b>Communication &eacute;clair:</b>  <i>5 minutes</i>
+
+       <p>Les communications &eacute;clair ont &eacute;t&eacute;
+       introduites l'&eacute;t&eacute; dernier &agrave;
+       Pittsburgh par Mark-Jason Dominus et ont &eacute;t&eacute;
+       reprises avec beaucoup de succ&egrave;s au YAPC europ&eacute;en
+       &agrave; Londres.
+
+       <p>Les participants disposent d'un maximum de cinq minutes pour
+       pr&eacute;senter leur communication, habituellement &agrave; l'aide
+       d'un r&eacute;troprojecteur.  Tout autre
+       m&eacute;canisme de pr&eacute;sentation est
+       d&eacute;conseill&eacute;, mais permis dans la mesure o&ugrave;
+       la limite de cinq minutes est respect&eacute;e (l'installation
+       se fait pendant que le temps s'&eacute;coule). La communication
+       se termine au bout de cinq minutes, que le pr&eacute;sentateur
+       ait termin&eacute; ou non.
+
+       <p>Tout sujet est accept&eacute;, et cela a donn&eacute; lieu 
+       dans le pass&eacute; &agrave; des
+       communications hautement humoristiques.  Les communications
+       &eacute;clair constituent un excellent forum pour des gens qui en sont
+       &agrave; leurs premi&egrave;res pr&eacute;sentations.
+
+       <p>Pour proposer une communication &eacute;clair, veuillez envoyer
+       un r&eacute;sum&eacute; de quatre phrases ou moins &agrave;:
+
+       <p><div align="center">
+       <b><a href="mailto:mjd-yapc-lightning+@plover.com">mjd-yapc-lightning+@plover.com</a></b>
+       </div>
+
+       <p>avant le 31 mai, 2001. Si votre proposition est retenue,
+       on vous en informera au plus tard le le 6 juin.
+ 
+       <p>Pour plus d'informations sur les communications
+       &eacute;clair, visitez
+
+       <p><div align="center">
+       <b><a href="http://perl.plover.com/lightning-talks.fr.html">http://perl.plover.com/lightning-talks.fr.html</a></b>
+       </div>
+
+       <br><br>
+
+
+     <li><b>Standard:</b> <i>20 minutes</i>
+
+       <p>La communication standard constitue le format
+       pr&eacute;f&eacute;r&eacute;. Il y a suffisamment de temps pour
+       introduire le sujet, pr&eacute;senter quelques transparents
+       bien choisis et permettre la discussion.
+     <br><br>
+
+     <li><b>Longue et extra-longue:</b> <i>45 minutes, 90 minutes</i>
+
+       <p>Ces communications  sont r&eacute;serv&eacute;es aux
+       pr&eacute;sentateurs exp&eacute;riment&eacute;s et elles couvrent
+       des sujets plus vastes.  Si vous d&eacute;sirez
+       pr&eacute;senter un sujet et le discuter en d&eacute;tail,
+       ce format pourrait s'av&eacute;rer  appropri&eacute;.
+      <br><br>
+
+     <li><b>Tutoriel:</b> <i>3 heures + une pause</i>
+
+       <p>Tutoriels d'une demi-journ&eacute;e, et possiblement
+       d'une journ&eacute;e compl&egrave;te.
+    </ul>
+   </ul>
+  <div align="center">
+  <p><b>Veuillez sounmettre vos r&eacute;sum&eacute;s &agrave; 
+   &lt;<a href="mailto:na-author@yapc.org">na-author@yapc.org</a>&gt;!</b>
+  </div>
+<p>Nous vous remercions et nous esp&eacute;rons que vous participerez en grand
+nombre.  Si vous avez des questions, communiquez avec
+&lt;<a href="mailto:na-help@yapc.org">na-help@yapc.org</a>&gt;.
+  
+<p><hr size=1>
+       
+<p>Yet Another Society est une soci&eacute;t&eacute; &agrave;
+but non-lucratif vou&eacute;e &agrave;
+l'avancement d'efforts colaboratifs en informatique et en sciences de
+l'information.  YAS promouvoit des symposiums, de l'enseignement et
+des projets de groupe.  Pour plus d'informations, voir <a 
+href="http://yetanother.org">http://yetanother.org/</a>.
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2001 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

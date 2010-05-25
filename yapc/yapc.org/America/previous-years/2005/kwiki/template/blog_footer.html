@@ -1,0 +1,48 @@
+</div><!-- close "blog" -->
+</div><!-- close "content" -->
+
+<div id="links">
+
+<div class="sidetitle">
+{{Search}}
+</div><!-- close "sidetitle" -->
+
+<div class="side">
+<form method="post" action="[% script %]" enctype="application/x-www-form-urlencoded">
+<input type="text" name="search" size="15" value="{{Search}}" onfocus="this.value=''" />
+<input type="hidden" name="action" value="search" />
+</form>
+</div><!-- close "side" -->
+
+<div class="sidetitle">
+{{Import}}
+</div><!-- close "sidetitle" -->
+
+<div class="side">
+<form method="post" action="[% script %]" enctype="application/x-www-form-urlencoded">
+<input type="text" name="search" size="15" value="{{Import}}" onfocus="this.value=''" />
+<input type="hidden" name="action" value="import" />
+</form>
+</div><!-- close "side" -->
+
+<div class="sidetitle">
+{{KwikiNavigation}}
+</div><!-- close "sidetitle" -->
+
+<div class="side">
+<span><a href="[% script %]?[% top_page %]" accesskey="1">[% loc_top_page %]</a></span>
+[% IF has_privacy %]
+<span><a href="blog.cgi">[% loc_blog_page %]</a></span>
+[% END %]
+<span><a href="[% script %]?[% changes_page %]">[% loc_changes_page %]</a></span>
+<span><a href="[% script %]?action=prefs">[% loc_preferences_page %]</a></span>
+</div><!-- close "side" -->
+
+<div class="powered">
+Powered by:<br /><a href="http://kwiki.org">Kwiki 0.18</a>
+</div><!-- close "powered" -->
+
+</div><!-- close "links" -->
+
+</body>
+</html>

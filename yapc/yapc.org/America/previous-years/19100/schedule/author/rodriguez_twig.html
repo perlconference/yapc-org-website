@@ -1,0 +1,57 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en] (X11; U; Linux 2.3.99-pre6 i686) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+&nbsp;
+<center>
+<p><img SRC="yapc_na_00_bw.jpg" height=56 width=173></center>
+
+<h2>
+
+<hr WIDTH="100%"></h2>
+
+<h2>
+Processing XML efficiently with XML::Twig</h2>
+
+<h3>
+Michel Rodrigues</h3>
+IEEE&nbsp;Standards Activities
+<p><i>Thursday, 2:15 PM in Rangos III.</i>
+<p>See <a href="http://standards.ieee.org/resources/spasystem/twig/">http://standards.ieee.org/resources/spasystem/twig/</a>
+<p>XML::Twig is one of the 225 Perl modules that do XML processing. My
+main main goal when developping it was to combine efficiency and ease.
+It had to be fast and memory effective, while still allowing tree-processing
+of XML documents.
+<br>&nbsp;
+<br>The talk will explain how I (hope I) reached this goal, describing
+XML::Twig and its various processing models, giving examples for each of
+them.
+<br>&nbsp;
+<br>XML::twig allows a script to load an XML document in memory and to
+process it in tree-mode, navigating and editing the tree before printing
+it. The tree can also be processed as the document is being parsed, by
+defining handlers on element. Parts of the whole tree that are no longer
+used can be purged (freeing the memory) or flushed (output and purged).
+<br>&nbsp;
+<br>The last processing model allows a script to define handlers only for
+a subset of theDTD, all other element are simply discarded, or output as-is,
+without building the tree. This allows fast "local" processing and is very
+well suited to pipeline processing.
+<br>&nbsp;
+<br>Some additional tricks, such as optimizing element name storage, or
+"de-objectifying" the module by definig inline subs (the subs are inlined
+when the module is installed) will also be described.
+<br>&nbsp;
+<p>
+<a href="rodriguez_xml.html">Next</a> |
+<a href="pinyan.html">Previous</a> |
+<a href="/America/schedule/author">Author list</a> |
+<a href="/America/schedule/">Schedule</a> |
+<a href="/America">YAPC 19100</a>
+</p>
+</body>
+</html>
+

@@ -1,0 +1,49 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en] (X11; U; Linux 2.3.99-pre6 i686) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+&nbsp;
+<center>
+<p><img SRC="yapc_na_00_bw.jpg" height=56 width=173></center>
+
+<h2>
+
+<hr WIDTH="100%"></h2>
+
+<h2>
+External Object Support in Perl</h2>
+
+<h3>
+Jan Dubois</h3>
+ActiveState Tool Corp.
+<p><i>Thursday, 1:30 PM in McConomy.</i>
+<p>Perl provides reasonable support for object oriented programming within
+the language.&nbsp; Access to external objects (COM/CORBA/XPCOM/etc) however
+is only provided through additional modules.&nbsp; This means that the
+compiler cannot help with early binding to method calls nor can it verify
+the correct spelling of property names.&nbsp; And at runtime there is an
+additional layer of lookups and indirection involved.
+<p>This talk presents a proposal for a generic external object mechanism
+for Perl.&nbsp; It will provide access to type libraries during compilation
+and dynamically definable opcodes for runtime dispatch.&nbsp; Some of the
+issues covered are support for optional strong typing, memory layout for
+classes/structures, calling (potentially overloaded) class and instance
+<br>methods and accessing class and instance variables.&nbsp; These techniques
+could also be used to access arbitrary code from platform specific shared
+libraries.
+<p>The outlook will be on defining "external" components in Perl and inheriting
+from existing ones.
+<br>&nbsp;
+<p>
+<a href="eisenzopf.html">Next</a> |
+<a href="deich.html">Previous</a> |
+<a href="/America/schedule/author">Author list</a> |
+<a href="/America/schedule/">Schedule</a> |
+<a href="/America">YAPC 19100</a>
+</p>
+
+</body>
+</html>

@@ -1,0 +1,11 @@
+AxKit - Moving beyond static content with taglibs and providers                                                       
+                                                                                                                      
+When developers start working with AxKit, their first thoughts are                                                    
+creating static XML pages and rejoicing in the separation of content                                                  
+and display that stylesheets provide.  However, once developers move                                                  
+beyond simple websites, AxKit provides two ways to aid in the                                                         
+generation of dynamic content.  Taglibs provide custom tagsets for use                                                
+in your pages, while providers are used to create modules that work                                                   
+like mod_perl handlers.  This talk will compare and contrast these two                                                
+approaches to dynamic content and provide examples of when each would                                                 
+be most useful for a site. 

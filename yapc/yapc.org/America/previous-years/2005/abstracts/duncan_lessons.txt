@@ -1,0 +1,13 @@
+Title:                                                                                                                
+93,210 lines of code, Ten staff and some lessons learned                                                              
+                                                                                                                      
+Abstract:                                                                                                             
+Fotango have recently finished a project that has been relatively large                                               
+in scope.  We were trying out several new ideas with the project, and                                                 
+have learnt a lot from the experience.  The project was a success, but                                                
+some things went better than others.   In general the talk will detail                                                
+how we did what we did, why we did what we did, and how we would do                                                   
+better next time.  Specifically it will discuss code reusability,                                                     
+separation of layers and concerns, programmer's workspaces, open                                                      
+source, agile modeling, test first development, merciless refactoring,                                                
+team autonomy, and a shared team goals. 

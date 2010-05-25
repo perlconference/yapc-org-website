@@ -1,0 +1,56 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en] (X11; U; Linux 2.3.99-pre6 i686) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+&nbsp;
+<center>
+<p><img SRC="yapc_na_00_bw.jpg" height=56 width=173></center>
+
+<h2>
+
+<hr WIDTH="100%"></h2>
+
+<h2>
+DBI Intro and Class::DBI Walkthrough</h2>
+
+<h3>
+Michael Schwern</h3>
+<i>Friday, 9 AM in Rangos III.</i>
+<p>
+See <a href="http://www.pobox.com/~schwern/papers/Class-DBI/">http://www.pobox.com/~schwern/papers/Class-DBI/</a>
+
+<p>How does one take a real world thing: a user on a chat system; a film
+review; a set of airplanes sitting on a runway... and translate that simultaneously
+into a Perl class AND a RDBMs table, with one interface, one set of rules
+and one set of documentation. Oh yeah, it has to be fast, portable, simple
+to use and fully inheritable.&nbsp; This is what Class::DBI has set out
+to do, but it hasn't quite reached that goal.
+<p>We're going to do an in-order walkabout through a real world example
+of inheritance in-depth.&nbsp; Books are nice for learning programming
+theory, but there's nothing like a good code review to air out some of
+the exceptions that more often than not wind up as rules.&nbsp; Along the
+way we'll hit upon issues such as practical inheritance, stupid autoloading
+tricks, lazy persistence, DBI, run-time type inspection, a little symbol
+table hacking and pseudohashes.&nbsp; As this is an incomplete work there's
+lots of interesting problems scattered about the code, some solved, some
+not, and I'm sure more than a few mistakes will pop out.&nbsp; We'll dig
+into them a bit and discuss what led to them and how they might be resolved.
+<p>This is the full version of the extremely cut down talk which will be
+given at TPC this year.&nbsp; As such it will not simply be a repeat of
+the same material, but a major expansion along with much more opportunity
+for audience discussion (Class::DBI does alot of Odd Things which will
+need thrashing out) both because of the extra time and the expected higher
+overall experience level of the audience.
+<br>&nbsp;
+<p>
+<a href="schwern_miepp.html">Next</a> |
+<a href="schwartz_pwp.html">Previous</a> |
+<a href="/America/schedule/author">Author list</a> |
+<a href="/America/schedule/">Schedule</a> |
+<a href="/America">YAPC 19100</a>
+</p>
+</body>
+</html>

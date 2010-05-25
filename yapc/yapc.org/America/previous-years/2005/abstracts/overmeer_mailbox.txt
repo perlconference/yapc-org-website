@@ -1,0 +1,6 @@
+1) Introduction to Mail::Box                                                                                          
+                                                                                                                      
+   This talk can be anything between 45 minutes and 4 days: there is                                                  
+   so much to tell about Mail::Box.  I prefer to present a 3 hrs tutorial,                                            
+   in which case it will be an updated version of the tutorial of last                                                
+   YAPC::Europe.  See slides at http://perl.overmeer.net/yapc2002-mailbox/  

@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta name="ICBM" content="26.36508,-80.10235">
+ <meta name="DC.title" content="YAPC 2003 at FAU">
+    <meta name="description" 
+          content="YAPC 2003 is an inexpensive Perl conference on June 16-18, 2003, at Florida Atlantic University in Boca Raton, Florida, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,Florida Atlantic University,Boca Raton,Florida,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2003: Yet Another Perl Conference</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC America::North">
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top"> 
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>North America 2003</H2>
+        <p>
+	<!-- Monday, June 16, 2003 - Wednesday, June 18, 2003<br> -->
+	 June 16-18<br>
+	Florida Atlantic University, Boca Raton, Florida, U.S.A.
+        <p><hr size=0>
+      </div>
+      
+      <a name="news"></a>
+      <H3>YAPC::NA::2003 F.A.Q.</H3>
+
+            <!--#include virtual="include/faq.html" -->
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:kevinm@yetanother.org">kevinm (at) yetanother.org</a>.<br>
+           All content copyright &copy; 2003 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta name="ICBM" content="26.36508,-80.10235">
+ <meta name="DC.title" content="YAPC 2004 at UB">
+    <meta name="description" 
+          content="YAPC 2003 is an inexpensive Perl conference on June 16-18, 2004, at the University at Buffalo in Buffalo, New York, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,University at Buffalo,Buffalo,New York,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2004: Yet Another Perl Conference</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC America::North">
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top"> 
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>North America 2004</H2>
+        <p>
+	<!-- Wednesday, June 16, 2004 - Friday, June 18, 2004<br> -->
+	 June 16-18<br>
+	University at Buffalo, Buffalo, New York, U.S.A.
+        <p>
+        <h2>YAPC::NA::2004 Questions</h2>
+        <hr>
+      </div>
+<center><a href="#fence">Convince me</a> | <a href="#coming">You had me at "YAPC" (Already coming)</a></center>
+
+
+<a name="fence"></a>
+<h3>What do I get for attending?</h3>
+
+<p>You may be thinking, "What do I get for attending YAPC for only $85?" Well, wonder no more. Here's what you'll get this year:</p>
+<ul>
+  <li>Pass for attendance to all conference sessions for <a href="day1.shtml">day 1</a>, <a href="day2.shtml">day 2</a>, and <a href="day3.shtml">day 3</a>.</li>
+  <li>Chance to talk to the key people in the Perl world and the authors of the modules you use every day!</li>
+  <li>YAPC::NA::Buffalo t-shirt.</li>
+  <li>Breakfast and afternoon snack each day.</li>
+  <li>Free pass to view <a href='http://www.harrypotter.com'>Harry Potter and the Prisoner of Azkaban</a> at the <a href='http://www.imax.com'>IMAX</a> Theater with 100 other perl geeks, sponsored by O'Reilly. (While supplies last; we've got about 100 tickets to give away. You will be able to purchase more at the group discount.)</li>
+  <li>Free tours of the UB <a href='http://www.ccr.buffalo.edu/'>Center for Computational Research</a>.</li>
+  <li>Attendence at the conference dinner on Thursday night. The dinner will be held at the University Inn. It will be buffet style with grilled chicken, roast top round, baked pasta marinara, pasta salad, chef's salad, vegetables, and choclate cake for dessert. There will also be a cash bar.</li>
+  <li>The auction will follow, and you'll have the opportunity to bid on some excellent books and other perl items.</li>
+</ul>
+
+<hr>
+<a name="coming"></a>
+<h3>Attendance Details</h3>
+
+<h3>Where do I park?</h3>
+<p>You can park for free on campus in the Governors D and E lots. You can find these lots on the campus maps available on the UB <a href="http://www.buffalo.edu/buildings/">maps page</a>. They are a short walk from the conference building. If you park anywhere else, you are very likely to get a ticket. Parking enforcement at UB is very efficient. If you are staying at the University Inn, you might consider walking or taking the shuttle.</p>
+
+<h3>Where and when is registration check-in?</h3>
+<p>Registration check-in will be available Tuesday evening, 6/15, from 4PM-8PM in the main hallway of same building in which we are holding the conference, the <a href="http://www.buffalo.edu/search/search?q=NSC">Natural Sciences Complex</a>. It will continue Wednesday morning starting at 7AM. Please register early if you can.</p>
+
+<h3>What do I do about lunch?</h3>
+<p>There are several places on campus to get lunch. The campus has an area of restaurants and shops called the Commons, and you'll find several options there. There is also a food court in the <a href="http://wings.buffalo.edu/cgi-bin/bldgloc?studnt">Student Union</a> called Putnam's. We will have signs posted to make it easy to find these locations.</p>
+
+<h3>Will I have internet access?</h3>
+<p>The Natural Sciences Complex has wireless access nearly everywhere. In the lower points of some of the rooms, the signal is weak, so we are working on adding wireless access points. All attendees will be given an account to log onto the network while at the conference, but you will need a wireless access card.</p>
+<p>If you don't have a computer, we will have a terminal room sponsored by <a href="www.apple.com">Apple</a>. We plan to have 10 powerbook computers and 2 Apple G5 computers for use.</p>
+
+<h3>Other Questions</h3>
+<p>Other information is available on the conference <a href="travel_faq.shtml">travel page</a>.
+<br>
+<p>
+
+    </td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by Jim Brandt.<br>
+           All content copyright &copy; 2003 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

@@ -1,0 +1,28 @@
+Title:                                                                                                                
+----------------------------------------                                                                              
+                                                                                                                      
+  Generating Java with Perl                                                                                           
+                                                                                                                      
+Abstract:                                                                                                             
+----------------------------------------                                                                              
+                                                                                                                      
+Not everyone has the benefit of a full-time Perl job -- but that                                                      
+doesn't mean it's shut out. Perl, particularly with the Template                                                      
+Toolkit, has wonderful utility as a code generation tool, even for                                                    
+code consumed by other compilers.                                                                                     
+                                                                                                                      
+In this case, Perl is generating Java, and lots of it. (Some XML files                                                
+too.) One of the overlooked benefits of the J2EE (Java 2 Enterprise                                                   
+Edition) platform is the opportunity for Perl programmers to generate                                                 
+all the different classes, interfaces and deployment descriptors from                                                 
+different sources of metadata.                                                                                        
+                                                                                                                      
+This presentation will discuss the benefits for an agile development                                                  
+process as well as demonstrate how you can bump up your KLOCs by many,                                                
+many factors.                                                                                                         
+                                                                                                                      
+Preferred presentation times:                                                                                         
+----------------------------------------                                                                              
+                                                                                                                      
+  * 20 minutes                                                                                                        
+                                     

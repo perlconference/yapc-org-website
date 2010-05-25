@@ -1,0 +1,8 @@
+Standard Talk: Dissecting Pixie                                                                                       
+                                                                                                                      
+A tour of Pixie, an OODBMS written in (almost) pure Perl. Whilst                                                      
+there'll be a short introduction to the uses of Pixie, the bulk of the                                                
+talk will deal with some of the techniques used to make everything                                                    
+'Just Work'.                                                                                                          
+                                                                                                                      
+Level: Intermediate to Scary  

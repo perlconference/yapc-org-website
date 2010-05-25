@@ -1,0 +1,67 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<HTML>
+  <HEAD>
+    <META NAME="description" 
+       CONTENT="yapc 19100 is an inexpensive perl conference on June 21-23, 2000, hosted by Carnegie Mellon University, Pittsburgh, PA.">
+    <META NAME="keywords"
+       CONTENT="perl,perl conference,Carnegie Mellon University,CMU,Pittsburgh,Pennsylvania,Larry Wall,language,computer,convention,yapc,perl mongers,School of Computer Science,computer science">
+    <TITLE>YAPC 19100: Schedule</TITLE>
+  </HEAD>
+
+  <BODY BACKGROUND="../images/yapcbg.jpg" BGCOLOR="#FFFFFF" TEXT="#000000" LINK="#0000FF" VLINK="#990099" ALINK="#FF0000">
+
+    <CENTER>
+    <IMG SRC="../images/yapcAN.jpg" alt="[YAPC::America::North]">
+
+    <H1>Schedule</H1>
+
+    <TABLE BORDER=0 WIDTH=400>
+    <TR>
+    <TD WIDTH=200>    
+    <CENTER>
+    University Center<BR>
+    <A HREF="http://www.cmu.edu">Carnegie Mellon University</A><BR>
+    Pittsburgh, Pennsylvania, USA 15213
+    </CENTER>
+    </TD>
+    <TD WIDTH=200>
+    <CENTER>
+    Wednesday, Thursday and Friday<BR>
+    June 21-23rd, <BR>19100 <BR>
+    </CENTER>
+    </TD>
+    </TR>
+    </TABLE>
+
+    <HR>
+       <A HREF="http://www.yapc.org/"><CODE>YAPC</CODE></A> | 
+       <A HREF="http://www.yapc.org/America/">America::North</A> | 
+       <A HREF="http://www.yapc.org/Europe/">Europe</A>  
+    <HR>
+    </CENTER>
+
+    This is the (currently tentative) schedule for 
+    <a href="http://www.yapc.org/">YAPC</a>
+    <a href="http://www.yapc.org/America/">America::North</a>
+    19100.  It is currently only available as images, but
+    these will be converted to both text and HTML versions
+    soon.
+<p>
+
+<UL>
+<LI> <a href="#weds">Wednesday, June 21</a>.  Tutorial day.
+<LI> <a href="#thurs">Thursday, June 22</a> 
+<LI> <a href="#fri">Friday, June 23</a> 
+</UL>
+
+<p>   
+<a name="weds"> <img src="day1-Weds.jpg">  </a>
+<hr>
+<p>
+<a name="thurs"><img src="day2-Thurs.jpg"> </a>
+<hr>
+<p>
+<a name="fri">  <img src="day3-Fri.jpg">   </a>
+
+  </BODY>
+</HTML>

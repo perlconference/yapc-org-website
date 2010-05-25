@@ -1,0 +1,8 @@
+This course will help you improve your Perl coding skills. It is meant                                                
+to make you be more aware of the actual written code and how to make it                                               
+more readable and maintainable. It covers various nooks and crannies of                                               
+Perl as well as exploring in depth some commonly used Perl features such                                              
+as hashes. Perl hackers of all levels should find useful tips, ideas,                                                 
+techniques to help you refine your source code. Some of the subjects                                                  
+include autovivification, regex assertions, avoiding evil code and                                                    
+context. 

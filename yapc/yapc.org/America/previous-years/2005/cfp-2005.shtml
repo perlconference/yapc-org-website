@@ -1,0 +1,251 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+
+<head>
+  <meta name="ICBM" content="43.6529,-79.3839">
+  <meta name="DC.title" content="YAPC 2005 at UofT">
+  <meta name="description" content="YAPC 2005 is an inexpensive Perl conference on June 27-29, 2005 in Toronto, Ontario, Canada.">
+  <meta name="keywords" content="Perl,Perl conference,Toronto,Ontario,Canada,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+  <title>YAPC North America 2005: Yet Another Perl Conference</title>
+  <link rel="stylesheet" type="text/css" href="yapcna.css" title="yapcna"><base href="http://yapc.org/America/sponsorship.shtml">
+</head>
+
+  <body topmargin="0" leftmargin="0" bgcolor="#ffffff" link="#000099" marginheight="0" marginwidth="0" text="#000000">
+
+<table border="0" cellpadding="6" cellspacing="0" width="100%">
+  <tbody><tr>
+    <td class="side" bgcolor="#cccccc" width="120">
+      <table align="center" border="1" cellpadding="6" cellspacing="0">
+        <tbody><tr>
+          <td class="venue" align="center" bgcolor="#ffffff">
+
+<!--#include virtual="include/venuebox.html" -->
+
+          </td>
+        </tr>
+       </tbody></table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" alt="YAPC Call for Participation" border="0" height="86" width="270"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" valign="top" width="120">
+
+<!--#include virtual="include/menu.html" -->
+
+</td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <h1>YAPC North America 2005: Yet Another Perl Conference</h1>
+        <h2>Call for Participation</h2>
+      </div>
+
+<!--- end of this div section -->
+<div align="center">
+
+<p></p>
+<hr size="1"/>
+
+<h3>YAPC North America 2005: First Call for Participation</h3>
+
+<p>
+Yet Another Society<br/>
+calls for your participation in
+</p>
+<p>
+<b>YAPC::NA 2005</b><br/>
+the Seventh North American<br/>
+Yet Another Perl Conference<br/>
+</p>
+<p>
+<b><a href="http://yapc.org/America/">http://yapc.org/America/</a></b>
+</p>
+<p>
+Toronto, Ontario, Canada
+</p>
+<p>
+Monday through Wednesday
+<br/>
+June 27-29, 2005
+<br/>
+</p>
+
+</div>
+<!--- end of this div section -->
+
+<p>
+YAPC is a place for people to meet and talk about Perl -- where
+people who've done interesting things, people who are working
+on the language itself, people who are using it daily,
+and people who are looking to learn about it are all within
+arm's reach.  Some of the great authors and coders in the field
+will be on hand to discuss their work, as well as the nature
+and direction of Perl itself.
+</p>
+
+<p>
+Please join us for three days of listening, talking and learning
+about Perl in Toronto.
+</p>
+
+<ul>
+<li>
+<b>
+Conference pre-registration will be announced in late winter to
+early spring 2005.  When it opens, you can make your payment at
+this link.
+</b>
+</li>
+</ul>
+
+<div align="center">
+<b><a href="http://donate.perlfoundation.org/">http://donate.perlfoundation.org/</a></b>
+<br/><br/>
+<b>
+You might want to make a donation to The Perl Foundation as well.
+You can certainly do that through this link at any time, including
+now.
+</b>
+</div>
+
+<ul>
+<li>
+We are also looking for sponsors. Please contact
+&lt;<a href="mailto:na-sponsor@yapc.org">na-sponsor@yapc.org</a>&gt;
+for information on how you can help support the Yet Another Society
+and YAPC.  Much of the necessary funding for YAPC comes from the
+generous donations of our sponsors.
+<br/><br/>
+</li>
+<li>Submitted papers:</li>
+</ul>
+
+<div align="center">
+<b>
+Abstract Submission Deadline: April 18, 2005
+</b>
+</div>   
+
+<ul>
+
+<p>
+Submissions regarding all Perl topics are welcome, but they must be
+technical topics aimed at the benefit of the attendees (not marketing
+talks aimed at the benefit of some product or service associated with
+the presenter.)
+</p>
+
+<p>
+Authors will be notified if their abstract is accepted or rejected.
+</p>
+
+<p>
+We're currently working on the budget for YAPC::NA 2005 and our hope
+is to provide speakers at the conference with either a reduced fee or
+a waived fee entirely.  Possibly there will be a combination of these
+approaches built into a sliding scale based on the amount of speaking
+time.
+<p/>
+
+<li> 
+
+This year we are considering accepting a number of types of talks:
+
+   <br><br>
+
+<ul>
+
+<li><b>Lightning:</b> <i>5 minutes</i>
+
+<p>
+Lightning talks are brief (5-minute) talks that focus on a single
+example, idea, project, or technique.  Lightning talks do not attempt
+to cover all aspects of their subject matter, but rather to present
+one facet of the idea clearly and succinctly.
+</p>
+
+<p>
+<b>
+Information on how to submit a proposal for a lightning talk will be
+posted at a later date, no later than April 2005.  We will not accept
+lightning talk submissions at this time.
+</b>
+</p>
+
+</li>
+
+<li><b>Standard:</b> <i>e.g. 20 minutes</i>
+
+<p>
+A standard talk is the preferred format.  This is enough 
+time to start a topic, introduce it with some pithy slides, 
+and open up to later conversation. 
+</p>
+</li>
+<li><b>Long and Extra-Long:</b> <i>e.g. 40 minutes, 85 minutes</i>
+
+       <p>Long talks are reserved for experienced speakers covering
+       large topics.  If you have an in-depth topic you would like
+       to present in some detail, perhaps with considerable 
+       discussion, a Long or Extra-Long talk may be the format of 
+       choice.
+</p>
+</li>
+<li><b>Tutorial:</b>  <i>e.g. 3 hours + break (possibly in two sets)</i>
+
+<p>
+Half-day (or possibly full-day) tutorials. These tutorials tend to
+cover a wide range to material for a certain aspect of Perl
+programming. For example, an XML tutorial could cover XML basics, to
+writing XML, to parsing XML, to practical uses of XML.
+</p>
+     </li>
+</ul>
+   </li></ul>
+Conference organizers reserve the right to change the length assigned
+to a talk, if deemed neccessary. If you want to speak on multiple
+topics, please submit a seperate proposal for each one.
+<div align="center">
+   <p><b>Please register your abstracts online at <br/>
+   <a href="http://eventix.ca/cgi-bin/presentation.cgi?eid=24">
+the YAPC::NA 2005 Toronto Call-for-Papers submission site
+</a>!</b>
+  </p></div>
+
+<p>Thank you; we hope you will participate. If you have any questions,
+please mail &lt;<a href="mailto:na-help@yapc.org">na-help@yapc.org</a>&gt;.
+
+</p><p></p><hr size="1">
+
+<p>
+Yet Another Society is a non-profit organization for the
+advancement of collaborative efforts in computer and information
+sciences. YAS promotes symposia, teaching, and group projects.
+See <a href="http://yetanother.org">http://yetanother.org</a>
+for more information.
+</p>
+
+</td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width="120">
+      <br><br><br> 
+    </td> 
+    <td valign="baseline">
+
+      <br><br><br><br>
+
+      <p class="moddate">
+<small>
+Last modified on January 20, 2005 by Richard Dice, with help from John
+Macdonald and Dan Friedman.
+<br>
+All content copyright © 1999 - 2005 Yet Another Society, Inc.
+</small>
+    </p>
+
+    </td>
+  </tr>
+</tbody></table>
+</body></html>

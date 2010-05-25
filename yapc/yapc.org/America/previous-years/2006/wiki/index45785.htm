@@ -1,0 +1,310 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head profile="http://gmpg.org/xfn/11">
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="generator" content="WordPress 1.5" /> <!-- leave this for stats -->
+        <link rel="stylesheet" href="http://www.yapc.org/America/previous-years/2006/wp-content/themes/yapc_wide/style.css" type="text/css" media="screen" />
+        <link rel="shortcut icon" type="image/png" href="http://www.yapc.org/America/previous-years/2006/wp-content/themes/yapc_wide/images/favicon.png" />
+
+  <title>
+
+  AsyncBOF -
+
+
+  Kwiki</title>
+      <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/theme/yapc_chicago/css/kwiki.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/toolbar.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/user_name.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/search.css" />
+        <link rel="stylesheet" type="text/css" href="http://www.yapc.org/America/previous-years/2006/css/formatter.css" />
+        <script type="text/javascript" src="javascript/double_click_to_edit.js"></script>
+  </head>
+<body>
+<!-- END kwiki_begin -->
+<img id="logo_left" src="wp-content/themes/yapc_wide/images/logo_left.jpg" alt="YAPC::NA 2006" />
+<img id="logo_right" src="wp-content/themes/yapc_wide/images/logo_right.jpg" alt="YAPC::NA 2006" />
+<div id="nav">
+<!-- BEGIN toolbar_pane -->
+<div class="toolbar">
+<ul class="primary">
+<li><!-- BEGIN search_box -->
+<form method="post" action="index.cgi" enctype="application/x-www-form-urlencoded" style="display: inline">
+<input style="border:0px; background:#cccccc;" type="text" name="search_term" size="8" value="Search" onfocus="this.value=''" />
+<input type="hidden" name="action" value="search" />
+</form>
+<!-- END search_box -->
+</li>
+<li><!-- BEGIN home_button -->
+<a href="http://www.yapc.org/America/previous-years/2006/index0.htm" accesskey="h" title="Home Page">
+<!-- BEGIN home_button_icon -->
+Home
+<!-- END home_button_icon -->
+
+</a>
+<!-- END home_button -->
+</li>
+<li><!-- BEGIN recent_changes_button -->
+<a href="http://www.yapc.org/America/previous-years/2006/index43283.htm" accesskey="c" title="Recent Changes">
+<!-- BEGIN recent_changes_button_icon -->
+Changes
+<!-- END recent_changes_button_icon -->
+
+</a>
+<!-- END recent_changes_button -->
+</li>
+<li><!-- BEGIN user_preferences_button -->
+<a href="http://www.yapc.org/America/previous-years/2006/index44809.htm" accesskey="u" title="User Preferences">
+<!-- BEGIN user_preferences_button_icon -->
+Preferences
+<!-- END user_preferences_button_icon -->
+
+</a>
+<!-- END user_preferences_button -->
+</li>
+</ul>
+</div>
+<!-- END toolbar_pane -->
+
+
+
+
+</div>
+
+
+	<div id="content">
+<!-- BEGIN display_content -->
+<div class="wiki">
+<p>
+this BOF is about asynchronous applications and technologies in perl. some topics include async i/o &#40;sockets and files&#41;, event loops, threads, state machines, flow control, etc. related cpan &#40;existing and to be developed&#41; modules will also be covered. i have over 25 years of developing asynchronous systems with many different technologies and platforms.
+
+</p>
+<p>
+We will meet during lunch on Monday in the cafeteria. Bring laptops &#40;is there wireless there?&#41; and maybe download this page in case we can&#39;t get access to it. &#8211; Uri
+
+</p>
+<p>
+append your name here if you are interested in attending. 
+
+</p>
+<ul>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index12169.htm">UriGuttman</a></li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index49874.htm">JerryHedden</a></li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index63606.htm">JT</a></li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index29707.htm">JoeyKelly</a></li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index26330.htm">JimE</a></li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index6745.htm">JessBalint</a></li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index21073.htm">JoelYork</a></li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index61440.htm">EricJohnson</a></li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index39881.htm" class="empty">MikeFragassi</a> &#40;I get a lot of use out of Parallel::<a href="http://www.yapc.org/America/previous-years/2006/index65169.htm" class="empty">ForkManager</a>&#41;</li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index31289.htm">DevenCorzine</a> &#40;please call me&#41;</li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index39554.htm">ToddOlson</a></li>
+<li><a href="http://www.yapc.org/America/previous-years/2006/index24673.htm" class="empty">BenBixby</a></li>
+</ul>
+
+<h1>Async Perl BOF  Notes</h1>
+<p>
+These are some notes and talking points for the Async Perl BOF.
+
+</p>
+<h2>Async Perl technologies</h2>
+<ul>
+<li>Forked Processes</li>
+
+<ul>
+<li>Create complete copy of current process</li>
+<li>Session state is stored in process space</li>
+<li>Child process can communicate with Parent process via IPC and shared memory</li>
+<li>Pros</li>
+
+<ul>
+<li>Stable core feature on most <a href="http://www.yapc.org/America/previous-years/2006/index9348.htm" class="empty">OSs</a></li>
+<li>Well understood technology</li>
+<li>Can scale to use multiprocessors</li>
+</ul>
+<li>Cons</li>
+
+<ul>
+<li>Doesn&#39;t scale across multiple systems</li>
+<li>Forking a new process for each session/request is slow</li>
+<li>Processes consume large amounts of RAM</li>
+<li>Context Switching</li>
+<li>Managing IPC and shared memory can be tricky</li>
+<li>Emulated by a thread under Windows</li>
+<li>Explicit sharing of RAM</li>
+<li>Slow Creation</li>
+<li>Slow context switching</li>
+<li>Used more virtual RAM</li>
+<li>Doesn&#39;t scale beyond box</li>
+</ul></ul></ul>
+
+<ul>
+<li>Threads</li>
+
+<ul>
+<li>Spawn new thread of control</li>
+<li>All threads share common memory space</li>
+<li>Session state is stored in thread stack</li>
+<li>Pros</li>
+
+<ul>
+<li>Spawn a new thread to handle blocking operation </li>
+<li>Could run event loop in one thread. Tricky to manage</li>
+<li>Paradigm common to many languages and platforms</li>
+<li>Taught in school and easy learning curve</li>
+<li>Can scale to use multiprocessors in a single system</li>
+<li>Easy sharing of memory</li>
+</ul>
+<li>Cons</li>
+
+<ul>
+<li>Doesn&#39;t scale easily across multiple systems</li>
+<li>Must maintain locks on writeable shared memory to avoid corruption</li>
+<li>Spawning threads is slow</li>
+<li>Each thread allocates a private stack</li>
+<li>Perl threads are build time option which slows down all programs</li>
+<li>Perl threads don&#39;t have a great reputation &#40;even from the thread experts&#41;. </li>
+<li>hard to sync threads</li>
+</ul></ul>
+<li>Co-routines</li>
+
+<ul>
+<li>Coro.pm</li>
+<li>Parallel threads of control at the code block level</li>
+<li>Spawn coroutine thread for each blocking operation</li>
+<li>Supports event loops</li>
+<li>Pros</li>
+
+<ul>
+<li>Lower Locking requirements than threads</li>
+<li>Terse syntax</li>
+</ul>
+<li>Cons</li>
+
+<ul>
+<li>Small user community</li>
+<li>Paradigm not understood by many</li>
+<li>Long learning curve</li>
+<li>Doesn&#39;t scale across systems</li>
+</ul></ul>
+<li>Event Loops</li>
+
+<ul>
+<li>Pros</li>
+
+<ul>
+<li>Easy sharing of RAM</li>
+<li>No need for locks and mutexes</li>
+<li>No context switches</li>
+<li>All data is accessible</li>
+<li>No need for synchronization</li>
+<li>No need for extra local/stack storage</li>
+<li>Can be faster</li>
+</ul>
+<li>Cons</li>
+
+<ul>
+<li>Blocking operation block the loop</li>
+<li>Not well understood by the masses</li>
+</ul></ul></ul>
+
+<h2>New Modules on the Horizon</h2>
+<ul>
+<li>Event::<a href="http://www.yapc.org/America/previous-years/2006/index54136.htm" class="empty">ThreadFarm</a></li>
+
+<ul>
+<li>Supports sync &#40;blocking&#41; calls in C</li>
+<li>Operations run in kernel &#40;C&#41; threads</li>
+<li>Perl Event loop never blocks</li>
+<li>Event Loop/Callback Perl API</li>
+<li>Plugin support for new operations</li>
+<li>Mostly Designed</li>
+<li>Needs help with coding and testing</li>
+</ul></ul>
+
+<ul>
+<li>Logic::Engine</li>
+
+<ul>
+<li>High level Flow control for async apps &#40;under any event loop&#41;</li>
+<li>Each data chunk flows independently</li>
+<li>Work is done with user code &#40;code refs&#41;</li>
+<li>Logic flow is done in the engine</li>
+<li>Can wait for mutlipleexternal input/triggers</li>
+<li>Supports memory transactions</li>
+<li>Simpler version works in Stem</li>
+</ul></ul>
+
+<ul>
+<li>POE::Stage</li>
+
+<ul>
+<li>Call/return model for message-based objects</li>
+<li>Request-scoped closures for easy state tracking</li>
+<li>Object oriented interface to <a href="http://www.yapc.org/America/previous-years/2006/search.cpan.org/search/index40839.htm#38;mode=dist">POE</a>&#39;s asynchronous services</li>
+<li>Early version <a href="http://www.yapc.org/America/previous-years/2006/search.cpan.org/search/index40977.htm#38;mode=dist">on CPAN now</a>.</li>
+<li>Needs more developer love.  See <a href="http://www.yapc.org/America/previous-years/2006/thirdlobe.com/projects/poe-stage/wiki/WikiStart/index.html">POE::Stage&#39;s web site</a>.</li>
+</ul></ul>
+</div>
+<!-- BEGIN display_changed_by -->
+
+<!-- END display_changed_by -->
+
+<!-- END display_content -->
+
+	</div>
+	
+	<div id="left_sidebar">
+
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.valueclick.com/index.html"><img src="www.yapcchicago.org/media/sponsors/valueclick/web.jpg" alt="ValueClick" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.livetext.com/index.html"><img src="wp-content/themes/yapc_wide/images/livetext.jpg" alt="LiveText" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.bignerdranch.com/index.html"><img src="wp-content/themes/yapc_wide/images/bnr.gif" alt="Big Nerd Ranch" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.google.com/index.html"><img src="wp-content/themes/yapc_wide/images/google.gif" alt="Google" border="0" /></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.itasoftware.com/index.html"><img src="wp-content/themes/yapc_wide/images/ita_software.gif" alt="ITA Software" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.performics.com/index.html"><img src="wp-content/themes/yapc_wide/images/performics.jpg" alt="Performics" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.stonehenge.com/index.html"><img src="wp-content/themes/yapc_wide/images/stonehenge.gif" alt="Stonehenge"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/damian.conway.org/index.html"><img src="www.yapcchicago.org/media/sponsors/thoughtstream/web.jpg" alt="Thoughtstream"  border="0"/></a></p>
+		<p><a href="http://www.yapc.org/America/previous-years/2006/www.sxip.com/index.html"><img src="wp-content/themes/yapc_wide/images/sxip.gif" alt="Sxip" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.openmake.com/index.html"><img src="wp-content/themes/yapc_wide/images/om.gif" alt="Open Make" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.shopzilla.com/index.html"><img src="wp-content/themes/yapc_wide/images/shopzilla.gif" alt="Shopzilla" border="0" /></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.oreilly.com/index.html"><img src="wp-content/themes/yapc_wide/images/oreilly.gif" alt="O'Reilly" border="0" /></a></p>
+		<!--<br/><p><a href="http://www.yapc.org/America/previous-years/2006/http://www.socialtext.com"><img src="http://yapcchicago.org/wp-content/themes/yapc_wide/images/socialtext.gif" alt="Social Text" border="0" /></a></p>-->
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.apress.com/index.html"><img src="wp-content/themes/yapc_wide/images/apress.gif" alt="Apress"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.grantstreetgroup.com/index.html"><img src="wp-content/themes/yapc_wide/images/grant.gif" alt="Grant Street Group"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.acxiom.com/index.html"><img src="wp-content/themes/yapc_wide/images/acxiom.gif" alt="Acxiom"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.zoomshare.com/index.html"><img src="wp-content/themes/yapc_wide/images/zoomshare.gif" alt="Zoomshare"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.cheetahmail.com/index.html"><img src="media/sponsors/cheetahmail/web.png" alt="CheetahMail"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.flr.follett.com/index.html"><img src="www.yapcchicago.org/media/sponsors/follett/web.gif" alt="Follett Library Resources"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.manning.com/index.html"><img src="www.yapcchicago.org/media/sponsors/manning/web.gif" alt="Manning"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.nostarch.com/index.html"><img src="wp-content/themes/yapc_wide/images/nsp.gif" alt="No Starch Press"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.pragmaticprogrammer.com/index.html"><img src="wp-content/themes/yapc_wide/images/pragmatic.png" alt="Pragmatic Programmers"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.allantgroup.com/index.html"><img src="wp-content/themes/yapc_wide/images/allant.jpg" alt="Allant"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.rimmkaufman.com/index.html"><img src="www.yapcchicago.org/media/sponsors/rimmkaufman/web.jpg" alt="Rimm Kaufman"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.combinenet.com/index.html"><img src="wp-content/themes/yapc_wide/images/combinenet.jpg" alt="CombineNet"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.plainblack.com/index.html"><img src="wp-content/themes/yapc_wide/images/plainblack.png" alt="PlainBlack"  border="0"/></a></p>
+		<br/><p><a href="http://www.yapc.org/America/previous-years/2006/www.activestate.com/index.html"><img src="wp-content/themes/yapc_wide/images/active_state.gif" alt="ActiveState"  border="0"/></a></p>
+
+		<br/>
+
+			<p>Promote YAPC::NA on your site!</p>
+		                	<p><img src="wp-content/themes/yapc_wide/images/yapcna_blue_gold.gif"  border="0" alt="YAPC::NA Badge"/></p>
+			                	<p><img src="wp-content/themes/yapc_wide/images/yapcna_purple_grey.gif"  border="0" alt="YAPC::NA Badge"/></p>
+			                	<p><img src="wp-content/themes/yapc_wide/images/yapcna_purple_white.gif"  border="0" alt="YAPC::NA Badge"/></p>
+			
+		<p><a href="http://www.yapc.org/America/previous-years/2006/yapc_poster.pdf">Poster</a></p>
+
+	</div>
+
+	<div id="right_sidebar">
+<!-- BEGIN widgets_pane -->
+<div class="widgets">
+
+</div>
+<!-- END widgets_pane -->
+
+	</div>
+
+</body>
+</html>
+
+

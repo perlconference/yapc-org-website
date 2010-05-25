@@ -1,0 +1,43 @@
+=head1 Paper: So Many Ways to Rome - Putting XML modules to the task                                                  
+                                                                                                                      
+=head2 Short Description (50 words)                                                                                   
+                                                                                                                      
+This paper will present the "Ways to Rome" series of articles, which                                                  
+compare XML modules. The latest installments show how to use various                                                  
+popular modules to do XML publishing in XHTML and to process XML                                                      
+invoices. Fitness for the task, ease-of-use and performances will be                                                  
+discussed.                                                                                                            
+                                                                                                                      
+=head2 Abstract                                                                                                       
+                                                                                                                      
+The original "Ways to Rome" is an article written by Ingo Macherius in                                                
+1999.                                                                                                                 
+It used several of the modules available at the time to extract the                                                   
+XML grammar from the XML version of the XML specification.                                                            
+                                                                                                                      
+The task is rather simple, it consists in extracting the content                                                      
+of a couple of elements, doing a little cleanup et voila!                                                             
+                                                                                                                      
+As Ingo stopped using Perl he offered the article to the community,                                                   
+and I took over maintenance in 2000. I kept on adding new examples,                                                   
+most of them contributed by module authors.                                                                           
+                                                                                                                      
+This first article is available at                                                                                    
+                                                                                                                      
+http://www.xmltwig.com/article/ways_to_rome/ways_to_rome.html                                                         
+                                                                                                                      
+This year, 2 more articles, along the same principles, will be added:       
+converting an XML document to HTML (April 2003) and processing XML                                                    
+invoices, a good example of data-oriented XML (June 2003).                                                            
+                                                                                                                      
+The articles list modules that are appropriate for the task (and modules                                              
+that cannot be used and why), common pieces of codes used in all the                                                  
+solutions, then presents the commented code, with an analysis of how fit                                              
+they are for the task and how easy the code was to write.                                                             
+                                                                                                                      
+Each article ends with a benchmark for all the solutions.                                                             
+                                                                                                                      
+This paper will present the articles and give the audience tools to                                                   
+decide which module to use for their specific tasks, along with a good                                                
+understanding of the various processing models that exist to process                                                  
+XML.                       

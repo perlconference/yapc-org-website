@@ -1,0 +1,39 @@
+       TITLE:                                                                                                         
+                   Shell::POSIX::Select: The Shell's Select Loop for Perl                                             
+                                                                                                                      
+                                  PROPOSED TIME: 40 minutes                                                           
+                 NOTE: Could be bundled in one 85 minute session with the                                             
+                        "case study" talk that covers the same module                                                 
+                                                                                                                      
+                          SPEAKER: Dr. Tim Maher                                                                      
+                           tim@teachmeperl.com                                                                        
+                                                                                                                      
+                         Head Software Instructor                                                                     
+                  CONSULTIX, POB 70563, Seattle WA 98107                                                              
+                        http://www.teachmeperl.com                                                                    
+                              (866) DOC-PERL                                                                          
+                                                                                                                      
+                                                                                                                      
+                                 ABSTRACT                                                                             
+                                                                                                                      
+The "select" loop of the POSIX shells is unique in two ways; 1)                                                       
+it's arguably the friendliest feature of any UNIX shell, and 2)                                                       
+it's the only shell loop missing from standard Perl.                                                                  
+                                                                                                                      
+But what's it like?  In the Shell::POSIX::Select implementation, it                                                   
+resembles a Perl foreach loop, but that's as far as the similarity                                                    
+goes.  Instead of assigning each list value in turn to the loop                                                       
+variable for one iteration, it does something more interesting                                                        
+and valuable.  Specifically, it displays a numbered menu of list                                                      
+items, prompts for a selection, validates the selection and issues                                                    
+appropriate feedback, assigns the selected value to the loop   
+variable, and then runs an iteration.  So instead of blindly                                                          
+iterating over a list, select iterates only over the values                                                           
+*selected* from the list.                                                                                             
+                                                                                                                      
+This talk shows Perl programmers how to create terminal-based                                                         
+menu-oriented programs without writing any of the associated                                                          
+infrastructure.  Sample programs include one that composes a                                                          
+regular expression from a menu of metacharacters and then displays                                                    
+its matches, and another that lets users navigate and view Perl online                                                
+documentation using menus.

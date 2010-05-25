@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+  <meta name="ICBM" content="26.36508,-80.10235">
+ <meta name="DC.title" content="YAPC 2004 at UB">
+    <meta name="description" 
+          content="YAPC 2004 is an inexpensive Perl conference on June 16-18, 2004, at the University at Buffalo in Buffalo, New York, USA.">
+    <meta name="keywords"
+          content="Perl,Perl conference,University at Buffalo,Buffalo,New York,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC:NA:2004 Sponsors</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Sponsors"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top" align=left>
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Sponsors</H2>
+      </div>
+
+<p>The people, companies, and other organizations that contribute to YAS and YAPC keep everything going.  We can't thank the following sponsors enough for their contributions. They have contributed money, materials, facilities, tutorials, and other resources to make YAPC possible. Consider supporting them in return.
+
+<p>And to our sponsors, a big "Thank You!"
+<ul>
+<li><a href="http://www.buffalo.edu">University at Buffalo</a>
+<p>
+<li><a href="http://wings.buffalo.edu/computing/staff/academic/">UB Academic Computing Services</a>
+<p>
+<li><a href="http://www.apple.com/">Apple Computer</a>
+<p>
+<li><a href="http://www.activestate.com/">ActiveState</a>
+<p>
+<li><a href="http://www.aw-bc.com/">Addison-Wesley</a>
+<p>
+<li><a href="http://www.fotango.com/">Fotango</a>
+<p>
+<li><a href="http://www.oreilly.com/">O'Reilly</a>
+<p>
+<li><a href="http://www.samspublishing.com/">Sams Publishing</a>
+<p>
+<li><a href="http://www.stonehenge.com/">Stonehenge Consulting</a>
+</ul>
+
+<p><hr size=1>
+<h3>Please Contribute!</h3>
+
+<p>You or your company can choose to sponsor the YAPC and the
+Yet Another Society by becoming a sponsor -- contributing more
+than the basic cost. And contributions are tax deductible, as
+YAS is a non-profit, 501(3)(c) corporation.
+
+<p>Sponsorship details are available on the <a href="/America/sponsorship.shtml">YAPC sponsorship page</a>.
+
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by Jim Brandt.<br>
+           All content copyright &copy; 2004 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

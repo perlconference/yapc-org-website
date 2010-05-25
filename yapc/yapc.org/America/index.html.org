@@ -1,0 +1,70 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>YAPC::NA 2006 | Chicago</title>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<link href="include/styles.css" rel="stylesheet" type="text/css">
+</head>
+
+<body>
+<div id="submain">
+	<img src="images/flag.jpg" width="600" height="125">
+	<div id="nav">
+		<ul class="primary">
+			<li class="here">Home</li>
+			<li><a href="attending.html">Attending</a></li>
+			<li><a href="wiki.html">Wiki</a></li>
+			<li><a href="schedule.html">Schedule</a></li>
+			<li><a href="sponsors.html">Sponsors</a></li>
+			<li><a href="about.html">About YAPC</a></li>
+			<li><a href="past.html">Past Conferences</a></li>
+	  	</ul>
+	</div>
+
+<h3>December 6, 2005: Call For Participation</h3>
+<p>
+On behalf of <a href="http://perlfoundation.org">The Perl Foundation</a>, <a href="http://chicago.pm.org/">Chicago.pm</a> is officially announcing the call for participation for Yet Another Perl Conference North America 2006.  The conference will be held in Chicago, Illinois on June 26<sup>th</sup> through June 28<sup>th</sup> at the Illinois Institute of Technology.
+</p>
+<p>
+Since this is Yet Another Perl Conference, we are looking for presentations that would be of interest to Perl programmers.  Typically this would be something directly related to programming Perl, but it doesn't have to be.
+</p>
+<p>
+In addition, this year we are branching out into the wider realm of dynamic languages.  Though most all sessions will be about Perl, we are planning on slipping in a few talks on languages such as Ruby and Python.  Think "Python for Perl Programmers" or "Ruby Has Rails, Why Doesn't Perl?"
+</p>
+<p>
+We are looking for 20, 50, and 80 minute presentations.  If you aren't quite ready to present for that long, don't worry, a call for five minute lightning talks will be announced closer to conference time.  Both individual and group presentations are welcome.  Also, feel free to submit multiple proposals to increase your chances of being chosen.
+</p>
+<p>
+Please send your submissions to papers-at-yapcchicago.org.  Be sure to include a title for your presentation, an abstract, and the amount of time that you think you will need to present.  If you will need some form of presentation equipment beyond a podium, microphone, and projector, please note that in your submission.
+</p>
+<p>
+The deadline for abstract submissions is April 10th 2006, but we are more than happy to start receiving submissions today.  When you submit your proposal, expect to get a confirmation within a week.  If you don't hear from us, try to resubmit.
+</p>
+
+<h3>November 17, 2005: YAPC::NA 2006 to be held June 26<sup>th</sup> - 28<sup>th</sup> 2006</h3>
+<p>
+Come and join us in the windy city of Chicago for YAPC::NA 2006.  The conference is scheduled to be held on June 26<sup>th</sup> - 28<sup>th</sup> at the <a href="http://www.iit.edu/">Illinois Institute of Technology</a> in the Herman Union building.  Mark your calendars and keeping checking back here for more conference details to be announced.
+</p>
+
+<p>
+We have a lot of big plans for the conference and a lot of expectations to live up to.  With low costs, a central location, and a wealth of local Perl talent, be ready for a YAPC to remember.
+</p>
+
+<p>
+For those who don't know, YAPC stands for Yet Another Perl Conference.  It is a Perl conference that aims to be affordable and accessible to the Perl community at large.  Each year, two YAPC's are held.  One in North America and one in Europe.  These conferences are planned and executed by volunteer Perl programmers on the behalf of The Perl Foundation, a non-profit corporation for the advancement of collaborative efforts in computer and information sciences.
+</p>
+
+
+<h3>November 1, 2005: Chicago chosen to host YAPC::NA 2006 </h3>
+<p>
+What did we get ourselves into.  <a href="http://chicago.pm.org">Chicago.pm</a> was just <a href="http://use.perl.org/yapc/05/11/01/1039230.shtml">chosen</a> to host YAPC::NA in 2006.  Let the fun begin.
+</p>
+
+  <hr class="clear">
+  <div id="footer">
+  	 <p>All content copyright &copy; 2005 The Perl Foundation</p>
+  </div>
+</div>
+</body>
+</html>

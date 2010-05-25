@@ -1,0 +1,83 @@
+Status	Duration	Time	Room	Category	Authors	Title	Name	E-mail	Note
+0	180			advice	Robert Spier	Optimize Your Perl	Spier, Robert	rspier@pobox.com	
+0	45			advice	Michael G. Schwern	Sufficiently Advanced Magic	Schwern, Michael G.	schwern@pobox.com	
+0	45			advice	Adam Turoff	Programming with Iterators	Turoff, Adam	ziggy@panix.com	
+0	22.5			advice	Michael G. Schwern	A Refactoring Tale: Remaking MakeMaker and Other Horrors	Schwern, Michael G.	schwern@pobox.com	
+0	22.5			app	Jesse Vincent	Getting students laid with perl	Vincent, Jesse	jesse@bestpractical.com	
+0	22.5			db	Adam Turoff	Maintainable Database apps with Perl	Turoff, Adam	ziggy@panix.com	
+0	45			method	Dave Rolsky	Installers for Perl-Based Applications	Rolsky, Dave	autarch@urth.org	
+0	45			net	Scott Penrose	myinternet: 4800 domains, 1 million users all on Perl	Penrose, Scott	scottp@dd.com.au	
+0	180			oo	Jos Boumans	Introduction to OO Programming	Boumans, Jos	kane@cpan.org	
+0	45			perl	Robert Spier	Panel: What's cool in perl5 today?	Spier, Robert	rspier@pobox.com	
+0	22.5			perl	Abigail	Compiling historic versions of Perl or Why is my 4 Gb /opt/perl partition running out of space?	Abigail	abigail@foad.org	
+0	45			poe	Casey West	Writing useful IRC robots in POE	West, Casey	casey@geeknest.com	
+0	180			regex	Abigail	Regex tutorial	Abigail	abigail@foad.org	
+0	90			regex	Mark-Jason Dominus	Regular Expression Mastery	Dominus, Mark-Jason	mjd@plover.com	
+0	22.5			regex	Mark-Jason Dominus	Rx: A regular expression debugger	Dominus, Mark-Jason	mjd@plover.com	
+0	22.5			rt	Robert Spier	Request Tracker	Spier, Robert	rspier@pobox.com	
+0	180			test	Michael G. Schwern	Advanced Testing	Schwern, Michael G.	schwern@pobox.com	
+0	22.5			test	Michael G. Schwern	Writing A Test Library	Schwern, Michael G.	schwern@pobox.com	
+0	45			util	Casey West	Template This, or That, or That Other Thing	West, Casey	casey@geeknest.com	
+0	22.5			util	Simon Cozens	Bacman - A Distributed Backup System	Cozens, Simon	simon@simon-cozens.org	
+0	22.5			util	Simon Cozens	Mail::Miner - Finding stuff in that mass of mail	Cozens, Simon	simon@simon-cozens.org	
+0	22.5			util	Joe McMahon	GraphVis - the next level	McMahon, Joe	mcmahon@metalab.unc.edu	
+0	180			web	Michael McClennen	Interactive Web Sites with Mason	McClennen, Michael	michaelm@umich.edu	
+0	45				Bill Odom	Perl at the Helm: Automated Migration and Management for Directory and Exchange 2000	Odom, Bill	wnodom@intrasection.com	
+1	180	1 14:00	3	advice	Mark-Jason Dominus	Stolen Secrets of the Wizards of the Ivory Tower	Dominus, Mark-Jason	mjd@plover.com	
+1	90	3 09:00	1	advice	Mark-Jason Dominus	Perl Program Repair Shop and Red Flags	Dominus, Mark-Jason	mjd@plover.com	
+1	45	2 11:45	2	advice	Scott Penrose	Practical implementation of I18N in perl	Penrose, Scott	scottp@dd.com.au	
+1	45	3 11:45	1	advice	Michael G. Schwern	How To Be Lazy Without Really Trying, Redux	Schwern, Michael G.	schwern@pobox.com	
+1	45	2 11:45	1	advice	Dave Turner	TRIZ	Turner, Dave	novalis@novalis.org	
+1	22.5			advice	Walt Mankowski	A case study in when not to memoize	Mankowski, Walt	waltman@pobox.com	
+1	22.5			advice	Adam Turoff	Antipatterns in Perl	Turoff, Adam	ziggy@panix.com	
+1	22.5			advice	Casey West	Data Caching made Easy	West, Casey	casey@geeknest.com	
+1	22.5			advice	Casey West	Don't Reinvent the Big Wheels	West, Casey	casey@geeknest.com	
+1	45	2 09:45	1	art	John Saylor	Software music: Composing with perl	Saylor, John	johns@worldwinner.com	
+1	45	2 09:00	1	bio	Sean Quinlan	Introduction to Perl for Bioinformatics	Quinlan, Sean	seanq@molbio.mgh.harvard.edu	
+1	120	3 14:00	1	closing	Damian Conway	Time::Space::Continuum	Conway, Damian	damian@conway.org	
+1	90	2 14:00	3	db	Brian Ingerson	YAML - A New Language for Data	Ingerson, Brian	ingy@ttul.org	
+1	45			db	Dave Rolsky	Alzabo: Less SQL, More (Data-Modelling and OO) Fun	Rolsky, Dave	autarch@urth.org	
+1	22.5			db	Jay Lawrence	Building Custom Record Indexes with Perl	Lawrence, Jay	jlawrence@infonium.com	
+1	22.5			db	Phil Lawrence	SQL::Snippet	Lawrence, Phil	prlawrence@lehigh.edu	
+1	22.5			info	Simon Cozens	The .NET You Need To Know	Cozens, Simon	simon@simon-cozens.org	
+1	22.5			info	David Nichol	dotGNU AIS Authenticated Identity Service: a single-sign-on infrastructure	Nicol, David	nicold@umkc.edu	
+1	90	2 16:00	1	lightning	Mark-Jason Dominus	Lightning Talks	Dominus, Mark-Jason	mjd@plover.com	
+1	90	1 11:00	4	mason	Dave Rolsky and Brent Michalski	Introduction to Mason	Rolsky, Dave	autarch@urth.org	
+1	22.5			method	Mark-Jason Dominus	Mailing List Judo, or, How to Get Your Patches Accepted with a Minimum of Fuss	Dominus, Mark-Jason	mjd@plover.com	
+1	180	2 09:00	3	mod_perl	Geoffrey Young	mod_perl	Young, Geoffrey	geoff@modperlcookbook.org	
+1	22.5			net	Ross Lonstein	(ab)Using a HTTP Proxy with Perl, A tourist's guide to socket programming	Lonstein, Ross	rlonstein@pobox.com	
+1	22.5			net	Adam Turoff	SOAP, XML-RPC and the REST	Turoff, Adam	ziggy@panix.com	
+1	45			oo	Abigail	Two alternative ways of doing OO	Abigail	abigail@foad.org	
+1	180	3 09:00	3	optimize	Brian Ingerson	Writing CPAN Modules with Inline::C	Ingerson, Brian	ingy@ttul.org	
+1	22.5			optimize	Chris Brooks	An Introduction to Embedding C in Perl	Brooks, Chris	cbrooks@addr28.addr.com	
+1	22.5			optimize	Simon Cozens	optimizer.pm - Speeding up Perl the Hard Way	Cozens, Simon	simon@simon-cozens.org	
+1	22.5			optimize	Phil Crow	A Simple Assembly Simulator	Crow, Phil	philcrow2000@yahoo.com	
+1	22.5			optimize	Robert Spier	Kida - A Next Generation Build System	Spier, Robert	rspier@pobox.com	
+1	45	1 11:25	1	parrot	Dan Sugalksi	Parrot in a nutshell	Sugalski, Dan	dan@sidhe.org	
+1	22.5	1 12:10	1	parrot	Simon Cozens	Parroting On - Lessons from the coal face	Cozens, Simon	simon@simon-cozens.org	
+1	22.5			parrot	Kevin Falcone	Mod_Parrot: embedding and extending the parrot virtual machine	Falcone, Kevin	kevin@jibsheet.com	
+1	22.5	1 11:00	1	parrot	Dan Sugalksi	The Parrot Flies	Sugalski, Dan	dan@sidhe.org	
+1	180	1 14:00	1	perl	Damian Conway	Programming in Perl 6	Conway, Damian	damian@conway.org	
+1	180	1 14:00	2	perl	Simon Cozens	Perl For Systems Administrators	Cozens, Simon	simon@simon-cozens.org	
+1	180	1 14:00	4	perl	Tim Maher	Minimal Perl for the Impatient	Maher, Tim	contix@consultix-inc.com	
+1	90	1 09:00	1	perl	Larry Wall	Keynote	Wall, Larry	larry@wall.org	
+1	45	3 11:00	1	perl	Chris Nandor	Mac::Perl	Nandor, Chris	pudge@pobox.com	
+1	45	2 11:00	1	perl	Allison Randal	On Topic	Randal, Allison	al@shadowed.net	
+1	22.5			perl	David Nichol	TERN is not perl: bold heresy in the face of the ""perl 6 process""	Nicol, David	nicold@umkc.edu	
+1	90	1 11:00	3	poe	Jos Boumans	Introduction to POE	Boumans, Jos	kane@cpan.org	
+1	90	1 11:00	2	rt	Jesse Vincent	rt.cpan.org	Vincent, Jesse	jesse@bestpractical.com	
+1	90	2 14:00	1	test	Michael G. Schwern	Test::Tutorial	Schwern, Michael G.	schwern@pobox.com	
+1	22.5			test	Scott Penrose	STS: The trials and tribulations of a test suite in perl	Penrose, Scott	scottp@dd.com.au	
+1	60	3 16:00	1	town	Kevin Lenzo	Town Hall	Lenzo, Kevin	lenzo@yapc.org	
+1	45	2 11:00	2	util	Mark-Jason Dominus	Tie::File	Dominus, Mark-Jason	mjd@plover.com	
+1	45			util	Shane Mason	perlbox: a desktop for unix	Mason, Shane	me@perlbox.org	
+1	22.5			util	R. Geoffrey Avery	ModuleMaker	Avery, R. Geoffrey	modules@platypiventures.com	
+1	22.5			util	Jos Boumans	CPANPLUS	Boumans, Jos	kane@cpan.org	BOF
+1	22.5			util	Richard Clamp	Sub::Parameters and other animals	Clamp, Richard	richardc@unixbeard.net	
+1	22.5			util	Simon Cozens	10 Modules I Wouldn't Go Anywhere Without	Cozens, Simon	simon@simon-cozens.org	
+1	22.5			util	Shane Landrum, Jesse Vincent, Rich Bowen, Kirrily ""Skud"" Robert	Shared Calendaring in Perl	Landrum, Shane	slandrum@turing.csc.smith.edu	
+1	22.5			util	Adam Turoff	Open Source Presentation Tools	Turoff, Adam	ziggy@panix.com	
+1	22.5			util	Casey West	Server Side Form Validation with Imager	West, Casey	casey@geeknest.com	
+1	45			web	Michael McClennen	Web Forms Unbound (and Interactive)	McClennen, Michael	michaelm@umich.edu	
+1	45			xml	Clinton A. Pierce	Ad Hoc reporting with XML data	Pierce, Clinton A.	clintp@geeksalad.org	
+1	22.5			util	Stephen B. Jenkins	A Configuration File Editor for a Wind Tunnel Data System	Jenkins, Stephen B.	Steve.Jenkins@nrc.ca	

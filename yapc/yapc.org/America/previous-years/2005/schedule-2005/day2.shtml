@@ -1,0 +1,152 @@
+	<tr>
+<html>
+<head>
+	<title>YAPC::NA 2005 Timetable - Day 2 (Tuesday June 28, 2005)</title>
+	<style type="text/css">
+		a {text-decoration:none; color:black}
+	</style>
+</head>
+<body>
+
+<table border="0" width="100%">
+	<tr>
+		<td valign=center width="100%">
+			<font size="+3"><b>yapc: Yet Another Perl Conference</b></font><br/>
+			<font size="+2"><b>North America 2005 - June 27-29</b></font><br/>
+
+<a href=http://yapc.org/America/>
+<u><font size="+2" color="blue"><b>Return to YAPC::NA home page
+</b></font></u></a><br/>
+
+
+
+		</td>
+		<td rowspan="2"><a href="http://www.yapc.org/America/"><img src="register_camoose.png" border=0 alt="YAPC America::North"></a></td>
+	</tr>
+	<tr>
+		<td valign=center>
+			<table border=0 cellpadding=3 cellspacing=0 width=100%>
+			<tr>
+				<th align=center><a href="day1.html">Day 1<br/>Monday</a></th>
+				<th align=center><h2>Day 2: Tuesday, June 28</H2></th>
+				<th align=center><a href="day3.html">Day 3<br/>Wednesday</a></th>
+			</tr>
+			<tr>
+			</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<table border=1 cellpadding=3 cellspacing=0 width=100% bgcolor="#c0c0c0">
+	<tr>
+		<th bgcolor="#f0f0f0">Time</th>
+		<th bgcolor="#f0ffff">Grand Ballroom (East)</th>
+		<th bgcolor="#fff0ff">Grand Ballroom (Centre)</th>
+		<th bgcolor="#f0f0ff">Giovanni Room</th>
+		<th bgcolor="#ffffd0">"brian d foyer"</th>
+	</tr>
+	<tr>
+		<td colspan=5></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>&nbsp;<br/>&nbsp;<br/>9:00&nbsp;<br/>&nbsp;<br/>&nbsp;<br/></td>
+		<td bgcolor="#f0ffff" valign=top align=center><!--<a href="summary.html#20"><b>TBA<br/>Brian Ingerson</a>-->&nbsp;</td>
+		<td bgcolor="#fff0ff" valign=top align=center rowspan=2><a href="summary.html#21"><b>Apocalypse Now - Perl 6 is Here Today</b><br/>Autrijus Tang</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center rowspan=2><a href="summary.html#22"><b>Lexical::Attributes</b><br/>Abigail</a></td>
+		<td bgcolor="#ffffd0" valign=top align=center rowspan=2><a href="summary.html#23"><b>Learning Perl</b><br/>brian d foy</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>10:10</td>
+		<td bgcolor="#f0ffff" valign=top align=center><a href="summary.html#24"><b>Offline Programmatic Generation of Web Pages</b><br/>Stephen Jenkins</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>10:30</td>
+		<td bgcolor="#aaaaff" valign=top align=center colspan=4>Break (15 minutes) - snack provided</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>10:45</td>
+		<td bgcolor="#f0ffff" valign=top align=center rowspan=2><a href="summary.html#25"><b>Perl Modules for Exceptions,<br/>Logging and Parameter Validation</b><br/>David Rolsky</a><br/>&nbsp;<br/>&nbsp;<br/>&nbsp;</td>
+		<td bgcolor="#fff0ff" valign=top align=center rowspan=4><a href="summary.html#26"><b>Apocalypse Now - Perl 6 is Here Today (continued)</b><br/>Autrijus Tang</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center rowspan=2><a href="summary.html#27"><b>Using utf-8 in Perl</b><br/>Mark Fowler</a></td>
+		<td bgcolor="#ffffd0" valign=top align=center rowspan=4><a href="summary.html#28"><b>Learning Perl (continued)</b><br/>brian d foy</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>11:05</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>11:25</td>
+		<td bgcolor="#f0ffff" valign=top align=center><a href="summary.html#29"><b>How to Serve a Billion Requests<br/>a Day with Perl</b><br/>Kevin Scaldeferri</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center><a href="summary.html#30"><b>A Language for Games</b><br/>Luke Palmer</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>11:45</td>
+		<td bgcolor="#f0ffff" align=center><a href="summary.html#31"><b>Using Graph Theory to Detect<br/>Security Policy Violators</b><br/>Walt Mankowski</a></td>
+		<td bgcolor="#f0f0ff" align=center><a href="summary.html#32"><b>'vexations in perl' or 'control loops for serious immobility'</b><br/>John Saylor</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#aaaaff" valign=center align=right nowrap>12:15</td>
+		<td bgcolor="#aaaaff" valign=top align=center colspan=4>Lunch (1hr 15 min) - find on your own, suggestions provided</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>1:30</td>
+		<td bgcolor="#f0ffff" valign=top align=center><a href="summary.html#33"><b>Making the switch:<br/>DBI to Class::DBI</b><br/>Shawn Sorichetti</a></td>
+		<td bgcolor="#fff0ff" valign=top align=center><a href="summary.html#34"><b>Status of the Perl 6 compiler</b><br/>Patrick Michaud</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center><a href="summary.html#35"><b>International Address Parsing with Perl</b><br/>Steve Purkis</a></td>
+		<td bgcolor="#ffffd0" valign=top align=center rowspan=4><a href="summary.html#36"><b>Learning Perl (continued)</b><br/>brian d foy</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>&nbsp;<br/>1:50<br/>&nbsp;<br/>&nbsp;</td>
+		<td bgcolor="#f0ffff" valign=top align=center rowspan=2><a href="summary.html#37"><b>Perl Programing with DB2</b><br/>Marina Greenstein</a></td>
+		<td bgcolor="#fff0ff" valign=top align=center rowspan=3><a href="summary.html#38"><b>Parrot: Present and Future</b><br/>Chip Salzenberg & Dan Sugalski</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center rowspan=2><a href="summary.html#39"><b>Regular Expressions for Syllabaries</b><br/>Daniel Yacob</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>&nbsp;<br/>2:10<br/>&nbsp;<br/>&nbsp;</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>2:30</td>
+		<td bgcolor="#f0ffff" valign=top align=center><a href="summary.html#40"><b>High-Availability & DBI</b><br/>Steve Purkis</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center><a href="summary.html#41"><b>"Wyt ti'n medru siarad Saesneg?" and why need a phrasebook</b><br/>Barbie</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>3:00</td>
+		<td bgcolor="#aaaaff" valign=top align=center colspan=4>Break (15 minutes) - snack provided</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>3:15</td>
+		<td bgcolor="#f0ffff" valign=top align=center rowspan=2><a href="summary.html#42"><b>Beyond the Basics<br/>of Class::DBI</b><br/>Casey West</a></td>
+		<td bgcolor="#fff0ff" valign=top align=center rowspan=4><a href="summary.html#43"><b>PGE - The Perl/Parrot Grammar Engine</b><br/>Patrick Michaud</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center rowspan=2><a href="summary.html#44"><b>Perl DateTime Project</b><br/>David Rolsky</a></td>
+		<td bgcolor="#ffffd0" valign=top align=center rowspan=4><a href="summary.html#45"><b>Learning Perl (continued)</b><br/>brian d foy</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>3:35</td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>3:55</td>
+		<td bgcolor="#f0ffff" valign=top align=center rowspan=2><a href="summary.html#46"><b>Getting your data from there to here: Class::DBI::DataMigration</b><br/>Dan Friedman</a></td>
+		<td bgcolor="#f0f0ff" valign=top align=center rowspan=2><a href="summary.html#47"><b>Managing Email with Perl</b><br/>Casey West</a></td>
+	</tr>
+	<tr>
+		<td bgcolor="#f8f8f8" valign=center align=right nowrap>4:15</td>
+	</tr>
+	<tr>
+		<td bgcolor="#aaaaff" valign=center align=right nowrap>4:45</td>
+		<td bgcolor="#aaaaff" valign=top align=center colspan=4>End of Day</td>
+	</tr>
+</table>
+<center>(Click on titles to view abstracts)</center>
+<p>
+<ul>
+	<table border=0 cellpadding=3 cellspacing=0>
+		<tr>
+		<th valign=top>Evening Activities:</th>
+		<td>
+6pm - 11pm: Boat Cruise on Lake Ontario / Toronto Harbour, Dinner
+Banquet, YAPC Auction
+                </td>
+	</table>
+</ul>
+
+</body>
+</html>

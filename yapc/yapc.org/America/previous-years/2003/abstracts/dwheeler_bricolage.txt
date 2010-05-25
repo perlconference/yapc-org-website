@@ -1,0 +1,41 @@
+Abstract                                                                                                              
+--------                                                                                                              
+Content management is a huge issue for organizations of all sizes,                                                    
+addressed by products ranging from simple in-house solutions to                                                       
+multi-million dollar commercial applications. Bricolage, an                                                           
+enterprise-class open-source content management system powered by                                                     
+Apache/mod_perl and PostgreSQL, aims to bridge the gap between these                                                  
+extremes by offering an intuitive interface with powerful capabilities.                                               
+                                                                                                                      
+This presentation offers a practical introduction to Bricolage. As an                                                 
+open-source product with commercial-class features such as document type                                              
+definition, granular access control, flexible templating, and                                                         
+platform-independent content distribution, Bricolage enables a deep and                                               
+comprehensive organizational content management workflow. Following a                                                 
+brief review of its history, we'll focus on the essentials needed to                                                  
+start                                                                                                                 
+using Bricolage. The topics covered include:                                                                          
+                                                                                                                      
+* Installation and configuration (including hardware and software                                                     
+  requirements).                                                                                                      
+                                                                                                                      
+* Analysis and logical modeling of document types in an organization.                                                 
+                                                                                                                      
+* Importing existing documents via SOAP.                                                                              
+                                                                                                                      
+* Editing documents.                                                                                                  
+                                                                                                                      
+* Replicating and managing organizational workflow.                                                                   
+                                                                                                                      
+* Mason template development.    
+                                                                                                                      
+* Publishing and distribution.                                                                                        
+                                                                                                                      
+Bricolage has gained wide adoption from organizations as diverse as the                                               
+World Health Organization and Macworld Magazine. Its power and ease of                                                
+use                                                                                                                   
+led to its being named "Most Impressive" of 2002 by eWeek. Join                                                       
+Bricolage                                                                                                             
+maintainer and lead developer David Wheeler to learn what the fuss is                                                 
+about, and to discover how to put Bricolage to work in your                                                           
+organization. 

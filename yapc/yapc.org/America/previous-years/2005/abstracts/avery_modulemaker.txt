@@ -1,0 +1,14 @@
+Title:                                                                                                                
+ModuleMaker                                                                                                           
+                                                                                                                      
+Description:                                                                                                          
+Modules are the basic building block for structured programming in Perl. In                                           
+this session you will learn how to use the ExtUtils::ModuleMaker facility                                             
+to automatically construct all the base files needed by a well-engineered                                             
+module, and tools and strategies for converting existing code into                                                    
+well-engineered modules to promote code reuse and maintainability. Also                                               
+covered are ModuleMaker's interactions with Test::More, Module::Build, and                                            
+POD.                                                                                                                  
+                                                                                                                      
+Slides available at:                                                                                                  
+http://www.platypiventures.com/perl/present/index.shtml    

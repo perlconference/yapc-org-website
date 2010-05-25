@@ -1,0 +1,85 @@
+***************** CALL FOR PARTICIPATION ******************
+
+                      North American
+               Yet Another Perl Conference  
+                        YAPC 19100 
+
+              http://www.yapc.org/America/
+
+            Wednesday-Friday, June 21-23, 2000
+                            at
+                Carnegie Mellon University
+                 Pittsburgh, Pennsylvania
+
+
+     ** Abstract submission deadline:  April  3, 2000 **
+
+Yet Another Perl Conference (YAPC) is an inexpensive ($75) perl 
+users and developers conference, with a mix of tutorials and 
+technical talks.  The conference is set in Pittsburgh, Pennsylvania, 
+and so is relatively accessible from both the East and the Midwest.
+
+YAPC began as a grassroots users conference, from discussions 
+among Perl Mongers, and has grown from there.  We would like
+to invite you to join us for two days of Perl, people, and 
+demonstrations, at a price that shouldn't hurt your wallet.  
+There will be a limit of just under 500 people for the conference.
+
+A number of members of the Perl community are contributing to this
+event, including:
+
+   Larry Wall, Abigail, Damian Conway, Mark-Jason Dominus, 
+   Joseph Hall, purl, Randal Schwartz, ...
+
+    ... and YOU!  See the CALL FOR PAPERS below!
+
+Look to the main web page for more details --
+                                    http://www.yapc.org/America
+
+** Dorm rooms **
+
+A limited number of inexpensive dorm rooms are available at 
+Carnegie Mellon, that will be given preferentially to students, 
+but more generally on a first-come basis.  This is to further
+reduce the cost for those with limited resources, especially 
+students, who we are trying to encourage the most.  More 
+information will become available when registration begins.
+
+  *********** CALL FOR PAPERS ***********
+
+Potential presenters should submit a 200-300 word abstract to
+
+        lenzo+abstract@cs.cmu.edu
+
+in plain ASCII text or HTML by April 3rd for consideration.  
+We would like that your materials be available online, but
+it is not required.  If you have materials to include in
+the proceedings, or course notes, please let us know your
+requirements the abstract.  If you have any special presentation
+needs, please include them also.
+
+Topics are unlimited, but some suggestions include:
+
+   * Groupware, Agents, and Bots 
+   * Perl for Speech and Language 
+   * Text and Document Processing 
+   * Machine Learning in Perl 
+   * HTML, XML, and Markup Languages 
+   * CGI and Web programming in Perl 
+   * Internet Programming 
+   * Database Interation and Access with Perl 
+   * Scientific Computing (e.g. with PDL) 
+   * Practical Perl Programming 
+   * Module guts and usage on any particular Module. 
+   * Tutorials of all stripes: Modules, Objects, CPAN 
+   * Visionary or position papers on Perl, the past, 
+              the present, and the future 
+   * Anything cool :) 
+
+Conference fees will be waived for presenters at yapc, so
+another way to reduce your costs is to give a good talk
+on something you're excited about.
+
+
+  **** YAPC 100 **  http://www.yapc.org/America/ ********
+***************** CALL FOR PARTICIPATION ******************

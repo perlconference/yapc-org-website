@@ -1,0 +1,19 @@
+Title: Applied Machine Learning with Perl                                                                             
+                                                                                                                      
+Type/Duration: 40m                                                                                                    
+                                                                                                                      
+Audience Level: General                                                                                               
+                                                                                                                      
+Audience Type: Will be best for programmers.                                                                          
+                                                                                                                      
+Description:                                                                                                          
+The talk will give an introduction to basic Machine Learning techniques                                               
+(a compressed version of the "Introduction to Machine Learning with                                                   
+Perl" tutorial from previous conferences), then show practical examples                                               
+of how Machine Learning can be used to solve specific problems.                                                       
+Examples will come from the fields of email filtering, biological data                                                
+processing, and online content retrieval.                                                                             
+                                                                                                                      
+The talk will assume no prior experience with Machine Learning, but                                                   
+will assume a basic level of familiarity with object-oriented Perl                                                    
+programming. 

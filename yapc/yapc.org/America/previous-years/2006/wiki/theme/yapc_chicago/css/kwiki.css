@@ -1,0 +1,21 @@
+#content {
+    font-size: 160%;
+}
+
+form.edit input { position: absolute; left: 3% }
+textarea { width: auto }
+
+a         {text-decoration: none}
+a:hover   {text-decoration: underline}
+a:active  {text-decoration: underline}
+a.empty   {color: gray}
+a.private {color: black}
+
+.error    {color: #f00;}
+
+div.side a { display: list-item; list-style-type: none }
+div.upper-nav { }
+textarea { width: 100% }
+div.navigation a:visited {
+    color: #d64;
+}

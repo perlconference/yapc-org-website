@@ -1,0 +1,37 @@
+Title: New Power Tools for Module Authors                                                                             
+Length: 3 hours                                                                                                       
+                                                                                                                      
+- Module::Install - This is the module that will eventually replace                                                   
+  ExtUtils::MakeMaker and Module::Build as the framework for                                                          
+  Makefile.PL. Why do I think that? Because Module::Install actually                                                  
+  wraps around either ExtUtils::MakeMaker or Module::Build or even both                                               
+  at the same time. And it makes all the complicated things that you do                                               
+  in Makefile.PL as easy as turning on a switch. Best of all it bundles                                               
+  as much of itself as necessary into your module; automatically.                                                     
+                                                                                                                      
+- Module::Test - This is an autobundling test framework that is similar                                               
+  in spirit to Module::Install. It allows people to create an endless                                                 
+  number of reusable tests and share them between modules.                                                            
+                                                                                                                      
+- Module::Build - This is the underlying framework that is meant to                                                   
+  eventually replace ExtUtils::MakeMaker.                                                                             
+                                                                                                                      
+- ExtUtils::AutoInstall - Allows module writers to specify a more                                                     
+  sophisticated form of dependency information than the PREREQ_PM option                                              
+  offered by ExtUtils::MakeMaker.                                                                                     
+                                                                                                                      
+- Test::FIT - FIT is a visual testing framework developed by Ward                                                     
+  Cunningham. See http://fit.c2.com. Test::FIT provides a whole new way                                               
+  for Perl module authors.                                                                                            
+                                                                                                                      
+- Module::Husbandry - A better way to create module distributions.                                                    
+  Replaces the h2xs method.                                                                                           
+                                                                                                                      
+- Inline.pm - Combined with Module::Install, Inline makes it very easy 
+  to create C based Perl modules.                                                                                     
+                                                                                                                      
+- only.pm - Allows you to install multiple versions of the same Perl                                                  
+  module, and choose at runtime which one you want to use.                                                            
+                                                                                                                      
+- www.freepan.org - FreePAN is my new project to create a CPAN like                                                   
+  facility for Open Source programs written in any programming language. 

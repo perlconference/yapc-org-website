@@ -1,0 +1,264 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <meta name="description" 
+          content="YAPC 2001 is an inexpensive Perl conference on June 13-15, 2001, at McGill University in Montreal, Quebec, Canada.">
+    <meta name="keywords"
+          content="Perl,Perl conference,McGill University,Montreal,Quebec,Larry Wall,language,computer,convention,yapc,Perl mongers,computer science">
+    <title>YAPC 2001: Location</title>
+ 
+    <link rel=stylesheet type="text/css"
+          href="yapcna.css" 
+          title="yapcna">
+         
+</head>
+
+<body marginheight=0 marginwidth=0 topmargin=0 leftmargin=0 bgcolor="#ffffff" text="#000000" link="#000099">
+
+<table border=0 cellpadding=6 cellspacing=0 width="100%">
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <table align="center" cellpadding=6 cellspacing=0 border=1>
+        <tr>
+          <td class="venue" bgcolor="#ffffff" align="center">
+            <!--#include virtual="include/venuebox.html" -->
+          </td>
+        </tr>
+       </table>
+    </td>
+    <td class="header" align="center">
+      <img src="../images/yapcAN.jpg" width=270 height=86 border=0 alt="YAPC Location"></td>
+  </tr>
+  <tr>
+    <td class="side" bgcolor="#cccccc" width=120 valign="top">
+       <!--#include virtual="include/menu.html" -->
+    </td>
+    <td valign="top">
+      <!-- FILLME BODY TEXT BEGINS HERE -->
+      <div align="center">
+        <H1>yapc: Yet Another Perl Conference</H1><H2>Location</H2>
+        <p class="moddate"><small>
+          <a href="#getting">Getting There</a> |
+          <a href="#campus">On Campus</a> |
+          <a href="#accomm">Accommodations</a> |
+          <a href="#montreal">Seeing Montr&eacute;al</a>
+        </small>
+      </div>
+
+      <p><a href="../images/montroyal.jpg"><img align=right width=211 height=145 src="../images/t-montroyal.jpg" border=1 alt="Montreal Skyline"></a>      
+      YAPC::NA 2001 will be held on the campus of <a href="http://www.mcgill.ca">McGill
+      University</a>, located in the heart of downtown 
+      <a href="http://www.tourism-montreal.org">Montr&eacute;al</a>,
+      <a href="http://www.tourisme.gouv.qc.ca/index_en.html">Qu&eacute;bec</a>, Canada. 
+
+
+      <p><b>Language:</b> Located in Canada's French-speaking province, Montr&eacute;al
+      is a dynamic, multicultural multilingual city with a touch of
+      European flavour. Unilingual English-speakers will have no difficulty in downtown
+      Montr&eacute;al, where they will hear French being spoken all around but will still be
+      able to speak English to almost anyone they meet. Those with no knowledge of French 
+      are advised to learn or note some basic French which they may encounter on signs,
+      menus, and bathroom doors. Those with basic French knowledge will almost certainly
+      fare well, although Qu&eacute;becois French is subtly different from that of France.
+      <ul>
+        <li><a href="http://www.travlang.com/languages/cgi-bin/langchoice.cgi?lang2=french">French for travellers</a>
+      </ul>  
+
+
+      <p><b>Currency:</b> All Canadian banks and exchange counters will accept
+      US dollars to convert to Canadian dollars; most exchange counters will
+      accept currency from elsewhere in the world, but it's usually a good
+      idea to bring US or Canadian dollars anyhow. One Canadian dollar is
+      worth around 0.65 US dollars (or, if you prefer, one US dollar makes
+      about 1.50 Canadian dollars). 
+      <ul>
+        <li><a href="http://www.xe.net/ucc/">Currency convertor</a>
+      </ul>
+
+      <p><b>Climate:</b> In June, Montr&eacute;al will be pleasantly
+      warm (15-20&deg;C) without getting too humid. Evenings may be somewhat cool (10&deg;C).
+      <ul>
+        <li><a href="http://jack.tor.ec.gc.ca/forecast/yul.html">Montr&eacute;al weather forecast</a>
+      </ul>
+
+      <p><b>International visitors:</b> Some resources to make your visit to Canada
+      as smooth as possible.
+      <ul>
+        <li>Canada Customs <a href="http://www.ccra-adrc.gc.ca/customs/individuals/travellers/visitors/menu-e.html">information for visitors</a>
+        <li>Revenue Canada <a href="http://www.ccra-adrc.gc.ca/tax/nonresidents/visitors/tax-e.html">tax refunds</a> for visitors.
+        <li>US State Department's 
+            <a href="http://travel.state.gov/tips_canada.html">list of tips</a> 
+            for travellers to Canada
+        <li>An <a href="http://emily.icomm.ca/">American's Guide to Canada</a>
+      </ul>
+
+      <a name="getting"></a>
+      <p><hr size=1>
+      <H3>Getting There</H3>
+      <a href="../images/montreal.gif"><img width=199 height=129 align=right src="../images/t-montreal.gif" border=1 alt="Map of Quebec
+      and Northeast USA"></a>      
+
+      <p>
+      As one of Canada's major metropolises, Montr&eacute;al is easily accessible to travelers
+      coming from within and outside Canada.
+  
+      <p><b>By air:</b> Scheduled flights, international or otherwise,
+      fly into Dorval Int'l Airport (CYUL). Getting from Dorval to
+      downtown is a $28 (US$18) cab ride, an $11 (US$7) coach ride, or
+      a $2 city-bus-and-subway ride. Charters fly into Mirabel (CYMX),
+      which is quite a distance outside the city. Avoid if possible.
+      <ul>
+        <li><a href="http://www.admtl.com/dorval/en/1_bienvenue/bienvenue-e.shtml">Dorval Airport</a>
+        <li><a href="http://www.admtl.com/dorval/en/4_transport/autobus-e.shtml">Airport Shuttle</a>
+      </ul>
+
+      <p><b>By train:</b> Montr&eacute;al is served by Canada's <a href="http://www.viarail.ca/">VIA
+      Rail</a> and by <a href="http://www.amtrak.com">Amtrak</a>. Both of Montr&eacute;al's train
+      stations -- Gare Centrale and Gare Windsor -- are located within a five-minute walk of
+      the McGill campus. 
+      <ul>
+        <li><a href="http://www.viarail.ca/en.trai.cent.html">VIA Corridor routes</a> to Montr&eacute;al
+        <li><a href="http://northeast.amtrak.com/adirondack/">Amtrak Adirondack</a> to Montr&eacute;al
+      </ul>
+
+      <p><b>By car:</b> Parking will be available on-site at around $5 (US$3) per day.
+      Yahoo! Maps can give you <a href="driving.shtml">driving
+      directions</a>. Remember, Canada is Metric: speed limits are measured in
+      kilometres per hour, and fuel in litres. Staying within the speed limit is
+      recommended on Qu&eacute;bec highways, where the provincial police might <i>not</i>
+      speak English. <i>Important:</i> You cannot turn right on a red light in Qu&eacute;bec.
+
+      <p><b>By bus:</b> Canadian and American bus lines, including
+      Greyhound, Coach Canada, and Voyageur, stop at the
+      Montr&eacute;al Terminus, which is a short M&eacute;tro (subway)
+      ride from the McGill Campus.
+
+      <a name="campus"></a>
+      <p><hr size=1>
+      <H3>On Campus</H3>
+
+      <p><a href="http://www.mcgill.ca">McGill University</a>, one of
+      two English universities in Montr&eacute;al, features a
+      peaceful, green campus right in the middle of the city's
+      downtown.
+      
+      <p>Unlike previous years, the conference, reception, and meals will take
+      place in different buildings. All the buildings except the residences are
+      within a few steps of each other; the residences (and downtown hotels) are
+      about a five-minute walk away. The image above and the campus map below
+      illustrate the venues:
+      
+      <div align="center">
+      <p><a href="../images/map.jpg"><img width=190 height=168 align="middle" src="../images/t-map.jpg" border=1 alt="McGill map"></a>
+      &nbsp;&nbsp;&nbsp;&nbsp;      &nbsp;&nbsp;&nbsp;&nbsp;      &nbsp;&nbsp;&nbsp;&nbsp;
+      <a href="../images/campus.jpg"><img width=143 height=148 align="middle" src="../images/t-campus.jpg" border=1 alt="McGill campus"></a>
+      </div>
+
+      <p><b>To drive to the campus</b>, follow the <a
+      href="driving.shtml">driving directions</a> which will take you
+      to the McGill University gates; from there, turn right onto
+      Sherbrooke Street, and then left onto University Street. Follow
+      University Street all the way up the mountain, and take the last
+      driveway to the right (which appears to lead to a football
+      stadium) to reach the parking lot..
+      
+      <p><b>By M&eacute;tro</b>, take the <a
+      href="http://www.stcum.qc.ca/English/metro/a-mapmet.htm">Green
+      Line</a> to the McGill station. Find the University Street exit
+      and walk north (uphill) until you see the University.
+
+      <p>Rich Lafferty has a 
+      <a href="http://alcor.concordia.ca/~rich/yapc/photo/">separate
+      photo gallery</a> of some of the conference facilities.
+
+      <a name="accomm"></a>
+      <p><hr size=1>
+      <H3>Accommodations</H3>
+
+      As in previous years, we will be providing inexpensive accommodations in University 
+      residences for those who desire them, and arranging special pricing for those
+      who prefer hotels. <i>Unlike</i> previous years, there are a lot of hotels one block
+      away from campus!
+
+      <H4>McGill Residences</H4>
+
+      <div align="center">
+      <p><a href="../images/mcconnell.jpg"><img align="middle" width=186 height=128 src="../images/t-mcconnell.jpg" border=1 alt="McGill residence"></a>
+      </div>
+
+      <p>You can <a href="dorms.shtml">book</a> a room from <a
+      href="http://www.residences.mcgill.ca">McGill University
+      Residences</a>.
+
+      <br><br>
+      <div align="center">
+      <p><a href="../images/douglas.jpg"><img align="middle" width=222 height=120 src="../images/t-douglas.jpg" border=1 alt="McGill residence"></a>
+      </div>
+
+      <p>The residences are located at the base of Mount Royal Park, a short walk from the conference
+      facilities.
+
+      <H4>Hotels</H4>
+
+      Right around McGill is what could be described as the hotel
+      district of Montr&eacute;al.  McGill has arrangements with five
+      hotels ranging from comfortable (Marriott) to luxurious
+      (Ritz-Carlton). Please note that the Chateau Versailles is not
+      as close to McGill as the others (about a fifteen minute
+      walk). Information on the hotels and on how to obtain McGill
+      University negotiated rates is available here:
+      <ul>
+        <li><a href="http://www.mcgill.ca/ancillary/travelserv/hotels.htm">McGill Travel Services -- 
+            Official Hotels</a>
+      </ul>
+
+      <a name="montreal"></a>
+      <p><hr size=1>
+      <H3>Seeing Montr&eacute;al</H3>
+
+ <img align="right" width=135 height=80 src="../images/t-skyline.jpg" border=0 alt="Montreal skyline">
+    
+      <p>There is <i>so</i> much to see in Montr&eacute;al that we couldn't begin
+      to describe it all here; instead, we'll leave that up to the folks that
+      do it best, with some useful links. We encourage you to spend the weekend following
+      YAPC in Montr&eacute;al to discover the city.
+
+      <ul>
+        <li><a href="http://www.tourism-montreal.org/">Tourism Montreal</a> is a great
+            source of information, and is the official Montr&eacute;al tourism agency.
+        <li>See Montr&eacute;al <i>right now</i> from the city's network
+            of <a href="http://www.montrealcam.com">Montrealcams</a>
+        <li>The <a href="http://www.montreal.com/tourism/">Montreal.com</a> tourist guide
+        <li>Montr&eacute;al's English entertainment weeklies, <a href="http://www.hour.ca/">Hour</a>
+            and <a href="http://www.montrealmirror.com/">Mirror</a>
+        <li><a href="http://english.montrealplus.ca/Montreal/">MontrealPlus</a> has 
+            the usual tourist fare, plus 
+            <a href="http://english.montrealplus.ca/page/gen?_template=calendar/calendar_results.html&amp;start_day=10&amp;start_month=Jun&amp;month=6/2001&amp;start_year=2001&amp;end_day=16&amp;end_month=Jun&amp;end_year=2001&amp;recommended=yes&amp;context_id=">recommended events</a> during YAPC Week
+            
+      </ul>
+
+      <p>For those feeling a bit of wanderlust, it's a short drive from Montr&eacute;al
+      to Qu&eacute;bec City, the capital of the province of Qu&eacute;bec, and to 
+      Ottawa, the capital of Canada.
+
+      <ul>
+        <li><a href="http://www.quebecregion.com/">Qu&eacute;bec (City) Region tourist
+            information</a>
+        <li><a href="http://tourottawa.org/">Ottawa tourist information</a>
+      </ul>
+    </td>
+  </tr>
+   <tr>
+    <td class="side" bgcolor="#cccccc" width=120>
+      <br><br><br>&nbsp;
+    </td> 
+    <td valign="baseline">
+      <br><br><br><br>
+      <p class="moddate"><small>Last modified at <!--#config timefmt="%I:%m %p on %B %e, %Y" -->
+           <!--#echo var="LAST_MODIFIED"--> by <a href="mailto:webmaster@www.yapc.org">webmaster@www.yapc.org</a>.<br>
+           All content copyright &copy; 2001 Yet Another Society, Inc.</small></p>
+    </td>
+  </tr>
+</table>
+</BODY>
+</HTML>

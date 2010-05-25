@@ -1,0 +1,60 @@
+BODY {
+	FONT-SIZE: 10pt; FONT-FAMILY: Geneva,Arial,Helvetica,sans-serif
+}
+H1 {
+	FONT-SIZE: 18pt; align: center
+}
+H2 {
+	FONT-SIZE: 14pt; align: center
+}
+H3 {
+	FONT-SIZE: 14pt
+}
+H4 {
+	FONT-SIZE: 12pt
+}
+P.moddate {
+	FONT-SIZE: 9pt
+}
+TD {
+	FONT-SIZE: 12pt; VERTICAL-ALIGN: text-top; FONT-FAMILY: Geneva,Arial,Helvetica,sans-serif
+}
+TD.side {
+	FONT-SIZE: 10pt; VERTICAL-ALIGN: text-top; COLOR: #ffffff; BACKGROUND-COLOR: #333399
+}
+TD.venue {
+	FONT-SIZE: 10pt; COLOR: #000000; BACKGROUND-COLOR: #ffffff; TEXT-ALIGN: center
+}
+TD.header {
+	TEXT-ALIGN: center
+}
+TR.header {
+	BACKGROUND-COLOR: #6666ff; TEXT-ALIGN: center
+}
+A {
+	COLOR: #0000ff; TEXT-DECORATION: underline
+}
+A:visited {
+	COLOR: #ff00ff; TEXT-DECORATION: underline
+}
+A:hover {
+	COLOR: #0000ff; TEXT-DECORATION: underline
+}
+A.side {
+	COLOR: #ffffff; TEXT-DECORATION: none
+}
+A.side:visited {
+	COLOR: #ccccff; TEXT-DECORATION: none
+}
+A.side:hover {
+	COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.sidehead {
+	FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: underline
+}
+A.sidehead:visited {
+	FONT-WEIGHT: bold; COLOR: #ffccff; TEXT-DECORATION: underline
+}
+A.sidehead:hover {
+	FONT-WEIGHT: bold; COLOR: #ffffff; TEXT-DECORATION: underline
+}

@@ -1,0 +1,47 @@
+<!doctype html public "-//w3c//dtd html 4.0 transitional//en">
+<html>
+<head>
+   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+   <meta name="GENERATOR" content="Mozilla/4.72 [en] (X11; U; Linux 2.3.99-pre6 i686) [Netscape]">
+</head>
+<body text="#000000" bgcolor="#FFFFFF" link="#0000EF" vlink="#51188E" alink="#FF0000">
+&nbsp;
+<center>
+<p><img SRC="yapc_na_00_bw.jpg" height=56 width=173></center>
+
+<h2>
+
+<hr WIDTH="100%"></h2>
+
+<h2>
+Data Structures: Perl vs Python Ordered Hashes</h2>
+
+<h3>
+Jeff Pinyan</h3>
+DALnet/EFNet #perl
+<p><i>Thursday, 12:00 Noon in Rangos II.</i>
+<p>How does one create an ordered hash?&nbsp; What is the thought process
+involved, and what data structures are needed inside this ordered hash
+object?
+<p>In this talk, we'll analyze two modules, one in Perl, OrderedHash.pm,
+and one in Python, OrderedDict.py, and see how to implement an ordered
+associative array (for a nice general term) structure.&nbsp; Python is
+more object-oriented by default, so an OrderedDict object appears to be
+just like an array or a dictionary.&nbsp; In OrderedHash.pm, I keep an
+OO approach (for a tying interface, look at GS's Tie::IxHash), and so it
+is more apparent that there is magic going on underneath.
+<p>As an added bonus, we'll look at a module that binds an array and a
+hash for a read-only approach to ordered hashes, ArrayHash.pm.&nbsp; Unlike
+MJD's ArrayHashMonster.pm, ArrayHash.pm is based on mucking around with
+the symbol table so that it /appears/ that an array and a hash are really
+the same thing.
+<br>&nbsp;
+<p>
+<a href="rodriguez_twig.html">Next</a> |
+<a href="orwant.html">Previous</a> |
+<a href="/America/schedule/author">Author list</a> |
+<a href="/America/schedule/">Schedule</a> |
+<a href="/America">YAPC 19100</a>
+</p>
+</body>
+</html>
