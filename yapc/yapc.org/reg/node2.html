@@ -1,0 +1,151 @@
+<HTML>
+  <HEAD>
+    <TITLE>YAPC::America 2001: Registration</title>
+</HEAD>
+<BODY text="#000000" bgcolor="#FFFFFF">
+
+<center>
+<img src="images/yapcAN.jpg" width=270 height=86 alt="YAPC::America::North 2001">
+
+<H2>YAPC::America 2001</H2>
+<H3>Registration</H3>
+
+<p>Wednesday, June 13, 2001 -- Friday, June 15, 2001<br> 
+McGill University, Montréal, Québec, Canada
+
+<hr width=400 size=1 noshade>
+</center>
+
+<H3>2. Verification of Registrant Information</H3>
+
+<p>Please verify that the information below is correct. If you find an
+error, you can <a href=index.pl?node_id=281&displaytype=edit>edit your entry</a>.
+
+<p><b>Please continue through all forms until you are told that your
+registration is complete.</b>
+<br><br>
+<table border=0 cellspacing=3 cellpadding=3>
+  <tr>
+    <td align=right>
+      <b>First Name</b>
+    </td>
+    <td>
+      $registrant_firstname
+    </td>
+  </tr>
+  <tr>
+    <td align=right>
+      <b>Last Name</b>
+    </td>
+    <td>
+      $registrant_lastname
+    </td>
+  </tr>
+  <tr>
+    <td align=right>
+      <b>Company</b>
+    </td>
+    <td>
+      $registrant_company
+    </td>
+  </tr>
+  <tr>
+    <td align=right>
+      <b>Address</b>
+    </td>
+    <td>
+      $registrant_address1
+    </td>
+  </tr>
+  <tr>
+    <td align=right>
+      <b>Apt./Room/Floor</b>
+    </td>
+    <td>
+      $registrant_address2
+    </td>
+  </tr>
+  <tr>
+    <td align=right>
+      <b>City</b>
+    </td>
+    <td>
+      $registrant_city
+      &nbsp;&nbsp;&nbsp;
+      <b>Province/State</b>&nbsp;&nbsp;
+      $registrant_state
+    </td>
+  </tr>
+  <tr>
+    <td align=right>
+      <b>Country</b>
+    </td>
+    <td>
+      $registrant_country
+      &nbsp;&nbsp;&nbsp;
+      <b>Postal Code</b>&nbsp;&nbsp;
+      $registrant_ZIP
+    </td>
+  </tr>
+  <tr>
+    <td>
+      &nbsp;
+    </td>
+    <td>
+      <hr width=350 size=1 noshade><br>
+      <b>Registration Fee and Sponsorship Levels:</b><br><br>
+        $registrant_reglvl_id{text}
+      <br><br>
+      <hr width=350 size=1 noshade>
+    </td>
+  </tr>
+  <tr>
+    <td align=right>
+       <b>Badge Line 1</b> <i>(Large)</i>
+    </td>
+    <td>
+       $registrant_badge1
+    </td>
+  </tr>
+  <tr>
+    <td align=right>
+      <b>Badge Line 2</b> <i>(Small)</i>
+    </td>
+    <td>
+       $registrant_badge2
+    </td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>
+      <hr width=350 size=1 noshade><br>
+       (if $registrant_dorminfo checked)<br>
+      <b>Please inform me when dorm arrangements have been made.<br><br>
+      <hr width=350 size=1 noshade>
+    </td>
+      
+  <tr>
+    <td align=right valign=top>
+      <b>Sponsor description</b>
+    </td>
+    <td>
+      $registrant_doctext
+    </td>
+  </tr>
+
+  <tr>
+    <td>&nbsp;</td>
+    <td>
+     <FORM METHOD="GET" ACTION="/index.pl" ENCTYPE="multipart/form-data">
+     <INPUT TYPE="hidden" NAME="displaytype" VALUE="display">
+     <INPUT type="hidden" name="op" value="addtocart">
+     <INPUT type="hidden" name="node_id" value="231">
+     <INPUT type="hidden" name="registrant_id" value="281">
+     <INPUT TYPE="submit" NAME="submit" VALUE="Continue">
+     </FORM>
+    </td>
+  </tr>
+</table>
+
+</BODY>
+</HTML>

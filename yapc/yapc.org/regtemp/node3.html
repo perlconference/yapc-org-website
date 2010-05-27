@@ -1,0 +1,80 @@
+<HTML>
+  <HEAD>
+    <TITLE>YAPC::America 2001: Registration</title>
+</HEAD>
+<BODY text="#000000" bgcolor="#FFFFFF">
+
+<center>
+<img src="images/yapcAN.jpg" width=270 height=86 alt="YAPC::America::North 2001">
+
+<H2>YAPC::America 2001</H2>
+<H3>Registration</H3>
+
+<p>Wednesday, June 13, 2001 -- Friday, June 15, 2001<br> 
+McGill University, Montréal, Québec, Canada
+
+<hr width=400 size=1 noshade>
+</center>
+
+<H3>3. More registrants?</H3>
+
+<FORM METHOD="POST"  ENCTYPE="multipart/form-data">
+<INPUT TYPE="hidden" NAME="displaytype" VALUE="display">
+<INPUT TYPE="hidden" NAME="node_id" VALUE="231">
+
+<p>Your registrations thus far are as listed below. Please note that 
+choosing "Continue" below will take you to our secure server for payment,
+but that your browser may present you with an warning that the server's 
+certificate temporarily does not match its name. 
+
+<p><b>(Please continue through all forms until you are told that your
+registration is complete.)</b><br><br>
+
+<center>
+<hr width=400 size=1 noshade>
+
+<TABLE>
+  <TR>
+    <TD><b>Delete</b></TD>
+    <TD><b>Name</b></TD>
+    <TD><b>Level</b></TD>
+    <TD><b>Total</b></TD>
+  </TR>
+  <TR>
+    <TD>
+      <INPUT TYPE="checkbox" NAME="del_6" VALUE="on">
+    </TD>
+    <TD>$name_blah</TD>
+    <TD>$level_blah</TD>
+    <TD>$amount_blah</TD>
+  </TR>
+</TABLE>
+<p><b>Total:</b> US$0.00<BR><br>
+
+<hr width=400 size=1 noshade>
+
+<table>
+  <tr>
+    <td>
+      <INPUT TYPE="submit" NAME="update" VALUE="Delete checked items">
+      </FORM>
+    </td>
+    <td>
+      <FORM METHOD="POST"  ENCTYPE="application/x-www-form-urlencoded">
+        <INPUT TYPE="submit" NAME="keep" VALUE="Register Another">
+	<INPUT TYPE="hidden" name="node_id" value="165">
+      </FORM>
+    </td>
+    <td>
+      <FORM METHOD="POST" ACTION="https://registration.yapc.org/index.pl" ENCTYPE="application/x-www-form-urlencoded">
+        <INPUT TYPE="submit" NAME="checkout" VALUE="Continue">
+        <INPUT TYPE="hidden" name="setsid" value="QTBG4OUYY5">
+        <INPUT TYPE="hidden" name="op" value="verifycookieoncheckout">
+        <INPUT TYPE="hidden" name="node_id" value="233">
+      </FORM>
+    </td>
+  </tr>
+</table>
+</center>
+</BODY>
+</HTML>
