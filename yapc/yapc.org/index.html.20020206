@@ -1,0 +1,59 @@
+<HTML>
+<HEAD><TITLE>YAPC</TITLE></HEAD>
+<BODY BACKGROUND="http://www.yapc.org/America/images/yapcbg.jpg" bgcolor="#ffffff">
+<center>
+<img src="http://www.yapc.org/images/yapc.gif"> <br>
+<h1>Yet Another Perl Conference</h1>
+</center>
+
+The Yet Another Perl Conferences (YAPCs) are grassroots symposia on
+the Perl programming language under the auspices of the <a
+href="http://yetanother.org/">Yet Another Society</a> (<a
+href="http://yetanother.org/">YAS</a>), a non-profit corporation for
+the advancement of collaborative efforts in computer and information
+sciences.
+
+<h2>Conferences</h2>
+<UL>
+<LI> <a href="http://www.yapc.org/America/">YAPC::America::North</a>
+will be held at a site yet to be decided.  In 2001, it was held on
+June 13-15, 2001, at McGill University in Montreal, Quebec,
+Canada. In 2000, YAPC was held at <a href="http://www.cs.cmu.edu/">Carnegie
+Mellon University</a>, where it originated in 1999.
+<p>
+<LI> <a href="http://www.yapc.org/Europe/">YAPC::Europe</a>, will be
+held in Munich, on Sept. 18-20, 2002, Technische Universit&auml;t M&uuml;nchen.
+
+YAPC::Europe 2001 had a
+Security Theme, and was held August 2-4 at Hogeschool Holland in
+Amsterdam, Netherlands.  The first YAPC::Europe ("The Art of Perl")
+was a great success in 2000; it was held at the <a
+href="http://www.ica.org.uk/">Institute for Contemporary Arts</a> (<a
+href="http://www.ica.org.uk">ICA</a>), London.
+
+<!--
+<p>
+<LI> <a href="http://yarpc.tokyo.pm.org">YARPC</a>, Yet Another
+Ruby/Perl Conference, is being held in Tokyo with the aid of the Japan
+Unix Society (JUS).  This is not a Yet Another Society event, but we
+would like to acknowledge and applaud the kindred spirit of this
+meeting.  
+-->
+
+<!-- LI> <a href="http://www.yapc.org/Australia/">YAPC::Australia </a -->
+</UL>
+
+<!--
+<h2>Workshops</h2>
+<UL>
+<LI> <a href="http://www.perl-workshop.de/">German Perl Workshop</a>, starting Ash Wednesday, February 2001.
+</UL>
+-->
+Here is a list of <a href="venue-reqs.txt">venue requirements</a> for YAPC.
+<hr>
+<i>
+Copyright &copy; 2000, 2001
+<a href="http://yetanother.org">Yet Another Society</a>.
+</i>
+</BODY>
+</HTML>

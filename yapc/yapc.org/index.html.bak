@@ -1,0 +1,232 @@
+<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<title>
+			YAPC
+		</title>
+<style type="text/css">
+/*<![CDATA[*/
+  body{
+    font-family: verdana, 'trebuchet ms', sans-serif;
+    font-size: 12px;
+    border-style: solid;
+    border-width: 50px;
+    color: #36414d;
+  }
+  .content{
+    padding-top: 5px;
+    background-color: white;
+  }
+  .cal{
+  margin: 5px;
+  align: center;
+  width: 100%;
+  }
+  p{ margin-left: 3em; }
+    h2,h3 {margin-left: 1.5em;}
+/*]]>*/
+</style> 
+	</head>
+	<body class='body'>
+		<div class='content'>
+			<table width='100%'>
+				<tr border='1'>
+					<td width='15%' border='1' class='header' align='center'>
+						<a href='http://perlfoundation.org'>
+							<img src="http://perlfoundation.org/images/tpf_logo_45x86.png" alt="TPF Logo" border="0" />
+						</a>
+					</td>
+					<td align='center'>
+						<img src="http://www.yapc.org/images/yapc.gif" />
+					</td>
+				</tr>
+			</table>
+		</div>
+		<h1 align='center'>
+			Yet Another Perl Conference
+		</h1>
+<p>The Yet Another Perl Conferences (YAPCs) are grassroots symposia on the Perl programming language coordinated by <a href='http://perlfoundation.org'>The Perl Foundation</a>, a non-profit corporation dedicated to the advancement of the Perl programming language through open discussion, collaboration, design, and code. We also support other collaborative events such as Perl workshops and hack-a-thons.</p>
+		<hr />
+		<h2>
+			Calendar of Upcoming Events
+		</h2>
+<p class='cal' align='center'><iframe src="http://www.google.com/calendar/embed?src=ngctmrd1cac35061mrjt3hpgng%40group.calendar.google.com&amp;epr=4&amp;bgcolor=%2336414d&amp;height=614" style=" border:solid 1px #777" width="800" frameborder="0" height="600">
+		</iframe></p>
+		
+<hr />
+<h2>
+Older News
+</h2>
+		
+		<h3>
+			YAPC::Brasil::2006
+		</h3>
+		<p>
+			<a href="http://yapc.org/Brasil/">
+				YAPC::Brasil
+			</a>
+			will be held April 19-22, 2006 in Porto Alegre/RS, Brazil in conjunction with 
+			<a href="http://fisl.softwarelivre.org/7.0/www/?q=en">
+				7th International Free Software Forum.
+			</a>
+			More information at 
+			<a href="http://use.perl.org/article.pl?sid=06/03/07/0150229">
+				use.perl.org</a>.
+		</p>
+		<h3>
+			YAPC::Asia 2006 in Tokyo
+		</h3>
+		<p>
+			<a href="http://tokyo.yapcasia.org/blog/">
+				YAPC::Asia
+			</a>
+			will be in Tokyo March 29 - 30, 2006. They are currently accepting talks and it looks like the talks will be in English and Japanese.
+		</p>
+		<h3>
+			YAPC::NA::2006 Venue Selected and Dates Released
+		</h3>
+		<p>
+			Chicago was recently selected to 
+			<a href="http://yapc.org/America/">
+				YAPC::NA 2006</a>. The conference will be held on June 26<sup>th</sup>-28<sup>th
+			</sup>
+			on the campus of the Illinois Institute of Technology.
+		</p>
+		<h3>
+			YAPC::Europe::2006 in Birmingham, UK
+		</h3>
+		<p>
+			YAPC::Europe::2006 will be in Birmingham, UK with the theme 
+			<i>
+				The Accessibility of Perl</i>.
+		</p>
+
+		<h3>
+			Open Source Developers' Conference in Israel
+		</h3>
+		<p>
+			<a href="http://www.osdc.org.il/">
+				OSDC Israel
+			</a>
+			was held on February 26-28, 2006 in Netanya, Israel. Some slides are now available at the web site.
+		</p>
+		<h3>
+			London Perl Workshop
+		</h3>
+		<p>
+			The 
+			<a href="http://london.pm.org/lpw/index.html">
+				London Perl Workshop
+			</a>
+			is a free one-day conference in central London, UK. It was held most recently on Saturday, November 26, 2005. Details on the talks are available at the 
+			<a href="http://london.pm.org/lpw/index.html">
+				London Perl Workshop
+			</a>
+			website.
+		</p>
+		<h3>
+			YAPC::NA::2005 Conference Proceedings Available
+		</h3>
+		<p>
+			You can now re-live the excitement from YAPC::NA::2005 because the Toronto Perl Mongers have announced the availability of the proceedings from YAPC::NA::2005 held in Toronto. You can find 
+			<a href="http://use.perl.org/article.pl?sid=05/11/23/0320248&amp;tid=1&amp;tid=43">
+				details on how to get the proceedings
+			</a>
+			at 
+			<a href="http://use.perl.org">
+				use.perl.org</a>.
+		</p>
+		<hr />
+		<h2>
+			Conferences
+		</h2>
+		<ul>
+			<li>
+				<a href="http://www.yapc.org/America/">
+					YAPC::America::North
+				</a>
+				is an annual conference held in North America. YAPC started at 
+				<a href="http://www.cs.cmu.edu/">
+					Carnegie Mellon University</a>, where it was originated by Kevin Lenzo (now at 
+				<a href="http://www.cepstral.com">
+					Cepstral, LLC</a>) in 1999. Kevin is co-founder and chairman of the Society and Foundation. Since then, it's been held at the following locations and the websites are still available: 
+				<ul>
+					<li>
+						<a href="http://yapc.org/America/previous-years/2005/">
+							2005 - University of Toronto, Toronto, Ontario, Canada</a>
+					</li>
+					<li>
+						<a href="http://yapc.org/America/previous-years/2004/">
+							2004 - University at Buffalo, Buffalo, New York, U.S.A.</a>
+					</li>
+					<li>
+						<a href="http://yapc.org/America/previous-years/2003/">
+							2003 - Florida Atlantic University, Boca Raton, Florida, U.S.A.</a>
+					</li>
+					<li>
+						<a href="http://yapc.org/America/previous-years/2002/">
+							2002 - Washington University, Saint Louis, Missouri, U.S.A.</a>
+					</li>
+					<li>
+						<a href="http://yapc.org/America/previous-years/2001/">
+							2001 - McGill University, Montréal, Québec, Canada</a>
+					</li>
+					<li>
+						<a href="http://yapc.org/America/previous-years/19100/">
+							19100 - Carnegie Mellon University Pittsburgh, Pennsylvania, U.S.A.</a>
+					</li>
+					<li>
+						<a href="http://yapc.org/America/previous-years/1999/">
+							1999 - Carnegie Mellon University Pittsburgh, Pennsylvania, U.S.A.</a>
+					</li>
+				</ul>
+			</li>
+			<li>
+				<a href="http://www.yapceurope.org/">
+					YAPC::Europe
+				</a>
+				is supported by the YAPC::Europe Foundation. Previous YAPC::Europes: 
+				<ul>
+					<li>
+						<a href="http://www.yapceurope.org/2005">
+							Braga, Portugal - 2005</a>
+					</li>
+					<li>
+						<a href="http://www.yapceurope.org/2004">
+							Belfast - 2004</a>
+					</li>
+					<li>
+						<a href="http://www.yapceurope.org/2003">
+							Paris - 2003</a>
+					</li>
+					<li>
+						<a href="http://www.yapceurope.org/2002">
+							Munich - 2002</a>
+					</li>
+					<li>
+						<a href="http://www.yapceurope.org/2001">
+							Amsterdam - 2001</a>
+					</li>
+					<li>
+						<a href="http://www.yapceurope.org/2000">
+							London - 2000</a>
+					</li>
+				</ul>
+<!--
+<p>
+<LI> <a href="http://yarpc.tokyo.pm.org">YARPC</a>, Yet Another
+Ruby/Perl Conference, is being held in Tokyo with the aid of the Japan
+Unix Society (JUS).  This is not a Yet Another Society event, but we
+would like to acknowledge and applaud the kindred spirit of this
+meeting.  
+-->
+<!-- LI> <a href="http://www.yapc.org/Australia/">YAPC::Australia </a -->
+			</li>
+		</ul>
+You can find information about hosting a YAPC in The Perl Foundation <a href="http://code.google.com/p/tpf/">document repository</a> on the <a href="http://code.google.com/hosting/">Google code</a> project hosting site.
+		<hr />
+		<i>
+			Copyright © 2007 
+			<a href="http://perlfoundation.org">The Perl Foundation</a>.
+		</i>
+	</body>
+</html>

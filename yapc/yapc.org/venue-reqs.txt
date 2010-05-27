@@ -1,0 +1,100 @@
+
+                        Venue Requirements
+                   Yet Another Perl Conference 
+                          version 0.5_1
+
+                     Comments to TPF Conferences Committee
+                 (tpf-conferences) (at) (perl.org)  
+
+Yet Another Perl Conference (YAPC) is an inexpensive, grassroots
+conference on the Perl programming language aimed at beginners and
+experts alike, organized by Yet Another Society, Inc., a non-profit
+corporation. It traditionally lasts three days, with the first day
+being comprised largely of tutorials, and the latter two of workshops
+and seminars.
+
+This is a list of the general requirements for a venue.  If you have
+any questions, suggestions, or would like to propose to host YAPC,
+contact Kevin Lenzo at the Yet Another Society, <lenzo@yetanother.org>.
+
+Facilities.
+
+   Auditorium. A large lecture-hall style room, with seating, capable
+   of holding the full assembly.
+
+   Meeting rooms. Three additional rooms with a total capacity
+   approximately equal to that of the full assembly.
+
+   Dining Area. A dining area capable of seating the full assembly
+   for dinner.  The area should have a public-address system, although
+   Yet Another Society may provide it.  It may be off-site, but must
+   be near.
+
+   Common area.  A common area in which groups of attendees can
+   informally meet and in which conference registration can take
+   place, and a number (6 or so) tables for registration and
+   information booths.
+
+   Terminal room. A room capable of holding computers, to be used as a
+   terminal room.  This room must have an internet network connection
+   available to host some 10-20 desktop computers and enough room for
+   some 10-20 people to connect with their own laptops, as well as
+   tables and chairs.  It should be secureable.
+
+   Storage. A secure room in which to store supplies, including
+   materials for all the attendees and all necessary equipment.
+
+   All facilities should be accessible by disabled persons, and held
+   in controlled temperature environments (air-conditioned or heated
+   as needed).
+
+Catering.
+
+   Catering services. Breakfast, snacks, and a light lunch for three
+   days, plus one evening reception and one sit-down dinner.  About
+   25% of attendees will be vegetarian and 5% vegan; some may require
+   lactose-free or low-carbohydrate meals.  While not all meals may
+   be provided, the resources must be available; the amount of catering
+   is influenced by the amount of sponsorship.
+
+Accomodation.
+
+   Nearby commercial hotels, restaurants, and social venues must
+   be available.
+
+   Inexpensive dormitory-style accommodations for approximately half
+   the assembly is desireable. If the facility does not offer
+   accommodation, some nearby inexpensive accomodations, such as
+   hostels and campgrounds, should be identified. Ethernet (wired or
+   wireless) capabilities, and telephones, are desirable but not
+   required, as are linens and towels.
+
+Equipment: A/V, Network
+
+   Auditorium and Meeting Rooms. Public address system, data
+   projectors, transparency (overhead) projectors, and both wired and
+   wireless Ethernet.  Preferably wireless microphones as well
+   as podium mics.
+
+   The Dining area must also have a PA system.   
+
+   Terminal room. At least one Ethernet connection (ideally 100baseTX
+   Fast Ethernet) and sufficient AC power to provide power to a number
+   computers and monitors. Preferably, there would be working
+   networked computers in place, but these may be arranged by the Yet
+   Another Society.
+
+   Dedicated Internet addresses are not required (DHCP or NAT are both
+   acceptable) but an unfiltered connection to the Internet is
+   required.  Wireless access (802.11b) may be present or provided by
+   Yet Another Society.
+
+Transportation.  
+
+   Nearby access to an Airport, preferrably a large one.  Parking
+   facilities or arrangements, as appropriate.  How to arrive by
+   public transport and taxi from the airport, or other major points.
+
+
+Copyright (C) 2000-2004 The Perl Foundation.  Free use and
+redistribution of this document is encouraged.  Maintained by The Perl Foundation.

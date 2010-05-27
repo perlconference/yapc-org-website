@@ -1,0 +1,237 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+
+	zenlike1.0 by nodethirtythree design
+	http://www.nodethirtythree.com
+
+-->
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+<title>Perl Foundation Conferences</title>
+<meta name="keywords" content="yapc,YAPC,perl,foundation,conferences,hackathon,workshop" />
+<meta name="description" content="" />
+<link rel="stylesheet" type="text/css" href="default.css" />
+</head>
+<body>
+
+<div id="upbg"></div>
+
+<div id="outer">
+	<div id="header">
+		<div id="headercontent">
+			<h1>Perl Conferences</h1>
+			<h2>YAPCs, Workshops, and Hackathons</h2>
+		</div>
+		<div id="adserver">
+			<div id="adtagline">Perl Community AdServer <a href="http://adserver.szabgab.com/">&#x2192;</a></div>
+			<script type="text/javascript"  src="http://adserver.szabgab.com/ads/direct_link.js"></script><br />
+		</div>
+	</div>
+<!--
+	<form method="post" action="">
+		<div id="search">
+			<input type="text" class="text" maxlength="64" name="keywords" />
+			<input type="submit" class="submit" value="Search" />
+		</div>
+	</form>
+-->
+
+	<div id="headerpic"></div><div id="menu">
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="yapc.html">YAPCs</a></li>
+    <li><a href="workshops.html">Workshops</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+<div id="menubottom"></div>
+
+
+	<div id="content">
+
+	<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
+	<div id="normalcontent">
+	<h3>Yet Another Perl Conference</h3>
+		<div class="contentarea">
+		<!-- Normal content area start -->
+
+		<img src="images/onion_64x64.png" class="left" alt="TPF onion logo" />
+		<p>The Yet Another Perl Conferences (YAPCs) are grassroots symposia on the Perl programming language promoted by <a href='http://perlfoundation.org'>The Perl Foundation</a>, a non-profit corporation dedicated to the advancement of the Perl programming language through open discussion, collaboration, design, and code. We also support other collaborative events such as Perl workshops and hackathons.</p>
+
+		<!-- Normal content area end -->
+		</div>
+	</div>
+	
+	<div class="divider1"></div>
+
+	<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
+	<div id="primarycontainer">
+		<div id="primarycontent">
+<!-- Primary content area start -->
+<h2>Upcoming Perl Events</h2><a href='about.html'>Get your event listed here</a>
+<br /><br />    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=Y2dtcnJxbjVsZGNwMWJxbTNsdnF0bWJ1MjQgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>Dutch Perl Workshop</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Youth Hostel StayOkay, Diepenbrocklaan 27, 6815 AH  Arnhem, The Netherlands                <br />
+                Start: 2008-02-28                <br />
+                End: 2008-02-28            </p>
+            <p>
+                Details: <P><A HREF="http://www.perlworkshop.nl/">http://www.perlworkshop.nl/</A>            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=NDJwY2cwNzFianRsdDdrcDN1bDQ1dTM5YjAgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>Olso QA Workshop</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Oslo, Norway                <br />
+                Start: 2008-04-05                <br />
+                End: 2008-04-07            </p>
+            <p>
+                Details: <P><A HREF="http://perl-qa.hexten.net/wiki/index.php/OsloQAWorkshop2008">http://perl-qa.hexten.net/wiki/index.php/OsloQAWorkshop2008</A>
+<P>For more details, contact either Kirill Miazine (<A HREF="mailto:km@krot.org">km@krot.org</A>) or Salve J. Nilsen (<A HREF="mailto:salvejn@met.no">salvejn@met.no</A>)
+            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=ZHEyaTBnMjFhZ2Nna2ZhM2cxazMwYW51ajggbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>YAPC::Asia</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Tokyo, Japan                <br />
+                Start: 2008-05-15                <br />
+                End: 2008-05-16            </p>
+            <p>
+                Details: <P> YAPC::Asia 2008 will happen on May 15-16th in Tokyo. For more details, visit thw website at <A HREF="http://conferences.yapcasia.org/ya2008/">http://conferences.yapcasia.org/ya2008/</A> and twitter stream <A HREF="http://twitter.com/yapcasia">http://twitter.com/yapcasia</A>            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=bXI3ajRqNTJwMzlxajNnMDRlaGxiY2ppdjggbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>Russian Perl Workshop “May Perl”</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Moscow                <br />
+                Start: 2008-05-16                <br />
+                End: 2008-05-16            </p>
+            <p>
+                Details: <P><A HREF="http://2008.perlrussia.ru/">http://2008.perlrussia.ru/</A>            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=ZGMybnJuaWU2ZHZuMTQxZ3VxM2ZxcmJmbTggbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>Portuguese Perl Workshop</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Lisbon, Portugal                <br />
+                Start: 2008-06-06                <br />
+                End: 2008-06-07            </p>
+            <p>
+                Details: <P><A HREF="http://workshop.perl.pt/ptpw2008/">http://workshop.perl.pt/ptpw2008/</A>            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=cGd2YWMzZTUyMGdqaXBwNzV2cjZ1M3F0ZzggbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>YAPC North America 2008 Chicago</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Chicago, Illinois                <br />
+                Start: 2008-06-16                <br />
+                End: 2008-06-18            </p>
+            <p>
+                Details: <P>YAPC::NA is the premiere North American Perl conference where hundreds of Perl programmers from around the world gather to teach, learn, and collaborate. More details are available at the conference web site: <A HREF="http://yapc.org/America">http://yapc.org/America</A>.            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=M3Z0bjRvcm03Y2tlZGJtZWJlYXRyOWdzZDQgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>YAPC Master Classes</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Chicago, IL                <br />
+                Start: 2008-06-19                <br />
+                End: 2008-06-20            </p>
+            <p>
+                Details:             </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=cDRvcDMwM2QwamNsYWJpcm9jYzB1bWdnOHMgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>OSCON</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Portland, OR                <br />
+                Start: 2008-07-21                <br />
+                End: 2008-07-25            </p>
+            <p>
+                Details: <P><A HREF="http://conferences.oreilly.com">http://conferences.oreilly.com</A>            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=cGZyZmszYTZoczQyMXQ3ZG4xb2t1YnJuZmsgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>YAPC Europe 2008 Copenhagen</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Copenhagen Business School, Solbjerg Plads campus, Solbjerg Plads 3, DK-2000 Frederiksberg, Denmark                <br />
+                Start: 2008-08-13                <br />
+                End: 2008-08-15            </p>
+            <p>
+                Details: <P>&amp;quot;Beautiful Perl&amp;quot; is this years' theme of the yearly European grassroots Perl conference. &amp;quot;YAPC&amp;quot; stands for &amp;quot;Yet Another Perl Conference&amp;quot; and is a series of low-cost, grassroot conferences organized by local Perl user groups.  
+<P>See website for news, programme, location and other details:
+<A HREF="http://yapceurope2008.org/">http://yapceurope2008.org/</A>
+            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=aDVramoyajIydjJtYmJxYTNiNGkzMzYwOGMgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>Italian Perl Workshop</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Pisa, Italy                <br />
+                Start: 2008-09-18                <br />
+                End: 2008-09-19            </p>
+            <p>
+                Details:             </p>
+        </div>
+    </div>
+    <div class="divider2"></div>
+<!-- Primary content area end -->
+		</div>
+	</div>
+
+<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
+<div id="secondarycontent">
+	<!-- Secondary content area start --><!-- HINT: Set any div's class to "box" to encapsulate it in (you guessed it) a box -->
+<div class="box">
+  <h4>Carl Cravens on his first YAPC</h4>
+	<div class="contentarea">
+	<img src="images/irc_term.png" class="left" alt="IRC Terminal" />
+	<p>This is what I took from YAPC: a real desire to learn Perl at a deeper level.  I sat in talks going, "I didn't know that!"<br /><br />
+What did my employer get out of YAPC? Well, I'm dedicated to becoming a better Perl programmer, which is a plus for them.<br /><br />
+I'm looking forward to YAPC::NA 2008.</p>
+	</div>
+</div>
+
+<!-- HINT: Set any div's class to "box" to encapsulate it in (you guessed it) a box -->
+<div class="box">
+  <h4>Perl Resources</h4>
+	<div class="contentarea">
+	<ul class="linklist">
+  <li /><a href="http://perlfoundation.org/">The Perl Foundation</a><br />
+  <li /><a href="http://news.perlfoundation.org">The Perl Foundation Blog</a><br />
+  <li /><a href="http://www.theperlreview.com/">The Perl Review</a><br />
+  <li /><a href="http://perlbuzz.com/">Perl Buzz</a><br />
+  <li /><a href="http://use.perl.org/">use.perl.org</a><br />
+  <li /><a href="http://www.perl.org/">Perl Directory</a><br />
+  <li /><a href="http://www.pm.org/">Perl Mongers</a><br />
+  <li /><a href="http://www.cpan.org/">CPAN</a><br />
+  <li /><a href="http://www.cpan.org/ports/index.html">Download Perl</a>
+        </ul>
+	</div>
+</div>
+
+<!-- Secondary content area end -->
+</div>
+
+</div>
+<div id="footer">
+	<div class="right"><a href="http://perlfoundation.org"><img src="images/tpf_logo_45x86.png" alt="TPF logo"/></a></div>
+</div>
+	
+</div>
+
+</body>
+</html>
+

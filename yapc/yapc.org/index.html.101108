@@ -1,0 +1,212 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!--
+
+	zenlike1.0 by nodethirtythree design
+	http://www.nodethirtythree.com
+
+-->
+<html>
+<head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+<title>Perl Foundation Conferences</title>
+<meta name="keywords" content="yapc,YAPC,perl,foundation,conferences,hackathon,workshop" />
+<meta name="description" content="" />
+<link rel="stylesheet" type="text/css" href="default.css" />
+</head>
+<body>
+
+<div id="upbg"></div>
+
+<div id="outer">
+	<div id="header">
+		<div id="headercontent">
+			<h1>Perl Conferences</h1>
+			<h2>YAPCs, Workshops, and Hackathons</h2>
+		</div>
+		<div id="adserver">
+			<div id="adtagline">Perl Community AdServer <a href="http://adserver.szabgab.com/">&#x2192;</a></div>
+			<script type="text/javascript"  src="http://adserver.szabgab.com/ads/direct_link.js"></script><br />
+		</div>
+	</div>
+<!--
+	<form method="post" action="">
+		<div id="search">
+			<input type="text" class="text" maxlength="64" name="keywords" />
+			<input type="submit" class="submit" value="Search" />
+		</div>
+	</form>
+-->
+
+	<div id="headerpic"></div>
+<div id="menu">
+  <ul>
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="yapc.html">YAPCs</a></li>
+    <li><a href="workshops.html">Workshops</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+</div>
+<div id="menubottom"></div>
+
+
+	<div id="content">
+
+	<!-- Normal content: Stuff that's not going to be put in the left or right column. -->
+	<div id="normalcontent">
+	<h3>Yet Another Perl Conference</h3>
+		<div class="contentarea">
+		<!-- Normal content area start -->
+
+		<img src="images/onion_64x64.png" class="left" alt="TPF onion logo" />
+		<p>The Yet Another Perl Conferences (YAPCs) are grassroots symposia on the Perl programming language promoted by <a href='http://perlfoundation.org'>The Perl Foundation</a>, a non-profit corporation dedicated to the advancement of the Perl programming language through open discussion, collaboration, design, and code. We also support other collaborative events such as Perl workshops and hackathons.</p>
+
+		<!-- Normal content area end -->
+		</div>
+	</div>
+	
+	<div class="divider1"></div>
+
+	<!-- Primary content: Stuff that goes in the primary content column (by default, the left column) -->
+	<div id="primarycontainer">
+		<div id="primarycontent">
+<!-- Primary content area start -->
+<h2>Upcoming Perl Events</h2><a href='about.html'>Get your event listed here</a>
+<br /><br />    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=aDVramoyajIydjJtYmJxYTNiNGkzMzYwOGMgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>Italian Perl Workshop</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Pisa, Italy                <br />
+                Start: 2008-09-18                <br />
+                End: 2008-09-19            </p>
+            <p>
+                Details:             </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=M2U2MTZsdmsybGx0NWc3bDZzdmtpMHUyMmMgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>Far East Perl Workshop</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Vladivostok, Russia                <br />
+                Start: 2008-09-26                <br />
+                End: 2008-09-26            </p>
+            <p>
+                Details: <P>Second Russian Perl Workshop, now Far Eastern.
+<P><A HREF="http://fe2008.perlrussia.ru/">http://fe2008.perlrussia.ru/</A>
+            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=a3B0c2w5aGtqdmVqYzBocjdjYWg0OWc3dmcgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>Pittsburgh Perl Workshop</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Pittsburgh, PA                <br />
+                Start: 2008-10-11                <br />
+                End: 2008-10-12            </p>
+            <p>
+                Details: <P><A HREF="http://pghpw.org/ppw2007/">http://pghpw.org/ppw2007/</A>            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=YXNra2x0NDdzbTEwNDYyZjRwOHJkaWMxNWcgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>Belorussian Perl Workshop</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Minsk                <br />
+                Start: 2008-10-18                <br />
+                End: 2008-10-20            </p>
+            <p>
+                Details:             </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=YWs5YzgyZTlvMW9kMms1bWxpdTBuNDRjbjAgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>Third Russian Perl Workshop</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Rostov-on-Don                <br />
+                Start: 2008-11-01                <br />
+                End: 2008-11-02            </p>
+            <p>
+                Details:             </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=Y3RwNWtiZXB1dmJnZXFtYXFka2dvOGxic2cgbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>London Perl Workshop 2008</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Westminster University's New Cavendish Campus, http://conferences.yapceurope.org/lpw2008/location.html                <br />
+                Start: 2008-11-29                <br />
+                End: 2008-11-29            </p>
+            <p>
+                Details: <P><A HREF="http://conferences.yapceurope.org/lpw2008/index.html">http://conferences.yapceurope.org/lpw2008/index.html</A>            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>    <div class="post">
+        <h4><a href='http://www.google.com/calendar/event?eid=cGlxZDMyM205aWNmM2huNm5kN3RwZjg3dm8gbmdjdG1yZDFjYWMzNTA2MW1yanQzaHBnbmdAZw'>OSDC 2008</a></h4>
+        <div class="contentarea">
+            <p>
+                Where: Sydney, Australia                <br />
+                Start: 2008-12-02                <br />
+                End: 2008-12-05            </p>
+            <p>
+                Details: <P>The 5th Australian Open Source Developer's Conference (OSDC) will be held in Sydney this year.   It covers numerous programming languages across a range of operating systems, and related topics such as business processes, licensing, and strategy.  The program will include a three day conference plus one day of tutorials.
+<P>See the website for news and further details: <A HREF="http://www.osdc.com.au/2008/">http://www.osdc.com.au/2008/</A>
+            </p>
+        </div>
+    </div>
+    <div class="divider2"></div>
+<!-- Primary content area end -->
+		</div>
+	</div>
+
+<!-- Secondary content: Stuff that goes in the secondary content column (by default, the narrower right column) -->
+<div id="secondarycontent">
+	<!-- Secondary content area start --><!-- HINT: Set any div's class to "box" to encapsulate it in (you guessed it) a box -->
+<div class="box">
+  <h4>Carl Cravens on his first YAPC</h4>
+	<div class="contentarea">
+	<img src="images/irc_term.png" class="left" alt="IRC Terminal" />
+	<p>This is what I took from YAPC: a real desire to learn Perl at a deeper level.  I sat in talks going, "I didn't know that!"<br /><br />
+What did my employer get out of YAPC? Well, I'm dedicated to becoming a better Perl programmer, which is a plus for them.<br /><br />
+I'm looking forward to YAPC::NA 2008.</p>
+	</div>
+</div>
+
+<!-- HINT: Set any div's class to "box" to encapsulate it in (you guessed it) a box -->
+<div class="box">
+  <h4>Perl Resources</h4>
+	<div class="contentarea">
+	<ul class="linklist">
+  <li /><a href="http://perlfoundation.org/">The Perl Foundation</a><br />
+  <li /><a href="http://news.perlfoundation.org">The Perl Foundation Blog</a><br />
+  <li /><a href="http://www.theperlreview.com/">The Perl Review</a><br />
+  <li /><a href="http://perlbuzz.com/">Perl Buzz</a><br />
+  <li /><a href="http://use.perl.org/">use.perl.org</a><br />
+  <li /><a href="http://www.perl.org/">Perl Directory</a><br />
+  <li /><a href="http://www.pm.org/">Perl Mongers</a><br />
+  <li /><a href="http://www.cpan.org/">CPAN</a><br />
+  <li /><a href="http://www.cpan.org/ports/index.html">Download Perl</a>
+        </ul>
+	</div>
+</div>
+
+<!-- Secondary content area end -->
+</div>
+
+</div>
+<div id="footer">
+	<div class="right"><a href="http://perlfoundation.org"><img src="images/tpf_logo_45x86.png" alt="TPF logo"/></a></div>
+</div>
+	
+</div>
+<script type="text/javascript">
+var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+</script>
+<script type="text/javascript">
+var pageTracker = _gat._getTracker("UA-50555-19");
+pageTracker._initData();
+pageTracker._trackPageview();
+</script>
+</body>
+</html>
+

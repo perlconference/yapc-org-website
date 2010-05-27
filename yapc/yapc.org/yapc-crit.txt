@@ -1,0 +1,72 @@
+YAPC Venue Weights
+
+When the YAPC Conference Committee votes on venues, the voting system uses the following 
+weights on each category which is voted on. Voters are presented with
+the following categories, which they vote on a scale of 1 to 10 based
+on the venue bid. Using these weights, the system tallies the votes
+and gives the results.
+
+Please note that this is used only as a guide for the voters to help
+choose a venue. The Committee can still choose a venue which wasn't
+chosen by the system.
+
+You can use this as a guide on what things you may want to focus on
+when writing the bid, although all areas should be touched upon.
+
+Estimated Costs (90)
+
+  This is the major theme of YAPC, where can we have the best conference
+  at the affordableest price.  Ideally we want to walk away from a YAPC
+  conference with more money than we started with.  Also is the 
+  proposal grounded on saving money.
+
+Readily Accessible Location (Planes, Trains, & Automobiles) (50)
+
+  How is the overall travel to the location.  Are there Direct flights  
+  and could or would you drive there? 
+
+Public Transportation (60)
+
+  This is pretty basic.  Basically can you get around without having a
+  car.  Buses, trains, taxis, etc.
+
+Facilities (100)
+
+  Nice meeting rooms, a general area to sit and chat (BOFs), a good
+  dinner night area.  Also what's the max size that the venue can 
+  hold?  Too much space is better than too little.
+
+Internet Access from Conference Location (100)
+
+  How is the access going to be from the conference venue?  Ranges 
+  from "wireless" to "lan" to "none".  Terminal room for non laptop 
+  enabled attendees.
+
+Internet Access from Accommodations (100)
+
+  How is the access going to be from the dorms and nearby hotels?  
+  Ranges from "wireless" to "lan" to "none"
+
+New Location (50)
+
+  To give a little incentive to those folks who are presenting locations 
+  for the first time.
+
+Affordable Dorms and Hotels (90)
+
+  This along goes along with the whole theme of YAPC.  affordable affordable affordable.
+  Let's spend the money at the auction that we normally would have spent 
+  on our temporay living quarters. :)
+
+Quality of Host Committee (40)
+
+  From the proposal, does it look like the they have their act together.
+  Are there gaping holes?  Did they go above and beyond?  Is there 
+  someone on the committee with a proven track record of getting things
+  done?
+
+Tourist Activities (50)
+
+  Many people make a vacation out of YAPC.  What other stuff can you do 
+  that you wouldn't be able to do without attending the conference.
+
