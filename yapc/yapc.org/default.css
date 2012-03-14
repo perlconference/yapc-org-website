@@ -3,408 +3,436 @@
 	zenlike1.0 by nodethirtythree design
 	http://www.nodethirtythree.com
 
+        remix: Mark Keating
+               http://www.shadow.cat
+
 */
 
-*
-{
-padding: 0em;
-margin: 0em;
-}
-
-body
-{
-background: #000000 url('images/onion_backdrop.png');
-padding: 35px 0px 35px 0px;
-}
-
-body,input
-{
-font-size: 10pt;
-font-family: "georgia", "times new roman", serif;
-color: #333333;
-}
-
-p
-{
-line-height: 1.5em;
-margin-bottom: 1.0em;
-text-align: justify;
-}
-
-a
-{
-color: #B96D00;
-text-decoration: underline;
-}
-
-a:hover
-{
-text-decoration: none;
+* {
+  padding: 0;
+  margin: 0;
 }
 
 
-h3 span
-{
-font-weight: normal;
+/* LAYOUT */
+
+.contentarea {
+  padding-top: 1.3em;
 }
 
-h3,h4
-{
-display: inline;
-font-weight: bold;
-background-repeat: no-repeat;
-background-position: right;
+
+.divider1 {
+  position: relative;
+  background: #fff url('images/border2.gif') repeat-x;
+  height: 14px;
+  margin: 2.0em 0em 1.5em 0em;
+  clear: both;
 }
 
-h3
-{
-font-size: 1.7em;
-padding-right: 34px;
-background-image: url('images/db1.png');
+.divider2 {
+  position: relative;
+  height: 1px;
+  border-bottom: solid 1px #eaeaea;
+  margin: 2.0em 0em 2.0em 0em;
 }
 
-h4
-{
-font-size: 1.2em;
-padding-right: 28px;
-background-image: url('images/db2.png');
+
+.box {
+  position: relative;
+  background: #efefef;
+  left: 1em;
+  top: -1.5em;
+  padding: 5px;
+  border: solid 1px #333;
+  margin-bottom: 1.0em;
+  border-radius: 12px; 
+  -moz-border-radius: 12px; 
+  -webkit-border-radius: 12px;
+  box-shadow: 3px 3px 5px #808080;
 }
 
-.contentarea
-{
-padding-top: 1.3em;
-}
-
-img
-{
-border: none;
-}
-
-img.left
-{
-border: none;
-position: relative;
-float: left;
-margin: 0em 1.8em 1.4em 0em;
-}
-
-img.right
-{
-position: relative;
-float: right;
-margin: 0em 0em 1.8em 1.8em;
-}
-
-.divider1
-{
-position: relative;
-background: #fff url('images/border2.gif') repeat-x;
-height: 14px;
-margin: 2.0em 0em 1.5em 0em;
-clear: both;
-}
-
-.divider2
-{
-position: relative;
-height: 1px;
-border-bottom: solid 1px #eaeaea;
-margin: 2.0em 0em 2.0em 0em;
-}
-
-.post .details
-{
-position: relative;
-top: -1.5em;
-font-size: 0.8em;
-color: #787878;
-}
-
-.post ul.controls
-{
-clear: both;
-}
-
-.post ul.controls li
-{
-display: inline;
-font-size: 0.8em;
-}
-
-.post ul.controls li a
-{
-background-repeat: no-repeat;
-background-position: left;
-padding: 0em 1.0em 0em 20px;
-}
-
-.post ul.controls li a.printerfriendly
-{
-background-image: url('images/icon-printerfriendly.gif');
-}
-
-.post ul.controls li a.comments
-{
-background-image: url('images/icon-comments.gif');
-}
-
-.post ul.controls li a.more
-{
-background-image: url('images/icon-more.gif');
-}
-
-.box
-{
-position: relative;
-background: #FDFCF6 url('images/boxbg.gif') repeat-x;
-left: -1.5em;
-top: -1.5em;
-padding: 1.5em;
-border-bottom: solid 1px #E1D2BD;
-margin-bottom: 1.0em;
-}
-
-ul.linklist
-{
-list-style: none;
-}
-
-ul.linklist li
-{
-line-height: 2.0em;
-}
-
-/*
-#upbg
-{
-position: absolute;
-top: 0px;
-left: 0px;
-width: 100%;
-height: 275px;
-background: #fff url('images/bg2.jpg') repeat-x;
-z-index: 1;
-}
-*/
-
-#outer
-{
-z-index: 2;
-position: relative;
-/*
-	The width value below controls the overall width of the design. By default it's set to 82%
-	(so it'll take up 82% of the browser window's width). You can set it to a different percentage
-	value (70%, 90%, etc.) or even a pixel value (760px, 800px, etc.) to enforce a fixed width.
-*/
-width: 82%;
-border: solid 7px #fff;
-background-color: #fff;
-margin: 0 auto;
+#outer {
+  z-index: 2;
+  position: relative;
+  /*
+      The width value below controls the overall width of 
+      the design. By default it's set to 82% (so it'll take 
+      up 82% of the browser window's width). You can set 
+      it to a different percentage value (70%, 90%, etc.) 
+      or even a pixel value (760px, 800px, etc.) to enforce 
+      a fixed width.
+  */
+  width: 100%;
+  background-color: #fff;
+  border-radius: 30px 30px 4px 4px; 
+  -moz-border-radius: 30px 30px 4px 4px; 
+  -webkit-border-radius: 30px 30px 4px 4px; 
+  border: 3px inset #555;
 }
 
 #header
 {
-position: relative;
-width: 100%;
-height: 9.0em;
-background: #2B2B2B url('images/topbg.gif') repeat-x;
-margin-bottom: 2px;
+  position: relative;
+  width: 100%;
+  height: 160px;
+  background: #2B2B2B url('images/headerback.png') repeat-x;
+  margin-bottom: 2px;
+  border-radius: 26px 26px 0px 0px; 
+  -moz-border-radius: 26px 26px 0px 0px; 
+  -webkit-border-radius: 26px 26px 0px 0px; 
+
 }
 
 #headercontent
 {
-position: absolute;
-bottom: 0em;
-padding: 0em 2.0em 1.3em 2.0em;
-float: left;
+  position: absolute;
+  top: 20px;
+  left: 10px;
+  padding: 2em 2.0em 5px 8.2em;
+  height: 130px;
+  background: url('images/onionlogo.png') no-repeat;
 }
 
-#headercontent h1
-{
-font-weight: normal;
-color: #fff;
-font-size: 2.5em;
-
+#headerpic {
+  position: relative;
+  height: 200px;
+  background: #000 url('images/header.jpg') no-repeat;
+  margin-bottom: 2px;
 }
 
-#headercontent h1 sup
-{
-color: #777;
-}
-
-#headercontent h2
-{
-font-size: 1.0em;
-font-weight: normal;
-color: #aaa;
-}
-
-#search
-{
-position: absolute;
-top: 5.5em;
-right: 2.0em;
-padding-right: 0.0em;
-}
-
-#search input.text
-{
-margin-right: 0.5em;
-vertical-align: middle;
-border-top: solid 1px #000000;
-border-right: 0px;
-border-bottom: solid 1px #777777;
-border-left: 0px;
-padding: 0.15em;
-width: 10.0em;
-}
-
-#search input.submit
-{
-background: #939B00 url('images/buttonbg.png') repeat-x;
-border: solid 1px #5F6800;
-font-weight: bold;
-padding: 0.25em;
-font-size: 0.8em;
-color: #F2F3DE;
-vertical-align: middle;
-}
-
-#headerpic
-{
-position: relative;
-height: 109px;
-background: #000 url('images/hdrpic1.png') no-repeat top right;
-margin-bottom: 2px;
+#search {
+  position: absolute;
+  top: 5.5em;
+  right: 2.0em;
+  padding-right: 0.0em;
 }
 
 #menu
 {
-position: relative;
-background: #36414d url('images/menubg.png') repeat-x top left;
-height: 3.5em;
-padding: 0em 1.0em 0em 1.0em;
-margin-bottom: 2px;
+  height: 60px;
+  margin-bottom: 2px;
+  background: #36414d;
+  
 }
 
-#menu ul
-{
-position: absolute;
-top: 1.1em;
+
+#content {
+  padding: 0em 2.0em 0em 2.0em;
 }
 
-#menu ul li
-{
-position: relative;
-display: inline;
+#primarycontainer {
+  float: left;
+  margin-right: -14.0em;
+  width: 100%;
 }
 
-#menu ul li a
-{
-padding: 0.5em 1.0em 0.9em 1.0em;
-color: #fff;
-text-decoration: none;
+#footer {
+  position: relative;
+  height: 130px;
+  clear: both;
+  background: #fff url('images/footer.png') repeat-x 0px 30px;
+  font-size: 0.8em;
+  border-top: 1px solid #333;
+  margin: 20px 0 0 0;
 }
 
-#menu ul li a:hover
-{
-text-decoration: underline;
+#adserver  {
+  float: right;
+  clear: both;
+  color: black;
+  background: #efefef;
+  border: 2pt inset #303030;
+  padding: 3px;
+  width: 300px;
+  margin: 10px 20px 0px 0px;
+  height: 120px;
 }
 
-#menu ul li a.active
-{
-background: #7F8400 url('images/menuactive.png') repeat-x top left;
+
+/*
+#upbg {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 275px;
+  background: #fff url('images/bg2.jpg') repeat-x;
+  z-index: 1;
+}
+*/
+
+/* BASIC TAGS */
+
+
+body {
+  background: #004065;
+  margin: 10px 30px 10px 30px;
+  padding: 0px;
 }
 
-#menubottom
-{
-background: #fff url('images/border1.gif') repeat-x;
-height: 14px;
-margin-bottom: 1.5em;
+body,input {
+  font-size: medium;
+  font-family: "georgia", "times new roman", serif;
+  color: #333333;
 }
 
-#content
-{
-padding: 0em 2.0em 0em 2.0em;
+p {
+  line-height: 150%;
+  margin-bottom: 1.0em;
+  text-align: left;
 }
 
-#primarycontainer
-{
-float: left;
-margin-right: -18.0em;
-width: 100%;
+a {
+  color: #004065;
+  text-decoration: none;
 }
 
-#primarycontent
-{
-margin: 1.5em 22.0em 0em 0em;
+a:hover {
+  text-decoration: underline;
 }
 
-#secondarycontent
-{
-margin-top: 1.5em;
-float: right;
-width: 18.0em;
+
+h3 span {
+  font-weight: normal;
 }
 
-#footer
-{
-position: relative;
-height: 4.0em;
-clear: both;
-padding-top: 5.0em;
-background: #fff url('images/border2.gif') repeat-x 0em 2.5em;
-font-size: 0.8em;
+h3,h4 {
+  display: inline;
+  font-weight: bold;
+  background-repeat: no-repeat;
+  background-position: right;
+  color: #36414d;
 }
 
-#footer .left
-{
-position: absolute;
-left: 2.0em;
-bottom: 1.2em;
+h3 {
+  font-size: 170%;
+  padding-right: 24px;
+  background-image: url('images/onionsmall.png');
 }
 
-#footer .right
-{
-position: absolute;
-right: 2.0em;
-bottom: 1.2em;
+h4 {
+  font-size: 150%;
+  padding-right: 24px;
+  background-image: url('images/onionsmall.png');
 }
 
-ul.contentlist
-{
-padding-left: 2em;
+img {
+  border: none;
 }
 
-#adserver 
-{
-margin-top: 2em;
-float: right;
-clear: both;
-color: black;
-background: #fff url('images/border1.gif') repeat-x;
-border: .3em solid #303030;
-padding: 1em;
-width: 20em;
-margin: 1em;
+img.left {
+  border: none;
+  position: relative;
+  float: left;
+  margin: 0em 1.8em 1.4em 0em;
 }
 
-#adserver a
-{
-color: #333;
+img.right {
+  position: relative;
+  float: right;
+  margin: 0em 0em 1.8em 1.8em;
 }
 
-#adtagline
-{
-text-align: right;
-color: #333;
-font-size: smaller;
-margin: .3em .3em 1em .3em;
+
+/* POSTS TAGS */
+
+.post .details {
+  position: relative;
+  top: -1.5em;
+  font-size: 0.8em;
+  color: #787878;
 }
 
-#adtagline a
-{
-color: silver;
+.post ul.controls {
+  clear: both;
+}
+
+.post ul.controls li {
+  display: inline;
+  font-size: 0.8em;
+}
+
+.post ul.controls li a {
+  background-repeat: no-repeat;
+  background-position: left;
+  padding: 0em 1.0em 0em 20px;
+}
+
+.post ul.controls li a.printerfriendly {
+  background-image: url('images/icon-printerfriendly.gif');
+}
+
+.post ul.controls li a.comments {
+  background-image: url('images/icon-comments.gif');
+}
+
+.post ul.controls li a.more {
+  background-image: url('images/icon-more.gif');
+}
+
+/* LINK LIST */
+
+ul.linklist {
+  list-style: none;
+  font-size: 80%;
+}
+
+ul.linklist li {
+  line-height: 2.0em;
+}
+
+
+/* HEADER AREA CONTENT */
+
+#headercontent h1 {
+  font-weight: normal;
+  color: #fff;
+  font-size: 270%;
+}
+
+#headercontent h1 sup {
+  color: #777;
+}
+
+#headercontent h2 {
+  font-size: 125%;
+  font-weight: normal;
+  color: #aaa;
+  padding: 5px 0 0 0;
+}
+
+
+
+/* SEARCH TAGS */
+
+#search input.text {
+  margin-right: 0.5em;
+  vertical-align: middle;
+  border-top: solid 1px #000000;
+  border-right: 0px;
+  border-bottom: solid 1px #777777;
+  border-left: 0px;
+  padding: 0.15em;
+  width: 10.0em;
+}
+
+#search input.submit {
+  background: #939B00 url('images/buttonbg.png') repeat-x;
+  border: solid 1px #5F6800;
+  font-weight: bold;
+  padding: 0.25em;
+  font-size: 0.8em;
+  color: #F2F3DE;
+  vertical-align: middle;
+}
+
+/* MENU CONTENT */
+
+
+#menu ul {
+  margin: 0;
+  padding: 0;
+  background: green;
+}
+
+#menu ul li {
+  display: block;
+  float: left;
+
+}
+
+#menu ul li a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  padding: 0px 10px 0px 10px;
+  line-height: 60px;
+}
+
+#menu ul li a:hover {
+  text-decoration: underline;
+  background: #ff6600;
+  padding: 0px 10px 0px 10px;
+  line-height: 60px;
+}
+
+#menu ul li a.active {
+  display: block;
+  background: #7F8400;
+  padding: 0px 10px 0px 10px;
+  line-height: 60px;
+}
+
+#menubottom {
+  background: #fff url('images/border1.gif') repeat-x;
+  height: 14px;
+  margin-bottom: 1.5em;
+}
+
+/* CONTENT AREA */
+
+#primarycontent {
+  margin: 1.5em 14.0em 0em 0em;
+}
+
+#secondarycontent {
+  margin-top: 1.5em;
+  float: right;
+  width: 13.0em;
+}
+
+/* FOOTER AREA TAGS */
+
+#footer .left {
+  position: absolute;
+  left: 2.0em;
+  bottom: 1.2em;
+}
+
+#footer .right {
+  position: absolute;
+  right: 2.0em;
+  bottom: 1.2em;
+}
+
+ul.contentlist {
+  padding-left: 2em;
+}
+
+/* ADSERVER TAGS */
+
+#adserver a {
+}
+
+#adserver li {
+  color: #666;
+  font-size: 80%;
+  padding: 5px 0 0 5px;
+  list-style: disc inside;
+}
+
+#adtagline {
+  text-align: right;
+  color: #333;
+  font-size: smaller;
+  margin: .3em .3em 1em .3em;
+}
+
+#adtagline a {
+  color: silver;
+}
+
+/* BOX TAGS */
+
+div .box h4 {
+  font-size: 110%;
+  padding: 0 24px 0px 0;
+}
+
+
+div .box p {
+  font-size: 80%;
+  margin: 10px 0 0 0;
 }
 
 .normal    { padding-bottom: 10px; }
