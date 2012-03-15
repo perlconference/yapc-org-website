@@ -233,6 +233,11 @@ img.right {
   margin: 0em 0em 1.8em 1.8em;
 }
 
+img.border {
+  border: 2px inset #9f9f9f;
+  margin: 10px;
+  width: 90%;
+}
 
 /* POSTS TAGS */
 
@@ -379,6 +384,10 @@ ul.linklist li {
   margin-top: 1.5em;
   float: right;
   width: 13.0em;
+}
+
+.contentarea p {
+  font-size: 80%;
 }
 
 /* FOOTER AREA TAGS */
