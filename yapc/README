@@ -2,6 +2,9 @@ The files in: yapc.org
 
 Are the current site that is live on the internet
 
+There is an app.psgi file in the yapc.org directory that makes it easier to view the static
+pages while editing them. Just cd to the yapc.org directory and run ```plackup```.
+
 The files in: yapc_org
 
 Are the old site with the generated code that seems b0rked or not-in-use or whatever
