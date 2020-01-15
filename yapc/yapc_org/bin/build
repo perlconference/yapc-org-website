@@ -1,5 +1,0 @@
-
-bin/extract_cal_events.pl -f 'bin/events'
-bin/extract_cal_events.pl -s epoch -e now -f 'bin/old-events'
-
-ttree --file=etc/.ttreerc --eval_perl -a --pre_chomp $@
