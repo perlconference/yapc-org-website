@@ -55,17 +55,17 @@
 
       <li>Day 1
       <a href="http://yetanother.org/index.cgi?page=yapcna2001-day1">(HTML)</a>
-      <a HREF="http://www.yapc.org/America/sched/d1.ps">(PostScript)</a>
-      <a HREF="http://www.yapc.org/America/sched/day-1.png">(PNG)</a></li>
+      <a href="/America/sched/d1.ps">(PostScript)</a>
+      <a href="/America/sched/day-1.png">(PNG)</a></li>
 
       <li>Day 2
       <a href="http://yetanother.org/index.cgi?page=yapcna2001-day2">(HTML)</a>
-      <a HREF="http://www.yapc.org/America/sched/d2.ps">(PostScript)</a>
-      <a HREF="http://www.yapc.org/America/sched/day-2.png">(PNG)</a></li>
+      <a href="/America/sched/d2.ps">(PostScript)</a>
+      <a href="/America/sched/day-2.png">(PNG)</a></li>
 
       <li>Day 3 <a href="http://yetanother.org/index.cgi?page=yapcna2001-day3">(HTML)</a>
-      <a HREF="http://www.yapc.org/America/sched/d3.ps">(PostScript)</a>
-      <a HREF="http://www.yapc.org/America/sched/day-3.png">(PNG)</a></li>
+      <a href="/America/sched/d3.ps">(PostScript)</a>
+      <a href="/America/sched/day-3.png">(PNG)</a></li>
 
     </ul>
 

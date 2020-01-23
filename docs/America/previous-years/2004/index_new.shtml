@@ -38,13 +38,13 @@
     <a name="news"></a>
     <h3>Breaking News</h3>
     <ul>
-      <li>May 6, 2004: <a href="http://www.yapc.org/America/accommodations.shtml#dorms">Dorm info</a> is now available, so you can make reservations.</li>
+      <li>May 6, 2004: <a href="/America/accommodations.shtml#dorms">Dorm info</a> is now available, so you can make reservations.</li>
       <li>April 16, 2004: The <a href="http://yapc.kwiki.org/">YAPC kwiki</a> is up in the same place as last year.</li>
-      <li>April 16, 2004: The schedule is now available for <a href="http://www.yapc.org/America/day1.shtml">day 1</a>, <a href="http://www.yapc.org/America/day2.shtml">day 2</a>, and <a href="http://www.yapc.org/America/day3.shtml">day 3</a>.</li>
+      <li>April 16, 2004: The schedule is now available for <a href="/America/day1.shtml">day 1</a>, <a href="/America/day2.shtml">day 2</a>, and <a href="/America/day3.shtml">day 3</a>.</li>
       <li>April 14, 2004: <a href="http://justanotherperlhacker.org/lightning/index.shtml">Lightning Talks</a> now open. Follow the link to submit a lightning talk proposal.</li>
       <li>April 11, 2004: Call for participation over. Schedule will be released soon.</li>
-      <li>February 24, 2004: Registration open. Details available on the <a href="http://www.yapc.org/America/register.shtml">registration page</a>.</li>
-      <li>January 12, 2004: <a href="http://use.perl.org/article.pl?sid=04/01/12/1447249&amp;mode=thread">Call for Participation</a> announced. Details available on the <a href="http://www.yapc.org/America/cfp.shtml">participation page</a>.</li>
+      <li>February 24, 2004: Registration open. Details available on the <a href="/America/register.shtml">registration page</a>.</li>
+      <li>January 12, 2004: <a href="http://use.perl.org/article.pl?sid=04/01/12/1447249&amp;mode=thread">Call for Participation</a> announced. Details available on the <a href="/America/cfp.shtml">participation page</a>.</li>
       <li>October 21, 2003: Dates set.</li>
       <li>August 22, 2003: YAPC::NA::2004 <a href="http://use.perl.org/article.pl?sid=03/08/22/1457214&amp;mode=nested&amp;tid=25">Venue Chosen</a></li>
     </ul>
@@ -67,7 +67,7 @@
     </p>
     <p>YAPC began as a smaller, regional version of <a href="http://conferences.oreillynet.com/">TPC</a> in the Eastern USA, hosted 
     by <a href="http://www.cmu.edu/">Carnegie Mellon University</a>, and has become
-    a <a href="http://www.yapc.org/">series of conferences</a> held in multiple
+    a <a href="/">series of conferences</a> held in multiple
     areas of the globe, all aimed at bringing together the Perl community in an
     accessible manner. 
     </p>
