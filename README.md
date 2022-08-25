@@ -22,5 +22,5 @@ If you feel something is wrong, please open an issue or better yet submit a pull
 
 # Developing
 
-There is an app.psgi file in the yapc.org directory that makes it easier to view the static
+There is an app.psgi file in the `./docs` directory that makes it easier to view the static
 pages while editing them. Just cd to the yapc.org directory and run ```plackup```.
